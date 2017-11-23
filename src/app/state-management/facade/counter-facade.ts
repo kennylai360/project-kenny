@@ -10,7 +10,12 @@ export class CounterFacade {
   public counterValue$: Observable<number>;
 
   constructor(private store: Store<IndexState>) {
-    console.log(this.store.select((state: any) => state.counter));
+
+    console.log(this.store.select((state: IndexState) => {
+      console.log(state);
+      return state.counter.counterValue
+    }));
+
     this.counterValue$ = this.store.select((state: IndexState) => state.counter.counterValue);
   }
 

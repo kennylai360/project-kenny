@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatGridListModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatGridListModule, MatInputModule, MatToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PkInputSearchComponent } from './components/pk-input-search/pk-input-search.component';
@@ -14,6 +14,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     MatButtonModule,
     MatInputModule,
     MatGridListModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     NoopAnimationsModule
   ],
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     MatButtonModule,
     MatInputModule,
     MatGridListModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     NoopAnimationsModule
   ],

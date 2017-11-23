@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { AppMaterialsModule } from './app.materials.module';
-import { indexReducer, listOfReducers } from './state-management/ngrx-index';
+import { listOfReducers } from './state-management/ngrx-index';
 import { CounterFacade } from './state-management/facade/counter-facade';
 
 
@@ -16,7 +16,10 @@ import { CounterFacade } from './state-management/facade/counter-facade';
   imports: [
     BrowserModule,
     AppMaterialsModule,
-    StoreModule.forRoot({indexReducer})
+    StoreModule.forRoot(listOfReducers)
+  ],
+  exports: [
+    AppMaterialsModule
   ],
   providers: [
     CounterFacade
