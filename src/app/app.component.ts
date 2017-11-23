@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { MainState } from './state-management/state/main-state';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { CounterFacade } from './state-management/facade/counter-facade';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +11,8 @@ export class AppComponent {
 
   public counterValue$:  Observable<number>;
 
-  title = 'app';
-
-  constructor(private store:  Store<MainState>) {
-    this.counterValue$ = this.store.select((state:  MainState) => state.counter);
+  constructor(private counterFacade: CounterFacade) {
+    this.counterValue$ = this.counterFacade.counterValue$;
   }
 
 }

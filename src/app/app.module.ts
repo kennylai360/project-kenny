@@ -5,7 +5,8 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { AppMaterialsModule } from './app.materials.module';
-import { mainReducer } from './state-management/reducers/reducers';
+import { indexReducer, listOfReducers } from './state-management/ngrx-index';
+import { CounterFacade } from './state-management/facade/counter-facade';
 
 
 @NgModule({
@@ -15,9 +16,11 @@ import { mainReducer } from './state-management/reducers/reducers';
   imports: [
     BrowserModule,
     AppMaterialsModule,
-    StoreModule.forRoot({mainReducer})
+    StoreModule.forRoot({indexReducer})
   ],
-  providers: [],
+  providers: [
+    CounterFacade
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
