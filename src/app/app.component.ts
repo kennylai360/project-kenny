@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { CounterFacade } from './state-management/facade/counter-facade';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  public counterValue$:  Observable<number>;
+
+  constructor(private counterFacade: CounterFacade) {
+    this.counterValue$ = this.counterFacade.counterValue$;
+  }
+
 }
+
+
