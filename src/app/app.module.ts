@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppMaterialsModule } from './app.materials.module';
 import { listOfReducers } from './state-management/ngrx-index';
 import { CounterFacade } from './state-management/facade/counter-facade';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CounterFacade } from './state-management/facade/counter-facade';
   imports: [
     BrowserModule,
     AppMaterialsModule,
-    StoreModule.forRoot(listOfReducers)
+    StoreModule.forRoot(listOfReducers),
+    FormsModule
   ],
   exports: [
     AppMaterialsModule

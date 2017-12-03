@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
-  MatButtonModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatSidenavModule,
+  MatButtonModule, MatCheckboxModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -22,7 +22,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     NoopAnimationsModule,
     MatIconModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule
   ],
   imports: [
     MatButtonModule,
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     NoopAnimationsModule,
     MatIconModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

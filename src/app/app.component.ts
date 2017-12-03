@@ -11,6 +11,10 @@ export class AppComponent {
 
   public counterValue$:  Observable<number>;
 
+  public shouldRun: boolean = true;
+
+  public opened: boolean;
+
   constructor(private counterFacade: CounterFacade) {
     this.counterValue$ = this.counterFacade.counterValue$;
   }
