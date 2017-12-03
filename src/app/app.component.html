@@ -1,18 +1,47 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container>
     <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-        <h4>
-            Home
-        </h4>
         <h3>
-            Gallery
+            <button mat-button class="full-width-btn" (click)="sidenav.toggle()">
+                <mat-icon>store</mat-icon>
+                Home
+            </button>
+        </h3>
+        <h3>
+            <button mat-button class="full-width-btn" (click)="sidenav.toggle()">
+                <mat-icon>collections</mat-icon>
+                Galleries
+            </button>
+        </h3>
+        <h3>
+            <button mat-button class="full-width-btn" (click)="sidenav.toggle()">
+                <mat-icon>store</mat-icon>
+                Text trial number 2222
+            </button>
+        </h3>
+        <h3>
+            <button mat-button class="full-width-btn" (click)="sidenav.toggle()">
+                <mat-icon>collections</mat-icon>
+                wtf is that long ass text
+            </button>
+        </h3>
+        <h3>
+            <button mat-button class="full-width-btn" (click)="sidenav.toggle()">
+                <mat-icon>store</mat-icon>
+                testing text 123444444
+            </button>
+        </h3>
+        <h3>
+            <button mat-button class="full-width-btn"(click)="sidenav.toggle()">
+                <mat-icon>collections</mat-icon>
+                shit fam
+            </button>
         </h3>
 
     </mat-sidenav>
 
     <mat-sidenav-content>
         <mat-toolbar>
-            <button mat-button (click)="sidenav.toggle()">
+            <button mat-button (click)="sidenav.toggle()" class="toolbar-btn">
                 <mat-icon>dehaze</mat-icon>
             </button>
         </mat-toolbar>
@@ -39,15 +68,16 @@
         <!--</button>-->
         <!--</mat-menu>-->
 
-        <div style="text-align:center; padding-left: 5%; padding-right: 5%">
-            <pk-input-search></pk-input-search>
-            <h3>something something dark side</h3>
-            <p>counter value: {{(counterValue$ | async)}}</p>
-        </div>
-
+        <!--<div style="text-align:center; padding-left: 5%; padding-right: 5%">-->
+            <!--<pk-input-search></pk-input-search>-->
+            <!--<h3>something something dark side</h3>-->
+            <!--<p>counter value: {{(counterValue$ | async)}}</p>-->
+        <!--</div>-->
 
     </mat-sidenav-content>
 </mat-sidenav-container>
+
+
 
 
 

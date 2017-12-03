@@ -4,10 +4,17 @@
 }
 
 .mat-drawer {
-  background:rgba(0,0,0,0.4);
+  background: rgba(73, 58, 15, 0.44);
 }
 
-mat-sidenav {
-  padding-left: 2%;
-  padding-right: 2%
+.mat-toolbar {
+  background:  transparent;
+}
+
+.toolbar-btn {
+  padding: 0px;
+}
+
+.full-width-btn {
+  width:  100%
 }
