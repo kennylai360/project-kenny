@@ -1,19 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
-@media (min-width: 1250px) {
+$header-img: 'https://farm6.staticflickr.com/5446/31007246555_d2dd6f0885_k.jpg';
+$scarlett-centering-position: 43% 35%;
+
+//@media (min-width: 360px) {
   body {
-    background-image: url(assets/hkg-bg.jpg);
-    background-size: 100%;
+    background-image: url($header-img);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: $scarlett-centering-position;
+    width: 100%
   }
-}
+//}
 
-body {
-  background-image: url(assets/hkg-bg.jpg);
-  background-size: 100%;
-}
-
-body {
-  min-height: 1080px;
-  width: 100%;
-}
+//body {
+//  min-height: 1080px;
+//  width: 100%;
+//}
