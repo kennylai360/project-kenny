@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { CounterFacade } from '../../state-management/facade/counter-facade';
 
 @Component({
@@ -8,14 +8,26 @@ import { CounterFacade } from '../../state-management/facade/counter-facade';
 })
 export class PkInputSearchComponent implements OnInit {
 
+  @Input()
+  public textFieldValue: String = 'bob';
+
+  @Output()
+  public textOutputValue: String;
+
+  public str: string;
+
   constructor(private counterFacade: CounterFacade) { }
 
   ngOnInit() {
   }
 
-  public doSomething() {
+  public textValueChange(e: string) {
+    console.log(this.str);
+  }
+
+  public doSomething(name: string) {
     this.counterFacade.incrementCounter();
-    console.log('harooo');
+    console.log(name);
     return false;
   }
 

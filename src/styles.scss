@@ -1,2 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+//body {
+//  background-image: url(assets/bg-image_shiro.jpg);
+//  background-repeat: repeat-x;
+//}
+
+@media (min-width: 1250px) {
+  .background-img {
+    height: 1024px;
+    background-image: url(assets/hkg-bg.jpg);
+    background-size: 100%;
+  }
+}
+
+
+  .background-img {
+    height: 1080px;
+    background-image: url(assets/hkg-bg.jpg);
+    background-size: 100%;
+  }
+
+
+//@media (min-width: 500px) {
+//  body {
+//    background: #888888;
+//  }
+//}
+//
+//@media (min-width: 600px) {
+//  body {
+//    background: #222222;
+//  }
+//}
