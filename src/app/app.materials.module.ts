@@ -10,10 +10,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 
 @NgModule({
   declarations: [
-    PkInputSearchComponent
   ],
   exports: [
-    PkInputSearchComponent,
     MatButtonModule,
     MatInputModule,
     MatGridListModule,
