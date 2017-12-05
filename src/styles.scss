@@ -32,6 +32,9 @@ html {
 body {
       background-image: url($header-img);
       background-position: $positioning;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
   width:100%;
   position: relative;
   margin: 0;
@@ -53,5 +56,9 @@ body {
   bottom: 0;
   left: 0;
   text-align: center;
+
+  .page-footer .footer-copyright {
+    background-color: rgba(0, 0, 0, 0.56);
+  }
 }
 
