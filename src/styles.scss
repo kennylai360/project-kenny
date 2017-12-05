@@ -2,21 +2,6 @@
 
 $header-img: 'https://farm9.staticflickr.com/8502/28564464925_0a79e64a28_k.jpg';
 $positioning: 40% 30%;
-//
-////@media (min-width: 360px) {
-//  body {
-//    background-image: url($header-img);
-//    background-repeat: no-repeat;
-//    background-attachment: fixed;
-//    background-position: $scarlett-centering-position;
-//    width: 100%
-//  }
-//}
-
-//body {
-//  min-height: 1080px;
-//  width: 100%;
-//}
 
 html {
   height: 100%;
@@ -30,12 +15,11 @@ html {
 }
 
 body {
-      background-image: url($header-img);
-      background-position: $positioning;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100%;
-  width:100%;
+  //background-image: url($header-img);
+  //background-position: $positioning;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+  width: 100%;
   position: relative;
   margin: 0;
   padding-bottom: 100px;
@@ -46,7 +30,7 @@ body {
 .main-content {
   margin: 0 auto;
   padding-top: 64px;
-  max-width: 1280px;
+  max-width: 1920px;
   width: 94%;
 }
 
