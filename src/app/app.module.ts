@@ -11,14 +11,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
-import { PkInputSearchComponent } from './components/pk-input-search/pk-input-search.component';
 import { HomeComponent } from './home/home.component';
+import { GalleriesComponent } from './galleries/galleries.component';
 
 const appRoutes: Routes = [
   {
     path: 'galleries',
-    component: PkInputSearchComponent,
-    data: { title: 'Heroes List' }
+    component: GalleriesComponent
   },
   {
     path: 'home',
@@ -28,7 +27,7 @@ const appRoutes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: '**', component: PkInputSearchComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
@@ -36,8 +35,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PkInputSearchComponent,
-    HomeComponent
+    HomeComponent,
+    GalleriesComponent
   ],
   imports: [
     BrowserModule,

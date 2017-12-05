@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PkInputSearchComponent } from './pk-input-search.component';
+import { GalleriesComponent } from './galleries.component';
 
-describe('PkInputSearchComponent', () => {
-  let component: PkInputSearchComponent;
-  let fixture: ComponentFixture<PkInputSearchComponent>;
+describe('GalleriesComponent', () => {
+  let component: GalleriesComponent;
+  let fixture: ComponentFixture<GalleriesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PkInputSearchComponent ]
+      declarations: [ GalleriesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PkInputSearchComponent);
+    fixture = TestBed.createComponent(GalleriesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
