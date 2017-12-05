@@ -8,11 +8,14 @@ import { listOfReducers } from './state-management/ngrx-index';
 import { CounterFacade } from './state-management/facade/counter-facade';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -25,7 +28,6 @@ import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
   providers: [
     CounterFacade
   ],
-  schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
