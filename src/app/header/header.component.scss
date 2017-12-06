@@ -1,24 +1,28 @@
 // add rounded border around the buttons
 a {
   border-radius: 10px;
+  color: white;
 }
 
-.nav-link {
-  color: black;
+a:hover {
+  color: white
 }
 
-.view {
-  background-image: url("https://farm9.staticflickr.com/8502/28564464925_0a79e64a28_k.jpg")no-repeat center center;
-  background-size: cover;
-}
+
+
+//
+//.view {
+//  background-image: url("https://farm9.staticflickr.com/8502/28564464925_0a79e64a28_k.jpg")no-repeat center center;
+//  background-size: cover;
+//}
 .navbar {
   background-color: transparent;
 }
 .top-nav-collapse {
-  background-color: #4285F4;
+  background-color: black
 }
 @media only screen and (max-width: 768px) {
   .navbar {
-    background-color: #4285F4;
+    background-color: black
   }
 }

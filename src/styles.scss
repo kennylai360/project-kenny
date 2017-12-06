@@ -15,27 +15,16 @@ html {
 }
 
 body {
-  background-image: url($header-img);
-  background-position: $positioning;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  //background-image: url($header-img);
+  //background-position: $positioning;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+  background-color: #818181;
   width: 100%;
   position: relative;
   margin: 0;
   padding-bottom: 100px;
   min-height: 100%;
   font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-
-  .page-footer .footer-copyright {
-    background-color: rgba(0, 0, 0, 0.56);
-  }
 }
 
