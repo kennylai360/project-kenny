@@ -1,20 +1,11 @@
-// add rounded border around the buttons
+// Navigation bar button and font
 a {
   border-radius: 10px;
-  color: white;
+  a:hover {
+    color: white
+  }
 }
 
-a:hover {
-  color: white
-}
-
-
-
-//
-//.view {
-//  background-image: url("https://farm9.staticflickr.com/8502/28564464925_0a79e64a28_k.jpg")no-repeat center center;
-//  background-size: cover;
-//}
 .navbar {
   background-color: transparent;
 }

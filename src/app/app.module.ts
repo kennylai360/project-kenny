@@ -5,6 +5,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { listOfReducers } from './state-management/ngrx-index';
@@ -17,7 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GalleriesComponent } from './galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
-import { ModalGalleryModule } from 'angular-modal-gallery';
+
 
 
 const appRoutes: Routes = [
@@ -48,10 +49,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers),
     MDBBootstrapModule.forRoot(),
     MDBBootstrapModulePro.forRoot(),
-    ModalGalleryModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: false}
