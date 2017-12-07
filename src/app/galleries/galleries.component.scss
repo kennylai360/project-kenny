@@ -1,3 +1,12 @@
-h1 {
-  color: white;
+//.ng-gallery-content > img {
+//  max-height: calc(100% - 50px) !important;
+//  max-width: calc(100% - 50px) !important;
+//}
+
+img.ng-thumb {
+  height: 200px !important;
+}
+
+a.close-popup {
+  margin: 50px 30px 0 0 !important;
 }

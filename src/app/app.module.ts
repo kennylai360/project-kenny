@@ -1,7 +1,10 @@
+import 'hammerjs';
+import 'mousetrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { listOfReducers } from './state-management/ngrx-index';
@@ -13,6 +16,9 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GalleriesComponent } from './galleries/galleries.component';
+import { MDBBootstrapModulePro } from './typescripts/pro/index';
+import { ModalGalleryModule } from 'angular-modal-gallery';
+
 
 const appRoutes: Routes = [
   {
@@ -41,11 +47,14 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     StoreModule.forRoot(listOfReducers),
     MDBBootstrapModule.forRoot(),
+    MDBBootstrapModulePro.forRoot(),
+    ModalGalleryModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: true}
+      {enableTracing: false}
     )
   ],
   exports: [
