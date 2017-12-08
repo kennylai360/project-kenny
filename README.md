@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
-URL to the finished/prototype site currently:  https://d2hbvemp9nl6r5.cloudfront.net (last updated 05/12/2017)
+URL to the finished/prototype site currently:  https://d2hbvemp9nl6r5.cloudfront.net (last updated 08/12/2017)
 
 ## TODO
 | Description |
