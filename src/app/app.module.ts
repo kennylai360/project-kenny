@@ -18,17 +18,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GalleriesComponent } from './galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-lazyloading-images.component';
 
 
 
 const appRoutes: Routes = [
   {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
     path: 'galleries',
     component: GalleriesComponent
   },
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'lazyloadingimagesdemo',
+    component: DemoLazyloadingImagesComponent
   },
   { path: '',
     redirectTo: 'home',
@@ -43,7 +49,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    GalleriesComponent
+    GalleriesComponent,
+    DemoLazyloadingImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: false}
-    )
+    ),
+    LazyLoadImageModule
   ],
   exports: [
   ],
