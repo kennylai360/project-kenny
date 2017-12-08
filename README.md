@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 URL to the finished/prototype site currently:  https://d2hbvemp9nl6r5.cloudfront.net (last updated 05/12/2017)
 
+## TODO
+Done? | Deescription |
+ | Need to move the implemented lazy loading template into it's own "demo" page for reference later
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -27,3 +31,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Change History
+Code | Changes |
+PROK-5 | Implemented Lazy loading in images in preparation for implementing the image gallery
