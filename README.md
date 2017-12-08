@@ -5,8 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 URL to the finished/prototype site currently:  https://d2hbvemp9nl6r5.cloudfront.net (last updated 05/12/2017)
 
 ## TODO
-Done? | Deescription |
- | Need to move the implemented lazy loading template into it's own "demo" page for reference later
+| Description |
+|---|
+ | Need to move the implemented lazy loading template into it's own "demo" page for reference later |
 
 ## Development server
 
