@@ -14,6 +14,12 @@ export class GalleryCoverComponent implements OnInit {
   @Input()
   public coverTitle: string;
 
+  @Input()
+  public translateX: number = 0;
+
+  @Input()
+  public translateY: number = 0;
+
   constructor() { }
 
   ngOnInit() {

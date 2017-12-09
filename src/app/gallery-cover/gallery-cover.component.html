@@ -1,10 +1,14 @@
-<div id="cover-container">
-    <div id="bg-overlay">
-        <div id="content">
-            {{coverTitle}}
+<div class="container">
+  <a>
+        <img [ngStyle]="{'transform': 'translate(' + translateX + '%,' + translateY + '%)'}"
+             [lazyLoad]="imgUrl"
+            >
+        <div class="overlay">
+            <div class="text">{{coverTitle}}</div>
         </div>
-    </div>
+  </a>
 </div>
 
 <!--https://farm5.staticflickr.com/4535/24056102767_94eeae91ee_k.jpg-->
 <!--https://farm5.staticflickr.com/4596/27141050699_a29e570228_k.jpg-->
+<!--https://farm5.staticflickr.com/4403/36295300451_0ec30c8cae_k.jpg-->
