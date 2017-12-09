@@ -12,10 +12,7 @@ export class GalleryCoverComponent implements OnInit {
   public imgUrl: string;
 
   @Input()
-  public shiftRight?: string;
-
-  @Input()
-  public shiftDown?: string;
+  public coverTitle: string;
 
   constructor() { }
 
