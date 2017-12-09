@@ -1,0 +1,28 @@
+.gallery-container {
+  position: relative;
+  width: 300px;
+  height:  300px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.gallery-container:hover {
+  color: white;
+}
+
+.item {
+  position: absolute;
+}
+
+.item img {
+  width: 200%;
+  position: relative;
+}
+
+.item img:hover {
+  opacity:0.5
+}
+
+img.ng-lazyloaded {
+  opacity: 1;
+}

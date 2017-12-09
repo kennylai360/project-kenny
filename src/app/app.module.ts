@@ -20,6 +20,7 @@ import { GalleriesComponent } from './galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-lazyloading-images.component';
+import { GalleryCoverComponent } from './gallery-cover/gallery-cover.component';
 
 
 
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     GalleriesComponent,
-    DemoLazyloadingImagesComponent
+    DemoLazyloadingImagesComponent,
+    GalleryCoverComponent
   ],
   imports: [
     BrowserModule,
