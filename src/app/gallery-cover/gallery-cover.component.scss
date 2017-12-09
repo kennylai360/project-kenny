@@ -1,4 +1,4 @@
-#container {
+#cover-container {
   color: white;
   background-image: url('https://farm5.staticflickr.com/4596/27141050699_a29e570228_k.jpg');
   background-size: cover;
@@ -6,9 +6,11 @@
   width: 300px;
 }
 
-#bg {
+#bg-overlay {
   height: 100%;
   width: 100%;
+
+  //Background fade in animation
   -moz-transition: all .2s ease-in;
   -o-transition: all .2s ease-in;
   -webkit-transition: all .2s ease-in;
@@ -22,6 +24,8 @@
   float: left;
   top: 50%;
   left: 50%;
+
+  //Cover title fade in animations
   transform: translate(-50%, -50%);
   -moz-transition: all .2s ease-in;
   -o-transition: all .2s ease-in;
@@ -29,8 +33,9 @@
   transition: all .2s ease-in;
 }
 
-#container:hover {
-  #bg {
+// Hovered over state
+#cover-container:hover {
+  #bg-overlay {
     background-color: rgba(0, 0, 0, 0.7);
   }
   #content {
