@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { Http} from '@angular/http';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
 export interface ICoverContent {
   imgUrl: string;
@@ -18,16 +18,23 @@ export interface ICoverContent {
 
 export class GalleriesComponent {
 
-  public coverContent: Observable<ICoverContent[]> = this.readJSONFile();
+  public coverContent: Observable<ICoverContent[]> = this.readJSONFile('../../assets/cover-content.json');
 
-  constructor(private http: Http) {
-
+  constructor(private http: HttpClient) {
   }
 
-  // Split this up into another separate generic file which can be imported and used for other gallery components
-  public readJSONFile(): Observable<any> {
-    return this. http.get('../../assets/cover-content.json')
-      .map((res: any) => res.json());
+  /**
+   * TODO Move this method into it's own separate file which can be reused in other components
+   * @param {string} fileLocation
+   * @returns {Observable<any>}
+   */
+  public readJSONFile(fileLocation: string): Observable<ICoverContent[]> {
+    return this.http.get(fileLocation)
+      .map((res: any) => {
+        return res;
+      });
+
+
 
   }
 }

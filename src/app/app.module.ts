@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { listOfReducers } from './state-management/ngrx-index';
@@ -21,7 +21,6 @@ import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-lazyloading-images.component';
 import { GalleryCoverComponent } from './gallery-cover/gallery-cover.component';
-
 
 
 const appRoutes: Routes = [
@@ -57,7 +56,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers),
     MDBBootstrapModule.forRoot(),
@@ -71,10 +70,12 @@ const appRoutes: Routes = [
   exports: [
   ],
   providers: [
-    CounterFacade
+    CounterFacade,
+    HttpClient
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {
 }
+
