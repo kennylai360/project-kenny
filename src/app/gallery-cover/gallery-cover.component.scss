@@ -1,0 +1,44 @@
+img {
+  opacity: 0;
+  display: block;
+  height: 200%;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+img.ng-lazyloaded {
+  opacity: 1;
+}
+
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+

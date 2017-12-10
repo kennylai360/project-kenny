@@ -1,0 +1,9 @@
+<div>
+    <app-gallery-cover *ngFor="let item of (coverContent | async)"
+            [imgUrl]="item.imgUrl"
+            [coverTitle]="item.coverTitle"
+            [translateX]="item.translateX"
+            [translateY]="item.translateY">
+    </app-gallery-cover>
+</div>
+

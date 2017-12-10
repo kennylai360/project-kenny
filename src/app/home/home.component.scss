@@ -1,27 +1,8 @@
-p {
+h1 {
   color: white;
 }
 
-//.top-nav-collapse {
-//  background-color: #82b1ff !important;
-//}
-//.navbar:not(.top-nav-collapse) {
-//  background: transparent !important;
-//}
-//@media (max-width: 768px) {
-//  .navbar:not(.top-nav-collapse) {
-//    background: #82b1ff !important;
-//  }
-//}
-
-h5 {
-  letter-spacing: 3px;
-}
-@media (max-width: 740px) {
-  .full-height,
-  .full-height body,
-  .full-height header,
-  .full-height header .view {
-    height: 700px;
-  }
+.full-bg-img {
+  width: 50% !important;
+  transform:  translate(50%,0%)
 }

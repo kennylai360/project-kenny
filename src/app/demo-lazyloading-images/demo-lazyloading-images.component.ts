@@ -1,14 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { Http} from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-demo-lazyloading-images',
   styles: [`
         img {
-            min-width: 1497px;
-            width: 100%;
-            min-height: 1127px;
             transition: opacity 1s;
             opacity: 0;
         }
