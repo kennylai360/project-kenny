@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
   <a routerLink="/home">
-        <img [ngStyle]="{'transform': 'translate(' + translateX + '%,' + translateY + '%)'}"
+        <img [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
              [lazyLoad]="imgUrl"
             >
-        <div class="overlay">
+        <div class="overlay"
+              [style.opacity]="opacityValue">
             <div class="text">{{coverTitle}}</div>
         </div>
   </a>

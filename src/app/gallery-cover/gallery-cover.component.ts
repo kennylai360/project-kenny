@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-gallery-cover',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./gallery-cover.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GalleryCoverComponent implements OnInit {
+export class GalleryCoverComponent {
 
   @Input()
   public imgUrl: string;
@@ -20,9 +20,28 @@ export class GalleryCoverComponent implements OnInit {
   @Input()
   public translateY: number = 0;
 
-  constructor() { }
+  public scaleValue:  number = 1.0;
 
-  ngOnInit() {
+  public opacityValue: number = 0;
+
+  constructor() {}
+
+  public increaseScalingValue() {
+    this.scaleValue = 1.2;
+    this.opacityValue = 1;
+  }
+
+  public revertScalingValue() {
+    this.scaleValue = 1.0;
+    this.opacityValue = 0;
+  }
+
+  public increaseOpacity() {
+
+  }
+
+  public decreaseOpacity() {
+
   }
 
 }

@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     component: DemoLazyloadingImagesComponent
   },
   { path: '',
-    redirectTo: 'home',
+    component: HomeComponent,
     pathMatch: 'full'
   },
   { path: '**', component: HomeComponent }
