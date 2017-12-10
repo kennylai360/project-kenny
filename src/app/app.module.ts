@@ -21,6 +21,8 @@ import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-lazyloading-images.component';
 import { GalleryCoverComponent } from './gallery-cover/gallery-cover.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
@@ -29,16 +31,16 @@ const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'galleries',
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'photography',
     component: GalleriesComponent
   },
   {
     path: 'lazyloadingimagesdemo',
     component: DemoLazyloadingImagesComponent
-  },
-  { path: '',
-    component: HomeComponent,
-    pathMatch: 'full'
   },
   { path: '**', component: HomeComponent }
 ];
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     HomeComponent,
     GalleriesComponent,
     DemoLazyloadingImagesComponent,
-    GalleryCoverComponent
+    GalleryCoverComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: false}
     ),
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    NgxPaginationModule
   ],
   exports: [
   ],
