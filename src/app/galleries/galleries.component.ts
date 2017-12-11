@@ -20,6 +20,8 @@ export class GalleriesComponent {
 
   public coverContent: Observable<ICoverContent[]> = this.readJSONFile('../../assets/cover-content.json');
 
+  public pageNumber: number = 1;
+
   constructor(private http: HttpClient) {
   }
 

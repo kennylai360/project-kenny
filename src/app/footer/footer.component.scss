@@ -5,6 +5,11 @@
   left: 0;
   text-align: center;
 
+  .page-footer {
+    padding: 0px !important;
+    margin:  0px !important;
+  }
+
   .page-footer .footer-copyright {
     background-color: rgba(0, 0, 0, 0.56);
   }
