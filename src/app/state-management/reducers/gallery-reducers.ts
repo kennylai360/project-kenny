@@ -1,5 +1,4 @@
-import { Actions, EVENT_FROM_EFFECT, INCREMENT } from '../actions/counter-actions';
-import { GALLERY_LOAD_DATA } from '../actions/gallery-actions';
+import { Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_SUCCESS } from '../actions/gallery-actions';
 
 export interface IGalleryContent {
   imgUrl: string;
@@ -19,13 +18,17 @@ export const galleryInitialState: GalleryState = {
 
 export function galleryReducer(state: GalleryState = galleryInitialState, action: Actions): GalleryState {
   switch (action.type) {
-    case GALLERY_LOAD_DATA: {
+
+    case GALLERY_LOAD_DATA:
       return {
         ...state
-        //load data from payload USING EFFECT
-        //WORK FROM HERE // TODO
       };
-    }
+
+    case GALLERY_LOAD_DATA_SUCCESS:
+      return {
+        ...state,
+        galleryList: action.payload
+      };
 
     default: {
       return state;

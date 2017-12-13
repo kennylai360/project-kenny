@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CounterFacade } from './state-management/facade/counter-facade';
-import { listOfReducers } from './state-management/ngrx-index';
 
 @Component({
   selector: 'app-root',
