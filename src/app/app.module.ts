@@ -25,8 +25,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileComponent } from './profile/profile.component';
 import { environment } from '../environments/environment';
 import { storeLogger } from 'ngrx-store-logger';
-import { EffectsModule } from '@ngrx/effects';
+import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/effects/gallery.effects';
+import { EffectsRootModule } from '@ngrx/effects/src/effects_root_module';
+import { GalleryFacade } from './state-management/facade/gallery-facade';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -78,7 +80,7 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: false}
     ),
-    EffectsModule.forFeature([
+    EffectsModule.forRoot([
       GalleryEffects
     ]),
     LazyLoadImageModule,
@@ -88,7 +90,10 @@ const appRoutes: Routes = [
   ],
   providers: [
     CounterFacade,
-    HttpClient
+    GalleryFacade,
+    HttpClient,
+    Actions,
+    EffectsRootModule,
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]

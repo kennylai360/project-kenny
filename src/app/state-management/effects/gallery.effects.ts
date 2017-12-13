@@ -7,6 +7,7 @@ import { GALLERY_LOAD_DATA, GalleryLoadDataActionSuccess } from '../actions/gall
 import { HttpClient } from '@angular/common/http';
 import { IndexState } from '../ngrx-index';
 import 'rxjs/add/operator/withLatestFrom';
+import { IGalleryContent } from '../reducers/gallery-reducers';
 
 @Injectable()
 export class GalleryEffects {
@@ -17,7 +18,7 @@ export class GalleryEffects {
     .withLatestFrom(this.store$)
     .switchMap(([action, state]: [Action, IndexState]) => {
       return this.http.get('../../assets/cover-content.json')
-        .map((res: any) => {
+        .map((res: IGalleryContent[]) => {
         console.log(res);
           return new GalleryLoadDataActionSuccess(res);
         });
