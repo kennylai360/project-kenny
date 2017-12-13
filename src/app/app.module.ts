@@ -2,13 +2,13 @@ import 'hammerjs';
 import 'mousetrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
+import { ActionReducer, State, StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { listOfReducers } from './state-management/ngrx-index';
+import { IndexState, listOfReducers } from './state-management/ngrx-index';
 import { CounterFacade } from './state-management/facade/counter-facade';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -23,6 +23,14 @@ import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-l
 import { GalleryCoverComponent } from './gallery-cover/gallery-cover.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileComponent } from './profile/profile.component';
+import { environment } from '../environments/environment';
+import { storeLogger } from 'ngrx-store-logger';
+
+export function logger(reducer: ActionReducer<IndexState>): any {
+  return storeLogger()(reducer);
+}
+
+export const metaReducers = environment.production ? [] : [logger];
 
 
 const appRoutes: Routes = [
@@ -61,7 +69,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(listOfReducers),
+    StoreModule.forRoot(listOfReducers, {metaReducers}),
     MDBBootstrapModule.forRoot(),
     MDBBootstrapModulePro.forRoot(),
     RouterModule.forRoot(

@@ -3674,6 +3674,10 @@ ngrx-store-freeze@^0.2.0:
   dependencies:
     deep-freeze-strict "^1.1.1"
 
+ngrx-store-logger@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ngrx-store-logger/-/ngrx-store-logger-0.2.0.tgz#9bef9447bc91d8e35a2aa6ae1c5a57ea51036694"
+
 ngx-pagination@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/ngx-pagination/-/ngx-pagination-3.0.3.tgz#314145263613738d8c544da36cd8dacc5aa89a6f"

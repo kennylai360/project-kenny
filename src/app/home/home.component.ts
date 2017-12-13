@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { CounterFacade } from '../state-management/facade/counter-facade';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private counterFacade:  CounterFacade) { }
 
   ngOnInit() {
+  }
+
+  public addOne() {
+    this.counterFacade.incrementCounter();
   }
 
 }
