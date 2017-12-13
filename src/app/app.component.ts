@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CounterFacade } from './state-management/facade/counter-facade';
-import { GalleryFacade } from './state-management/facade/gallery-facade';
+import { GalleryFacade } from './state-management/facade/gallery.facade';
 
 @Component({
   selector: 'app-root',

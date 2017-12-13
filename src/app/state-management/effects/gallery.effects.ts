@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
+import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
-import { GALLERY_LOAD_DATA, GalleryLoadDataActionSuccess } from '../actions/gallery-actions';
-import { HttpClient } from '@angular/common/http';
-import { IndexState } from '../ngrx-index';
 import 'rxjs/add/operator/withLatestFrom';
-import { IGalleryContent } from '../reducers/gallery-reducers';
+import { GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction, GalleryLoadDataFailureAction } from '../actions/gallery-actions';
+import { IndexState } from '../ngrx-index';
+import { IGalleryCover } from '../interface/gallery-cover.interface';
 
 @Injectable()
 export class GalleryEffects {
@@ -18,11 +19,10 @@ export class GalleryEffects {
     .withLatestFrom(this.store$)
     .switchMap(([action, state]: [Action, IndexState]) => {
       return this.http.get('../../assets/cover-content.json')
-        .map((res: IGalleryContent[]) => {
-        console.log(res);
-          return new GalleryLoadDataActionSuccess(res);
+        .map((res: IGalleryCover[]) => {
+          return new GalleryLoadDataSuccessAction(res);
         });
-    });
+    })
 
   constructor(
     private actions$: Actions,

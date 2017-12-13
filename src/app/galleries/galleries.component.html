@@ -8,7 +8,7 @@
   <hr class="hr-light mt-4 animated fadeInDown" data-wow-delay="1.4s">
     <app-gallery-cover *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 30, currentPage: pageNumber }"
             [imgUrl]="item.imgUrl"
-            [coverTitle]="item.coverTitle"
+            [albumTitle]="item.albumTitle"
             [translateX]="item.translateX"
             [translateY]="item.translateY">
     </app-gallery-cover>

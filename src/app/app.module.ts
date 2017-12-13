@@ -28,7 +28,7 @@ import { storeLogger } from 'ngrx-store-logger';
 import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/effects/gallery.effects';
 import { EffectsRootModule } from '@ngrx/effects/src/effects_root_module';
-import { GalleryFacade } from './state-management/facade/gallery-facade';
+import { GalleryFacade } from './state-management/facade/gallery.facade';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);

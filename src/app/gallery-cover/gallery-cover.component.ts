@@ -12,7 +12,7 @@ export class GalleryCoverComponent {
   public imgUrl: string;
 
   @Input()
-  public coverTitle: string;
+  public albumTitle: string;
 
   @Input()
   public translateX: number = 0;

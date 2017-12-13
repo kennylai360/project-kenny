@@ -1,11 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { GalleryFacade } from '../state-management/facade/gallery-facade';
+import { GalleryFacade } from '../state-management/facade/gallery.facade';
 
 export interface ICoverContent {
   imgUrl: string;
-  coverTitle: string;
+  albumTitle: string;
   translateX: number;
   translateY: number;
 }
@@ -17,27 +17,17 @@ export interface ICoverContent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class GalleriesComponent {
+export class GalleriesComponent implements OnInit {
 
-  public coverContent: Observable<ICoverContent[]> = this.readJSONFile('../../assets/cover-content.json');
+  public coverContent: Observable<ICoverContent[]>;
 
   public pageNumber: number = 1;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private galleryFacade:  GalleryFacade
+  ) {}
 
-  /**
-   * TODO Move this method into it's own separate file which can be reused in other components
-   * @param {string} fileLocation
-   * @returns {Observable<any>}
-   */
-  public readJSONFile(fileLocation: string): Observable<ICoverContent[]> {
-    return this.http.get(fileLocation)
-      .map((res: any) => {
-        return res;
-      });
-
-
-
+  public ngOnInit(): void {
+    this.coverContent = this.galleryFacade.galleryList$;
   }
 }

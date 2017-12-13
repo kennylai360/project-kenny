@@ -1,10 +1,11 @@
-import { counterReducer, CounterState } from './reducers/counter-reducers';
+import { counterReducer, CounterState } from './reducers/counter.reducers';
 import { ActionReducerMap } from '@ngrx/store';
-import { galleryReducer, GalleryState } from './reducers/gallery-reducers';
+import { galleryReducer } from './reducers/gallery.reducers';
+import { IGalleryState } from './interface/gallery-state.interface';
 
 // one source of truth here.
 export interface IndexState {
-  gallery?: GalleryState;
+  gallery?: IGalleryState;
   counter?: CounterState;
 }
 
