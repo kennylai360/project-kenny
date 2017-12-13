@@ -1,7 +1,7 @@
-import { counterReducer, CounterState } from './reducers/counter.reducers';
+import { counterReducer, CounterState } from './counter/counter.reducers';
 import { ActionReducerMap } from '@ngrx/store';
-import { galleryReducer } from './reducers/gallery.reducers';
-import { IGalleryState } from './interface/gallery-state.interface';
+import { galleryReducer } from './gallery-list/gallery.reducers';
+import { IGalleryState } from './gallery-list/gallery-state.interface';
 
 // one source of truth here.
 export interface IndexState {

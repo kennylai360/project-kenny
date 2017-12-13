@@ -1,4 +1,4 @@
-import { Actions, EVENT_FROM_EFFECT, INCREMENT } from '../actions/counter-actions';
+import { Actions, EVENT_FROM_EFFECT, INCREMENT } from './counter-actions';
 
 export interface CounterState {
   counterValue:  number;

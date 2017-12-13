@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/withLatestFrom';
-import { GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction, GalleryLoadDataFailureAction } from '../actions/gallery-actions';
+import { GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction, GalleryLoadDataFailureAction } from './gallery-actions';
 import { IndexState } from '../ngrx-index';
-import { IGalleryCover } from '../interface/gallery-cover.interface';
+import { IGalleryCover } from './gallery-cover.interface';
 
 @Injectable()
 export class GalleryEffects {

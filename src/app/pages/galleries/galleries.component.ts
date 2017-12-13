@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { GalleryFacade } from '../state-management/facade/gallery.facade';
+import { GalleryFacade } from '../../state-management/gallery-list/gallery.facade';
 
 export interface ICoverContent {
   imgUrl: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { CounterFacade } from '../state-management/facade/counter-facade';
+import { CounterFacade } from '../../state-management/counter/counter-facade';
 
 @Component({
   selector: 'app-home',

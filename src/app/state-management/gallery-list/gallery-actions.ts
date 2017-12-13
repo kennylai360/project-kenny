@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { IGalleryCover } from '../interface/gallery-cover.interface';
+import { IGalleryCover } from './gallery-cover.interface';
 /* tslint:disable */
 export const GALLERY_LOAD_DATA = '[Gallery] Load Gallery Data';
 export const GALLERY_LOAD_DATA_SUCCESS = '[Gallery] Load Gallery Data Success';

@@ -9,26 +9,26 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { IndexState, listOfReducers } from './state-management/ngrx-index';
-import { CounterFacade } from './state-management/facade/counter-facade';
+import { CounterFacade } from './state-management/counter/counter-facade';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { GalleriesComponent } from './galleries/galleries.component';
+import { HomeComponent } from './pages/home/home.component';
+import { GalleriesComponent } from './pages/galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-lazyloading-images.component';
-import { GalleryCoverComponent } from './gallery-cover/gallery-cover.component';
+import { DemoLazyloadingImagesComponent } from './pages/demo-lazyloading-images/demo-lazyloading-images.component';
+import { GalleryCoverComponent } from './components/gallery-cover/gallery-cover.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
 import { storeLogger } from 'ngrx-store-logger';
 import { Actions, EffectsModule } from '@ngrx/effects';
-import { GalleryEffects } from './state-management/effects/gallery.effects';
+import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
 import { EffectsRootModule } from '@ngrx/effects/src/effects_root_module';
-import { GalleryFacade } from './state-management/facade/gallery.facade';
+import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);

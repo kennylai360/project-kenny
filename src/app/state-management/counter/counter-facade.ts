@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IndexState } from '../ngrx-index';
 import { Store } from '@ngrx/store';
-import { EventFromEffectAction, IncrementAction } from '../actions/counter-actions';
+import { EventFromEffectAction, IncrementAction } from './counter-actions';
 
 @Injectable()
 export class CounterFacade {

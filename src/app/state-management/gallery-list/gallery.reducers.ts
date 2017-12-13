@@ -1,8 +1,8 @@
-import { Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_SUCCESS } from '../actions/gallery-actions';
-import { IGalleryState } from '../interface/gallery-state.interface';
+import { Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_SUCCESS } from './gallery-actions';
+import { IGalleryState } from './gallery-state.interface';
 
 export const galleryInitialState: IGalleryState = {
-  galleryCoverData:  []
+  galleryData:  []
 };
 
 
@@ -18,7 +18,7 @@ export function galleryReducer(state: IGalleryState = galleryInitialState,
     case GALLERY_LOAD_DATA_SUCCESS:
       return {
         ...state,
-        galleryCoverData: action.payload
+        galleryData: action.payload
       };
 
     default: {
