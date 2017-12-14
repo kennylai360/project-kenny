@@ -78,7 +78,7 @@ const appRoutes: Routes = [
     MDBBootstrapModulePro.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: false}
+      {enableTracing: true}
     ),
     EffectsModule.forRoot([
       GalleryEffects
