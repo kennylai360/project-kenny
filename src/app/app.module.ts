@@ -12,16 +12,12 @@ import { IndexState, listOfReducers } from './state-management/ngrx-index';
 import { CounterFacade } from './state-management/counter/counter-facade';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleriesComponent } from './pages/galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DemoLazyloadingImagesComponent } from './pages/demo-lazyloading-images/demo-lazyloading-images.component';
-import { GalleryCoverComponent } from './components/gallery-cover/gallery-cover.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
 import { storeLogger } from 'ngrx-store-logger';
@@ -29,6 +25,11 @@ import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
 import { EffectsRootModule } from '@ngrx/effects/src/effects_root_module';
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
+import { PagesModule } from './pages/pages.module';
+import { ComponentsModule } from './components/components.module';
+import { HeaderModule } from './components/header/header.module';
+import { CommonModule } from '@angular/common';
+import { FooterModule } from './components/footer/footer.module';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -58,35 +59,23 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    GalleriesComponent,
-    DemoLazyloadingImagesComponent,
-    GalleryCoverComponent,
-    ProfileComponent
-  ],
   imports: [
-    BrowserModule,
-    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    HeaderModule,
+    PagesModule,
+    ComponentsModule,
+    FooterModule,
+    MDBBootstrapModule.forRoot(),
+    MDBBootstrapModulePro.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
-    MDBBootstrapModule.forRoot(),
-    MDBBootstrapModulePro.forRoot(),
-    RouterModule.forRoot(
-      appRoutes,
-      {enableTracing: true}
-    ),
-    EffectsModule.forRoot([
-      GalleryEffects
-    ]),
-    LazyLoadImageModule,
-    NgxPaginationModule
+    RouterModule.forRoot(appRoutes, {enableTracing: false}),
+    EffectsModule.forRoot([GalleryEffects]),
   ],
-  exports: [
+  declarations: [
+    AppComponent
   ],
   providers: [
     CounterFacade,

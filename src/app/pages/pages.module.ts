@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { GalleriesComponent } from './galleries/galleries.component';
-import { DemoLazyloadingImagesComponent } from './demo-lazyloading-images/demo-lazyloading-images.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonModule } from '@angular/common';
+import { GalleriesModule } from './galleries/galleries.module';
+import { HomeModule } from './home/home.module';
+import { ProfileModule } from './profile/profile.module';
+import { DemoLazyloadingImagesModule } from './demo-lazyloading-images/demo-lazyloading-images.module';
 
 @NgModule({
   declarations: [
-    ProfileComponent,
-    HomeComponent,
-    GalleriesComponent,
-    DemoLazyloadingImagesComponent
   ],
   imports: [
-    NgxPaginationModule
+    CommonModule,
+    HomeModule,
+    ProfileModule,
+    GalleriesModule,
+    DemoLazyloadingImagesModule,
   ],
   exports: [
-    ProfileComponent,
-    HomeComponent,
-    GalleriesComponent,
-    DemoLazyloadingImagesComponent
   ],
   providers: []
 })

@@ -2,13 +2,8 @@ import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { GalleryFacade } from '../../state-management/gallery-list/gallery.facade';
+import { IGalleryCover } from '../../state-management/gallery-list/gallery-cover.interface';
 
-export interface ICoverContent {
-  imgUrl: string;
-  albumTitle: string;
-  translateX: number;
-  translateY: number;
-}
 
 @Component({
   selector: 'app-galleries',
@@ -19,7 +14,7 @@ export interface ICoverContent {
 
 export class GalleriesComponent implements OnInit {
 
-  public coverContent: Observable<ICoverContent[]>;
+  public coverContent: Observable<IGalleryCover[]>;
 
   public pageNumber: number = 1;
 
