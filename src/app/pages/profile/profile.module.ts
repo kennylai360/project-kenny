@@ -7,10 +7,10 @@ import { ProfileComponent } from './profile.component';
     ProfileComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ],
   exports: [
-    ProfileComponent
+    ProfileComponent,
   ],
   providers: []
 })
