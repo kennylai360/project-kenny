@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { CounterFacade } from './state-management/facade/counter-facade';
+import { CounterFacade } from './state-management/counter/counter-facade';
+import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,11 @@ export class AppComponent {
 
   public counterValue$:  Observable<number>;
 
-  constructor(private counterFacade: CounterFacade) {
+  constructor(private counterFacade: CounterFacade,
+              private galleryFacade: GalleryFacade) {
+
+    this.galleryFacade.loadGalleryList();
+
     this.counterValue$ = this.counterFacade.counterValue$;
   }
 

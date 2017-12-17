@@ -1,0 +1,9 @@
+<div class="container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
+        <img [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
+             [lazyLoad]="imgUrl"
+            >
+        <div class="overlay"
+              [style.opacity]="opacityValue">
+            <div class="text">{{albumTitle}}</div>
+        </div>
+</div>
