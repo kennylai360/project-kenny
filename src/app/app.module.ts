@@ -1,9 +1,7 @@
 import 'hammerjs';
 import 'mousetrap';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ActionReducer, State, StoreModule } from '@ngrx/store';
-import { FormsModule } from '@angular/forms';
+import { ActionReducer, StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -16,7 +14,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleriesComponent } from './pages/galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DemoLazyloadingImagesComponent } from './pages/demo-lazyloading-images/demo-lazyloading-images.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
@@ -30,6 +27,8 @@ import { ComponentsModule } from './components/components.module';
 import { HeaderModule } from './components/header/header.module';
 import { CommonModule } from '@angular/common';
 import { FooterModule } from './components/footer/footer.module';
+import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
+import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -49,13 +48,21 @@ const appRoutes: Routes = [
   },
   {
     path: 'photography',
-    component: GalleriesComponent
+    component: GallerySectionComponent,
+    children: [
+      { path: '', component: GalleriesComponent },
+      { path: ':id', component: GalleryAlbumComponent, data: {
+      } },
+    ]
   },
   {
     path: 'lazyloadingimagesdemo',
     component: DemoLazyloadingImagesComponent
   },
-  { path: '**', component: HomeComponent }
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
 
 @NgModule({
