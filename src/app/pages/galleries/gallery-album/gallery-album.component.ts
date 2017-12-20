@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
+import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 
 @Component({
   selector: 'app-gallery-album',
@@ -12,7 +14,10 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
   private routeSubscription: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  public albumData: IGalleryCover;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private galleryFacade: GalleryFacade) { }
 
   ngOnInit() {
     // load the album here which corresponds to the id. If it does not exist then i guess a redirect back to the

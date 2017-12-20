@@ -4,4 +4,5 @@ export interface IGalleryCover {
   albumTitle: string;
   translateX: number;
   translateY: number;
+  albumImages: string[];
 }
