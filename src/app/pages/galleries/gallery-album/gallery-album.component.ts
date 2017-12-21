@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
-import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-gallery-album',
@@ -15,7 +17,10 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
   private routeSubscription: Subscription;
 
-  public albumData: Observable<IGalleryCover> = Observable.of({});
+  public albumData: Observable<IGalleryCover> = Observable.of({
+    albumId: null,
+    imgUrl: null
+  });
 
   constructor(private activatedRoute: ActivatedRoute,
               private galleryFacade: GalleryFacade) { }

@@ -7,7 +7,7 @@ export const GALLERY_LOAD_DATA_FAILURE = '[Gallery] Load Gallery Data Failure';
 export const GALLERY_LOAD_DATA_BY_ID = '[Gallery] Load Album Data by ID';
 export const GALLERY_SET_SELECTED_ID = '[Gallery] Set selected id in store';
 export const GALLERY_LOAD_DATA_BY_ID_SUCCESS = '[Gallery] Load Album Data by ID Success';
-export const GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE = '[Gallery] Redirect back to Albums page';
+export const GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE = '[Gallery] No Album exist - Redirect back to Albums page';
 /* tslint:enable */
 
 export class GalleryLoadDataAction implements Action {
