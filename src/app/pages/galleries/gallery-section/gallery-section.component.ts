@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-gallery-section',

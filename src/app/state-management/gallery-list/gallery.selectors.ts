@@ -17,4 +17,10 @@ export class GallerySelectors {
     }
   );
 
+  public static selectedAlbum: OutputSelector<IndexState, IGalleryCover, Function>
+    = createSelector(galleryState, (exemptVehicleState: IGalleryState) => {
+      return exemptVehicleState.selectedAlbum;
+    }
+  );
+
 }
