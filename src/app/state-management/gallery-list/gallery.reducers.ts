@@ -37,7 +37,7 @@ export function galleryReducer(state: IGalleryState = galleryInitialState,
       return {
         ...state,
         selectedAlbum: action.payload
-      }
+      };
 
     default: {
       return state;

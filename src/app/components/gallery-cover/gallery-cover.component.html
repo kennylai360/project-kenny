@@ -1,4 +1,4 @@
-<div class="container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
+<div class="gallery-container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
         <img [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
              [lazyLoad]="imgUrl"
             >

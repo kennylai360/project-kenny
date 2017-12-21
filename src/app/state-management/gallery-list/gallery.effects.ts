@@ -23,7 +23,7 @@ export class GalleryEffects {
     .ofType(GALLERY_LOAD_DATA)
     .withLatestFrom(this.store$)
     .switchMap(() => {
-      return this.http.get('../../assets/cover-content.json')
+      return this.http.get('../../assets/gallery-content.json')
         .map((res: IGalleryCover[]) => {
           return new GalleryLoadDataSuccessAction(res);
         });
