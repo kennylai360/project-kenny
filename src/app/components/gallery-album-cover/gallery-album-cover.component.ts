@@ -1,12 +1,12 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-gallery-cover',
-  templateUrl: './gallery-cover.component.html',
-  styleUrls: ['./gallery-cover.component.scss'],
+  selector: 'app-gallery-album-cover',
+  templateUrl: './gallery-album-cover.component.html',
+  styleUrls: ['./gallery-album-cover.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GalleryCoverComponent {
+export class GalleryAlbumCoverComponent {
 
   @Input()
   public imgUrl: string;
@@ -34,14 +34,6 @@ export class GalleryCoverComponent {
   public revertScalingValue() {
     this.scaleValue = 1.0;
     this.opacityValue = 0;
-  }
-
-  public increaseOpacity() {
-
-  }
-
-  public decreaseOpacity() {
-
   }
 
 }

@@ -12,7 +12,6 @@ import { CounterFacade } from './state-management/counter/counter-facade';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { GalleriesComponent } from './pages/galleries/galleries.component';
 import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { DemoLazyloadingImagesComponent } from './pages/demo-lazyloading-images/demo-lazyloading-images.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -27,8 +26,9 @@ import { ComponentsModule } from './components/components.module';
 import { HeaderModule } from './components/header/header.module';
 import { CommonModule } from '@angular/common';
 import { FooterModule } from './components/footer/footer.module';
-import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component';
+import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component';
+import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     path: 'photography',
     component: GallerySectionComponent,
     children: [
-      { path: '', component: GalleriesComponent },
+      { path: '', component: GalleryAlbumListingComponent },
       { path: ':id', component: GalleryAlbumComponent, data: {
       } },
     ]

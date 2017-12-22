@@ -23,7 +23,8 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
   });
 
   constructor(private activatedRoute: ActivatedRoute,
-              private galleryFacade: GalleryFacade) { }
+              private galleryFacade: GalleryFacade
+  ) {}
 
   ngOnInit() {
     // load the album here which corresponds to the id. If it does not exist then redirect to album listing page

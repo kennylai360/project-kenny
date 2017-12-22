@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
-import { GalleriesComponent } from './galleries.component';
 import { CommonModule } from '@angular/common';
-import { GalleryCoverModule } from '../../components/gallery-cover/gallery-cover.module';
+import { GalleryAlbumCoverModule } from '../../components/gallery-album-cover/gallery-album-cover.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GalleryAlbumComponent } from './gallery-album/gallery-album.component';
 import { RouterModule } from '@angular/router';
 import { GallerySectionComponent } from './gallery-section/gallery-section.component';
+import { GalleryAlbumListingComponent } from './gallery-album-listing/gallery-album-listing.component';
 
 @NgModule({
   declarations: [
-    GalleriesComponent,
+    GalleryAlbumListingComponent,
     GalleryAlbumComponent,
     GallerySectionComponent
   ],
   imports: [
     CommonModule,
-    GalleryCoverModule,
+    GalleryAlbumCoverModule,
     NgxPaginationModule,
     RouterModule
   ],
   exports: [
-    GalleriesComponent,
+    GalleryAlbumListingComponent,
     GalleryAlbumComponent,
     GallerySectionComponent
   ],

@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
-import { GalleryCoverComponent } from './gallery-cover.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { CommonModule } from '@angular/common';
+import { GalleryAlbumJumbotronComponent } from './gallery-album-jumbotron.component';
 
 @NgModule({
   declarations: [
-    GalleryCoverComponent
+    GalleryAlbumJumbotronComponent
   ],
   imports: [
     CommonModule,
-    BrowserModule,
-    LazyLoadImageModule
+    BrowserModule
   ],
   exports: [
-    GalleryCoverComponent
+    GalleryAlbumJumbotronComponent
   ],
   providers: []
 })
-export class GalleryCoverModule {
+export class GalleryAlbumJumbotronModule {
 }

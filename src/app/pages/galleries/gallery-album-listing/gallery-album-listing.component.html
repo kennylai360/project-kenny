@@ -6,13 +6,13 @@
   </div>
   <hr class="hr-light mt-4 animated fadeInDown" data-wow-delay="1.4s">
   <a *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 30, currentPage: pageNumber }">
-    <app-gallery-cover
+    <app-gallery-album-cover
             [imgUrl]="item.imgUrl"
             [albumTitle]="item.albumTitle"
             [translateX]="item.translateX"
             [translateY]="item.translateY"
             [routerLink]="item.albumId">
-    </app-gallery-cover>
+    </app-gallery-album-cover>
   </a>
   <hr class="hr-light mt-4 animated fadeInDown" data-wow-delay="1.4s">
   <div class="animated fadeInUp">

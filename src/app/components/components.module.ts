@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GalleryCoverModule } from './gallery-cover/gallery-cover.module';
+import { GalleryAlbumCoverModule } from './gallery-album-cover/gallery-album-cover.module';
+import { GalleryAlbumJumbotronModule } from './gallery-album-jumbotron/gallery-album.jumbotron.module';
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import { GalleryCoverModule } from './gallery-cover/gallery-cover.module';
   ],
   imports: [
     CommonModule,
-    GalleryCoverModule
+    GalleryAlbumCoverModule,
+    GalleryAlbumJumbotronModule
   ],
   exports: [
   ],

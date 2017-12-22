@@ -1,18 +1,18 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { GalleryFacade } from '../../state-management/gallery-list/gallery.facade';
-import { IGalleryCover } from '../../state-management/gallery-list/gallery-cover.interface';
+import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
+import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 
 
 @Component({
   selector: 'app-galleries',
-  templateUrl: './galleries.component.html',
-  styleUrls: ['./galleries.component.scss'],
+  templateUrl: './gallery-album-listing.component.html',
+  styleUrls: ['./gallery-album-listing.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class GalleriesComponent implements OnInit {
+export class GalleryAlbumListingComponent implements OnInit {
 
   public coverContent: Observable<IGalleryCover[]>;
 
