@@ -2,64 +2,37 @@
 	{
 		"albumId": 1,
 		"imgUrl": "https://farm5.staticflickr.com/4535/24056102767_94eeae91ee_k.jpg",
-		"albumTitle": "Title1",
-		"albumSubtitle": "Subtitle1 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
+		"albumTitle": "Mikan Mandarin",
+		"albumSubtitle": "Fashion shoots @ London throughout 2017",
 		"translateX": -55,
 		"translateY": -15,
 		"albumImages": []
 	},
 	{
 		"albumId": 2,
-		"imgUrl": "https://farm5.staticflickr.com/4596/27141050699_a29e570228_k.jpg",
-		"albumTitle": "Title2",
-		"albumSubtitle": "Subtitle2 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
-		"translateX": -22,
-		"translateY": -13,
+		"imgUrl": "https://farm9.staticflickr.com/8618/28546449692_60179363de_k.jpg",
+		"albumTitle": "ACG Hong Kong 2016 (香港動漫電玩節'16)",
+		"albumSubtitle": "A few snapshots of cosplayers in a Hong Kong convention",
+		"translateX": -15,
+		"translateY": -20,
 		"albumImages": []
 	},
 	{
 		"albumId": 3,
-		"imgUrl": "https://farm5.staticflickr.com/4403/36295300451_0ec30c8cae_k.jpg",
-		"albumTitle": "Title3",
-		"albumSubtitle": "Subtitle3 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
-		"translateX": -35,
-		"translateY": -12,
+		"imgUrl": "https://farm9.staticflickr.com/8815/28578679066_282eaaa908_k.jpg",
+		"albumTitle": "Hong Kong'16",
+		"albumSubtitle": "Street photos and landscape photos from the time I was back in Hong Kong in 2016",
+		"translateX": -15,
+		"translateY": -30,
 		"albumImages": []
 	},
 	{
 		"albumId": 4,
-		"imgUrl": "https://farm5.staticflickr.com/4362/36035606000_90cea60154_k.jpg",
-		"albumTitle": "Title4",
-		"albumSubtitle": "Subtitle4 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
-		"translateX": -40,
-		"translateY": -18,
-		"albumImages": []
-	},
-	{
-		"albumId": 5,
-		"imgUrl": "https://farm6.staticflickr.com/5615/30973975201_63d70efd20_k.jpg",
-		"albumTitle": "Title5",
-		"albumSubtitle": "Subtitle5 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
-		"translateX": -20,
-		"translateY": -10,
-		"albumImages": []
-	},
-	{
-		"albumId": 6,
-		"imgUrl": "https://farm5.staticflickr.com/4735/27144055809_201cb6ff58_k.jpg",
-		"albumTitle": "Title6",
-		"albumSubtitle": "Subtitle6 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
-		"translateX": -50,
-		"translateY": -20,
-		"albumImages": []
-	},
-	{
-		"albumId": 7,
-		"imgUrl": "https://farm5.staticflickr.com/4731/38920313631_b714e07a85_k.jpg",
-		"albumTitle": "Title7",
-		"albumSubtitle": "Subtitle7 here asmdakmdksa asdmaksdmak amd aksmd akd mak mka d",
-		"translateX": -15,
-		"translateY": -20,
+		"imgUrl": "https://farm4.staticflickr.com/3695/19050572904_efddc33b7b_k.jpg",
+		"albumTitle": "HyperJapan 2015-2017",
+		"albumSubtitle": "Collection of HyperJapan pics that were taken throughout 2015-2017",
+		"translateX": -55,
+		"translateY": -30,
 		"albumImages": []
 	}
 ]
