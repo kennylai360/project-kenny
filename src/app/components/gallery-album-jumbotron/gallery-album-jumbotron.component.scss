@@ -1,0 +1,38 @@
+.imageContainer {
+  height: 300px;
+  color:  white;
+  width: 100%;
+  position: relative
+}
+
+img {
+  opacity: 0;
+  -moz-transition: all 1.5s;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+}
+
+img.album-jumbotron.ng-lazyloaded {
+  opacity: 0.5;
+}
+
+.album-jumbotron {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  filter: alpha(opacity=50);
+}
+
+.gradient-colour {
+  background-color: black;
+}
+
+.jumb-text {
+  width: 90%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

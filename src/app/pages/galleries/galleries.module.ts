@@ -6,6 +6,7 @@ import { GalleryAlbumComponent } from './gallery-album/gallery-album.component';
 import { RouterModule } from '@angular/router';
 import { GallerySectionComponent } from './gallery-section/gallery-section.component';
 import { GalleryAlbumListingComponent } from './gallery-album-listing/gallery-album-listing.component';
+import { GalleryAlbumJumbotronModule } from '../../components/gallery-album-jumbotron/gallery-album.jumbotron.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GalleryAlbumListingComponent } from './gallery-album-listing/gallery-al
   imports: [
     CommonModule,
     GalleryAlbumCoverModule,
+    GalleryAlbumJumbotronModule,
     NgxPaginationModule,
     RouterModule
   ],

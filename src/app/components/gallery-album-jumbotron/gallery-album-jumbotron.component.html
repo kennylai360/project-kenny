@@ -1,3 +1,9 @@
-<p>
-  gallery-album-cover works!
-</p>
+<div class="imageContainer">
+  <div class="gradient-colour">
+    <img class="album-jumbotron" [lazyLoad]="albumCoverPicture">
+  </div>
+  <div class="jumb-text">
+    <h1 class="animated fadeInDown">{{albumTitle}}</h1>
+    <h5 class="animated fadeInDown">{{albumSubtitle}}</h5>
+  </div>
+</div>

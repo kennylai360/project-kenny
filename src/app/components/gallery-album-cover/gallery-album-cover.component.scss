@@ -7,7 +7,7 @@ img {
   transition: all 1s;
 }
 
-img.ng-lazyloaded {
+img.album-cover.ng-lazyloaded {
   opacity: 1;
 }
 
@@ -35,6 +35,7 @@ img.ng-lazyloaded {
 
 
 .text {
+  width: 90%;
   color: white;
   font-size: 20px;
   position: absolute;

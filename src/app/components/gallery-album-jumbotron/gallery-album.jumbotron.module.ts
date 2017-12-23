@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { GalleryAlbumJumbotronComponent } from './gallery-album-jumbotron.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { GalleryAlbumJumbotronComponent } from './gallery-album-jumbotron.compon
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
+    LazyLoadImageModule
   ],
   exports: [
     GalleryAlbumJumbotronComponent
