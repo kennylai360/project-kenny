@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-gallery-album-jumbotron',
@@ -8,7 +8,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class GalleryAlbumJumbotronComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public albumTitle?: string;
+
+  @Input()
+  public albumSubtitle?: string;
+
+  @Input()
+  public albumCoverPicture?: string;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
