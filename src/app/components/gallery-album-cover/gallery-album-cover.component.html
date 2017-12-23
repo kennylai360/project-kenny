@@ -1,5 +1,6 @@
 <div class="gallery-container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
-        <img [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
+        <img class="album-cover"
+             [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
              [lazyLoad]="imgUrl"
             >
         <div class="overlay"
