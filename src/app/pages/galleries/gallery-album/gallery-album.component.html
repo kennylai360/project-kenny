@@ -1,6 +1,7 @@
-// @TODO Add to here a ng if to detect when the data has loaded in successfully it will display the jumbotron
-// hopefully this will fix the ERROR 404 not found on localhost/null
+<!-- @TODO Add to here a ng if to detect when the data has loaded in successfully it will display the jumbotron
+// hopefully this will fix the ERROR 404 not found on localhost/null -->
 <app-gallery-album-jumbotron
+  *ngIf="true"
   [albumTitle]="(albumData | async).albumTitle"
   [albumSubtitle]="(albumData | async).albumSubtitle"
   [albumCoverPicture]="(albumData | async).imgUrl">
