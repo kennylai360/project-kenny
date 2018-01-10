@@ -10,3 +10,16 @@ app-gallery-album-cover {
 .centerise-album-imgs {
   text-align: center;
 }
+
+.previous-page-button {
+  color: white;
+  i {
+    padding-right: 5px;
+  }
+  a, a:visited {
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
+
+
