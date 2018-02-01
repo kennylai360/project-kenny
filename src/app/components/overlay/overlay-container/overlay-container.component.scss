@@ -1,10 +1,37 @@
-.overlay-background {
+.show-overlay-background {
   position: absolute;
   top: 0%;
   left: 0%;
+  right: 0%;
+  bottom: 0%;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.7);
   margin-bottom: 0px;
   z-index: 1000001;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
 }
+
+.hide-overlay-background {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.0);
+  margin-bottom: 0px;
+  z-index: -1;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+
