@@ -15,6 +15,8 @@ import { IGalleryCover } from '../../../state-management/gallery-list/gallery-co
 })
 export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
+  public loadOverlay: boolean = false;
+
   private routeSubscription: Subscription;
 
   public albumData: Observable<IGalleryCover> = Observable.of({
@@ -39,6 +41,16 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.routeSubscription.unsubscribe();
+  }
+
+  public openOverlay(id: number, url: string) {
+    console.log(id);
+    console.log(url);
+    this.loadOverlay = true;
+  }
+
+  public changeOverlayValue(e: boolean): void {
+    this.loadOverlay = e;
   }
 
 }

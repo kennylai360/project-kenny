@@ -29,6 +29,7 @@ import { FooterModule } from './components/footer/footer.module';
 import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component';
 import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component';
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
+import { OverlayContainerModule } from './components/overlay/overlay-container/overlay-container.module';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -79,7 +80,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
     RouterModule.forRoot(appRoutes, {enableTracing: false}),
-    EffectsModule.forRoot([GalleryEffects]),
+    EffectsModule.forRoot([GalleryEffects])
   ],
   declarations: [
     AppComponent

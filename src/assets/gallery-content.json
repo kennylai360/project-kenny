@@ -74,7 +74,40 @@
 		"albumSubtitle": "Street photos and landscape photos from the time I was back in Hong Kong in 2016",
 		"translateX": -15,
 		"translateY": -30,
-		"albumImages": []
+		"albumImages": [
+			{
+			"albumId": 1,
+			"imgUrl": "https://farm9.staticflickr.com/8108/28991763830_53b67b4744_k.jpg",
+			"albumTitle": "",
+			"albumSubtitle": "",
+			"translateX": -33,
+			"translateY": -30
+			}, 
+			{ 
+			"albumId": 2,
+			"imgUrl": "https://farm9.staticflickr.com/8015/29362470986_7b0540734a_k.jpg",
+			"albumTitle": "",
+			"albumSubtitle": "",
+			"translateX": -33,
+			"translateY": -30
+			},
+			{
+			"albumId": 3,
+			"imgUrl": "https://farm9.staticflickr.com/8300/29660978071_69838d4f90_k.jpg",
+			"albumTitle": "",
+			"albumSubtitle": "",
+			"translateX": -15,
+			"translateY": -43
+			},
+			{ 
+			"albumId": 4,
+			"imgUrl": "https://farm9.staticflickr.com/8866/28531243165_b6238b346a_k.jpg",
+			"albumTitle": "",
+			"albumSubtitle": "",
+			"translateX": -30,
+			"translateY": -30
+			}
+		]
 	},
 	{
 		"albumId": 4,
