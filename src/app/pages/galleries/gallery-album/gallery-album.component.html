@@ -11,6 +11,7 @@
 <div class="centerise-album-imgs">
   <a *ngFor="let item of (albumData | async).albumImages">
     <app-gallery-album-cover
+      (click)="openOverlay()"
       [imgUrl]="item.imgUrl"
       [albumTitle]="item.albumTitle"
       [translateX]="item.translateX"
@@ -18,3 +19,8 @@
     </app-gallery-album-cover>
   </a>
 </div>
+
+<app-overlay-container
+  [loadOverlay]="loadOverlay"
+  (overlayClicked)="changeOverlayValue($event)"
+></app-overlay-container>

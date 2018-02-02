@@ -11,14 +11,7 @@
            href="https://www.github.com/kennylai360">github</a>
         <a class="btn btn-outline-white animated fadeInDown waves-light" mdbRippleRadius
            routerLink="/profile">Profile</a>
-        <a class="btn btn-outline-white animated fadeInDown waves-light" mdbRippleRadius
-           (click)="openOverlay()">Open Overlay</a>
       </div>
     </div>
   </div>
 </div>
-
-<app-overlay-container
-  [loadOverlay]="loadOverlay"
-  (overlayClicked)="changeOverlayValue($event)"
-></app-overlay-container>

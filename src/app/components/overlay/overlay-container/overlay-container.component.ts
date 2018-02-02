@@ -19,9 +19,7 @@ export class OverlayContainerComponent implements OnInit {
   ngOnInit() {
   }
 
-  public overlayClose(event: Event): void {
-    console.log('overlayClose clicked');
-    console.log(event);
+  public overlayClose(): void {
     this.overlayClicked.emit(false);
   }
 }

@@ -8,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public loadOverlay: boolean = false;
+
 
   public something: boolean;
 
@@ -17,12 +17,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  public openOverlay() {
-    this.loadOverlay = true;
-  }
 
-  public changeOverlayValue(e: boolean): void {
-    this.loadOverlay = e;
-  }
 
 }
