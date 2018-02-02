@@ -10,7 +10,7 @@ import {
   GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction, GalleryLoadDataFailureAction,
   GALLERY_LOAD_DATA_BY_ID, GalleryGetDataByIdSuccessAction, GalleryRedirectBackToAlbumListPageAction,
   GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE
-} from './gallery-actions';
+} from './gallery.actions';
 import { IndexState } from '../ngrx-index';
 import { IGalleryCover } from './gallery-cover.interface';
 import { ActivatedRoute, Router } from '@angular/router';

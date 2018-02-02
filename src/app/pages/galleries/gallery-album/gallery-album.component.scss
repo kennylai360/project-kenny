@@ -2,3 +2,24 @@
   padding-top: 150px;
   padding-bottom: 150px;
 }
+
+app-gallery-album-cover {
+  display: inline-block;
+}
+
+.centerise-album-imgs {
+  text-align: center;
+}
+
+.previous-page-button {
+  color: white;
+  i {
+    padding-right: 5px;
+  }
+  a, a:visited {
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
+
+

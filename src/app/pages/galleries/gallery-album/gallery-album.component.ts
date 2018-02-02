@@ -30,7 +30,7 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
     // load the album here which corresponds to the id. If it does not exist then redirect to album listing page
     // Debouncetime is added to give the loading and make sure the gallery data has been loaded into the store.
     // this is as a fallback in case the use enters the ID in directly to the address bar.
-    this.routeSubscription = this.activatedRoute.params.debounceTime(100).subscribe((params: Params) => {
+    this.routeSubscription = this.activatedRoute.params.debounceTime(10).subscribe((params: Params) => {
       this.galleryFacade.setSelectedId(params['id']);
       this.galleryFacade.getAlbumDataById();
       this.albumData = this.galleryFacade.albumData$;
