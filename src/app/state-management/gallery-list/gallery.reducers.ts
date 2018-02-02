@@ -1,7 +1,7 @@
 import {
   Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_BY_ID_SUCCESS, GALLERY_LOAD_DATA_SUCCESS,
   GALLERY_SET_SELECTED_ID
-} from './gallery-actions';
+} from './gallery.actions';
 import { IGalleryState } from './gallery-state.interface';
 import { IGalleryCover } from './gallery-cover.interface';
 

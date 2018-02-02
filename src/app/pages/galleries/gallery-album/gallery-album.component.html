@@ -1,7 +1,20 @@
+<div class="previous-page-button"><a routerLink="../"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Return to albums</a></div>
+<hr class="hr-light mt-4 animated fadeInDown">
 <app-gallery-album-jumbotron
   [albumTitle]="(albumData | async).albumTitle"
   [albumSubtitle]="(albumData | async).albumSubtitle"
   [albumCoverPicture]="(albumData | async).imgUrl">
 </app-gallery-album-jumbotron>
 
-<hr class="hr-light mt-4 animated fadeInDown" data-wow-delay="1.4s">
+<hr class="hr-light mt-4 animated fadeInDown">
+
+<div class="centerise-album-imgs">
+  <a *ngFor="let item of (albumData | async).albumImages">
+    <app-gallery-album-cover
+      [imgUrl]="item.imgUrl"
+      [albumTitle]="item.albumTitle"
+      [translateX]="item.translateX"
+      [translateY]="item.translateY">
+    </app-gallery-album-cover>
+  </a>
+</div>
