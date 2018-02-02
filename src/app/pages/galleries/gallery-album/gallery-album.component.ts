@@ -43,7 +43,9 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
     this.routeSubscription.unsubscribe();
   }
 
-  public openOverlay() {
+  public openOverlay(id: number, url: string) {
+    console.log(id);
+    console.log(url);
     this.loadOverlay = true;
   }
 

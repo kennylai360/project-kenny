@@ -1,4 +1,5 @@
 <div
   [ngClass]="{'show-overlay-background': loadOverlay, 'hide-overlay-background': !loadOverlay}"
   (click)="overlayClose($event)">
+  <ng-content></ng-content>
 </div>
