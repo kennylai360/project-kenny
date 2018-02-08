@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
+import { AppFacade } from '../../../state-management/app/app.facade';
 
 
 @Component({
@@ -15,8 +16,6 @@ import { IGalleryCover } from '../../../state-management/gallery-list/gallery-co
 })
 export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
-  public loadOverlay: boolean = false;
-
   private routeSubscription: Subscription;
 
   public albumData: Observable<IGalleryCover> = Observable.of({
@@ -25,7 +24,8 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
   });
 
   constructor(private activatedRoute: ActivatedRoute,
-              private galleryFacade: GalleryFacade
+              private galleryFacade: GalleryFacade,
+              private appFacade: AppFacade
   ) {}
 
   ngOnInit() {
@@ -43,14 +43,10 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
     this.routeSubscription.unsubscribe();
   }
 
-  public openOverlay(id: number, url: string) {
+  public openModal(id: number, url: string) {
     console.log(id);
     console.log(url);
-    this.loadOverlay = true;
-  }
-
-  public changeOverlayValue(e: boolean): void {
-    this.loadOverlay = e;
+    this.appFacade.openModal();
   }
 
 }

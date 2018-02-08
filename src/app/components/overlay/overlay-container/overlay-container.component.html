@@ -1,5 +1,7 @@
 <div
-  [ngClass]="{'show-overlay-background': loadOverlay, 'hide-overlay-background': !loadOverlay}"
-  (click)="overlayClose($event)">
-  <ng-content></ng-content>
+  [ngClass]="{'show-overlay-background': (isModalOpen$ | async), 'hide-overlay-background': !(isModalOpen$ | async)}"
+  (click)="overlayClose()">
+  <!--<img-->
+  <!--[ngClass]="{'show-image-file': loadOverlay, 'hide-image-file': !loadOverlay}"-->
+  <!--src="https://i.ytimg.com/vi/hBAuIzZttP4/hqdefault.jpg">-->
 </div>

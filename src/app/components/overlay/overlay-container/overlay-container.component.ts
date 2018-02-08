@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { AppFacade } from '../../../state-management/app/app.facade';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-overlay-container',
@@ -8,18 +10,17 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } fro
 })
 export class OverlayContainerComponent implements OnInit {
 
-  @Input()
-  public loadOverlay: boolean = false;
+  public isModalOpen$: Observable<boolean>;
 
-  @Output()
-  public overlayClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor() { }
+  constructor(
+    private appFacade: AppFacade
+  ) {}
 
   ngOnInit() {
+    this.isModalOpen$ = this.appFacade.modalOpen$;
   }
 
   public overlayClose(): void {
-    this.overlayClicked.emit(false);
+    this.appFacade.closeModal();
   }
 }

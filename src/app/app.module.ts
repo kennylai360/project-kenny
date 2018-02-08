@@ -30,6 +30,7 @@ import { GallerySectionComponent } from './pages/galleries/gallery-section/galle
 import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component';
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 import { OverlayContainerModule } from './components/overlay/overlay-container/overlay-container.module';
+import { AppFacade } from './state-management/app/app.facade';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -86,6 +87,7 @@ const appRoutes: Routes = [
     AppComponent
   ],
   providers: [
+    AppFacade,
     CounterFacade,
     GalleryFacade,
     HttpClient,
