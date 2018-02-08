@@ -29,7 +29,6 @@ import { FooterModule } from './components/footer/footer.module';
 import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component';
 import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component';
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
-import { OverlayContainerModule } from './components/overlay/overlay-container/overlay-container.module';
 import { AppFacade } from './state-management/app/app.facade';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
@@ -40,6 +39,11 @@ export const metaReducers = environment.production ? [] : [logger];
 
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
   {
     path: 'home',
     component: HomeComponent,
