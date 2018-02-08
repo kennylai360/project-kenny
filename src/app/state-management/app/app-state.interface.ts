@@ -1,3 +1,3 @@
 export interface IAppState {
-  hasGalleryDataLoaded: boolean;
+  hasModalOpen: boolean;
 }
