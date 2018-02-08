@@ -14,7 +14,7 @@
 }
 
 .hide-overlay-background {
-  position: absolute;
+  position: fixed;
   top: 0%;
   left: 0%;
   width: 100vw;
@@ -26,6 +26,10 @@
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.noScroll {
+  overflow: hidden;
 }
 
 
