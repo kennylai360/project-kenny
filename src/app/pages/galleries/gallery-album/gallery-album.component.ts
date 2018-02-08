@@ -44,8 +44,6 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
   }
 
   public openModal(id: number, url: string) {
-    console.log(id);
-    console.log(url);
     this.appFacade.openModal();
   }
 

@@ -91,8 +91,7 @@ const appRoutes: Routes = [
     CounterFacade,
     GalleryFacade,
     HttpClient,
-    Actions,
-    EffectsRootModule,
+    Actions
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
