@@ -1,7 +1,6 @@
 <div
-  [ngClass]="{'show-overlay-background': (isModalOpen$ | async), 'hide-overlay-background': !(isModalOpen$ | async)}"
-  (click)="overlayClose()">
-  <!--<img-->
-  <!--[ngClass]="{'show-image-file': loadOverlay, 'hide-image-file': !loadOverlay}"-->
-  <!--src="https://i.ytimg.com/vi/hBAuIzZttP4/hqdefault.jpg">-->
+  [ngClass]="{'show-overlay-background': (isModalOpen$ | async), 'hide-overlay-background': !(isModalOpen$ | async)}">
+    <i class="fa fa-times modal-close" aria-hidden="true" (click)="closeModal()"></i>
+    <i class="fa fa-arrow-left modal-arrows left-arrow" aria-hidden="true"></i>
+    <i class="fa fa-arrow-right modal-arrows right-arrow" aria-hidden="true"></i>
 </div>
