@@ -13,4 +13,7 @@
      aria-hidden="true"
      (click)="rightArrowClick()">
   </i>
+  <img class="modal-image"
+       [lazyLoad]="(selectedImageUrl$ | async)"
+       [ngClass]="{'horizontal-image': (selectedImageHorizontalOrientation$ | async), 'vertical-image': !(selectedImageHorizontalOrientation$ | async)}">
 </div>

@@ -3,4 +3,5 @@ export interface IAlbumImagesData {
   imgUrl: string;
   translateX: number;
   translateY: number;
+  horizontalOrient: boolean;
 }

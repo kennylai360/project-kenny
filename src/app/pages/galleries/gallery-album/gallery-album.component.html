@@ -11,7 +11,7 @@
 <div class="centerise-album-imgs">
   <a *ngFor="let item of (albumData | async).albumImages">
     <app-gallery-album-cover
-      (click)="openModal(item.imageId)"
+      (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
       [imgUrl]="item.imgUrl"
       [translateX]="item.translateX"
       [translateY]="item.translateY">

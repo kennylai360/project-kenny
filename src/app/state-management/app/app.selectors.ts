@@ -15,4 +15,22 @@ export class AppSelectors {
     }
   );
 
+  public static selectedImage: OutputSelector<IndexState, string, Function>
+    = createSelector(appState, (applicationState: IAppState) => {
+      return applicationState.selectedImage;
+    }
+  );
+
+  public static selectedImageId: OutputSelector<IndexState, number, Function>
+    = createSelector(appState, (applicationState: IAppState) => {
+      return applicationState.selectedImageId;
+    }
+  );
+
+  public static selectedImageHorizontalOrientation: OutputSelector<IndexState, boolean, Function>
+    = createSelector(appState, (applicationState: IAppState) => {
+      return applicationState.selectedImageHorizontalOrient;
+    }
+  );
+
 }
