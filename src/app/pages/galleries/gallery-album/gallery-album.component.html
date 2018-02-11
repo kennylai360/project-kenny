@@ -11,14 +11,15 @@
 <div class="centerise-album-imgs">
   <a *ngFor="let item of (albumData | async).albumImages">
     <app-gallery-album-cover
-      (click)="openModal(item.albumId, item.imgUrl)"
+      (click)="openModal(item.imageId)"
       [imgUrl]="item.imgUrl"
-      [albumTitle]="item.albumTitle"
       [translateX]="item.translateX"
       [translateY]="item.translateY">
     </app-gallery-album-cover>
   </a>
 </div>
 
-<app-overlay-container>
+<app-overlay-container
+  [selectedImageId]="selectedImageId"
+  [albumSet]="(albumData | async).albumImages">
 </app-overlay-container>

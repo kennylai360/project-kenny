@@ -1,9 +1,11 @@
-import { Component, HostListener, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, Renderer2, ViewEncapsulation } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AppFacade } from '../../../state-management/app/app.facade';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 
 @Component({
   selector: 'app-overlay-container',
@@ -18,6 +20,12 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
   private modalOpenSubscription: Subscription;
 
   private isModalOpenValue: boolean;
+
+  @Input()
+  public albumSet: Array<IGalleryCover>;
+
+  @Input()
+  public selectedImageId: number;
 
   constructor(private appFacade: AppFacade,
               private renderer: Renderer2) {
@@ -48,10 +56,21 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
     if (event.key === 'Escape' && this.isModalOpenValue) {
       this.appFacade.closeModal();
+
     }
   }
 
   public closeModal() {
     this.appFacade.closeModal();
+  }
+
+  public leftArrowClick():  void {
+    this.selectedImageId--;
+    console.log(this.selectedImageId);
+  }
+
+  public rightArrowClick(): void {
+    this.selectedImageId++;
+    console.log(this.selectedImageId);
   }
 }

@@ -16,6 +16,8 @@ import { AppFacade } from '../../../state-management/app/app.facade';
 })
 export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
+  public selectedImageId: number = null;
+
   private routeSubscription: Subscription;
 
   public albumData: Observable<IGalleryCover> = Observable.of({
@@ -43,7 +45,9 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
     this.routeSubscription.unsubscribe();
   }
 
-  public openModal(id: number, url: string) {
+  public openModal(imageId: number) {
+    console.log(imageId);
+    this.selectedImageId = imageId;
     this.appFacade.openModal();
   }
 

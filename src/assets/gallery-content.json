@@ -8,50 +8,38 @@
 		"translateY": -15,
 		"albumImages": [
 			{
-			"albumId": 1,
+			"imageId": 1,
 			"imgUrl": "https://farm5.staticflickr.com/4535/24056102767_94eeae91ee_k.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "Fashion shoots @ London throughout 2017",
 			"translateX": -55,
 			"translateY": -15
 			},
 			{
-			"albumId": 2,
+			"imageId": 2,
 			"imgUrl": "https://farm5.staticflickr.com/4735/27144055809_570f5f39ac_h.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "Fashion shoots @ London throughout 2017",
 			"translateX": -50,
 			"translateY": -20
 			},
 			{
-			"albumId": 3,
+			"imageId": 3,
 			"imgUrl": "https://farm5.staticflickr.com/4596/27141050699_8422d35014_h.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "Fashion shoots @ London throughout 2017",
 			"translateX": -15,
 			"translateY": -10
 			},
 			{
-			"albumId": 4,
+			"imageId": 4,
 			"imgUrl": "https://farm5.staticflickr.com/4731/38920313631_b522714b77_h.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "Fashion shoots @ London throughout 2017",
 			"translateX": -10,
 			"translateY": -20
 			},
 			{
-			"albumId": 5,
+			"imageId": 5,
 			"imgUrl": "https://farm5.staticflickr.com/4581/25046053148_2cca7312f6_h.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "Fashion shoots @ London throughout 2017",
 			"translateX": -12,
 			"translateY": -10
 			},
 			{
-			"albumId": 6,
+			"imageId": 6,
 			"imgUrl": "https://farm5.staticflickr.com/4338/36035608290_42cd4ec771_h.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "Fashion shoots @ London throughout 2017",
 			"translateX": -33,
 			"translateY": -30
 			}
@@ -76,34 +64,26 @@
 		"translateY": -30,
 		"albumImages": [
 			{
-			"albumId": 1,
+			"imageId": 1,
 			"imgUrl": "https://farm9.staticflickr.com/8108/28991763830_53b67b4744_k.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "",
 			"translateX": -33,
 			"translateY": -30
 			}, 
 			{ 
-			"albumId": 2,
+			"imageId": 2,
 			"imgUrl": "https://farm9.staticflickr.com/8015/29362470986_7b0540734a_k.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "",
 			"translateX": -33,
 			"translateY": -30
 			},
 			{
-			"albumId": 3,
+			"imageId": 3,
 			"imgUrl": "https://farm9.staticflickr.com/8300/29660978071_69838d4f90_k.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "",
 			"translateX": -15,
 			"translateY": -43
 			},
 			{ 
-			"albumId": 4,
+			"imageId": 4,
 			"imgUrl": "https://farm9.staticflickr.com/8866/28531243165_b6238b346a_k.jpg",
-			"albumTitle": "",
-			"albumSubtitle": "",
 			"translateX": -30,
 			"translateY": -30
 			}
