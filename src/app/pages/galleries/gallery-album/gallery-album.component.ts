@@ -46,7 +46,6 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
   }
 
   public openModal(imageId: number, imageUrl: string, horizontal: boolean) {
-    // this.appFacade.updateSelectedImageId(imageId);
     this.appFacade.updateSelectedImage(imageUrl, imageId, horizontal);
     this.appFacade.openModal();
   }
