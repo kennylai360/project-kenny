@@ -5,14 +5,14 @@
      aria-hidden="true"
      (click)="closeModal()">
   </i>
-  <i class="fa fa-arrow-left modal-arrows left-arrow"
-     aria-hidden="true"
-     (click)="leftArrowClick()">
-  </i>
-  <i class="fa fa-arrow-right modal-arrows right-arrow"
-     aria-hidden="true"
-     (click)="rightArrowClick()">
-  </i>
+  <!--<i class="fa fa-arrow-left modal-arrows left-arrow"-->
+     <!--aria-hidden="true"-->
+     <!--(click)="leftArrowClick()">-->
+  <!--</i>-->
+  <!--<i class="fa fa-arrow-right modal-arrows right-arrow"-->
+     <!--aria-hidden="true"-->
+     <!--(click)="rightArrowClick()">-->
+  <!--</i>-->
   <img class="modal-image"
        [lazyLoad]="(selectedImageUrl$ | async)"
        [ngClass]="{'horizontal-image': (selectedImageHorizontalOrientation$ | async), 'vertical-image': !(selectedImageHorizontalOrientation$ | async)}">
