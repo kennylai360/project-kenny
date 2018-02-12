@@ -16,6 +16,8 @@ import { AppFacade } from '../../../state-management/app/app.facade';
 })
 export class GalleryAlbumComponent implements OnInit, OnDestroy {
 
+  public p: number = 1;
+
   public selectedImageId: number = null;
 
   private routeSubscription: Subscription;

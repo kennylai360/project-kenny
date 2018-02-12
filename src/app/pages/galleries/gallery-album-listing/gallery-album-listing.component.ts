@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 
@@ -16,7 +15,7 @@ export class GalleryAlbumListingComponent implements OnInit {
 
   public coverContent: Observable<IGalleryCover[]>;
 
-  public pageNumber: number = 1;
+  public p: number = 1;
 
   constructor(
     private galleryFacade:  GalleryFacade
