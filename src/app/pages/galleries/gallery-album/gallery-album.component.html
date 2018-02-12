@@ -7,9 +7,12 @@
 </app-gallery-album-jumbotron>
 
 <hr class="hr-light mt-4 animated fadeInDown">
+<pagination-controls (pageChange)="p = $event"
+                     autoHide="true"
+></pagination-controls>
 
 <div class="centerise-album-imgs">
-  <a *ngFor="let item of (albumData | async).albumImages">
+  <a *ngFor="let item of ((albumData | async).albumImages) | paginate: { itemsPerPage: 20, currentPage: p }">
     <app-gallery-album-cover
       (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
       [imgUrl]="item.imgUrl"

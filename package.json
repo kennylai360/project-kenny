@@ -16,8 +16,8 @@
     "@angular/animations": "^5.2.4",
     "@angular/cdk": "^5.2.0",
     "@angular/common": "^5.2.4",
-    "@angular/compiler": "^5.2.4",
-    "@angular/core": "^5.2.4",
+    "@angular/compiler": "~5.2.4",
+    "@angular/core": "~5.2.4",
     "@angular/forms": "^5.2.4",
     "@angular/http": "^5.2.4",
     "@angular/platform-browser": "^5.2.4",
@@ -26,7 +26,7 @@
     "@ngrx/core": "^1.2.0",
     "@ngrx/effects": "^5.0.1",
     "@ngrx/store": "^5.0.0",
-    "angular-bootstrap-md": "^5.1.2",
+    "angular-bootstrap-md": "^5.0.0",
     "chart.js": "^2.5.0",
     "core-js": "^2.5.3",
     "easy-pie-chart": "2.1.x",
@@ -65,7 +65,7 @@
     "ngrx-store-freeze": "^0.2.1",
     "protractor": "~5.3.0",
     "ts-node": "~4.1.0",
-    "tslint": "~5.9.1",
-    "typescript": "~2.7.1"
+    "tslint": "~5.8.0",
+    "typescript": "2.6.2"
   }
 }
