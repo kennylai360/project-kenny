@@ -1,3 +1,5 @@
+import { IAlbumImagesData } from '../../pages/galleries/gallery-album/album-data.interface';
+
 export interface IGalleryCover {
   albumId: number;
   imgUrl: string;
@@ -5,6 +7,5 @@ export interface IGalleryCover {
   albumSubtitle?: string;
   translateX?: number;
   translateY?: number;
-  // @TODO - NEED TO CHANGE THIS TO ARRAY OF IGALLERYCOVER WHEN IMPLEMENTING
-  albumImages?: IGalleryCover[];
+  albumImages?: IAlbumImagesData[];
 }

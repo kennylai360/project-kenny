@@ -40,6 +40,11 @@ export class GalleryEffects {
       );
       // if data exists load the data and stay on the page, else return to the album listings page
       if (filteredData.length !== 0) {
+        // sort the images in decending order, essentially emulating the latest images go first.
+        const sortedImages = filteredData[0].albumImages;
+        sortedImages.sort(function(a, b) {
+          return (a.imageId < b.imageId) ? 1 : ((b.imageId < a.imageId) ? -1 : 0);
+        });
         return new GalleryGetDataByIdSuccessAction(filteredData[0]);
       } else {
         return new GalleryRedirectBackToAlbumListPageAction();
