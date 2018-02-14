@@ -14,6 +14,10 @@
   transition: all 0.5s ease;
 }
 
+img {
+  pointer-events: none;
+}
+
 .modal-image {
   position: fixed;
   top: 50%;
