@@ -14,7 +14,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     const ua = window.navigator.userAgent;
     if (ua.indexOf('Trident/') > -1 ||
-        ua.indexOf('Edge/') > -1) {
+        ua.indexOf('Edge/') > -1 ||
+        ua.indexOf('MSIE ') > -1) {
       this.toastService.info(
         'For an optimised browsing experience, please use an another browser.',
         'Internet Explorer detected',
