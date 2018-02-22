@@ -28,6 +28,7 @@
     "@ngrx/store": "^5.0.0",
     "angular-bootstrap-md": "^5.0.0",
     "chart.js": "^2.5.0",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.3",
     "easy-pie-chart": "2.1.x",
     "font-awesome": "^4.7.0",

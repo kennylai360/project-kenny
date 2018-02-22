@@ -31,6 +31,7 @@ import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-li
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastModule } from './typescripts/pro/alerts/toast/toast.module';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -83,6 +84,7 @@ const appRoutes: Routes = [
     FooterModule,
     MDBBootstrapModule.forRoot(),
     MDBBootstrapModulePro.forRoot(),
+    ToastModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
