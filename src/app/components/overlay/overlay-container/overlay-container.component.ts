@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, HostListener, Input, NgZone, OnDestroy, OnInit, Output, Renderer2,
+  Component, HostListener, Input, OnDestroy, OnInit, Renderer2,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -7,10 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AppFacade } from '../../../state-management/app/app.facade';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
-import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
-import { IAlbumImagesData } from '../../../pages/galleries/gallery-album/album-data.interface';
 
 @Component({
   selector: 'app-overlay-container',
@@ -28,10 +25,6 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
   public selectedImageHorizontalOrientation$: Observable<boolean>;
 
-  public imageWidth: number;
-
-  public imageHeight: number;
-
   private modalOpenSubscription: Subscription;
 
   private modalSelectedImageIdSubscription: Subscription;
@@ -45,15 +38,7 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
   public selectedImageId: Observable<number>;
 
   constructor(private appFacade: AppFacade,
-              private renderer: Renderer2,
-              private ngZone: NgZone) {
-
-    window.onresize = (e) => {
-      ngZone.run(() => {
-        this.imageWidth = window.innerWidth;
-        this.imageHeight = window.innerHeight;
-      });
-    };
+              private renderer: Renderer2) {
   }
 
   ngOnInit() {
@@ -61,9 +46,6 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
     this.selectedImageUrl$ = this.appFacade.selectedImage$;
     this.selectedImageId$ = this.appFacade.selectedImageId$;
     this.selectedImageHorizontalOrientation$ = this.appFacade.selectedImageHorizontalOrientation$;
-
-    // this.modalSelectedImageIdSubscription = this.appFacade.selectedImageId$.subscribe((data: number) => {
-    // });
 
     this.modalOpenSubscription = this.isModalOpen$.subscribe((data: boolean) => {
       if (data) {
@@ -91,7 +73,14 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
     if (event.key === 'Escape' && this.isModalOpenValue) {
       this.appFacade.closeModal();
+    }
 
+    if (event.key === 'ArrowLeft' && this.isModalOpenValue) {
+      console.log('Left button pressed');
+    }
+
+    if (event.key === 'ArrowRight' && this.isModalOpenValue) {
+      console.log('Right button pressed');
     }
   }
 
@@ -100,13 +89,6 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.appFacade.updateSelectedImage('', null, false);
       }, 500);
-
-  }
-
-  public leftArrowClick():  void {
-  }
-
-  public rightArrowClick(): void {
 
   }
 }

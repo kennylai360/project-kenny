@@ -15,7 +15,7 @@ export class GalleryAlbumListingComponent implements OnInit {
 
   public coverContent: Observable<IGalleryCover[]>;
 
-  public p: number = 1;
+  public currentSelectedPage: number = 1;
 
   constructor(
     private galleryFacade:  GalleryFacade

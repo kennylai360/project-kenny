@@ -4,7 +4,7 @@
   <pagination-controls (pageChange)="p = $event"
                        autoHide="true"
   ></pagination-controls>
-  <a *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 20, currentPage: p }">
+  <a *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 20, currentPage: currentSelectedPage }">
     <app-gallery-album-cover
             [imgUrl]="item.imgUrl"
             [albumTitle]="item.albumTitle"
