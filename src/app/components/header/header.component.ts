@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     if (ua.indexOf('Trident/') > -1 ||
         ua.indexOf('Edge/') > -1 ||
         ua.indexOf('MSIE ') > -1) {
+      console.log(ua);
       this.toastService.info(
         'For an optimised browsing experience, please use an another browser.',
         'Internet Explorer detected',
