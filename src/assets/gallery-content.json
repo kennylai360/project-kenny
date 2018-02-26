@@ -116,7 +116,176 @@
 		"albumSubtitle": "A few snapshots of cosplayers in a Hong Kong convention",
 		"translateX": -15,
 		"translateY": -20,
-		"albumImages": []
+		"albumImages": [
+			{
+			"imageId": 1,
+			"imgUrl": "https://farm9.staticflickr.com/8167/28632292835_f6a98d297a_k.jpg",
+			"translateX": -13,
+			"translateY": -20,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 2,
+			"imgUrl": "https://farm9.staticflickr.com/8658/28524669632_6c6c5463c1_k.jpg",
+			"translateX": -10,
+			"translateY": -13,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 3,
+			"imgUrl": "https://farm9.staticflickr.com/8569/28270854574_69044c53d7_k.jpg",
+			"translateX": -3,
+			"translateY": -15,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 4,
+			"imgUrl": "https://farm9.staticflickr.com/8611/28270855874_9257daaa1c_k.jpg",
+			"translateX": -10,
+			"translateY": -15,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 5,
+			"imgUrl": "https://farm9.staticflickr.com/8814/28273023173_9ee84d8fe5_k.jpg",
+			"translateX": -23,
+			"translateY": -18,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 6,
+			"imgUrl": "https://farm9.staticflickr.com/8599/28273023023_663c8cfb0d_k.jpg",
+			"translateX": -10,
+			"translateY": -15,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 7,
+			"imgUrl": "https://farm9.staticflickr.com/8604/28270855444_aaa2c612e3_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 8,
+			"imgUrl": "https://farm9.staticflickr.com/8048/28553652791_fed836558e_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 9,
+			"imgUrl": "https://farm8.staticflickr.com/7545/28562079162_5bf13108a3_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 10,
+			"imgUrl": "https://farm9.staticflickr.com/8810/28783553772_76c362dc05_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 11,
+			"imgUrl": "https://farm9.staticflickr.com/8640/28273022203_c2390bd470_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 12,
+			"imgUrl": "https://farm9.staticflickr.com/8881/28273021823_ba8b2c4ee1_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 13,
+			"imgUrl": "https://farm9.staticflickr.com/8772/28621335066_e57f7889bc_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 14,
+			"imgUrl": "https://farm9.staticflickr.com/8880/28270854524_056ce4458b_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 15,
+			"imgUrl": "https://farm9.staticflickr.com/8758/28697360195_09f4717b2c_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 16,
+			"imgUrl": "https://farm9.staticflickr.com/8762/28783553092_6afe5f6a6f_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 17,
+			"imgUrl": "https://farm9.staticflickr.com/8368/28412962820_36bbf8a477_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 18,
+			"imgUrl": "https://farm9.staticflickr.com/8618/28546449692_60179363de_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 19,
+			"imgUrl": "https://farm9.staticflickr.com/8872/28273021283_e78ad088c1_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 20,
+			"imgUrl": "https://farm9.staticflickr.com/8236/28559914212_5fb207d29b_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 21,
+			"imgUrl": "https://farm9.staticflickr.com/8712/28273023633_373e1bd432_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 22,
+			"imgUrl": "https://farm9.staticflickr.com/8623/28270856114_f7f7b7a41e_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 23,
+			"imgUrl": "https://farm9.staticflickr.com/8509/28273023433_aaad082add_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 24,
+			"imgUrl": "https://farm9.staticflickr.com/8740/28058323584_f5f70b3286_k.jpg",
+			"translateX": -10,
+			"translateY": -30,
+			"horizontalOrient": true
+			}
+		]
 	},
 	{
 		"albumId": 3,
