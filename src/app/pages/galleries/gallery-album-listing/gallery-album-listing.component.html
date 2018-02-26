@@ -1,10 +1,10 @@
 <div class="image-alignment">
   <h2 class="album-text animated fadeInDown">Albums</h2>
   <hr class="hr-light mt-4 animated fadeInDown" data-wow-delay="1.4s">
-  <pagination-controls (pageChange)="p = $event"
+  <pagination-controls (pageChange)="currentSelectedPage = $event"
                        autoHide="true"
   ></pagination-controls>
-  <a *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 20, currentPage: p }">
+  <a *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 20, currentPage: currentSelectedPage }">
     <app-gallery-album-cover
             [imgUrl]="item.imgUrl"
             [albumTitle]="item.albumTitle"
