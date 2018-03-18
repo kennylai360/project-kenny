@@ -13,7 +13,13 @@ app-gallery-album-cover {
 
 .ngx-pagination {
   text-align: center;
-  color: white;
+  & span {
+    color: white;
+  }
+}
+
+.ngx-pagination a {
+  color: white !important;
 }
 
 .previous-page-button {
