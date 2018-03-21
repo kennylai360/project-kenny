@@ -12,7 +12,7 @@
 ></pagination-controls>
 
 <div class="centerise-album-imgs">
-  <a *ngFor="let item of ((albumData | async).albumImages) | paginate: { itemsPerPage: 20, currentPage: p }">
+  <a *ngFor="let item of ((albumData | async).albumImages) | paginate: { itemsPerPage: 40, currentPage: p }">
     <app-gallery-album-cover
       (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
       [imgUrl]="item.imgUrl"
