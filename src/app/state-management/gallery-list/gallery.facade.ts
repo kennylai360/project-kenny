@@ -26,7 +26,7 @@ export class GalleryFacade {
     this.store.dispatch(new GalleryGetDataByIdAction());
   }
 
-  public setSelectedId(idValue: number): void {
+  public setSelectedId(idValue: string): void {
     this.store.dispatch(new GallerySetSelectedAlbumIdAction(idValue));
   }
 

@@ -29,7 +29,7 @@ export class GalleryLoadDataFailureAction implements Action {
 export class GallerySetSelectedAlbumIdAction implements Action {
   public readonly type = GALLERY_SET_SELECTED_ID;
 
-  constructor(public payload: number) {}
+  constructor(public payload: string) {}
 }
 
 export class GalleryGetDataByIdAction implements Action {
