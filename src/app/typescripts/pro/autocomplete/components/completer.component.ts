@@ -66,8 +66,10 @@ export class CompleterComponent implements OnInit, ControlValueAccessor, AfterVi
   public searchStr = '';
   public control = new FormControl('');
 
-   displaySearching = true;
-   displayNoResults = true;
+  //  displaySearching = true;
+  displaySearching: any = true;
+  //  displayNoResults = true;
+  displayNoResults: any = true;
    _onTouchedCallback: () => void = noop;
    _onChangeCallback: (_: any) => void = noop;
    _focus = false;
@@ -156,6 +158,10 @@ export class CompleterComponent implements OnInit, ControlValueAccessor, AfterVi
       this._open = isOpen;
       this.opened.emit(isOpen);
     });
+    if (this.initialValue) { // <- start workaround
+      this.searchStr = this.initialValue; //
+      this.onFocus(); // fix label
+      }// <- end workaround
   }
 
   public onBlur() {

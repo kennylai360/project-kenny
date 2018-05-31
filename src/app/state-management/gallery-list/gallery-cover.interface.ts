@@ -1,7 +1,7 @@
 import { IAlbumImagesData } from '../../pages/galleries/gallery-album/album-data.interface';
 
 export interface IGalleryCover {
-  albumId: number;
+  albumId: string;
   imgUrl: string;
   albumTitle?: string;
   albumSubtitle?: string;
