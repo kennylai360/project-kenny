@@ -4,6 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  appVersion: '1.6.0',
+  appVersion: '1.7.0',
   production: false
 };
