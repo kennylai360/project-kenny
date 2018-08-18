@@ -9,17 +9,14 @@ import { AppComponent } from './app.component';
 import { IndexState, listOfReducers } from './state-management/ngrx-index';
 import { CounterFacade } from './state-management/counter/counter-facade';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { MDBBootstrapModulePro } from './typescripts/pro/index';
 import { DemoLazyloadingImagesComponent } from './pages/demo-lazyloading-images/demo-lazyloading-images.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
 import { storeLogger } from 'ngrx-store-logger';
 import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
-import { EffectsRootModule } from '@ngrx/effects/src/effects_root_module';
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
@@ -31,7 +28,6 @@ import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-li
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ToastModule } from './typescripts/pro/alerts/toast/toast.module';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
   return storeLogger()(reducer);
@@ -82,9 +78,6 @@ const appRoutes: Routes = [
     PagesModule,
     ComponentsModule,
     FooterModule,
-    MDBBootstrapModule.forRoot(),
-    MDBBootstrapModulePro.forRoot(),
-    ToastModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),

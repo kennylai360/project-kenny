@@ -19,17 +19,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../scss/bootstrap/bootstrap.scss",
-        "../scss/mdb.scss",
-        "../scss/mdb-free.scss",
         "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/animate.css/animate.min.css",
         "styles.scss"
       ],
       "scripts": [
         "../node_modules/chart.js/dist/Chart.js",
-		"../node_modules/easy-pie-chart/dist/easypiechart.js",
-		"../node_modules/screenfull/dist/screenfull.js",
-        "../node_modules/hammerjs/hammer.min.js"
+        "../node_modules/easy-pie-chart/dist/easypiechart.js",
+        "../node_modules/screenfull/dist/screenfull.js",
+        "../node_modules/hammerjs/hammer.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -6,11 +6,16 @@
   text-align: center;
 
   .page-footer {
-    padding: 0px !important;
-    margin:  0px !important;
+    padding: 5px 0px;
+    margin:  0px;
   }
 
-  .page-footer .footer-copyright {
+  .page-footer {
     background-color: rgba(0, 0, 0, 0.56);
+  }
+
+  .footer-copyright {
+    font-size: 0.75em;
+    color: rgba(255, 255, 255, 0.25);
   }
 }
