@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  font-family: 'Roboto Condensed', Arial, sans-serif;
   background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url($header-img);
   background-position: $positioning;
   background-repeat: no-repeat;
