@@ -75,6 +75,13 @@
 			},
 			{
 			"imageId": 10,
+			"imgUrl": "https://farm2.staticflickr.com/1765/42568886765_f11d617300_o.jpg",
+			"translateX": -15,
+			"translateY": -5,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 11,
 			"imgUrl": "https://farm1.staticflickr.com/835/29764868438_6b6a9b5baf_k.jpg",
 			"translateX": -15,
 			"translateY": -15,
