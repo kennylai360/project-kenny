@@ -86,6 +86,62 @@
 			"translateX": -15,
 			"translateY": -15,
 			"horizontalOrient": false
+			},
+			{
+			"imageId": 12,
+			"imgUrl": "https://farm1.staticflickr.com/930/43634099901_53b3dac75f_k.jpg",
+			"translateX": -15,
+			"translateY": -15,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 13,
+			"imgUrl": "https://farm1.staticflickr.com/849/29764954508_9de6b1feb7_k.jpg",
+			"translateX": -15,
+			"translateY": -15,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 14,
+			"imgUrl": "https://farm1.staticflickr.com/941/41827009680_e9c51ee251_k.jpg",
+			"translateX": -15,
+			"translateY": -35,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 15,
+			"imgUrl": "https://farm1.staticflickr.com/855/29764916278_1d18c246ed_k.jpg",
+			"translateX": -50,
+			"translateY": -15,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 16,
+			"imgUrl": "https://farm1.staticflickr.com/920/41826999930_69ec17fed3_k.jpg",
+			"translateX": -30,
+			"translateY": -20,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 17,
+			"imgUrl": "https://farm1.staticflickr.com/839/43587332102_9797bfae59_k.jpg",
+			"translateX": -45,
+			"translateY": -15,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 18,
+			"imgUrl": "https://farm2.staticflickr.com/1867/44131582031_c7c6d1a57b_k.jpg",
+			"translateX": -15,
+			"translateY": -15,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 19,
+			"imgUrl": "https://farm1.staticflickr.com/843/41826972070_0c6760aa6a_k.jpg",
+			"translateX": -55,
+			"translateY": -20,
+			"horizontalOrient": true
 			}
 		] 
 		
