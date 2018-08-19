@@ -16,6 +16,19 @@ img.album-jumbotron.ng-lazyloaded {
   opacity: 0.5;
 }
 
+a {
+  color: white;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  &:hover {
+    color: rgba(255,255,255,0.4);
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+
 .album-jumbotron {
   object-fit: cover;
   width: 100%;

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
 
 @Component({
   selector: 'app-gallery-album-jumbotron',
@@ -16,6 +17,9 @@ export class GalleryAlbumJumbotronComponent implements OnInit {
 
   @Input()
   public albumCoverPicture?: string;
+
+  @Input()
+  public socialMediaLinks?: ISocialMediaLinks;
 
   constructor() {
   }

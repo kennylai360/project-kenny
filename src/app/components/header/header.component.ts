@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ToastService } from '../../typescripts/pro/alerts/toast/toast.service';
 
 @Component({
   selector: 'app-header',
@@ -9,21 +8,14 @@ import { ToastService } from '../../typescripts/pro/alerts/toast/toast.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private toastService: ToastService) { }
+  constructor() { }
 
   ngOnInit() {
     const ua = window.navigator.userAgent;
     if (ua.indexOf('Trident/') > -1 ||
-        ua.indexOf('Edge/') > -1 ||
-        ua.indexOf('MSIE ') > -1) {
-      console.log(ua);
-      this.toastService.info(
-        'For an optimised browsing experience, please use an another browser.',
-        'Internet Explorer detected',
-        {
-          timeOut: 0,
-          extendedTimeOut: 5000
-        });
+      ua.indexOf('Edge/') > -1 ||
+      ua.indexOf('MSIE ') > -1) {
+      // console.log(ua);
     }
   }
 

@@ -1,9 +1,15 @@
 <div class="imageContainer">
   <div class="gradient-colour">
-    <img class="album-jumbotron" [lazyLoad]="albumCoverPicture">
+    <img class="album-jumbotron noselect" [lazyLoad]="albumCoverPicture">
   </div>
   <div class="jumb-text">
-    <h1 class="animated fadeInDown">{{albumTitle}}</h1>
-    <h5 class="animated fadeInDown">{{albumSubtitle}}</h5>
+    <h1 class="animated fadeInDown noselect">{{albumTitle}}
+      <a *ngIf="socialMediaLinks && socialMediaLinks.instagram" href="{{socialMediaLinks.instagram}}">
+        <i class="fa fa-instagram"></i>
+      </a>
+     </h1>
+
+    <h5 class="animated fadeInDown noselect">{{albumSubtitle}}</h5>
+
   </div>
 </div>
