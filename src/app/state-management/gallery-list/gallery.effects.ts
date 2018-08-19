@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/withLatestFrom';
 import {
-  GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction, GalleryLoadDataFailureAction,
+  GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction,
   GALLERY_LOAD_DATA_BY_ID, GalleryGetDataByIdSuccessAction, GalleryRedirectBackToAlbumListPageAction,
   GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE
 } from './gallery.actions';
@@ -65,15 +65,6 @@ export class GalleryEffects {
               private store$: Store<IndexState>,
               private router: Router,
               private route: ActivatedRoute
-              // private store$: Store<IndexState>,
-              // private actions$: Actions,
-              // private routerActions: RouterActions,
-              // private notificationService: NotificationsService,
-              // private translateService: TranslateService,
-              // private eligibilityService: EligibilityService,
-              // private userFacade: CurrentUserFacade,
-              // private operatorApiService: OperatorAPIService,
-              // private toastrService: ToastrService
   ) {
   }
 }
