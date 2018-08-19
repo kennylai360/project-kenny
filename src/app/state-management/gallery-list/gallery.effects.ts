@@ -40,7 +40,6 @@ export class GalleryEffects {
       const filteredData: IGalleryCover[] = state.gallery.galleryData.filter(
         (obj: IGalleryCover) => (obj.albumId) === (state.gallery.selectedAlbumId)
       );
-      console.log(filteredData);
       // if data exists load the data and stay on the page, else return to the album listings page
       if (filteredData.length !== 0) {
         // sort the images in decending order, essentially emulating the latest images go first.

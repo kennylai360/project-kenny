@@ -76,11 +76,11 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
     }
 
     if (event.key === 'ArrowLeft' && this.isModalOpenValue) {
-      console.log('Left button pressed');
+      // console.log('Left button pressed');
     }
 
     if (event.key === 'ArrowRight' && this.isModalOpenValue) {
-      console.log('Right button pressed');
+      // console.log('Right button pressed');
     }
   }
 

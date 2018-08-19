@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     if (ua.indexOf('Trident/') > -1 ||
       ua.indexOf('Edge/') > -1 ||
       ua.indexOf('MSIE ') > -1) {
-      console.log(ua);
+      // console.log(ua);
     }
   }
 
