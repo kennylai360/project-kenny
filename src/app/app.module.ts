@@ -7,7 +7,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { IndexState, listOfReducers } from './state-management/ngrx-index';
-import { CounterFacade } from './state-management/counter/counter-facade';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -89,7 +88,6 @@ const appRoutes: Routes = [
   ],
   providers: [
     AppFacade,
-    CounterFacade,
     GalleryFacade,
     HttpClient,
     Actions
