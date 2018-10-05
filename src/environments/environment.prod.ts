@@ -1,4 +1,6 @@
+import { versioningNumber } from './environment-variables';
+
 export const environment = {
-  appVersion: '2.0.1',
+  appVersion: versioningNumber,
   production: true
 };
