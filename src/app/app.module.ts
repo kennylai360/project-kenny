@@ -10,7 +10,6 @@ import { IndexState, listOfReducers } from './state-management/ngrx-index';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { DemoLazyloadingImagesComponent } from './pages/demo-lazyloading-images/demo-lazyloading-images.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
 import { storeLogger } from 'ngrx-store-logger';
@@ -57,10 +56,6 @@ const appRoutes: Routes = [
       { path: ':id', component: GalleryAlbumComponent, data: {
       } },
     ]
-  },
-  {
-    path: 'lazyloadingimagesdemo',
-    component: DemoLazyloadingImagesComponent
   },
   {
     path: '**',
