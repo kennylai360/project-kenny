@@ -74,6 +74,37 @@
 		] 
 	},
 	{
+		"albumId": "HyperJapanJuly2018",
+		"imgUrl": "https://farm2.staticflickr.com/1827/28589399667_2943e1d768_k.jpg",
+		"albumTitle": "July HyperJapan 2018",
+		"albumSubtitle": "Small collection of pictures taken at Olympia London for the July HyperJapan event (13th July to 15th July)",
+		"translateX": -33,
+		"translateY": -30,
+		"albumImages": [
+			{
+			"imageId": 1,
+			"imgUrl": "https://farm2.staticflickr.com/1827/28589399667_2943e1d768_k.jpg",
+			"translateX": -33,
+			"translateY": -30,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 2,
+			"imgUrl": "https://farm2.staticflickr.com/1807/42754699064_9e5ba71f5a_k.jpg",
+			"translateX": -33,
+			"translateY": -30,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 3,
+			"imgUrl": "https://farm1.staticflickr.com/926/29600355878_3a44ba0c1c_k.jpg",
+			"translateX": -50,
+			"translateY": -30,
+			"horizontalOrient": true
+			}
+		] 
+	},
+	{
 		"albumId": "HarukoMisaki",
 		"imgUrl": "https://farm1.staticflickr.com/855/29764916278_1d18c246ed_k.jpg",
 		"albumTitle": "Haruko Misaki",
