@@ -534,6 +534,27 @@
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
+			},
+			{
+			"imageId": 28,
+			"imgUrl": "https://farm2.staticflickr.com/1960/45669652982_1bce5ab303_k.jpg",
+			"translateX": -45,
+			"translateY": -20,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 29,
+			"imgUrl": "https://farm5.staticflickr.com/4878/44995463284_0b0a213340_k.jpg",
+			"translateX": -30,
+			"translateY": -20,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 30,
+			"imgUrl": "https://farm5.staticflickr.com/4813/30779755867_5756cbad11_k.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": false
 			}
 		] 
 		
