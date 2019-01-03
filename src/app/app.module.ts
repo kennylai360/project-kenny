@@ -28,7 +28,10 @@ import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 export function logger(reducer: ActionReducer<IndexState>): any {
-  return storeLogger()(reducer);
+  return storeLogger({
+    collapsed: true
+    }
+  )(reducer);
 }
 
 export const metaReducers = environment.production ? [] : [logger];
