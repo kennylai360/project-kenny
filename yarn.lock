@@ -185,13 +185,15 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngrx/effects@6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-6.1.2.tgz#602f3ee9798e00179075ddef030ded88c28b1aa1"
+"@ngrx/effects@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-7.0.0.tgz#57ea3a42ed970b748e78292e54fe02a768027b05"
+  integrity sha512-lhwt+UMDPYuxeTQ5vBw/MuKrIroHvQ6cLy0nGvNl8oPxakI2Jz/NAPuTYd+AdV/6ao9M9+kxXhQRFkAV53EEjA==
 
-"@ngrx/store@6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-6.1.2.tgz#20fb5ab4d79571b804a348093aa11a167fe2946f"
+"@ngrx/store@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-7.0.0.tgz#5472000197c2a388b09afceb2d062cb37b03d334"
+  integrity sha512-fF4A4De/vtQawxGBc1jV5HiLrc/J3NS8A2UDRoD3kLdviDzAlAber6kuj5XmM+xxaI9f9qnUrwOVXr/oPfqoBg==
 
 "@ngtools/webpack@7.0.6":
   version "7.0.6"
@@ -4834,9 +4836,10 @@ ng-lazyload-image@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/ng-lazyload-image/-/ng-lazyload-image-5.0.0.tgz#b2ba9ca27eb4b8a4a3603878d8f7e289ce774156"
 
-ngrx-store-logger@^0.2.1:
+ngrx-store-logger@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/ngrx-store-logger/-/ngrx-store-logger-0.2.2.tgz#c1ed4d5f30710bdb4583ddbe488b96fa44b03bda"
+  integrity sha512-3e+Yf0n1WNpfosdR5zN0P3c8yinf7tE3KvQbguDb7KkgkL6GEz4QRLRooObPsE/b1CA3KG1o80QHmp2ON+OMUA==
 
 ngx-pagination@^3.1.0:
   version "3.1.0"
