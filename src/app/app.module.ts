@@ -12,7 +12,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
-import { storeLogger } from 'ngrx-store-logger';
 import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
@@ -27,15 +26,19 @@ import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-a
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-export function logger(reducer: ActionReducer<IndexState>): any {
-  return storeLogger({
-    collapsed: true
-    }
-  )(reducer);
+export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state: any, action: any) => {
+    console.groupCollapsed(action.type);
+    const nextState = reducer(state, action);
+    console.log(`%c prev state`, `color: #9E9E9E; font-weight: bold`, state);
+    console.log(`%c action`, `color: #03A9F4; font-weight: bold`, action);
+    console.log(`%c next state`, `color: #4CAF50; font-weight: bold`, nextState);
+    console.groupEnd();
+    return nextState;
+  };
 }
 
-export const metaReducers = environment.production ? [] : [logger];
-
+export const metaReducers = environment.production ? [] : [metaReducerLogger];
 
 const appRoutes: Routes = [
   {
