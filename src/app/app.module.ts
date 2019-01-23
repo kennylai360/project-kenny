@@ -12,7 +12,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
-import { storeLogger } from 'ngrx-store-logger';
 import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
@@ -27,15 +26,7 @@ import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-a
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-export function logger(reducer: ActionReducer<IndexState>): any {
-  return storeLogger({
-    collapsed: true
-    }
-  )(reducer);
-}
-
-export const metaReducers = environment.production ? [] : [logger];
-
+export const metaReducers = environment.production ? [] : [];
 
 const appRoutes: Routes = [
   {
