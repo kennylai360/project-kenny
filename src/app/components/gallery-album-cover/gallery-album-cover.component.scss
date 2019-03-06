@@ -2,13 +2,13 @@ img.album-cover {
   opacity: 0;
   display: block;
   height: 200%;
-  -moz-transition: all 1s;
-  -webkit-transition: all 1s;
-  transition: all 1s;
 }
 
 img.album-cover.ng-lazyloaded {
   opacity: 1;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .gallery-container {
