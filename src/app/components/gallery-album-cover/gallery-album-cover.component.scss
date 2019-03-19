@@ -54,10 +54,8 @@ img.album-cover.ng-lazyloaded {
   -ms-transform: translate(-50%, -50%);
 }
 
-:host {
-  .spinner-border {
-    width: 5rem !important;
-    height: 5rem !important;
-  }
+//override the spinner size and colour in the bootstrap
+.spinner-border {
+  border: 1.5rem solid lightslategrey !important;
+  border-right-color: transparent !important;
 }
-
