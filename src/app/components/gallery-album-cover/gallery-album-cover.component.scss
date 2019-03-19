@@ -33,6 +33,15 @@ img.album-cover.ng-lazyloaded {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.overlay-spinner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
 
 .text {
   width: 90%;
@@ -43,5 +52,12 @@ img.album-cover.ng-lazyloaded {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+:host {
+  .spinner-border {
+    width: 5rem !important;
+    height: 5rem !important;
+  }
 }
 
