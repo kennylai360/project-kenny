@@ -1,36 +1,55 @@
-.jumb-content {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
-
-app-gallery-album-cover {
-  display: inline-block;
-}
-
-.centerise-album-imgs {
-  text-align: center;
-}
-
-.ngx-pagination {
-  text-align: center;
-  & span {
-    color: white;
+:host {
+  .jumb-content {
+    padding-top: 150px;
+    padding-bottom: 150px;
   }
-}
 
-.ngx-pagination a {
-  color: white !important;
-}
+  app-gallery-album-cover {
+    display: inline-block;
+  }
 
-.previous-page-button {
-  color: white;
-  i {
-    padding-right: 5px;
+  .centerise-album-imgs {
+    text-align: center;
   }
-  a, a:visited {
-    text-decoration: none;
-    color: #ffffff;
-  }
-}
+
+  /deep/ .ngx-pagination {
+    text-align: center;
+
+    & span {
+      color: white;
+    }
+
+    & .pagination-next a {
+      color: white;
+      &:hover {
+        color: black;
+      }
+    }
+
+    & .pagination-previous a {
+      color: white;
+      &:hover {
+        color: black;
+      }
+    }
+    
+    & .disabled {
+      cursor: not-allowed;
+    }
+
+    & a {
+      color: white;
+      text-decoration: none;
+      &:hover span  {
+        color:black;
+      }
+    }
+
+    & .current {
+      background: grey;
+    }
+
+  } //end ngx-pagination
+} //end :host
 
 
