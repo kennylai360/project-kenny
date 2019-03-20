@@ -4,7 +4,6 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   selector: 'app-gallery-album-cover',
   templateUrl: './gallery-album-cover.component.html',
   styleUrls: ['./gallery-album-cover.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class GalleryAlbumCoverComponent {
 
