@@ -1,4 +1,21 @@
 :host {
+
+  //Return to album link
+  a {
+    color: white;
+    text-decoration: none;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.4);
+      -moz-transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+  }
+
   .jumb-content {
     padding-top: 150px;
     padding-bottom: 150px;
