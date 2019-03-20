@@ -1,5 +1,5 @@
 <div class="gallery-container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
-  <div class="spinner-grow text-dark overlay-spinner"></div>
+  <div class="spinner-border text-dark overlay-spinner"></div>
   <img class="album-cover noselect"
                [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
                [lazyLoad]="imgUrl"
