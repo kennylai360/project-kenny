@@ -1,22 +1,24 @@
-
-@media (min-width: 1280px) {
-  .jumbotron {
-    margin-left: 200px;
-    margin-right: 200px;
+:host {
+  @media (min-width: 1280px) {
+    .jumbotron {
+      margin-left: 200px;
+      margin-right: 200px;
+    }
   }
-}
 
-.h1-responsive {
-  color: black;
-}
+  .h1-responsive {
+    color: black;
+  }
 
-.profile-row {
-  padding-bottom: 20px;
-}
+  .profile-row {
+    padding-bottom: 20px;
+  }
 
-.pro-pic {
-  border: 1px black solid;
-}
-.profile-p {
-  color: black;
+  .pro-pic {
+    border: 1px black solid;
+  }
+
+  .profile-p {
+    color: black;
+  }
 }
