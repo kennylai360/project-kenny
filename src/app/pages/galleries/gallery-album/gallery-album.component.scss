@@ -1,36 +1,72 @@
-.jumb-content {
-  padding-top: 150px;
-  padding-bottom: 150px;
-}
+:host {
 
-app-gallery-album-cover {
-  display: inline-block;
-}
-
-.centerise-album-imgs {
-  text-align: center;
-}
-
-.ngx-pagination {
-  text-align: center;
-  & span {
+  //Return to album link
+  a {
     color: white;
-  }
-}
-
-.ngx-pagination a {
-  color: white !important;
-}
-
-.previous-page-button {
-  color: white;
-  i {
-    padding-right: 5px;
-  }
-  a, a:visited {
     text-decoration: none;
-    color: #ffffff;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.4);
+      -moz-transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
   }
-}
+
+  .jumb-content {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+
+  app-gallery-album-cover {
+    display: inline-block;
+  }
+
+  .centerise-album-imgs {
+    text-align: center;
+  }
+
+  /deep/ .ngx-pagination {
+    text-align: center;
+
+    & span {
+      color: white;
+    }
+
+    & .pagination-next a {
+      color: white;
+      &:hover {
+        color: black;
+      }
+    }
+
+    & .pagination-previous a {
+      color: white;
+      &:hover {
+        color: black;
+      }
+    }
+    
+    & .disabled {
+      cursor: not-allowed;
+    }
+
+    & a {
+      color: white;
+      text-decoration: none;
+      &:hover span  {
+        color:black;
+      }
+    }
+
+    & .current {
+      background: grey;
+    }
+
+  } //end ngx-pagination
+} //end :host
 
 

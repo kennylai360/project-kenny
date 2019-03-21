@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -7,13 +7,10 @@ import { GalleryFacade } from '../../../state-management/gallery-list/gallery.fa
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 import { AppFacade } from '../../../state-management/app/app.facade';
 
-
-
 @Component({
   selector: 'app-gallery-album',
   templateUrl: './gallery-album.component.html',
   styleUrls: ['./gallery-album.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class GalleryAlbumComponent implements OnInit, OnDestroy {
 

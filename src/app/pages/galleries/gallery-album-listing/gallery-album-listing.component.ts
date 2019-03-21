@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 
-
 @Component({
   selector: 'app-galleries',
   templateUrl: './gallery-album-listing.component.html',

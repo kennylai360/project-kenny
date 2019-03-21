@@ -23,6 +23,8 @@ export class GalleryAlbumCoverComponent {
 
   public opacityValue: number = 0;
 
+  public imageHasLoaded: boolean = false;
+
   constructor() {}
 
   public increaseScalingValue() {
@@ -33,6 +35,10 @@ export class GalleryAlbumCoverComponent {
   public revertScalingValue() {
     this.scaleValue = 1.0;
     this.opacityValue = 0;
+  }
+
+  public imageHasBeenLoaded() {
+    this.imageHasLoaded = true;
   }
 
 }

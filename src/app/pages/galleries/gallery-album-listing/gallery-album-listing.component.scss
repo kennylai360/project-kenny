@@ -1,15 +1,17 @@
-app-gallery-album-cover {
-  display: inline-block;
-}
+:host {
+  app-gallery-album-cover {
+    display: inline-block;
+  }
 
-div.image-alignment {
-  text-align: center;
-}
+  div.image-alignment {
+    text-align: center;
+  }
 
-.album-text {
-  color: white;
-}
+  .album-text {
+    color: white;
+  }
 
-hr {
-  background-color: white;
+  hr {
+    background-color: white;
+  }
 }
