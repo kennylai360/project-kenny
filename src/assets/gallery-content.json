@@ -1,5 +1,57 @@
 [
 	{
+		"albumId": "MayMCM2019",
+		"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/lux1.jpg",
+		"albumTitle": "May MCM 2019",
+		"albumSubtitle": "A few pictures from May MCM 2019, not a lot of pictures were taken but the con was very chill :)",
+		"translateX": -45,
+		"translateY": -40,
+		"albumImages": [
+			{
+			"imageId": 1,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/junko2.jpg",
+			"translateX": -10,
+			"translateY": -10,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 2,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/junko1.jpg",
+			"translateX": -30,
+			"translateY": -10,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 3,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/ahri1.jpg",
+			"translateX": -30,
+			"translateY": -10,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 4,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/ahrixlux1.jpg",
+			"translateX": -30,
+			"translateY": -10,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 5,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/sona1.jpg",
+			"translateX": -45,
+			"translateY": -10,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 6,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/lux1.jpg",
+			"translateX": -45,
+			"translateY": -10,
+			"horizontalOrient": true
+			}
+		] 
+	},
+	{
 		"albumId": "JapanSeptember2018",
 		"imgUrl": "https://farm2.staticflickr.com/1908/45038734181_8c698cc551_k.jpg",
 		"albumTitle": "Japan Sept 2018 ",
@@ -555,6 +607,13 @@
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": false
+			},
+			{
+			"imageId": 31,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/boat-lewd1.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": true
 			}
 		] 
 		
