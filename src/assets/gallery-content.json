@@ -410,14 +410,14 @@
 	},
 	{
 		"albumId": "HarukoMisaki",
-		"imgUrl": "https://farm1.staticflickr.com/855/29764916278_1d18c246ed_k.jpg",
+		"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory1.jpg",
 		"albumTitle": "Haruko Misaki",
 		"albumSubtitle": "Cosplay/Fashion/ZR photoshoots with Haruko Misaki",
 		"socialMediaLinks": {
 			"instagram": "https://www.instagram.com/harukomisaki.cosplay"
 		},
-		"translateX": -50,
-		"translateY": -15,
+		"translateX": -15,
+		"translateY": -25,
 		"albumImages": [
 			{
 			"imageId": 1,
@@ -635,6 +635,34 @@
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": true
+			},
+			{
+			"imageId": 31,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/boat-lewd2.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 32,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory3.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 33,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory2.jpg",
+			"translateX": -33,
+			"translateY": -30,
+			"horizontalOrient": true
+			},
+			{
+			"imageId": 34,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory1.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": false
 			}
 		] 
 		
