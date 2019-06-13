@@ -21,7 +21,9 @@ export function appReducer(state: IAppState = appInitialState,
     case APP_CLOSE_MODAL:
       return {
         ...state,
-        hasModalOpen: false
+        hasModalOpen: false,
+        selectedImage: '',
+        selectedImageId: null
       };
 
     case APP_UPDATE_SELECTED_IMAGE_ID:

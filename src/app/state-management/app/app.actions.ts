@@ -16,13 +16,13 @@ export class CloseModalAction implements Action {
   public readonly type = APP_CLOSE_MODAL; // tslint:disable-line
 }
 
-export class UpdateModalSelectedImageId implements Action {
+export class UpdateModalSelectedImageIdAction implements Action {
   public readonly type = APP_UPDATE_SELECTED_IMAGE_ID; // tslint:disable-line
 
   constructor(public payload: number) {}
 }
 
-export class UpdateModalSelectedImage implements Action {
+export class UpdateModalSelectedImageAction implements Action {
   public readonly type = APP_UPDATE_SELECTED_IMAGE; // tslint:disable-line
 
   constructor(public imageUrl: string,
@@ -32,5 +32,5 @@ export class UpdateModalSelectedImage implements Action {
 
 export type Actions = OpenModalAction
   | CloseModalAction
-  | UpdateModalSelectedImageId
-  | UpdateModalSelectedImage;
+  | UpdateModalSelectedImageIdAction
+  | UpdateModalSelectedImageAction;

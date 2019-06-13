@@ -33,7 +33,7 @@
     text-align: center;
   }
 
-  /deep/ .ngx-pagination {
+  ::ng-deep .ngx-pagination {
     text-align: center;
 
     & span {

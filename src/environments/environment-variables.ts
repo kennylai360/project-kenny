@@ -1,1 +1,1 @@
-export const versioningNumber = '2.0.11';
+export const versioningNumber = '2.0.12';

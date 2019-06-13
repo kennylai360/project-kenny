@@ -2,12 +2,11 @@ import {
   Component, HostListener, Input, OnDestroy, OnInit, Renderer2,
   ViewEncapsulation
 } from '@angular/core';
-
-import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-overlay-container',
@@ -29,7 +28,11 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
   private modalSelectedImageIdSubscription: Subscription;
 
+  private currentPictureHorizontalOrientationSub: Subscription;
+
   private isModalOpenValue: boolean;
+
+  private currentPictureHorizontalOrientation: boolean;
 
   @Input()
   public albumSet: Array<IGalleryCover>;
@@ -56,6 +59,10 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
         this.isModalOpenValue = false;
       }
     });
+
+    this.currentPictureHorizontalOrientationSub = this.selectedImageHorizontalOrientation$.subscribe((data: boolean) => {
+      this.currentPictureHorizontalOrientation = data;
+    });
   }
 
   ngOnDestroy() {
@@ -65,6 +72,10 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
     if (this.modalSelectedImageIdSubscription) {
       this.modalSelectedImageIdSubscription.unsubscribe();
+    }
+
+    if (this.currentPictureHorizontalOrientationSub) {
+      this.currentPictureHorizontalOrientationSub.unsubscribe();
     }
   }
 
@@ -89,7 +100,7 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
   public closeModal() {
     this.appFacade.closeModal();
     setTimeout(() => {
-      this.appFacade.updateSelectedImage('', null, false);
+      this.appFacade.updateSelectedImage('', null, this.currentPictureHorizontalOrientation);
       }, 500);
 
   }

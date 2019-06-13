@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { IndexState } from '../ngrx-index';
-import { CloseModalAction, OpenModalAction, UpdateModalSelectedImage, UpdateModalSelectedImageId } from './app.actions';
+import { CloseModalAction, OpenModalAction, UpdateModalSelectedImageAction, UpdateModalSelectedImageIdAction } from './app.actions';
 import { AppSelectors } from './app.selectors';
 
 
@@ -30,11 +30,11 @@ export class AppFacade {
   }
 
   public updateSelectedImageId(id: number):  void {
-    this.store.dispatch(new UpdateModalSelectedImageId(id));
+    this.store.dispatch(new UpdateModalSelectedImageIdAction(id));
   }
 
   public updateSelectedImage(url: string, id: number, orient: boolean):  void {
-    this.store.dispatch(new UpdateModalSelectedImage(url, id, orient));
+    this.store.dispatch(new UpdateModalSelectedImageAction(url, id, orient));
   }
 
 }
