@@ -3,10 +3,6 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/withLatestFrom';
 import {
   GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction,
   GALLERY_LOAD_DATA_BY_ID, GalleryGetDataByIdSuccessAction, GalleryRedirectBackToAlbumListPageAction,
@@ -15,6 +11,7 @@ import {
 import { IndexState } from '../ngrx-index';
 import { IGalleryCover } from './gallery-cover.interface';
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
 
 
 @Injectable()

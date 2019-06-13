@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { GalleryGetDataByIdAction, GalleryLoadDataAction, GallerySetSelectedAlbumIdAction } from './gallery.actions';
 import { GallerySelectors } from './gallery.selectors';
 import { IGalleryCover } from './gallery-cover.interface';
 import { IndexState } from '../ngrx-index';
-
 
 @Injectable()
 export class GalleryFacade {

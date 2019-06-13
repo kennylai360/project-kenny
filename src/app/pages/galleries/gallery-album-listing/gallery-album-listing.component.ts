@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { PlatformLocation } from '@angular/common';
+import { Observable } from 'rxjs';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 import { AppFacade } from '../../../state-management/app/app.facade';
-import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-galleries',

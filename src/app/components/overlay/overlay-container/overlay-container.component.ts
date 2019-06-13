@@ -2,11 +2,9 @@ import {
   Component, HostListener, Input, OnDestroy, OnInit, Renderer2,
   ViewEncapsulation
 } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
-
+import { Observable, Subscription } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-overlay-container',

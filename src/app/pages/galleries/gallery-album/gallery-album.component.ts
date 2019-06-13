@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 import { AppFacade } from '../../../state-management/app/app.facade';
@@ -34,7 +33,8 @@ export class GalleryAlbumComponent implements OnInit, OnDestroy {
     // load the album here which corresponds to the id. If it does not exist then redirect to album listing page
     // Debouncetime is added to give the loading and make sure the gallery data has been loaded into the store.
     // this is as a fallback in case the use enters the ID in directly to the address bar.
-    this.routeSubscription = this.activatedRoute.params.debounceTime(10).subscribe((params: Params) => {
+    this.routeSubscription = this.activatedRoute.params.pipe(debounceTime(10))
+    .subscribe((params: Params) => {
       this.galleryFacade.setSelectedId(params['id']);
       this.galleryFacade.getAlbumDataById();
       this.albumData = this.galleryFacade.albumData$;
