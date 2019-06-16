@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { IndexState } from '../ngrx-index';
 import { CloseModalAction, OpenModalAction, UpdateModalSelectedImageAction, UpdateModalSelectedImageIdAction } from './app.actions';
 import { AppSelectors } from './app.selectors';
+
 
 
 @Injectable()
@@ -26,7 +28,14 @@ export class AppFacade {
   }
 
   public closeModal(): void {
-    this.store.dispatch(new CloseModalAction());
+    let modalValue: boolean = null;
+    this.modalOpen$.pipe(take(1))
+      .subscribe((data: boolean) => {
+      modalValue = data;
+    });
+    if (modalValue) {
+      this.store.dispatch(new CloseModalAction());
+    }
   }
 
   public updateSelectedImageId(id: number):  void {
