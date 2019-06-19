@@ -1,4 +1,4 @@
-# Kenny's static website
+# Project-Kenny
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
