@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { IndexState, listOfReducers } from './state-management/ngrx-index';
+import { listOfReducers } from './state-management/ngrx-index';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -25,6 +25,7 @@ import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-li
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any) => {
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
     RouterModule.forRoot(appRoutes, {enableTracing: false, scrollPositionRestoration: 'enabled'}),
-    EffectsModule.forRoot([GalleryEffects])
+    EffectsModule.forRoot([GalleryEffects]),
+    DeviceDetectorModule.forRoot()
   ],
   declarations: [
     AppComponent

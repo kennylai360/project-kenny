@@ -19,7 +19,7 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  test('should check that the versioning from the environments file is 2.0.14', () => {
-    expect(component.version).toBe('2.0.14');
+  test('should check that the versioning from the environments file is 2.0.15', () => {
+    expect(component.version).toBe('2.0.15');
   });
 });
