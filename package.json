@@ -7,7 +7,6 @@
     "start": "ng serve",
     "build": "ng build",
     "tbp": "yarn jest | ng build --prod --build-optimizer",
-    "buildprod": "ng build --prod --build-optimizer",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "jest"
