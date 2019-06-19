@@ -23,7 +23,7 @@
     "@angular/router": "^8.0.1",
     "@ngrx/effects": "^8.0.0",
     "@ngrx/store": "^8.0.0",
-    "@types/jest": "^24.0.13",
+    "@types/jest": "^24.0.15",
     "animate.css": "^3.7.0",
     "bootstrap": "4.3.1",
     "chart.js": "^2.7.2",
