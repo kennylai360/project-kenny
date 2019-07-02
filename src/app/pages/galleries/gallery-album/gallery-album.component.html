@@ -16,6 +16,7 @@
   <a *ngFor="let item of ((albumData | async).albumImages) | paginate: { itemsPerPage: 40, currentPage: p }">
     <app-gallery-album-cover
       (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
+      (hasImageLoadedEmitter)="allowOpenModal($event)"
       [imgUrl]="item.imgUrl"
       [translateX]="item.translateX"
       [translateY]="item.translateY">
