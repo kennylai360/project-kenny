@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
@@ -19,6 +19,9 @@ export class GalleryAlbumCoverComponent {
 
   @Input()
   public translateY: number = 0;
+
+  @Output()
+  public hasImageLoadedEmitter: EventEmitter<string> = new EventEmitter<string>();
 
   public scaleValue: number = 1.0;
 
@@ -46,6 +49,7 @@ export class GalleryAlbumCoverComponent {
 
   public imageHasBeenLoaded() {
     this.imageHasLoaded = true;
+    this.hasImageLoadedEmitter.emit(this.imgUrl);
     // Make it so that if a mobile device is being used then permanently set the overlay to be on,
     // because u can't hover on mobile devices.
     if (this.deviceType.isMobile() && this.albumTitle) {

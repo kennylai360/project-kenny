@@ -38,12 +38,12 @@
 
   .overlay-spinner {
     position: absolute;
-    top: 0;
+    top: 25%;
     bottom: 0;
-    left: 0;
+    left: 25%;
     right: 0;
-    height: 100%;
-    width: 100%;
+    height: 50%;
+    width: 50%;
   }
 
   .text {
@@ -58,7 +58,7 @@
   }
 
   .spinner-border {
-    border: 1.5rem solid lightslategrey;
+    border: 0.75rem solid dimgrey;
     border-right-color: transparent;
   }
 }

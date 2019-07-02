@@ -1,5 +1,3 @@
-import 'hammerjs';
-import 'mousetrap';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActionReducer, StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
