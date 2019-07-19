@@ -410,15 +410,15 @@
 	},
 	{
 		"albumId": "HarukoMisaki",
-		"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory1.jpg",
+		"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi3.jpg",
 		"albumTitle": "Haruko Misaki",
 		"albumSubtitle": "Cosplay/Fashion/ZR photoshoots with Haruko Misaki",
 		"socialMediaLinks": {
 			"instagram": "https://www.instagram.com/harukomisaki.cosplay",
 			"facebook": "https://www.facebook.com/HarukoMisaki.cosplay"
 		},
-		"translateX": -15,
-		"translateY": -25,
+		"translateX": 0,
+		"translateY": -15,
 		"albumImages": [
 			{
 			"imageId": 1,
@@ -662,6 +662,27 @@
 			"imageId": 34,
 			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory1.jpg",
 			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 35,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi1.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 36,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi2.jpg",
+			"translateX": -10,
+			"translateY": -20,
+			"horizontalOrient": false
+			},
+			{
+			"imageId": 37,
+			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi3.jpg",
+			"translateX": 0,
 			"translateY": -20,
 			"horizontalOrient": false
 			}
