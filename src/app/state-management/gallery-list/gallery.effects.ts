@@ -3,6 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import {
   GALLERY_LOAD_DATA, GalleryLoadDataSuccessAction,
   GALLERY_LOAD_DATA_BY_ID, GalleryGetDataByIdSuccessAction, GalleryRedirectBackToAlbumListPageAction,
@@ -10,19 +11,19 @@ import {
 } from './gallery.actions';
 import { IndexState } from '../ngrx-index';
 import { IGalleryCover } from './gallery-cover.interface';
-import { map, switchMap, tap, withLatestFrom } from 'rxjs/internal/operators';
-import { Observable } from 'rxjs';
-
+import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 
 @Injectable()
 export class GalleryEffects {
+
+  static readonly galleryContentUrl: string = '../../assets/gallery-content.json';
 
   @Effect()
   public getGalleryData$: Observable<Action> = this.actions$.pipe(
     ofType(GALLERY_LOAD_DATA),
     withLatestFrom(this.store$),
     switchMap(() => {
-      return this.http.get('../../assets/gallery-content.json').pipe(
+      return this.http.get(GalleryEffects.galleryContentUrl).pipe(
         map((res: IGalleryCover[]) => {
           return new GalleryLoadDataSuccessAction(res);
         }));
