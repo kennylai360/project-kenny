@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GalleriesModule } from './galleries/galleries.module';
 import { HomeModule } from './home/home.module';
 import { ProfileModule } from './profile/profile.module';
+import {PocModule} from './poc/poc.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ProfileModule } from './profile/profile.module';
     CommonModule,
     HomeModule,
     ProfileModule,
-    GalleriesModule
+    GalleriesModule,
+    PocModule,
   ],
   exports: [
   ],

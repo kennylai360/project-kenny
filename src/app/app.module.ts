@@ -24,6 +24,7 @@ import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-a
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import {PocComponent} from './pages/poc/poc.component';
 
 export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any) => {
@@ -52,6 +53,10 @@ const appRoutes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: 'poc',
+    component: PocComponent
   },
   {
     path: 'photography',
@@ -94,7 +99,6 @@ const appRoutes: Routes = [
     Actions
   ],
   bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
 })
 export class AppModule {
 }
