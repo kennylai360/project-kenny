@@ -1,31 +1,32 @@
+<h4>Shopping list</h4>
+
 <form [formGroup]="pocForm">
     <input type="text"
            formControlName="name"
            placeholder="Name of item"
     />
 
-    <input type="text"
+    <input type="number"
            formControlName="quantity"
            placeholder="Quantity"
     />
     <button class="btn-primary" (click)="addItem()" [disabled]="pocForm.invalid">Add Item</button>
-    <!--<button class="btn-primary" (click)="getAllTableData()">Show items</button>-->
-    <button class="btn-primary" (click)="deleteItem()" [disabled]="pocForm.controls['name'].invalid">Delete items</button>
 </form>
 
-<hr>
 
 <table class="table">
     <thead>
     <tr>
         <th scope="col">Item</th>
         <th scope="col">Amount</th>
+        <th scope="col"></th>
     </tr>
     </thead>
-    <tbody *ngFor="let item123 of tableData; let i = index">
+    <tbody *ngFor="let item123 of tableData">
     <tr>
         <td>{{item123.itemName}}</td>
         <td>{{item123.itemAmount}}</td>
+        <td><button (click)="deleteItem(item123.itemName)" class="btn-danger">Delete</button></td>
     </tr>
     </tbody>
 </table>

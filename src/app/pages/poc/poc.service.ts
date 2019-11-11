@@ -26,8 +26,8 @@ export class PocService {
 
   public addItem(item: {Name: string, Quantity: number}): Observable<any> {
     return this.http.post('https://itqycq5k9d.execute-api.us-west-2.amazonaws.com/Prod/v1/shoppinglist', item).pipe(
-      map((res: any) => {
-        console.log(res);
+      map(() => {
+        return true;
       })
     );
   }
@@ -43,8 +43,8 @@ export class PocService {
     }
 
     return this.http.delete('https://itqycq5k9d.execute-api.us-west-2.amazonaws.com/Prod/v1/shoppinglist', options).pipe(
-      map((res: any) => {
-        console.log(res);
+      map(() => {
+        return true;
       })
     );
   }
