@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
-import {IGalleryCover} from '../../state-management/gallery-list/gallery-cover.interface';
-import {GalleryLoadDataSuccessAction} from '../../state-management/gallery-list/gallery.actions';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +12,42 @@ export class PocService {
 
   }
 
-  public doSomethingServiceCall(): void {
+  public getAllTableData(): Observable<any> {
+    return this.http.get('https://itqycq5k9d.execute-api.us-west-2.amazonaws.com/Prod/v1/shoppinglist').pipe(
+      map((res: any) => {
+        return Object.keys(res).map((key: string) => {
+          return {
+            itemName: key,
+            itemAmount: res[key]
+          };
+        });
+      }));
   }
 
-  public getAllTableData(): any {
-    console.log('Make API call here');
+  public addItem(item: {Name: string, Quantity: number}): Observable<any> {
+    return this.http.post('https://itqycq5k9d.execute-api.us-west-2.amazonaws.com/Prod/v1/shoppinglist', item).pipe(
+      map((res: any) => {
+        console.log(res);
+      })
+    );
+  }
+
+  public deleteItem(name: string): Observable<any> {
+    const options = {
+      headers: new HttpHeaders({
+
+      }),
+      body: {
+        Name: name
+      }
+    }
+
+    return this.http.delete('https://itqycq5k9d.execute-api.us-west-2.amazonaws.com/Prod/v1/shoppinglist', options).pipe(
+      map((res: any) => {
+        console.log(res);
+      })
+    );
   }
 
 
-};
+}

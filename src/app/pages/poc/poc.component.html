@@ -1,8 +1,31 @@
-<p>POC page test here</p>
-
 <form [formGroup]="pocForm">
     <input type="text"
-           formControlName="targetEndpoint"
+           formControlName="name"
+           placeholder="Name of item"
     />
-    <button class="btn-primary" (click)="getAllTableData()">Show table</button>
+
+    <input type="text"
+           formControlName="quantity"
+           placeholder="Quantity"
+    />
+    <button class="btn-primary" (click)="addItem()" [disabled]="pocForm.invalid">Add Item</button>
+    <!--<button class="btn-primary" (click)="getAllTableData()">Show items</button>-->
+    <button class="btn-primary" (click)="deleteItem()" [disabled]="pocForm.controls['name'].invalid">Delete items</button>
 </form>
+
+<hr>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Amount</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let item123 of tableData; let i = index">
+    <tr>
+        <td>{{item123.itemName}}</td>
+        <td>{{item123.itemAmount}}</td>
+    </tr>
+    </tbody>
+</table>
