@@ -55,10 +55,6 @@ const appRoutes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'poc',
-    component: PocComponent
-  },
-  {
     path: 'photography',
     component: GallerySectionComponent,
     children: [
