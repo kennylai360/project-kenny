@@ -1,5 +1,5 @@
 import {
-  Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_BY_ID_SUCCESS, GALLERY_LOAD_DATA_SUCCESS,
+  Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_BY_ID, GALLERY_LOAD_DATA_BY_ID_SUCCESS, GALLERY_LOAD_DATA_SUCCESS,
   GALLERY_SET_SELECTED_ID
 } from './gallery.actions';
 import { IGalleryState } from './gallery-state.interface';
@@ -10,7 +10,6 @@ export const galleryInitialState: IGalleryState = {
   selectedAlbumId: null,
   selectedAlbum: {} as IGalleryCover
 };
-
 
 export function galleryReducer(state: IGalleryState = galleryInitialState,
                                action: Actions): IGalleryState {
@@ -34,9 +33,19 @@ export function galleryReducer(state: IGalleryState = galleryInitialState,
       };
 
     case GALLERY_LOAD_DATA_BY_ID_SUCCESS:
+
+      const descendingAlbumImagesOrder = action.payload.albumImages
+        .slice() // create a completely new object so there's no immutability issues
+        .sort((a, b) => {
+        return (a.imageId < b.imageId) ? 1 : (a.imageId > b.imageId) ? -1 : 0;
+      });
+
       return {
         ...state,
-        selectedAlbum: action.payload
+        selectedAlbum: {
+          ...action.payload,
+          albumImages: descendingAlbumImagesOrder
+        }
       };
 
     default: {
