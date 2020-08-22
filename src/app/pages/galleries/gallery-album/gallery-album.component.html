@@ -1,5 +1,5 @@
 <a routerLink="/photography"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Return to albums</a>
-<hr class="hr-light mt-4 animated fadeInDown">
+<hr class="hr-light mt-4 animate__animated animate__fadeInDown">
 <app-gallery-album-jumbotron
   [albumTitle]="(albumData | async).albumTitle"
   [albumSubtitle]="(albumData | async).albumSubtitle"
@@ -7,7 +7,7 @@
   [socialMediaLinks]="(albumData | async).socialMediaLinks">
 </app-gallery-album-jumbotron>
 
-<hr class="hr-light mt-4 animated fadeInDown">
+<hr class="hr-light mt-4 animate__animated animate__fadeInDown">
 <pagination-controls (pageChange)="p = $event"
                      autoHide="true"
 ></pagination-controls>
