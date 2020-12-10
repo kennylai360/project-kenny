@@ -6,8 +6,6 @@ import { IndexState } from '../ngrx-index';
 import { CloseModalAction, OpenModalAction, UpdateModalSelectedImageAction, UpdateModalSelectedImageIdAction } from './app.actions';
 import { AppSelectors } from './app.selectors';
 
-
-
 @Injectable()
 export class AppFacade {
   public modalOpen$: Observable<boolean>;

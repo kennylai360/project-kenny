@@ -1,4 +1,4 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { ActionReducer, StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,6 @@ import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-a
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeviceDetectorModule } from 'ngx-device-detector';
-import {PocComponent} from './pages/poc/poc.component';
 
 export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any) => {
