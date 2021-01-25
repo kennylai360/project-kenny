@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import {Actions, createEffect, Effect, ofType} from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,8 +18,7 @@ export class GalleryEffects {
 
   static readonly galleryContentUrl: string = '../../assets/gallery-content.json';
 
-  @Effect()
-  public getGalleryData$: Observable<Action> = this.actions$.pipe(
+  public getGalleryData$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(GALLERY_LOAD_DATA),
     withLatestFrom(this.store$),
     switchMap(() => {
@@ -27,11 +26,10 @@ export class GalleryEffects {
         map((res: IGalleryCover[]) => {
           return new GalleryLoadDataSuccessAction(res);
         }));
-    }));
+    })));
 
   // Debounced added to make sure the galleryData has been loaded before it tries to retrieve the album
-  @Effect()
-  public getAlbumData$: Observable<Action> = this.actions$.pipe(
+  public getAlbumData$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(GALLERY_LOAD_DATA_BY_ID),
     withLatestFrom(this.store$),
     map(([action, state]: [Action, IndexState]) => {
@@ -44,14 +42,13 @@ export class GalleryEffects {
       } else {
         return new GalleryRedirectBackToAlbumListPageAction();
       }
-    }));
+    })));
 
-  @Effect({dispatch: false})
-  public redirectBackToAlbumListingPage$: Observable<Action> = this.actions$.pipe(
+  public redirectBackToAlbumListingPage$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType(GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE),
     tap(() => {
       this.router.navigate(['photography'], {relativeTo: this.route});
-    }));
+    })), {dispatch: false});
 
   constructor(private actions$: Actions,
               private http: HttpClient,
