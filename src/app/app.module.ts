@@ -23,7 +23,7 @@ import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-li
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DeviceDetectorModule } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any) => {
@@ -82,7 +82,6 @@ const appRoutes: Routes = [
     StoreModule.forRoot(listOfReducers, {metaReducers}),
     RouterModule.forRoot(appRoutes, { enableTracing: false, scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' }),
     EffectsModule.forRoot([GalleryEffects]),
-    DeviceDetectorModule.forRoot()
   ],
   declarations: [
     AppComponent
@@ -91,7 +90,8 @@ const appRoutes: Routes = [
     AppFacade,
     GalleryFacade,
     HttpClient,
-    Actions
+    Actions,
+    DeviceDetectorService
   ],
   bootstrap: [AppComponent],
 })

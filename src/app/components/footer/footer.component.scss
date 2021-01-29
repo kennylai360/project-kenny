@@ -1,20 +1,13 @@
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-
-  .page-footer {
+:host {
+  footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
     padding: 5px 0px;
-    margin:  0px;
-  }
-
-  .page-footer {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-
-  .footer-copyright {
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.10);
     font-size: 0.75em;
     color: rgba(255, 255, 255, 0.25);
   }
