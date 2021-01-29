@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
 
@@ -6,7 +6,7 @@ describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ FooterComponent ]
     })
@@ -19,7 +19,7 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  test('should check that the versioning from the environments file is 2.2.0', () => {
-    expect(component.version).toBe('2.2.0');
+  test('should check that the versioning from the environments file is 2.2.1', () => {
+    expect(component.version).toBe('2.2.1');
   });
 });
