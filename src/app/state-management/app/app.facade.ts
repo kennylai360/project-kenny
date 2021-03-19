@@ -22,7 +22,7 @@ export class AppFacade {
 
   // Called once to load up the json file on initial load up.
   public openModal(): void {
-    this.store.dispatch(new OpenModalAction());
+    this.store.dispatch(OpenModalAction());
   }
 
   public closeModal(): void {
@@ -32,16 +32,16 @@ export class AppFacade {
       modalValue = data;
     });
     if (modalValue) {
-      this.store.dispatch(new CloseModalAction());
+      this.store.dispatch(CloseModalAction());
     }
   }
 
   public updateSelectedImageId(id: number):  void {
-    this.store.dispatch(new UpdateModalSelectedImageIdAction(id));
+    this.store.dispatch(UpdateModalSelectedImageIdAction({payload: id}));
   }
 
   public updateSelectedImage(url: string, id: number, orient: boolean):  void {
-    this.store.dispatch(new UpdateModalSelectedImageAction(url, id, orient));
+    this.store.dispatch(UpdateModalSelectedImageAction({payload: {imageUrl: url, imageId: id, imageHorizontalOrient: orient}}));
   }
 
 }

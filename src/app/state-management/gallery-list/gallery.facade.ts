@@ -18,15 +18,15 @@ export class GalleryFacade {
 
   // Called once to load up the json file on initial load up.
   public loadGalleryList(): void {
-    this.store.dispatch(new GalleryLoadDataAction());
+    this.store.dispatch(GalleryLoadDataAction());
   }
 
   public getAlbumDataById(): void {
-    this.store.dispatch(new GalleryGetDataByIdAction());
+    this.store.dispatch(GalleryGetDataByIdAction());
   }
 
   public setSelectedId(idValue: string): void {
-    this.store.dispatch(new GallerySetSelectedAlbumIdAction(idValue));
+    this.store.dispatch(GallerySetSelectedAlbumIdAction({payload: idValue}));
   }
 
 }

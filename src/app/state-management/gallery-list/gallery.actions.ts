@@ -1,57 +1,45 @@
-import { Action } from '@ngrx/store';
+import { createAction, props} from '@ngrx/store';
 import { IGalleryCover } from './gallery-cover.interface';
-/* tslint:disable */
-export const GALLERY_LOAD_DATA = '[Gallery] Load Gallery Data';
-export const GALLERY_LOAD_DATA_SUCCESS = '[Gallery] Load Gallery Data Success';
-export const GALLERY_LOAD_DATA_FAILURE = '[Gallery] Load Gallery Data Failure';
-export const GALLERY_LOAD_DATA_BY_ID = '[Gallery] Load Album Data by ID';
-export const GALLERY_SET_SELECTED_ID = '[Gallery] Set selected id in store';
-export const GALLERY_LOAD_DATA_BY_ID_SUCCESS = '[Gallery] Load Album Data by ID Success';
-export const GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE = '[Gallery] No Album exist - Redirect back to Albums page';
-/* tslint:enable */
 
-export class GalleryLoadDataAction implements Action {
-  public readonly type = GALLERY_LOAD_DATA; // tslint:disable-line
+export enum GalleryActionTypes {
+  GALLERY_LOAD_DATA = '[Gallery] Load Gallery Data',
+  GALLERY_LOAD_DATA_SUCCESS = '[Gallery] Load Gallery Data Success',
+  GALLERY_LOAD_DATA_FAILURE = '[Gallery] Load Gallery Data Failure',
+  GALLERY_LOAD_DATA_BY_ID = '[Gallery] Load Album Data by ID',
+  GALLERY_SET_SELECTED_ID = '[Gallery] Set selected id in store',
+  GALLERY_LOAD_DATA_BY_ID_SUCCESS = '[Gallery] Load Album Data by ID Success',
+  GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE = '[Gallery] No Album exist - Redirect back to Albums page',
 }
 
-export class GalleryLoadDataSuccessAction implements Action {
-  public readonly type = GALLERY_LOAD_DATA_SUCCESS; // tslint:disable-line
+export const GalleryLoadDataAction = createAction(
+  GalleryActionTypes.GALLERY_LOAD_DATA
+);
 
-  constructor(public payload: IGalleryCover[]) {}
-}
+export const GalleryLoadDataSuccessAction = createAction(
+  GalleryActionTypes.GALLERY_LOAD_DATA_SUCCESS,
+  props<{ payload: Array<IGalleryCover> }>()
+);
 
-export class GalleryLoadDataFailureAction implements Action {
-  public readonly type = GALLERY_LOAD_DATA_FAILURE; // tslint:disable-line
+export const GalleryLoadDataFailureAction = createAction(
+  GalleryActionTypes.GALLERY_LOAD_DATA_FAILURE,
+  props<{ payload: any }>()
+);
 
-  constructor(public error: any) {}
-}
+export const GallerySetSelectedAlbumIdAction = createAction(
+  GalleryActionTypes.GALLERY_SET_SELECTED_ID,
+  props<{ payload: string }>()
+);
 
-export class GallerySetSelectedAlbumIdAction implements Action {
-  public readonly type = GALLERY_SET_SELECTED_ID;
+export const GalleryGetDataByIdAction = createAction(
+  GalleryActionTypes.GALLERY_LOAD_DATA_BY_ID
+);
 
-  constructor(public payload: string) {}
-}
+export const GalleryGetDataByIdSuccessAction = createAction(
+  GalleryActionTypes.GALLERY_LOAD_DATA_BY_ID_SUCCESS,
+  props<{ payload: IGalleryCover }>()
+);
 
-export class GalleryGetDataByIdAction implements Action {
-  public readonly type = GALLERY_LOAD_DATA_BY_ID; // tslint:disable-line
-}
+export const GalleryRedirectBackToAlbumListPageAction = createAction(
+  GalleryActionTypes.GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE
+);
 
-export class GalleryGetDataByIdSuccessAction implements Action {
-  public readonly type = GALLERY_LOAD_DATA_BY_ID_SUCCESS;
-
-  constructor(public payload: IGalleryCover) {}
-}
-
-export class GalleryRedirectBackToAlbumListPageAction implements Action {
-  public readonly type = GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE;
-}
-
-
-
-export type Actions = GalleryLoadDataAction
-  | GalleryLoadDataSuccessAction
-  | GalleryLoadDataFailureAction
-  | GalleryGetDataByIdAction
-  | GallerySetSelectedAlbumIdAction
-  | GalleryGetDataByIdSuccessAction
-  | GalleryRedirectBackToAlbumListPageAction;

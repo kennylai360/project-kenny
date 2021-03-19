@@ -1,5 +1,11 @@
 import { IAppState } from './app-state.interface';
-import { Actions, APP_CLOSE_MODAL, APP_OPEN_MODAL, APP_UPDATE_SELECTED_IMAGE, APP_UPDATE_SELECTED_IMAGE_ID } from './app.actions';
+import {
+  UpdateModalSelectedImageAction,
+  UpdateModalSelectedImageIdAction,
+  CloseModalAction,
+  OpenModalAction
+} from './app.actions';
+import {Action, createReducer, on} from '@ngrx/store';
 
 export const appInitialState: IAppState = {
   hasModalOpen: false,
@@ -8,40 +14,41 @@ export const appInitialState: IAppState = {
   selectedImageHorizontalOrient: false
 };
 
-export function appReducer(state: IAppState = appInitialState,
-                           action: Actions): IAppState {
-  switch (action.type) {
+const reducer = createReducer(
+  appInitialState,
 
-    case APP_OPEN_MODAL:
-      return {
-        ...state,
-        hasModalOpen: true
-      };
+  on(OpenModalAction,
+    (state, action) => ({
+      ...state,
+      hasModalOpen: true
+    })),
 
-    case APP_CLOSE_MODAL:
-      return {
-        ...state,
-        hasModalOpen: false,
-        selectedImage: '',
-        selectedImageId: null
-      };
+  on(CloseModalAction,
+    (state, action) => ({
+      ...state,
+      hasModalOpen: false,
+      selectedImage: '',
+      selectedImageId: null
+    })),
 
-    case APP_UPDATE_SELECTED_IMAGE_ID:
-      return {
-        ...state,
-        selectedImageId: action.payload
-      };
+  on(UpdateModalSelectedImageIdAction,
+    (state, action) => ({
+      ...state,
+      selectedImageId: action.payload
+    })),
 
-    case APP_UPDATE_SELECTED_IMAGE:
-      return {
-        ...state,
-        selectedImage: action.imageUrl,
-        selectedImageId: action.imageId,
-        selectedImageHorizontalOrient: action.imageHorizontalOrient
-      };
+  on(UpdateModalSelectedImageAction,
+    (state, action) => ({
+      ...state,
+      selectedImage: action.payload.imageUrl,
+      selectedImageId: action.payload.imageId,
+      selectedImageHorizontalOrient: action.payload.imageHorizontalOrient
+    })),
+);
 
-    default: {
-      return state;
-    }
-  }
+export function appReducer(
+  state: IAppState | undefined,
+  action: Action
+) {
+  return reducer(state, action);
 }

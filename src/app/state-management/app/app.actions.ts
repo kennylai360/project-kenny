@@ -1,36 +1,33 @@
-/* tslint:disable */
-/* tslint:enable */
-import { Action } from '@ngrx/store';
-/* tslint:disable */
-export const APP_OPEN_MODAL = '[App] Open modal';
-export const APP_CLOSE_MODAL = '[App] Close modal';
-export const APP_UPDATE_SELECTED_IMAGE_ID = '[App] Update selected image id';
-export const APP_UPDATE_SELECTED_IMAGE = '[App] Update selected image';
-/* tslint:enable */
+import { createAction, props} from '@ngrx/store';
 
-export class OpenModalAction implements Action {
-  public readonly type = APP_OPEN_MODAL; // tslint:disable-line
+export interface IUpdateModalImage {
+  imageUrl: string;
+  imageId: number;
+  imageHorizontalOrient: boolean;
 }
 
-export class CloseModalAction implements Action {
-  public readonly type = APP_CLOSE_MODAL; // tslint:disable-line
+export enum AppActionTypes {
+  APP_OPEN_MODAL = '[App] Open modal',
+  APP_CLOSE_MODAL = '[App] Close modal',
+  APP_UPDATE_SELECTED_IMAGE_ID = '[App] Update selected image id',
+  APP_UPDATE_SELECTED_IMAGE = '[App] Update selected image',
 }
 
-export class UpdateModalSelectedImageIdAction implements Action {
-  public readonly type = APP_UPDATE_SELECTED_IMAGE_ID; // tslint:disable-line
+export const OpenModalAction = createAction(
+  AppActionTypes.APP_OPEN_MODAL
+);
 
-  constructor(public payload: number) {}
-}
+export const CloseModalAction = createAction(
+  AppActionTypes.APP_CLOSE_MODAL
+);
 
-export class UpdateModalSelectedImageAction implements Action {
-  public readonly type = APP_UPDATE_SELECTED_IMAGE; // tslint:disable-line
+export const UpdateModalSelectedImageIdAction = createAction(
+  AppActionTypes.APP_UPDATE_SELECTED_IMAGE_ID,
+  props<{ payload: number }>()
+);
 
-  constructor(public imageUrl: string,
-              public imageId: number,
-              public imageHorizontalOrient: boolean) {}
-}
+export const UpdateModalSelectedImageAction = createAction(
+  AppActionTypes.APP_UPDATE_SELECTED_IMAGE,
+  props<{ payload: IUpdateModalImage }>()
+);
 
-export type Actions = OpenModalAction
-  | CloseModalAction
-  | UpdateModalSelectedImageIdAction
-  | UpdateModalSelectedImageAction;

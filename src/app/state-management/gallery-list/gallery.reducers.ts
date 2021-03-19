@@ -1,9 +1,14 @@
 import {
-  Actions, GALLERY_LOAD_DATA, GALLERY_LOAD_DATA_BY_ID, GALLERY_LOAD_DATA_BY_ID_SUCCESS, GALLERY_LOAD_DATA_SUCCESS,
-  GALLERY_SET_SELECTED_ID
 } from './gallery.actions';
 import { IGalleryState } from './gallery-state.interface';
 import { IGalleryCover } from './gallery-cover.interface';
+import { Action, createReducer, on } from '@ngrx/store';
+import {
+  GalleryLoadDataAction,
+  GalleryLoadDataSuccessAction,
+  GallerySetSelectedAlbumIdAction,
+  GalleryGetDataByIdSuccessAction
+} from './gallery.actions';
 
 export const galleryInitialState: IGalleryState = {
   galleryData:  [],
@@ -11,34 +16,33 @@ export const galleryInitialState: IGalleryState = {
   selectedAlbum: {} as IGalleryCover
 };
 
-export function galleryReducer(state: IGalleryState = galleryInitialState,
-                               action: Actions): IGalleryState {
-  switch (action.type) {
+const reducer = createReducer(
+  galleryInitialState,
 
-    case GALLERY_LOAD_DATA:
-      return {
-        ...state
-      };
+  on(GalleryLoadDataAction,
+    (state, action) => ({
+      ...state
+    })),
 
-    case GALLERY_LOAD_DATA_SUCCESS:
-      return {
-        ...state,
-        galleryData: action.payload
-      };
+  on(GalleryLoadDataSuccessAction,
+    (state, action) => ({
+      ...state,
+      galleryData: action.payload
+    })),
 
-    case GALLERY_SET_SELECTED_ID:
-      return {
-        ...state,
-        selectedAlbumId: action.payload
-      };
+  on(GallerySetSelectedAlbumIdAction,
+    (state, action) => ({
+      ...state,
+      selectedAlbumId: action.payload
+    })),
 
-    case GALLERY_LOAD_DATA_BY_ID_SUCCESS:
-
+  on(GalleryGetDataByIdSuccessAction,
+    (state, action) => {
       const descendingAlbumImagesOrder = action.payload.albumImages
         .slice() // create a completely new object so there's no immutability issues
         .sort((a, b) => {
-        return (a.imageId < b.imageId) ? 1 : (a.imageId > b.imageId) ? -1 : 0;
-      });
+          return (a.imageId < b.imageId) ? 1 : (a.imageId > b.imageId) ? -1 : 0;
+        });
 
       return {
         ...state,
@@ -47,9 +51,13 @@ export function galleryReducer(state: IGalleryState = galleryInitialState,
           albumImages: descendingAlbumImagesOrder
         }
       };
+    }),
 
-    default: {
-      return state;
-    }
-  }
+);
+
+export function galleryReducer(
+  state: IGalleryState | undefined,
+  action: Action
+) {
+  return reducer(state, action);
 }
