@@ -1,4 +1,3 @@
-
 import { IGalleryCover } from './gallery-cover.interface';
 import { IndexState } from '../ngrx-index';
 import { IGalleryState } from './gallery-state.interface';

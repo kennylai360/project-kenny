@@ -12,8 +12,8 @@ export class GalleryFacade {
   public albumData$: Observable<IGalleryCover>;
 
   constructor(private store: Store<IndexState>) {
-    this.galleryList$ = this.store.pipe(select(GallerySelectors.galleryList));
-    this.albumData$ = this.store.pipe(select(GallerySelectors.selectedAlbum));
+    this.galleryList$ = this.store.select(GallerySelectors.galleryList);
+    this.albumData$ = this.store.select(GallerySelectors.selectedAlbum);
   }
 
   // Called once to load up the json file on initial load up.

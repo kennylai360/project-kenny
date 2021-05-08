@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { IndexState } from '../ngrx-index';
@@ -14,10 +14,10 @@ export class AppFacade {
   public selectedImageHorizontalOrientation$: Observable<boolean>;
 
   constructor(private store: Store<IndexState>) {
-    this.modalOpen$ = this.store.pipe(select(AppSelectors.modalStatus));
-    this.selectedImageId$ = this.store.pipe(select(AppSelectors.selectedImageId));
-    this.selectedImage$ = this.store.pipe(select(AppSelectors.selectedImage));
-    this.selectedImageHorizontalOrientation$ = this.store.pipe(select(AppSelectors.selectedImageHorizontalOrientation));
+    this.modalOpen$ = this.store.select(AppSelectors.modalStatus);
+    this.selectedImageId$ = this.store.select(AppSelectors.selectedImageId);
+    this.selectedImage$ = this.store.select(AppSelectors.selectedImage);
+    this.selectedImageHorizontalOrientation$ = this.store.select(AppSelectors.selectedImageHorizontalOrientation);
   }
 
   // Called once to load up the json file on initial load up.
