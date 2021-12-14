@@ -1475,17 +1475,17 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-1.0.0.tgz#3fdf5798f0b49e90155896f6291df186eac06c83"
   integrity sha512-9oLAnygRMi8Q5QkYEU4XWK04B+nuoXoxjRvRxgjuChkLZFBja0YPSgdZ7dZtwhncLBcQe/I/E+fLuk5qxcYVJA==
 
-"@ngrx/effects@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-12.0.0.tgz#87c0aeeb760f11205c9d7c3168169e753780c926"
-  integrity sha512-T2Xu5sfYXg5+88al8laYv6sSuQzIeIfPzuY2o+XOF1407qYtafTXDjWcPosIqH0HYNBjPMWZFZbdQOHVX38mrQ==
+"@ngrx/effects@13.0.2":
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-13.0.2.tgz#785e54459efaef70ed3754a33d9f4ddd0ff9f033"
+  integrity sha512-7yW/KCxlRatDkdEriSnORlOYX8+1QAWEjPulNmHSPwehkzTQ3fIPfRBQy8xP8bnjwvGxnEZNwQlU4q1KVYOfhg==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.0.0.tgz#398c703b14a7c78a9bc616d6a569be17a606f803"
-  integrity sha512-aH6Neu+J6kmvYU1ns+fmEn3MKm3p33xVdv8qkWgk77pngDHaRENdThV+KorACkaYEWV2X2yAoKzE7s9XQVxEgQ==
+"@ngrx/store@13.0.2":
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.0.2.tgz#43f187956e07f33baed3e6215cd2fc59a06e9789"
+  integrity sha512-F7tsc3oCvKh+62MKiXTrvSeaxR41u4p8bch3BLjz12F37376rMuBnXf+V1thsPTZ6RB6aycAi821EQYVXFCXZg==
   dependencies:
     tslib "^2.0.0"
 
@@ -2800,10 +2800,10 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-codelyzer@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-6.0.1.tgz#c0e9668e847255b37c759e68fb2700b11e277d0f"
-  integrity sha512-cOyGQgMdhnRYtW2xrJUNrNYDjEgwQ+BrE2y93Bwz3h4DJ6vJRLfupemU5N3pbYsUlBHJf0u1j1UGk+NLW4d97g==
+codelyzer@6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-6.0.2.tgz#25d72eae641e8ff13ffd7d99b27c9c7ad5d7e135"
+  integrity sha512-v3+E0Ucu2xWJMOJ2fA/q9pDT/hlxHftHGPUay1/1cTgyPV5JTHFdO9hqo837Sx2s9vKBMTt5gO+lhF95PO6J+g==
   dependencies:
     "@angular/compiler" "9.0.0"
     "@angular/core" "9.0.0"
