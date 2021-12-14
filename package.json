@@ -31,7 +31,7 @@
     "core-js": "3.8.3",
     "font-awesome": "^4.7.0",
     "jest": "^27.4.5",
-    "jest-preset-angular": "8.3.2",
+    "jest-preset-angular": "11.0.1",
     "ng-lazyload-image": "9.1.0",
     "ngx-device-detector": "3.0.0",
     "ngx-pagination": "5.1.1",
