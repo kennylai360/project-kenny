@@ -6414,10 +6414,10 @@ ng-lazyload-image@9.1.0:
   dependencies:
     tslib "^2.0.0"
 
-ngx-device-detector@2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/ngx-device-detector/-/ngx-device-detector-2.0.5.tgz#73f3a35d4630ed01ffd7819bd1780f85df0ea7e4"
-  integrity sha512-doLj7etMrXT8NtpqSyEWKcSE5vCGUgxAjj0T9IWHAbsNFDOqbZs61/xIDfaCq3DqXT0zUV2VxhPFu/IikxSrIw==
+ngx-device-detector@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-device-detector/-/ngx-device-detector-2.1.0.tgz#534a20e265e35b04b70882ee522e279a40e26a53"
+  integrity sha512-a0ThY21grkFDkZh9GDOK4Cw69LWb0rUqsC6rhx2Aaf8ALz/mJ+rhBnRH2AdedlqT/HiEAKVg/CUNSVIqyzUHyQ==
   dependencies:
     tslib "^2.0.0"
 

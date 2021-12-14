@@ -34,7 +34,7 @@
     "jest-preset-angular": "8.3.2",
     "moment": "2.29.1",
     "ng-lazyload-image": "9.1.0",
-    "ngx-device-detector": "2.0.5",
+    "ngx-device-detector": "2.1.0",
     "ngx-pagination": "5.0.0",
     "reselect": "^4.1.5",
     "rxjs": "6.6.3",
