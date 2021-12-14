@@ -9,25 +9,25 @@ const appState: Selector<IndexState, IAppState> =
 
 export class AppSelectors {
 
-  public static modalStatus: OutputSelector<IndexState, boolean, Function>
+  public static modalStatus
     = createSelector(appState, (applicationState: IAppState) => {
       return applicationState.hasModalOpen;
     }
   );
 
-  public static selectedImage: OutputSelector<IndexState, string, Function>
+  public static selectedImage
     = createSelector(appState, (applicationState: IAppState) => {
       return applicationState.selectedImage;
     }
   );
 
-  public static selectedImageId: OutputSelector<IndexState, number, Function>
+  public static selectedImageId
     = createSelector(appState, (applicationState: IAppState) => {
       return applicationState.selectedImageId;
     }
   );
 
-  public static selectedImageHorizontalOrientation: OutputSelector<IndexState, boolean, Function>
+  public static selectedImageHorizontalOrientation
     = createSelector(appState, (applicationState: IAppState) => {
       return applicationState.selectedImageHorizontalOrient;
     }
