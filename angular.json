@@ -27,7 +27,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/screenfull/dist/screenfull.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "vendorChunk": true,
