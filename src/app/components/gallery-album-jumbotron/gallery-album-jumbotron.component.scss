@@ -19,7 +19,6 @@
 
   a {
     color: white;
-    padding-left: 0.25rem;
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
@@ -51,6 +50,5 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 0.5rem black);
   }
 }

@@ -17,7 +17,7 @@
     padding: 0 15px 0 0;
 
     a {
-      color: rgba(255, 255, 255, 1);
+      color: rgba(255, 255, 255, 0.5);
       -webkit-transition: all 0.5s ease;
       -moz-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
@@ -26,7 +26,7 @@
     }
 
     a:hover {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 1);
       -webkit-transition: all 0.5s ease;
       -moz-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
@@ -41,7 +41,7 @@
 
   .link-hover {
     a {
-      color: rgba(255, 255, 255, 1);
+      color: rgba(255, 255, 255, 0.5);
       -webkit-transition: all 0.5s ease;
       -moz-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
@@ -50,7 +50,7 @@
     }
 
     a:hover {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 1);
       -webkit-transition: all 0.5s ease;
       -moz-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
