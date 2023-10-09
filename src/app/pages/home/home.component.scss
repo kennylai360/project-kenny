@@ -3,12 +3,8 @@
 }
 
 a.home-a:hover {
-  color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  color: white;
+  box-shadow:0 0 0 0.15rem rgba(255,255,255,0.5)
 };
 
 .home-a {
