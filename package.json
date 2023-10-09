@@ -6,11 +6,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "tbp": "yarn jest && ng build --configuration production --build-optimizer",
+    "tbp": "ng build --configuration production --build-optimizer",
     "bp": "ng build --configuration production --build-optimizer",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "te ast": "jest"
+    "test": "jest"
   },
   "private": true,
   "dependencies": {

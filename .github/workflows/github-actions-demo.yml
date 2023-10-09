@@ -1,6 +1,10 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: GitHub Actions Deployment
+run-name: ${{ github.actor }} attempt deploy to AWS 🚀
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -16,3 +20,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+      - run: npm run tbp
