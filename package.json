@@ -10,7 +10,7 @@
     "bp": "ng build --configuration production --build-optimizer",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test": "jest"
+    "te ast": "jest"
   },
   "private": true,
   "dependencies": {
