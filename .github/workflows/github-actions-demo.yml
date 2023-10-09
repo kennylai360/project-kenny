@@ -31,4 +31,4 @@ jobs:
       - name: npm dependencies
         run: npm install
       - name: Build
-        run: npm run build --configuration production
+        run: npm run build -- --configuration production
