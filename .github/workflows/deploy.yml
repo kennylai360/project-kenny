@@ -22,6 +22,22 @@ jobs:
       - name: Build
         run: npm run build -- --configuration production
 
+      - name: Archive build folder
+        uses: actions/upload-artifacts@v3
+        with:
+          name: build-folder
+          path: dist
+
+  credentials_and_deploy:
+    name: AWS credentials and deploy
+    needs: build_and_deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-folder
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -30,4 +46,4 @@ jobs:
           aws-region: eu-west-1
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./dist/ s3://aws-website-eu-kennykinkeelai-yybos --delete
+        run: aws s3 sync .dist/ s3://aws-website-eu-kennykinkeelai-yybos --delete
