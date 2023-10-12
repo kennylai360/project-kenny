@@ -18,11 +18,19 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build -- --configuration production
+
+  Configure aws credentials:
+    runs-on: ubuntu-latest
+    steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
+
+  Deploy content to AWS:
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./dist/ s3://aws-website-eu-kennykinkeelai-yybos --delete
