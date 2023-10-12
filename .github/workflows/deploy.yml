@@ -1,5 +1,5 @@
 name: Github actions deploy
-run-name: ${{ github.actor }} attempt deploy to AWS S3 bucket 🚀
+run-name: ${{ github.ref }}
 on:
   push:
     branches:
