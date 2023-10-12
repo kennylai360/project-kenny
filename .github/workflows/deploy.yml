@@ -1,5 +1,5 @@
-name: GitHub Actions Deployment
-run-name: ${{ github.actor }} attempt deploy to AWS 🚀
+name: Github actions deploy
+run-name: ${{ github.actor }} attempt deploy to AWS S3 bucket 🚀
 on:
   push:
     branches:
@@ -26,5 +26,3 @@ jobs:
           aws-region: eu-west-1
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./dist/ s3://aws-website-eu-kennykinkeelai-yybos --delete
-      - name: AWS deploy status
-        run: echo "🍏 This job's status is ${{ job.status }}"
