@@ -6,8 +6,8 @@ on:
       - master
   workflow_dispatch:
 jobs:
-  build_and_deploy:
-    name: Build and deploy
+  build_and_store_artifact:
+    name: Build and store artifact
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
 
   credentials_and_deploy:
     name: AWS credentials and deploy
-    needs: build_and_deploy
+    needs: build_and_store_artifact
     runs-on: ubuntu-latest
     steps:
       - name: Download build artifact
