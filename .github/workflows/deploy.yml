@@ -1,12 +1,13 @@
 name: Github actions deploy
-run-name: ${{ github.actor }} attempt deploy to AWS S3 bucket 🚀
+run-name: ${{ github.ref }}
 on:
   push:
     branches:
       - master
   workflow_dispatch:
 jobs:
-  Build_and_Deploy:
+  build_and_store_artifact:
+    name: Build and store artifact
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,10 +17,26 @@ jobs:
           node-version: "20.x"
 
       - name: npm dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build -- --configuration production
+
+      - name: Archive build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-folder
+          path: dist
+
+  credentials_and_deploy:
+    name: AWS credentials and deploy
+    needs: build_and_store_artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build-folder
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -29,4 +46,4 @@ jobs:
           aws-region: eu-west-1
 
       - name: Deploy static site to S3 bucket
-        run: aws s3 sync ./dist/ s3://aws-website-eu-kennykinkeelai-yybos --delete
+        run: aws s3 sync . s3://aws-website-eu-kennykinkeelai-yybos --delete
