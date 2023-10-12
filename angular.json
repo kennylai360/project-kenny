@@ -96,7 +96,6 @@
       }
     }
   },
-  "defaultProject": "project-kenny",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
