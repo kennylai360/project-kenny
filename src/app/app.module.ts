@@ -80,7 +80,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
-    RouterModule.forRoot(appRoutes, { enableTracing: false, scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(appRoutes, { enableTracing: false, scrollPositionRestoration: 'enabled' }),
     EffectsModule.forRoot([GalleryEffects]),
   ],
   declarations: [
