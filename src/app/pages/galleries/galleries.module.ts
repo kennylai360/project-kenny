@@ -21,7 +21,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GalleryAlbumJumbotronModule,
     RouterModule,
     OverlayContainerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   exports: [
     GalleryAlbumListingComponent,
