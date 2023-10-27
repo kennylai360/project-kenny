@@ -8,7 +8,6 @@ import { listOfReducers } from './state-management/ngrx-index';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { environment } from '../environments/environment';
 import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
@@ -51,7 +50,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
   },
   {
     path: 'photography',
@@ -80,7 +79,11 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
-    RouterModule.forRoot(appRoutes, { enableTracing: false, scrollPositionRestoration: 'enabled' }),
+    RouterModule.forRoot(appRoutes, 
+      {
+        enableTracing: false,
+        scrollPositionRestoration: 'enabled' 
+      }),
     EffectsModule.forRoot([GalleryEffects]),
   ],
   declarations: [
