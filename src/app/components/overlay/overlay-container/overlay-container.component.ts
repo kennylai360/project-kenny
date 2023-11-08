@@ -4,11 +4,16 @@ import {
 import { Observable, Subscription } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
   selector: 'app-overlay-container',
   templateUrl: './overlay-container.component.html',
   styleUrls: ['./overlay-container.component.scss'],
+  standalone: true,
+  imports: [ CommonModule, RouterModule, LazyLoadImageModule ],
 })
 export class OverlayContainerComponent implements OnInit, OnDestroy {
 

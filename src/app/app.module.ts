@@ -14,9 +14,7 @@ import { GalleryEffects } from './state-management/gallery-list/gallery.effects'
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
-import { HeaderModule } from './components/header/header.module';
 import { CommonModule } from '@angular/common';
-import { FooterModule } from './components/footer/footer.module';
 import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component';
 import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component';
 import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-album.component';
@@ -24,6 +22,8 @@ import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any) => {
@@ -73,10 +73,10 @@ const appRoutes: Routes = [
     CommonModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    HeaderModule,
+    HeaderComponent,
     PagesModule,
     ComponentsModule,
-    FooterModule,
+    FooterComponent,
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, {metaReducers}),
