@@ -23,6 +23,7 @@ import { GalleryAlbumComponent } from './pages/galleries/gallery-album/gallery-a
 import { AppFacade } from './state-management/app/app.facade';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export function metaReducerLogger(reducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any) => {
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
+    component: ProfileComponent,
   },
   {
     path: 'photography',
