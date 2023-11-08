@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GalleriesModule } from './galleries/galleries.module';
 import { HomeModule } from './home/home.module';
-import { ProfileModule } from './profile/profile.module';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { ProfileModule } from './profile/profile.module';
   imports: [
     CommonModule,
     HomeModule,
-    ProfileModule,
+    ProfileComponent,
     GalleriesModule
   ],
   exports: [
