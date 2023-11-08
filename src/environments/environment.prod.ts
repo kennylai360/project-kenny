@@ -1,6 +1,6 @@
-import { versioningNumber } from './environment-variables';
+import packageJson from '../../package.json';
 
 export const environment = {
-  appVersion: versioningNumber,
+  appVersion: packageJson.version,
   production: true
 };
