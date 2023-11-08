@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { GallerySectionComponent } from './gallery-section/gallery-section.component';
 import { GalleryAlbumListingComponent } from './gallery-album-listing/gallery-album-listing.component';
 import { GalleryAlbumJumbotronModule } from '../../components/gallery-album-jumbotron/gallery-album.jumbotron.module';
-import { OverlayContainerModule } from '../../components/overlay/overlay-container/overlay-container.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { OverlayContainerComponent } from '../../components/overlay/overlay-container/overlay-container.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GalleryAlbumCoverModule,
     GalleryAlbumJumbotronModule,
     RouterModule,
-    OverlayContainerModule,
+    OverlayContainerComponent,
     NgxPaginationModule,
   ],
   exports: [
