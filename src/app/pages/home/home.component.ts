@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { OverlayContainerComponent } from '../../components/overlay/overlay-container/overlay-container.component';
+import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core'
+import { RouterModule } from '@angular/router'
+import { OverlayContainerComponent } from '../../components/overlay/overlay-container/overlay-container.component'
 
 @Component({
   selector: 'app-home',
@@ -10,5 +10,4 @@ import { OverlayContainerComponent } from '../../components/overlay/overlay-cont
   standalone: true,
   imports: [CommonModule, RouterModule, OverlayContainerComponent],
 })
-export class HomeComponent {
-}
+export class HomeComponent {}
