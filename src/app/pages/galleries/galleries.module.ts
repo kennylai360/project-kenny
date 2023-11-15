@@ -1,24 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { GalleryAlbumCoverModule } from '../../components/gallery-album-cover/gallery-album-cover.module';
-import { GalleryAlbumComponent } from './gallery-album/gallery-album.component';
-import { RouterModule } from '@angular/router';
-import { GallerySectionComponent } from './gallery-section/gallery-section.component';
-import { GalleryAlbumListingComponent } from './gallery-album-listing/gallery-album-listing.component';
-import { GalleryAlbumJumbotronModule } from '../../components/gallery-album-jumbotron/gallery-album.jumbotron.module';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { OverlayContainerComponent } from '../../components/overlay/overlay-container/overlay-container.component';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { GalleryAlbumComponent } from './gallery-album/gallery-album.component'
+import { RouterModule } from '@angular/router'
+import { GallerySectionComponent } from './gallery-section/gallery-section.component'
+import { GalleryAlbumListingComponent } from './gallery-album-listing/gallery-album-listing.component'
+import { NgxPaginationModule } from 'ngx-pagination'
+import { OverlayContainerComponent } from '../../components/overlay/overlay-container/overlay-container.component'
+import { GalleryAlbumCoverComponent } from '../../components/gallery-album-cover/gallery-album-cover.component'
+import { GalleryAlbumJumbotronComponent } from '../../components/gallery-album-jumbotron/gallery-album-jumbotron.component'
 
 @NgModule({
   declarations: [
     GalleryAlbumListingComponent,
     GalleryAlbumComponent,
-    GallerySectionComponent
+    GallerySectionComponent,
   ],
   imports: [
     CommonModule,
-    GalleryAlbumCoverModule,
-    GalleryAlbumJumbotronModule,
+    GalleryAlbumCoverComponent,
+    GalleryAlbumJumbotronComponent,
     RouterModule,
     OverlayContainerComponent,
     NgxPaginationModule,
@@ -26,9 +26,8 @@ import { OverlayContainerComponent } from '../../components/overlay/overlay-cont
   exports: [
     GalleryAlbumListingComponent,
     GalleryAlbumComponent,
-    GallerySectionComponent
+    GallerySectionComponent,
   ],
-  providers: []
+  providers: [],
 })
-export class GalleriesModule {
-}
+export class GalleriesModule {}
