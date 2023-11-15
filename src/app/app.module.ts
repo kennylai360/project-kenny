@@ -13,7 +13,6 @@ import { Actions, EffectsModule } from '@ngrx/effects'
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects'
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade'
 import { PagesModule } from './pages/pages.module'
-import { ComponentsModule } from './components/components.module'
 import { CommonModule } from '@angular/common'
 import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component'
 import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component'
@@ -24,6 +23,8 @@ import { DeviceDetectorService } from 'ngx-device-detector'
 import { ProfileComponent } from './pages/profile/profile.component'
 import { FooterComponent } from './components/footer/footer.component'
 import { HeaderComponent } from './components/header/header.component'
+import { GalleryAlbumCoverComponent } from './components/gallery-album-cover/gallery-album-cover.component'
+import { GalleryAlbumJumbotronComponent } from './components/gallery-album-jumbotron/gallery-album-jumbotron.component'
 
 export function metaReducerLogger(
   reducer: ActionReducer<any>
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HeaderComponent,
     PagesModule,
-    ComponentsModule,
+    GalleryAlbumCoverComponent,
+    GalleryAlbumJumbotronComponent,
     FooterComponent,
     HttpClientModule,
     BrowserAnimationsModule,

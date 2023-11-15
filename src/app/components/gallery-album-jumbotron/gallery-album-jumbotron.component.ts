@@ -1,29 +1,30 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
+import { Component, Input, OnInit } from '@angular/core'
+import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface'
+import { CommonModule } from '@angular/common'
+import { BrowserModule } from '@angular/platform-browser'
+import { LazyLoadImageModule } from 'ng-lazyload-image'
 
 @Component({
   selector: 'app-gallery-album-jumbotron',
   templateUrl: './gallery-album-jumbotron.component.html',
   styleUrls: ['./gallery-album-jumbotron.component.scss'],
+  standalone: true,
+  imports: [CommonModule, BrowserModule, LazyLoadImageModule],
 })
 export class GalleryAlbumJumbotronComponent implements OnInit {
+  @Input()
+  public albumTitle?: string
 
   @Input()
-  public albumTitle?: string;
+  public albumSubtitle?: string
 
   @Input()
-  public albumSubtitle?: string;
+  public albumCoverPicture?: string
 
   @Input()
-  public albumCoverPicture?: string;
+  public socialMediaLinks?: ISocialMediaLinks
 
-  @Input()
-  public socialMediaLinks?: ISocialMediaLinks;
+  constructor() {}
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
