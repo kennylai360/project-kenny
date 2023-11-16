@@ -1,14 +1,5 @@
-.main-content {
-  margin: 0 auto;
-  padding-top: 30px;
-  max-width: 1920px;
-  width: 95%;
-}
-
-@media (max-width: 767.98px) {
+:host {
   .main-content {
-    margin: 0 auto;
-    max-width: 1920px;
-    width: 95%;
+    margin: 0 25px;
   }
 }
