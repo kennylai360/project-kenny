@@ -12,6 +12,10 @@ html {
   box-sizing: inherit;
 }
 
+hr {
+  background-color: white;
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -31,7 +35,8 @@ body {
   font-family: 'Nunito', Source Sans Pro, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url($header-img);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url($header-img);
   background-position: $positioning;
   background-repeat: no-repeat;
   background-attachment: fixed;

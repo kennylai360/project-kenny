@@ -1,16 +1,21 @@
 :host {
-
   //Return to album link
+
+  .return-to-album-link {
+    padding-right: 5px;
+  }
+
   a {
-    color: rgba(255, 255, 255, 0.5);
-    
+    color: rgba(255, 255, 255, 1);
+
     text-decoration: none;
     -moz-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    font-size: 16px;
 
     &:hover {
-      color: white;
+      color: rgba(255, 255, 255, 0.5);
       -moz-transition: all 0.5s;
       -webkit-transition: all 0.5s;
       transition: all 0.5s;
@@ -24,10 +29,6 @@
 
   app-gallery-album-cover {
     display: inline-block;
-  }
-
-  hr {
-    background-color: white;
   }
 
   .centerise-album-imgs {
@@ -70,7 +71,7 @@
         transition: all 0.5s;
       }
     }
-    
+
     & .disabled {
       cursor: not-allowed;
     }
@@ -81,8 +82,8 @@
       -moz-transition: all 0.5s;
       -webkit-transition: all 0.5s;
       transition: all 0.5s;
-      &:hover span  {
-        color:black;
+      &:hover span {
+        color: black;
         -moz-transition: all 0.5s;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
@@ -92,8 +93,5 @@
     & .current {
       background: grey;
     }
-
   } //end ngx-pagination
 } //end :host
-
-
