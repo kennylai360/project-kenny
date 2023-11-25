@@ -3,17 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 75px;
   }
 
-  .clickableLinks {
+  .clickable-links {
     display: flex;
-    flex-direction: row;
+    flex-flow: wrap;
     justify-content: center;
-  }
-
-  hr {
-    width: 35%;
   }
 
   h1,
@@ -30,17 +26,33 @@
     margin: 0 30px;
     &:hover {
       color: rgba(255, 255, 255, 0.5);
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
+      -webkit-transition: color 0.5s ease;
+      -moz-transition: color 0.5s ease;
+      -ms-transition: color 0.5s ease;
+      -o-transition: color 0.5s ease;
+      transition: color 0.5s ease;
     }
   }
 
-  @media (max-width: 767.98px) {
+  hr {
+    width: 40%;
+  }
+
+  @media (max-width: 1600px) {
     hr {
       width: 50%;
+    }
+  }
+
+  @media (max-width: 834px) {
+    hr {
+      width: 75%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    hr {
+      width: 85%;
     }
   }
 }

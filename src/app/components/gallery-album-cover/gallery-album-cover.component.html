@@ -2,13 +2,13 @@
   <div
     [ngClass]="{'spinner-border text-dark overlay-spinner': !imageHasLoaded}">
   </div>
-  <img class="album-cover noselect"
+  <img class="album-cover no-select"
        [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
        [lazyLoad]="imgUrl"
        (load)="imageHasBeenLoaded()"
   >
   <div class="overlay"
        [style.opacity]="opacityValue">
-    <div class="text noselect">{{albumTitle}}</div>
+    <div class="text no-select">{{albumTitle}}</div>
   </div>
 </div>

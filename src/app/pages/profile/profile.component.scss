@@ -1,11 +1,4 @@
 :host {
-  @media (min-width: 1280px) {
-    .jumbotron {
-      margin-left: 10%;
-      margin-right: 10%;
-    }
-  }
-
   .h1-responsive {
     color: black;
   }
@@ -21,5 +14,12 @@
 
   p {
     color: black;
+  }
+
+  @media (min-width: 1280px) {
+    .jumbotron {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
   }
 }
