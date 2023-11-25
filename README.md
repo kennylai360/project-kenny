@@ -1,6 +1,6 @@
 # Project-Kenny
 
-## https://kennykinkeelai.com
+## Publically accessible URL: https://kennykinkeelai.com
 
 A personal portfolio featuring my photography work.
 
@@ -16,7 +16,14 @@ Technologies used:
 - [AWS Cloudfront (CDN)](https://aws.amazon.com/cloudfront/)
 - [AWS Route 53 (DNS service) ](https://aws.amazon.com/route53/)
 
-Things to update/fix:
+## Running project locally
+
+- Clone the repo
+- `npm install`
+- `ng serve`
+- Go to `localhost:4200`
+
+## Things to update/fix:
 
 - [ ] Footer rewrite / update
 - [ ] Profile rewrite / update
