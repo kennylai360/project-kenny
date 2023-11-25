@@ -16,6 +16,10 @@
     max-height: 400px;
   }
 
+  .profile__picture__black-border {
+    border: black 1px solid;
+  }
+
   @media (min-width: 1024px) {
     .jumbotron {
       margin-left: 10%;
