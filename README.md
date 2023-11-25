@@ -10,5 +10,6 @@ Deployed onto Amazon Web Services (AWS) using the following:
 - Amazon Route 53
 
 Things to fix:
-[] Footer rewrite / update
-[] Profile rewrite / update
+
+- [] Footer rewrite / update
+- [] Profile rewrite / update
