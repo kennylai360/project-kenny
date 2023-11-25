@@ -1,25 +1,32 @@
 :host {
-  .h1-responsive {
-    color: black;
+  h1,
+  h5,
+  hr,
+  p,
+  .profile__h1-text__black,
+  .profile__picture {
+    color: rgb(0, 0, 0, 1);
   }
 
-  .profile-row {
+  .profile__div__padding {
     padding-bottom: 20px;
   }
 
-  .pro-pic {
-    border: 1px black solid;
+  .profile__picture__max-height {
     max-height: 400px;
   }
 
-  p {
-    color: black;
-  }
-
-  @media (min-width: 1280px) {
+  @media (min-width: 1024px) {
     .jumbotron {
       margin-left: 10%;
       margin-right: 10%;
+    }
+  }
+
+  @media (min-width: 480px) {
+    .jumbotron {
+      margin-left: 5%;
+      margin-right: 5%;
     }
   }
 }

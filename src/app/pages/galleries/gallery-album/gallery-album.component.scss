@@ -1,24 +1,23 @@
 :host {
-  //Return to album link
+  .gallery-album__return-link {
+    margin-left: 20px;
+  }
 
-  .return-to-album-link {
+  .return-to-album-icon {
     padding-right: 5px;
   }
 
   a {
-    color: rgba(255, 255, 255, 1);
-
-    text-decoration: none;
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    -moz-transition: color 0.5s;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
     font-size: 16px;
 
     &:hover {
       color: rgba(255, 255, 255, 0.5);
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
+      -moz-transition: color 0.5s;
+      -webkit-transition: color 0.5s;
+      transition: color 0.5s;
     }
   }
 
@@ -31,7 +30,7 @@
     display: inline-block;
   }
 
-  .centerise-album-imgs {
+  .gallery-album__image__center {
     text-align: center;
   }
 
@@ -44,31 +43,31 @@
 
     & .pagination-next a {
       color: white;
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
+      -moz-transition: color 0.5s;
+      -webkit-transition: color 0.5s;
+      transition: color 0.5s;
 
       &:hover {
         color: black;
         border-radius: 900px;
-        -moz-transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+        -moz-transition: color 0.5s;
+        -webkit-transition: color 0.5s;
+        transition: color 0.5s;
       }
     }
 
     & .pagination-previous a {
       color: white;
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
+      -moz-transition: color 0.5s;
+      -webkit-transition: color 0.5s;
+      transition: color 0.5s;
 
       &:hover {
         color: black;
         border-radius: 900px;
-        -moz-transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+        -moz-transition: color 0.5s;
+        -webkit-transition: color 0.5s;
+        transition: color 0.5s;
       }
     }
 
@@ -77,16 +76,14 @@
     }
 
     & a {
-      color: white;
-      text-decoration: none;
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
+      -moz-transition: color 0.5s;
+      -webkit-transition: color 0.5s;
+      transition: color 0.5s;
       &:hover span {
         color: black;
-        -moz-transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
+        -moz-transition: color 0.5s;
+        -webkit-transition: color 0.5s;
+        transition: color 0.5s;
       }
     }
 
