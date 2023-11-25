@@ -1,27 +1,33 @@
 :host {
   nav {
     display: flex;
+    flex-direction: row;
     margin: 10px;
     justify-content: space-between;
-
-    a {
-      margin: 0 5px;
-    }
   }
 
   .nav-links {
-    display: flex;
-    flex-direction: row;
-
+    flex-flow: row wrap;
     .fa {
       padding-right: 5px;
     }
   }
 
+  .nav-links__link__margin {
+    margin: 0 5px;
+  }
+
   .social-media {
-    display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: flex-end;
+  }
+
+  .social-media__link__font-size {
+    font-size: 24px;
+  }
+
+  .social-media__link__margin {
+    margin: 0 10px;
   }
 
   @media (max-width: 480px) {
@@ -29,18 +35,24 @@
       display: none;
     }
 
-    nav {
-      a {
-        margin: 0 15px;
-      }
+    .nav-links__link__margin,
+    .social-media__link__margin {
+      margin: 0 15px;
+    }
+
+    .social-media__link__font-size {
+      font-size: 20px;
     }
   }
 
   @media (max-width: 320px) {
-    nav {
-      a {
-        margin: 0 10px;
-      }
+    .nav-links__link__margin,
+    .social-media__link__margin {
+      margin: 0 10px;
+    }
+
+    .social-media__link__font-size {
+      font-size: 16px;
     }
   }
 }
