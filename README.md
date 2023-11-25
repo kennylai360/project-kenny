@@ -21,3 +21,4 @@ Things to update/fix:
 - [ ] Footer rewrite / update
 - [ ] Profile rewrite / update
 - [ ] Replace Animations in the site with Angular Animations or Pure CSS.
+- [ ] Background issue with mobile view in Profile and Photography routes where its seems to be all zoomed in.
