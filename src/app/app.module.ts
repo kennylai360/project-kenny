@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     component: GallerySectionComponent,
     children: [
       { path: '', component: GalleryAlbumListingComponent },
-      { path: ':id', component: GalleryAlbumComponent, data: {} },
+      { path: ':id', component: GalleryAlbumComponent },
     ],
   },
   {
