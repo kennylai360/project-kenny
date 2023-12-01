@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "project-kenny:build"
+            "buildTarget": "project-kenny:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "project-kenny:build:production"
+              "buildTarget": "project-kenny:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "project-kenny:build"
+            "buildTarget": "project-kenny:build"
           }
         }
       }
