@@ -6,8 +6,8 @@ A personal portfolio featuring my photography work.
 
 Technologies used:
 
-- [Angular2+ (ver 16.2.9)](https://angular.dev/)
-- [NgRx (ver 16.3.0)](https://ngrx.io/)
+- [Angular2+ (ver 17.0.5)](https://angular.dev/)
+- [NgRx (ver 17.0.1)](https://ngrx.io/)
 - [Rxjs (ver 6.6.3)](https://rxjs.dev/)
 - [Bootstrap (ver 4.6.0)](https://getbootstrap.com/) => in-progress of removing it from individual components to complete removal of the library to use pure css.
 - [Animate.css](https://animate.style/) => Will eventually move away from this library and maybe make use of just [Angular animations](https://angular.io/guide/animations/) OR pure css, haven't decided yet.
