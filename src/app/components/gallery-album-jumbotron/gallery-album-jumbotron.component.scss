@@ -3,14 +3,14 @@
     height: 300px;
     color: white;
     width: 100%;
-    position: relative
+    position: relative;
   }
 
   img.album-jumbotron {
     opacity: 0;
-    -moz-transition: all 1.5s;
-    -webkit-transition: all 1.5s;
-    transition: all 1.5s;
+    -moz-transition: opacity 1.5s;
+    -webkit-transition: opacity 1.5s;
+    transition: opacity 1.5s;
   }
 
   img.album-jumbotron.ng-lazyloaded {
@@ -18,17 +18,17 @@
   }
 
   a {
-    color: rgba(255, 255, 255, 0.75);
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    color: rgba(255, 255, 255, 1);
+    -moz-transition: color 0.5s;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
     padding: 0 3px;
 
     &:hover {
-      color: white;
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
+      color: rgba(255, 255, 255, 0.5);
+      -moz-transition: color 0.5s;
+      -webkit-transition: color 0.5s;
+      transition: color 0.5s;
     }
   }
 
@@ -44,6 +44,7 @@
   }
 
   .jumb-text {
+    // TODO Need to rewrite this
     width: 90%;
     text-align: center;
     position: absolute;
