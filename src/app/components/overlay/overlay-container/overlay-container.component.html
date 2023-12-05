@@ -1,3 +1,4 @@
+<!--TODO: Maybe can rewrite this to check the isModalOpen$ using ngIf and angular animations to adjust the fade-in and out-->
 <div
   [ngClass]="{'show-overlay-background': (isModalOpen$ | async), 'hide-overlay-background': !(isModalOpen$ | async)}">
   <!--Modal Navigations controls -->
