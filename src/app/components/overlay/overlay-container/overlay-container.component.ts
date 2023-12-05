@@ -6,12 +6,11 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core'
-import { Observable, Subject, Subscription } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 import { AppFacade } from '../../../state-management/app/app.facade'
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface'
-import { CommonModule } from '@angular/common'
+import { CommonModule, NgOptimizedImage } from '@angular/common'
 import { RouterModule } from '@angular/router'
-import { LazyLoadImageModule } from 'ng-lazyload-image'
 import { takeUntil } from 'rxjs/operators'
 
 @Component({
@@ -19,7 +18,7 @@ import { takeUntil } from 'rxjs/operators'
   templateUrl: './overlay-container.component.html',
   styleUrls: ['./overlay-container.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, LazyLoadImageModule],
+  imports: [CommonModule, RouterModule, NgOptimizedImage],
 })
 export class OverlayContainerComponent implements OnInit, OnDestroy {
   public isModalOpen$: Observable<boolean>
