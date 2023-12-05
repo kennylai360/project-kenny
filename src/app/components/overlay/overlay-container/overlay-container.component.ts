@@ -29,6 +29,10 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
   public selectedImageHorizontalOrientation$: Observable<boolean>
 
+  public imgSrcHeightValue: string = undefined
+
+  public imgSrcWidthValue: string = undefined
+
   private isModalOpenValue: boolean
 
   private destory$: Subject<void> = new Subject<void>()
