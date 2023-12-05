@@ -1,5 +1,5 @@
-import { Component } from '@angular/core'
-import { GalleryFacade } from './state-management/gallery-list/gallery.facade'
+import { Component } from '@angular/core';
+import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,6 @@ import { GalleryFacade } from './state-management/gallery-list/gallery.facade'
 })
 export class AppComponent {
   constructor(private galleryFacade: GalleryFacade) {
-    this.galleryFacade.loadGalleryList()
+    this.galleryFacade.loadGalleryList();
   }
 }

@@ -10,15 +10,13 @@ import { AppFacade } from '../../../state-management/app/app.facade';
   templateUrl: './gallery-album-listing.component.html',
   styleUrls: ['./gallery-album-listing.component.scss'],
 })
-
 export class GalleryAlbumListingComponent implements OnInit {
-
   public coverContent: Observable<IGalleryCover[]>;
 
   public currentSelectedPage: number = 1;
 
   constructor(
-    private galleryFacade:  GalleryFacade,
+    private galleryFacade: GalleryFacade,
     private appFacade: AppFacade,
     private location: PlatformLocation
   ) {}
@@ -26,8 +24,8 @@ export class GalleryAlbumListingComponent implements OnInit {
   public ngOnInit(): void {
     this.coverContent = this.galleryFacade.galleryList$;
 
-   this.location.onPopState(() => {
-     this.appFacade.closeModal();
-   });
+    this.location.onPopState(() => {
+      this.appFacade.closeModal();
+    });
   }
 }
