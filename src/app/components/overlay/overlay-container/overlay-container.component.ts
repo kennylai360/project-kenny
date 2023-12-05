@@ -5,13 +5,13 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
-} from '@angular/core'
-import { Observable, Subject } from 'rxjs'
-import { AppFacade } from '../../../state-management/app/app.facade'
-import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface'
-import { CommonModule, NgOptimizedImage } from '@angular/common'
-import { RouterModule } from '@angular/router'
-import { takeUntil } from 'rxjs/operators'
+} from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { AppFacade } from '../../../state-management/app/app.facade';
+import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-overlay-container',
@@ -21,52 +21,52 @@ import { takeUntil } from 'rxjs/operators'
   imports: [CommonModule, RouterModule, NgOptimizedImage],
 })
 export class OverlayContainerComponent implements OnInit, OnDestroy {
-  public isModalOpen$: Observable<boolean>
+  public isModalOpen$: Observable<boolean>;
 
-  public selectedImageUrl$: Observable<string>
+  public selectedImageUrl$: Observable<string>;
 
-  public selectedImageId$: Observable<number>
+  public selectedImageId$: Observable<number>;
 
-  public selectedImageHorizontalOrientation$: Observable<boolean>
+  public selectedImageHorizontalOrientation$: Observable<boolean>;
 
-  private isModalOpenValue: boolean
+  private isModalOpenValue: boolean;
 
-  private destory$: Subject<void> = new Subject<void>()
-
-  @Input()
-  public albumSet: Array<IGalleryCover>
+  private destory$: Subject<void> = new Subject<void>();
 
   @Input()
-  public selectedImageId: Observable<number>
+  public albumSet: Array<IGalleryCover>;
+
+  @Input()
+  public selectedImageId: Observable<number>;
 
   constructor(private appFacade: AppFacade, private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.isModalOpen$ = this.appFacade.modalOpen$
-    this.selectedImageUrl$ = this.appFacade.selectedImage$
-    this.selectedImageId$ = this.appFacade.selectedImageId$
+    this.isModalOpen$ = this.appFacade.modalOpen$;
+    this.selectedImageUrl$ = this.appFacade.selectedImage$;
+    this.selectedImageId$ = this.appFacade.selectedImageId$;
     this.selectedImageHorizontalOrientation$ =
-      this.appFacade.selectedImageHorizontalOrientation$
+      this.appFacade.selectedImageHorizontalOrientation$;
 
     this.isModalOpen$
       .pipe(takeUntil(this.destory$))
       .subscribe((isModalOpen: boolean) => {
         isModalOpen
           ? this.renderer.addClass(document.body, 'noScroll')
-          : this.renderer.removeClass(document.body, 'noScroll')
-        this.isModalOpenValue = isModalOpen
-      })
+          : this.renderer.removeClass(document.body, 'noScroll');
+        this.isModalOpenValue = isModalOpen;
+      });
   }
 
   ngOnDestroy() {
-    this.destory$.next()
-    this.destory$.complete()
+    this.destory$.next();
+    this.destory$.complete();
   }
 
   @HostListener('document:keydown', ['$event'])
   private keyPress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && this.isModalOpenValue) {
-      this.appFacade.closeModal()
+      this.appFacade.closeModal();
     }
 
     if (event.key === 'ArrowLeft' && this.isModalOpenValue) {
@@ -81,6 +81,6 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
   }
 
   public closeModal() {
-    this.appFacade.closeModal()
+    this.appFacade.closeModal();
   }
 }
