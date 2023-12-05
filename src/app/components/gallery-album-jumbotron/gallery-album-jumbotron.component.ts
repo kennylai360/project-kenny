@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface'
 import { CommonModule } from '@angular/common'
 import { BrowserModule } from '@angular/platform-browser'
@@ -11,7 +11,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image'
   standalone: true,
   imports: [CommonModule, BrowserModule, LazyLoadImageModule],
 })
-export class GalleryAlbumJumbotronComponent implements OnInit {
+export class GalleryAlbumJumbotronComponent {
   @Input()
   public albumTitle?: string
 
@@ -23,8 +23,4 @@ export class GalleryAlbumJumbotronComponent implements OnInit {
 
   @Input()
   public socialMediaLinks?: ISocialMediaLinks
-
-  constructor() {}
-
-  ngOnInit() {}
 }

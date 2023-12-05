@@ -1,90 +1,73 @@
 import {
-  Component, HostListener, Input, OnDestroy, OnInit, Renderer2,
-} from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { AppFacade } from '../../../state-management/app/app.facade';
-import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
+  Component,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+} from '@angular/core'
+import { Observable, Subject, Subscription } from 'rxjs'
+import { AppFacade } from '../../../state-management/app/app.facade'
+import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface'
+import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
+import { LazyLoadImageModule } from 'ng-lazyload-image'
+import { takeUntil } from 'rxjs/operators'
 
 @Component({
   selector: 'app-overlay-container',
   templateUrl: './overlay-container.component.html',
   styleUrls: ['./overlay-container.component.scss'],
   standalone: true,
-  imports: [ CommonModule, RouterModule, LazyLoadImageModule ],
+  imports: [CommonModule, RouterModule, LazyLoadImageModule],
 })
 export class OverlayContainerComponent implements OnInit, OnDestroy {
+  public isModalOpen$: Observable<boolean>
 
-  public isModalOpen$: Observable<boolean>;
+  public selectedImageUrl$: Observable<string>
 
-  public selectedImageUrl$: Observable<string>;
+  public selectedImageId$: Observable<number>
 
-  public selectedImageId$: Observable<number>;
+  public selectedImageHorizontalOrientation$: Observable<boolean>
 
-  public selectedImageHorizontalOrientation$: Observable<boolean>;
+  private isModalOpenValue: boolean
 
-  private modalOpenSubscription: Subscription;
-
-  private modalSelectedImageIdSubscription: Subscription;
-
-  private currentPictureHorizontalOrientationSub: Subscription;
-
-  private isModalOpenValue: boolean;
-
-  private currentPictureHorizontalOrientation: boolean;
+  private destory$: Subject<void> = new Subject<void>()
 
   @Input()
-  public albumSet: Array<IGalleryCover>;
+  public albumSet: Array<IGalleryCover>
 
   @Input()
-  public selectedImageId: Observable<number>;
+  public selectedImageId: Observable<number>
 
-  constructor(private appFacade: AppFacade,
-              private renderer: Renderer2) {
-  }
+  constructor(private appFacade: AppFacade, private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.isModalOpen$ = this.appFacade.modalOpen$;
-    this.selectedImageUrl$ = this.appFacade.selectedImage$;
-    this.selectedImageId$ = this.appFacade.selectedImageId$;
-    this.selectedImageHorizontalOrientation$ = this.appFacade.selectedImageHorizontalOrientation$;
+    this.isModalOpen$ = this.appFacade.modalOpen$
+    this.selectedImageUrl$ = this.appFacade.selectedImage$
+    this.selectedImageId$ = this.appFacade.selectedImageId$
+    this.selectedImageHorizontalOrientation$ =
+      this.appFacade.selectedImageHorizontalOrientation$
 
-    this.modalOpenSubscription = this.isModalOpen$.subscribe((data: boolean) => {
-      if (data) {
-        this.renderer.addClass(document.body, 'noScroll');
-        this.isModalOpenValue = true;
-      } else {
-        this.renderer.removeClass(document.body, 'noScroll');
-        this.isModalOpenValue = false;
-      }
-    });
-
-    this.currentPictureHorizontalOrientationSub = this.selectedImageHorizontalOrientation$.subscribe((data: boolean) => {
-      this.currentPictureHorizontalOrientation = data;
-    });
+    this.isModalOpen$
+      .pipe(takeUntil(this.destory$))
+      .subscribe((isModalOpen: boolean) => {
+        isModalOpen
+          ? this.renderer.addClass(document.body, 'noScroll')
+          : this.renderer.removeClass(document.body, 'noScroll')
+        this.isModalOpenValue = isModalOpen
+      })
   }
 
   ngOnDestroy() {
-    if (this.modalOpenSubscription) {
-      this.modalOpenSubscription.unsubscribe();
-    }
-
-    if (this.modalSelectedImageIdSubscription) {
-      this.modalSelectedImageIdSubscription.unsubscribe();
-    }
-
-    if (this.currentPictureHorizontalOrientationSub) {
-      this.currentPictureHorizontalOrientationSub.unsubscribe();
-    }
+    this.destory$.next()
+    this.destory$.complete()
   }
 
   @HostListener('document:keydown', ['$event'])
   private keyPress(event: KeyboardEvent): void {
-
     if (event.key === 'Escape' && this.isModalOpenValue) {
-      this.appFacade.closeModal();
+      this.appFacade.closeModal()
     }
 
     if (event.key === 'ArrowLeft' && this.isModalOpenValue) {
@@ -99,10 +82,6 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
   }
 
   public closeModal() {
-    this.appFacade.closeModal();
-    setTimeout(() => {
-      this.appFacade.updateSelectedImage('', null, this.currentPictureHorizontalOrientation);
-      }, 500);
-
+    this.appFacade.closeModal()
   }
 }

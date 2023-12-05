@@ -1,54 +1,47 @@
-import { IAppState } from './app-state.interface';
+import { IAppState } from './app-state.interface'
 import {
   UpdateModalSelectedImageAction,
   UpdateModalSelectedImageIdAction,
   CloseModalAction,
-  OpenModalAction
-} from './app.actions';
-import {Action, createReducer, on} from '@ngrx/store';
+  OpenModalAction,
+} from './app.actions'
+import { Action, createReducer, on } from '@ngrx/store'
 
 export const appInitialState: IAppState = {
   hasModalOpen: false,
-  selectedImage: '',
+  selectedImage: null,
   selectedImageId: null,
-  selectedImageHorizontalOrient: false
-};
+  selectedImageHorizontalOrient: false,
+}
 
 const reducer = createReducer(
   appInitialState,
 
-  on(OpenModalAction,
-    (state, action) => ({
-      ...state,
-      hasModalOpen: true
-    })),
+  on(OpenModalAction, (state) => ({
+    ...state,
+    hasModalOpen: true,
+  })),
 
-  on(CloseModalAction,
-    (state, action) => ({
-      ...state,
-      hasModalOpen: false,
-      selectedImage: '',
-      selectedImageId: null
-    })),
+  on(CloseModalAction, (state) => ({
+    ...state,
+    hasModalOpen: false,
+    selectedImage: null,
+    selectedImageId: null,
+  })),
 
-  on(UpdateModalSelectedImageIdAction,
-    (state, action) => ({
-      ...state,
-      selectedImageId: action.payload
-    })),
+  on(UpdateModalSelectedImageIdAction, (state, action) => ({
+    ...state,
+    selectedImageId: action.payload,
+  })),
 
-  on(UpdateModalSelectedImageAction,
-    (state, action) => ({
-      ...state,
-      selectedImage: action.payload.imageUrl,
-      selectedImageId: action.payload.imageId,
-      selectedImageHorizontalOrient: action.payload.imageHorizontalOrient
-    })),
-);
+  on(UpdateModalSelectedImageAction, (state, action) => ({
+    ...state,
+    selectedImage: action.payload.imageUrl,
+    selectedImageId: action.payload.imageId,
+    selectedImageHorizontalOrient: action.payload.imageHorizontalOrient,
+  }))
+)
 
-export function appReducer(
-  state: IAppState | undefined,
-  action: Action
-) {
-  return reducer(state, action);
+export function appReducer(state: IAppState | undefined, action: Action) {
+  return reducer(state, action)
 }
