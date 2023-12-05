@@ -9,7 +9,7 @@ import { Action, createReducer, on } from '@ngrx/store'
 
 export const appInitialState: IAppState = {
   hasModalOpen: false,
-  selectedImage: null,
+  selectedImage: '',
   selectedImageId: null,
   selectedImageHorizontalOrient: false,
 }
@@ -25,7 +25,7 @@ const reducer = createReducer(
   on(CloseModalAction, (state) => ({
     ...state,
     hasModalOpen: false,
-    selectedImage: null,
+    selectedImage: '',
     selectedImageId: null,
   })),
 

@@ -15,6 +15,6 @@
      <!--(click)="rightArrowClick()">-->
   <!--</i>-->
   <img class="modal-image"
-       [lazyLoad]="(selectedImageUrl$ | async)"
+       [ngSrc]="(selectedImageUrl$ | async)"
        [ngClass]="{'horizontal-image': (selectedImageHorizontalOrientation$ | async), 'vertical-image': !(selectedImageHorizontalOrientation$ | async)}">
 </div>
