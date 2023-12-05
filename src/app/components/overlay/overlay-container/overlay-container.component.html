@@ -1,21 +1,28 @@
 <!--TODO: Maybe can rewrite this to check the isModalOpen$ using ngIf and angular animations to adjust the fade-in and out-->
 <div
-  [ngClass]="{'show-overlay-background': (isModalOpen$ | async), 'hide-overlay-background': !(isModalOpen$ | async)}">
+  [ngClass]="{
+    'show-overlay-background': (isModalOpen$ | async),
+    'hide-overlay-background': !(isModalOpen$ | async)
+  }"
+>
   <!--Modal Navigations controls -->
-  <i class="fa fa-times modal-close"
-     aria-hidden="true"
-     (click)="closeModal()">
+  <i class="fa fa-times modal-close" aria-hidden="true" (click)="closeModal()">
   </i>
   <!--<i class="fa fa-arrow-left modal-arrows left-arrow"-->
-     <!--aria-hidden="true"-->
-     <!--(click)="leftArrowClick()">-->
+  <!--aria-hidden="true"-->
+  <!--(click)="leftArrowClick()">-->
   <!--</i>-->
   <!--<i class="fa fa-arrow-right modal-arrows right-arrow"-->
-     <!--aria-hidden="true"-->
-     <!--(click)="rightArrowClick()">-->
+  <!--aria-hidden="true"-->
+  <!--(click)="rightArrowClick()">-->
   <!--</i>-->
 
-  <img class="modal-image"
-       [ngSrc]="(selectedImageUrl$ | async)"
-       [ngClass]="{'horizontal-image': (selectedImageHorizontalOrientation$ | async), 'vertical-image': !(selectedImageHorizontalOrientation$ | async)}">
-      </div>
+  <img
+    class="modal-image"
+    [ngSrc]="selectedImageUrl$ | async"
+    [ngClass]="{
+      'horizontal-image': (selectedImageHorizontalOrientation$ | async),
+      'vertical-image': !(selectedImageHorizontalOrientation$ | async)
+    }"
+  />
+</div>
