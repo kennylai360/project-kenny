@@ -1,17 +1,18 @@
 import {
   Component,
+  DestroyRef,
   HostListener,
   Input,
-  OnDestroy,
   OnInit,
   Renderer2,
+  inject,
 } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-overlay-container',
@@ -20,7 +21,7 @@ import { takeUntil } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule, RouterModule, NgOptimizedImage],
 })
-export class OverlayContainerComponent implements OnInit, OnDestroy {
+export class OverlayContainerComponent implements OnInit {
   public isModalOpen$: Observable<boolean>;
 
   public selectedImageUrl$: Observable<string>;
@@ -31,7 +32,7 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
 
   private isModalOpenValue: boolean;
 
-  private destory$: Subject<void> = new Subject<void>();
+  private destroyRef: DestroyRef = inject(DestroyRef);
 
   @Input()
   public albumSet: Array<IGalleryCover>;
@@ -49,18 +50,13 @@ export class OverlayContainerComponent implements OnInit, OnDestroy {
       this.appFacade.selectedImageHorizontalOrientation$;
 
     this.isModalOpen$
-      .pipe(takeUntil(this.destory$))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((isModalOpen: boolean) => {
         isModalOpen
           ? this.renderer.addClass(document.body, 'noScroll')
           : this.renderer.removeClass(document.body, 'noScroll');
         this.isModalOpenValue = isModalOpen;
       });
-  }
-
-  ngOnDestroy() {
-    this.destory$.next();
-    this.destory$.complete();
   }
 
   @HostListener('document:keydown', ['$event'])
