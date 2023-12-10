@@ -9,14 +9,6 @@
     font-weight: bold;
     cursor: pointer;
     margin: 0 30px;
-    &:hover {
-      color: rgba(255, 255, 255, 0.5);
-      -webkit-transition: color 0.5s ease;
-      -moz-transition: color 0.5s ease;
-      -ms-transition: color 0.5s ease;
-      -o-transition: color 0.5s ease;
-      transition: color 0.5s ease;
-    }
   }
 
   hr {
