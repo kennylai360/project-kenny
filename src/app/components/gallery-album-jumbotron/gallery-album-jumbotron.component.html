@@ -1,24 +1,42 @@
 <div class="imageContainer">
   <div class="gradient-colour">
-    <img class="album-jumbotron no-select" [lazyLoad]="albumCoverPicture">
+    <img class="album-jumbotron no-select" [lazyLoad]="albumCoverPicture" />
   </div>
   <div class="jumb-text">
-    <h1 class="animate__animated animate__fadeInDown no-select">{{albumTitle}}
-      <a *ngIf="socialMediaLinks && socialMediaLinks.instagram" href="{{socialMediaLinks.instagram}}">
+    <h1 class="animate__animated animate__fadeInDown no-select">
+      {{ albumTitle }}
+      <a
+        *ngIf="socialMediaLinks && socialMediaLinks.instagram"
+        class="jumb-text__link__padding"
+        href="{{ socialMediaLinks.instagram }}"
+      >
         <i class="fa fa-instagram"></i>
       </a>
-      <a *ngIf="socialMediaLinks && socialMediaLinks.facebook" href="{{socialMediaLinks.facebook}}">
+      <a
+        *ngIf="socialMediaLinks && socialMediaLinks.facebook"
+        class="jumb-text__link__padding"
+        href="{{ socialMediaLinks.facebook }}"
+      >
         <i class="fa fa-facebook-square"></i>
       </a>
-      <a *ngIf="socialMediaLinks && socialMediaLinks.twitter" href="{{socialMediaLinks.twitter}}">
+      <a
+        *ngIf="socialMediaLinks && socialMediaLinks.twitter"
+        class="jumb-text__link__padding"
+        href="{{ socialMediaLinks.twitter }}"
+      >
         <i class="fa fa-twitter-square"></i>
       </a>
-      <a *ngIf="socialMediaLinks && socialMediaLinks.weibo" href="{{socialMediaLinks.weibo}}">
+      <a
+        *ngIf="socialMediaLinks && socialMediaLinks.weibo"
+        class="jumb-text__link__padding"
+        href="{{ socialMediaLinks.weibo }}"
+      >
         <i class="fa fa-weibo"></i>
       </a>
-     </h1>
+    </h1>
 
-    <h5 class="animate__animated animate__fadeInDown no-select">{{albumSubtitle}}</h5>
-
+    <h5 class="animate__animated animate__fadeInDown no-select">
+      {{ albumSubtitle }}
+    </h5>
   </div>
 </div>

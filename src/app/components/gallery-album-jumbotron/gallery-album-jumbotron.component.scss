@@ -17,19 +17,8 @@
     opacity: 0.5;
   }
 
-  a {
-    color: rgba(255, 255, 255, 1);
-    -moz-transition: color 0.5s;
-    -webkit-transition: color 0.5s;
-    transition: color 0.5s;
+  .jumb-text__link__padding {
     padding: 0 3px;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.5);
-      -moz-transition: color 0.5s;
-      -webkit-transition: color 0.5s;
-      transition: color 0.5s;
-    }
   }
 
   .album-jumbotron {
