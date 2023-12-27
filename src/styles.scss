@@ -9,6 +9,7 @@ html {
 *,
 *:before,
 *:after {
+  color: white;
   box-sizing: inherit;
 }
 
@@ -57,11 +58,6 @@ a {
   -ms-transition: color 0.5s ease;
   -o-transition: color 0.5s ease;
   transition: color 0.5s ease;
-}
-
-h1,
-h5 {
-  color: white;
 }
 
 a:hover {

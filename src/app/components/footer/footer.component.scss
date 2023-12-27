@@ -11,6 +11,10 @@
     section {
       display: flex;
       justify-content: center;
+
+      .copyright {
+        color: rgb(255, 255, 255, 0.5);
+      }
     }
   }
 }
