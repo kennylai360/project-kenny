@@ -1,7 +1,7 @@
 [
 	{
 		"albumId": "MayMCM2019",
-		"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/lux1.jpg",
+		"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/lux1.jpg",
 		"albumTitle": "May MCM 2019",
 		"albumSubtitle": "A few pictures from May MCM 2019, not a lot of pictures were taken but the con was very chill :)",
 		"translateX": -45,
@@ -9,63 +9,63 @@
 		"albumImages": [
 			{
 			"imageId": 1,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/mf1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/mf1.jpg",
 			"translateX": -10,
 			"translateY": -10,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 2,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/mf2.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/mf2.jpg",
 			"translateX": -25,
 			"translateY": -30,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 3,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/mf3.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/mf3.jpg",
 			"translateX": -10,
 			"translateY": -10,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 4,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/junko2.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/junko2.jpg",
 			"translateX": -10,
 			"translateY": -10,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 5,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/junko1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/junko1.jpg",
 			"translateX": -30,
 			"translateY": -10,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 6,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/ahri1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/ahri1.jpg",
 			"translateX": -30,
 			"translateY": -10,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 7,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/ahrixlux1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/ahrixlux1.jpg",
 			"translateX": -30,
 			"translateY": -10,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 8,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/sona1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/sona1.jpg",
 			"translateX": -45,
 			"translateY": -10,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 9,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/MayMCM2019/lux1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/MayMCM2019/lux1.jpg",
 			"translateX": -45,
 			"translateY": -10,
 			"horizontalOrient": true
@@ -410,7 +410,7 @@
 	},
 	{
 		"albumId": "HarukoMisaki",
-		"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bear2.jpg",
+		"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bear2.jpg",
 		"albumTitle": "Haruko Misaki",
 		"albumSubtitle": "Fashion/Cosplay/ZR photoshoots with Haruko Misaki",
 		"socialMediaLinks": {
@@ -507,161 +507,161 @@
 			},
 			{
 			"imageId": 13,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory3.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/savory3.jpg",
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 14,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory2.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/savory2.jpg",
 			"translateX": -33,
 			"translateY": -30,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 15,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/savory1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/savory1.jpg",
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 16,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/nozomi1.jpg",
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 17,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi2.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/nozomi2.jpg",
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 18,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/nozomi3.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/nozomi3.jpg",
 			"translateX": 0,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 19,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath1.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 20,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath3.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath3.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 21,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath4.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath4.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 22,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath5.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath5.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 23,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath6.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath6.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 24,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath7.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath7.jpg",
 			"translateX": 0,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 25,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bath8.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bath8.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 26,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board1.jpg",
 			"translateX": -15,
 			"translateY": -10,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 27,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board2.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board2.jpg",
 			"translateX": -30,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 28,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board3.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board3.jpg",
 			"translateX": -10,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 29,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board4.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board4.jpg",
 			"translateX": -15,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 30,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board5.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board5.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 31,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board6.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board6.jpg",
 			"translateX": -45,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 32,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board7.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board7.jpg",
 			"translateX": -28,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 33,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/board8.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/board8.jpg",
 			"translateX": -25,
 			"translateY": -20,
 			"horizontalOrient": true
 			},
 			{
 			"imageId": 34,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bear1.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bear1.jpg",
 			"translateX": 0,
 			"translateY": -20,
 			"horizontalOrient": false
 			},
 			{
 			"imageId": 35,
-			"imgUrl": "https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Haruko_Misaki/bear2.jpg",
+			"imgUrl": "https://d1gzhm7v07i91z.cloudfront.net/Haruko_Misaki/bear2.jpg",
 			"translateX": -25,
 			"translateY": -20,
 			"horizontalOrient": true
