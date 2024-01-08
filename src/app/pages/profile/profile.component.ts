@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./profile.component.html",
   styleUrls: ["./profile.component.scss"],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
 })
 export class ProfileComponent implements OnInit {
   private dateOfBirth: Date = new Date(Date.UTC(1993, 9, 26));
