@@ -21,6 +21,10 @@
     border: black 1px solid;
   }
 
+  li::marker {
+    color: black;
+  }
+
   @media (min-width: 1024px) {
     .jumbotron {
       margin-left: 10%;
