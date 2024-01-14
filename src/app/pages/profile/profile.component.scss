@@ -11,10 +11,6 @@
     margin-right: 15%;
   }
 
-  .year {
-    color: var(--sub-text-color);
-  }
-
   .personal_info {
     display: flex;
     flex-direction: row;
@@ -37,18 +33,6 @@
   .education {
     display: flex;
     flex-direction: column;
-  }
-
-  .education__detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .education_unordered_list {
-    li {
-      color: var(--sub-text-color);
-    }
   }
 
   .profile_image {

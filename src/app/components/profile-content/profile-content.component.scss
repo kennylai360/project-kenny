@@ -1,0 +1,19 @@
+:host {
+  --sub-text-color: rgb(255, 255, 255, 0.8);
+
+  .education__detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .year {
+    color: var(--sub-text-color);
+  }
+
+  .education_unordered_list {
+    li {
+      color: var(--sub-text-color);
+    }
+  }
+}

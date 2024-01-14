@@ -34,65 +34,32 @@
 
   <h4>Education</h4>
   <div class="education">
-    <div class="education__detail">
-      <h5>University of Surrey, Guildford</h5>
-      <h5 class="year">2012-2016</h5>
-    </div>
-    <ul class="education_unordered_list">
-      <li>Bachelor of Science in Computer Science (2:1)</li>
-      <li>
-        Final year project involves researching Games Development techniques and
-        comparisons of various popular game engines at the time.
-      </li>
-    </ul>
+    <app-profile-content
+      location="University of Surrey, Guildford"
+      year="2012-2016"
+      [contents]="educationSurreyDetails"
+    ></app-profile-content>
 
-    <div class="education__detail">
-      <h5>Queen Marys College, Basingstoke (A-levels)</h5>
-      <h5 class="year">2010-2012</h5>
-    </div>
-    <ul class="education_unordered_list">
-      <li>
-        Computing(B), Mathematics(B), Electronics(A), AS-Level Sociology(B),
-        GCSE Japanese(A*)
-      </li>
-    </ul>
+    <app-profile-content
+      location="Queen Marys College, Basingstoke (A-levels)"
+      year="2010-2012"
+      [contents]="educationQmcDetails"
+    ></app-profile-content>
 
-    <div class="education__detail">
-      <h5>Brighton Hill Community College, Basingstoke</h5>
-      <h5 class="year">2005-2010</h5>
-    </div>
-    <ul class="education_unordered_list">
-      <li>12 GCSEs between A* - C including Maths(A) and English(B)</li>
-    </ul>
-  </div>
+    <app-profile-content
+      location="Brighton Hill Community College, Basingstoke"
+      year="2005-2010"
+      [contents]="educationBhccDetails"
+      closeSection="true"
+    ></app-profile-content>
 
-  <hr />
-
-  <h4>Work Experience</h4>
-  <div class="education">
-    <div class="education__detail">
-      <h5>EasyPark Group, Basingstoke</h5>
-      <h5 class="year">July 2023 - Present</h5>
+    <h4>Work Experience</h4>
+    <div class="education">
+      <app-profile-content
+        location="EasyPark Group, Basingstoke"
+        year="July 2023 - Present"
+        [contents]="workExperienceEasyParkDetails"
+      ></app-profile-content>
     </div>
-    <h5>Senior Developer</h5>
-    <ul class="education_unordered_list">
-      <li>
-        Implement new features, fixing bugs and tech debt for a back-office
-        React application with a small agile team of five developers, a product
-        manager and engineering manager.
-      </li>
-      <li>Help write E2e tests using Cypress.</li>
-      <li>
-        Write and mantain unit tests using Jest Javascript Testing Framework.
-      </li>
-      <li>
-        Wrote an update infrastructure-as-code (IaC) to assist in migrating a
-        React application to AWS EKS.
-      </li>
-      <li>
-        Getting involved in meetings with the team to discuss upcoming
-        priorities/refinements.
-      </li>
-    </ul>
   </div>
 </div>

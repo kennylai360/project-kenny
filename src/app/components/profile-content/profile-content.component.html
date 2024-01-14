@@ -1,0 +1,13 @@
+<div class="education__detail">
+  <h5>{{ location }}</h5>
+  <h5 class="year">{{ year }}</h5>
+</div>
+<ul class="education_unordered_list">
+  <li *ngFor="let content of contents">
+    {{ content }}
+  </li>
+</ul>
+
+<span *ngIf="closeSection">
+  <hr />
+</span>
