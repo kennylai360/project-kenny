@@ -1,42 +1,98 @@
-<div class="jumbotron animate__animated animate__fadeInDown">
-  <div class="row profile__div__padding">
-
-    <div class="col-sm-6">
-      <h1 class="profile__h1-text__black">Kenny Kin Kee Lai</h1>
-      <ul>
-        <li>
-          <h5><strong>Age:</strong> {{currentAge}} </h5>
-        </li>
-        <li>
-          <h5><strong>Date of Birth:</strong> {{dateOfBirthDisplay}}</h5>
-        </li>
-        <li>
-          <h5><strong>Birth place:</strong> Hong Kong</h5>
-        </li>
-        <li>
-          <h5><strong>Profession:</strong> Frontend developer</h5>
-        </li>
-        <li>
-          <h5><strong>Interests:</strong> Photography, Gaming, Anime, Japanese language</h5>
-        </li>
-        <li>
-          <h5>Currently located in England, UK</h5>
-        </li>
-      </ul>
+<div class="profile_content">
+  <div class="personal_info">
+    <div class="personal_info__text">
+      <h2>Kenny Lai</h2>
+      <span class="personal_info__professional_role">
+        <i class="fa fa-briefcase" aria-hidden="true"></i>
+        <h5>Frontend Developer</h5>
+      </span>
+      <span class="personal_info__location"
+        ><i class="fa fa-globe" aria-hidden="true"></i>
+        <h5>Basingstoke, United Kingdom</h5>
+      </span>
     </div>
-
-
-    <div class="col-sm-6">
-      <img class="img-fluid profile__picture__max-height profile__picture__black-border animate__animated animate__fadeInDown" ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg" height="400" width="400">
+    <div class="personal_info__image">
+      <img
+        class="profile_image"
+        ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
+        height="200"
+        width="200"
+      />
     </div>
-
   </div>
 
-  <h5>From developing web applications using frontend technologies, to creating images with friends and cosplayers all around the world.</h5>
-  <h5>If we ever bump into each other please do say Hi to me! I love to meet new people every now and then! :)</h5>
-  <hr>
-  <p>I started to explore the world of DSLR cameras in July 2015 as a side-hobby, ever since then I have been taking every opportunity I can to take pictures that I find interesting/aesthetic and learning
-    from friends and cosplayers. For the last few years I have been attending conventions mainly in the UK such as London MCM Comic Con and Hyper Japan.
+  <hr />
+  <h4>About</h4>
+  <p>
+    A reliable, optimistic, hardworking and easy-going Frontend developer that
+    is keen on technology and willing to put effort into learning and mastering
+    what is needed of him. Easily adaptable to different environments and can
+    work under pressure with tight deadlines.
   </p>
-  <p>In regards to my profession, I have been working as a Frontend Developer since graduating from Uni of Surrey in July 2016 with a Upper Second-Class Honours in Bsc Computer Science. </p>
+
+  <hr />
+
+  <h4>Education</h4>
+  <div class="education">
+    <div class="education__detail">
+      <h5>University of Surrey, Guildford</h5>
+      <h5 class="year">2012-2016</h5>
+    </div>
+    <ul class="education_unordered_list">
+      <li>Bachelor of Science in Computer Science (2:1)</li>
+      <li>
+        Final year project involves researching Games Development techniques and
+        comparisons of various popular game engines at the time.
+      </li>
+    </ul>
+
+    <div class="education__detail">
+      <h5>Queen Marys College, Basingstoke (A-levels)</h5>
+      <h5 class="year">2010-2012</h5>
+    </div>
+    <ul class="education_unordered_list">
+      <li>
+        Computing(B), Mathematics(B), Electronics(A), AS-Level Sociology(B),
+        GCSE Japanese(A*)
+      </li>
+    </ul>
+
+    <div class="education__detail">
+      <h5>Brighton Hill Community College, Basingstoke</h5>
+      <h5 class="year">2005-2010</h5>
+    </div>
+    <ul class="education_unordered_list">
+      <li>12 GCSEs between A* - C including Maths(A) and English(B)</li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <h4>Work Experience</h4>
+  <div class="education">
+    <div class="education__detail">
+      <h5>EasyPark Group, Basingstoke</h5>
+      <h5 class="year">July 2023 - Present</h5>
+    </div>
+    <h5>Senior Developer</h5>
+    <ul class="education_unordered_list">
+      <li>
+        Implement new features, fixing bugs and tech debt for a back-office
+        React application with a small agile team of five developers, a product
+        manager and engineering manager.
+      </li>
+      <li>Help write E2e tests using Cypress.</li>
+      <li>
+        Write and mantain unit tests using Jest Javascript Testing Framework.
+      </li>
+      <li>
+        Wrote an update infrastructure-as-code (IaC) to assist in migrating a
+        React application to AWS EKS.
+      </li>
+      <li>
+        Getting involved in meetings with the team to discuss upcoming
+        priorities/refinements.
+      </li>
+    </ul>
+  </div>
 </div>
