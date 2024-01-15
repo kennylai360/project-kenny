@@ -1,42 +1,38 @@
-<div class="jumbotron animate__animated animate__fadeInDown">
-  <div class="row profile__div__padding">
-
-    <div class="col-sm-6">
-      <h1 class="profile__h1-text__black">Kenny Kin Kee Lai</h1>
-      <ul>
-        <li>
-          <h5><strong>Age:</strong> {{currentAge}} </h5>
-        </li>
-        <li>
-          <h5><strong>Date of Birth:</strong> {{dateOfBirthDisplay}}</h5>
-        </li>
-        <li>
-          <h5><strong>Birth place:</strong> Hong Kong</h5>
-        </li>
-        <li>
-          <h5><strong>Profession:</strong> Frontend developer</h5>
-        </li>
-        <li>
-          <h5><strong>Interests:</strong> Photography, Gaming, Anime, Japanese language</h5>
-        </li>
-        <li>
-          <h5>Currently located in England, UK</h5>
-        </li>
-      </ul>
+<div class="profile_content animate__animated animate__fadeInDown">
+  <div class="personal_info">
+    <div class="personal_info__text">
+      <h2>Kenny Lai</h2>
+      <span class="personal_info__professional_role">
+        <i class="fa fa-briefcase" aria-hidden="true"></i>
+        <h5>Frontend Developer</h5>
+      </span>
+      <span class="personal_info__location"
+        ><i class="fa fa-globe" aria-hidden="true"></i>
+        <h5>Basingstoke, United Kingdom</h5>
+      </span>
     </div>
-
-
-    <div class="col-sm-6">
-      <img class="img-fluid profile__picture__max-height profile__picture__black-border animate__animated animate__fadeInDown" ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg" height="400" width="400">
+    <div class="personal_info__image">
+      <img
+        class="profile_image"
+        ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
+        height="200"
+        width="200"
+      />
     </div>
-
   </div>
 
-  <h5>From developing web applications using frontend technologies, to creating images with friends and cosplayers all around the world.</h5>
-  <h5>If we ever bump into each other please do say Hi to me! I love to meet new people every now and then! :)</h5>
-  <hr>
-  <p>I started to explore the world of DSLR cameras in July 2015 as a side-hobby, ever since then I have been taking every opportunity I can to take pictures that I find interesting/aesthetic and learning
-    from friends and cosplayers. For the last few years I have been attending conventions mainly in the UK such as London MCM Comic Con and Hyper Japan.
+  <hr />
+  <h4>About</h4>
+  <p>
+    A reliable, optimistic, hardworking and easy-going Frontend developer that
+    is keen on technology and willing to put effort into learning and mastering
+    what is needed of him. Easily adaptable to different environments and can
+    work under pressure with tight deadlines.
   </p>
-  <p>In regards to my profession, I have been working as a Frontend Developer since graduating from Uni of Surrey in July 2016 with a Upper Second-Class Honours in Bsc Computer Science. </p>
+
+  <hr />
+
+  <div class="app_profile-content">
+    <app-profile-content [fileContent]="profileContent"></app-profile-content>
+  </div>
 </div>

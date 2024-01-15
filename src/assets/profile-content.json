@@ -1,0 +1,73 @@
+[
+  {
+    "section": "Work Experience",
+    "sectionContents": [
+      {
+        "header": "EasyPark Group, Basingstoke",
+        "roleTitle": "Senior Developer",
+        "year": "July 2023 - Present",
+        "contents": [
+          "Implement new features, fixing bugs and tech debt for a back-office React application with a small agile team of five developers, a product manager and engineering manager.",
+          "Help write E2e tests using Cypress.",
+          "Write and mantain unit tests using Jest Javascript Testing Framework.",
+          "Wrote an update infrastructure-as-code (IaC) to assist in migrating a React application to AWS EKS.",
+          "Getting involved in meetings with the team to discuss upcoming priorities/refinements.",
+          "Help out with mentoring new team members."
+        ]
+      },
+      {
+        "roleTitle": "Frontend Developer",
+        "year": "July 2020 - July 2023",
+        "contents": [
+          "Joined a new team in July 2022 to work on an existing React application making improvements, developing new features and taking ownership of the codebase.",
+          "Worked in an agile team of four developers creating technical solutions for a back-office Angular application.",
+          "Help migrate an old AngularJS application to Angular2+.",
+          "Write and maintain unit tests using Jasmine, which then later helped migrate to using Jest."
+        ]
+      },
+      {
+        "roleTitle": "Junior Frontend Developer",
+        "year": "December 2020 - July 2020",
+        "contents": [
+          "Worked on a back-office AngularJS application, fixing tech debt, fixing bugs raised by product owner, updating project dependencies and writing unit tests."
+        ]
+      },
+      {
+        "header": "Lifecycle Software Ltd, Newbury (Placement year)",
+        "roleTitle": "Software Development & Technical Support",
+        "year": "June 2014 - July 2015",
+        "contents": [
+          "Worked independently to develop client-side applications using AngularJS.",
+          "Maintain existing applications and implement additional functionality based on customers requirements."
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Education",
+    "sectionContents": [
+      {
+        "header": "University of Surrey, Guildford",
+        "year": "2012-2016",
+        "contents": [
+          "Bachelor of Science in Computer Science (2:1)",
+          "Final year project involves researching Games Development techniques and comparisons of various popular game engines at the time."
+        ]
+      },
+      {
+        "header": "Queen Marys College, Basingstoke (A-levels)",
+        "year": "2010-2012",
+        "contents": [
+          "Computing(B), Mathematics(B), Electronics(A), AS-Level Sociology(B), GCSE Japanese(A*)"
+        ]
+      },
+      {
+        "header": "Brighton Hill Community College, Basingstoke",
+        "year": "2005-2010",
+        "contents": [
+          "12 GCSEs between A* - C including Maths(A) and English(B)"
+        ]
+      }
+    ]
+  }
+]
