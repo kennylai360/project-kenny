@@ -2,7 +2,7 @@
   <h4>{{ item.section }}</h4>
   <div *ngFor="let content of item.sectionContents">
     <div *ngIf="content.header" class="file_content__header__padding"></div>
-    <div class="education__detail">
+    <div class="profile_main">
       <h5 *ngIf="content.header">
         <strong>{{ content.header }}</strong>
       </h5>
@@ -12,7 +12,7 @@
     <h6 *ngIf="content.roleTitle && content.header">
       &nbsp; {{ content.roleTitle }}
     </h6>
-    <ul class="education_unordered_list">
+    <ul class="profile_details">
       <li *ngFor="let contentsItem of content.contents">
         {{ contentsItem }}
       </li>

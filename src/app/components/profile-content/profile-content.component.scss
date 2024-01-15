@@ -1,7 +1,7 @@
 :host {
   --sub-text-color: rgb(255, 255, 255, 0.8);
 
-  .education__detail {
+  .profile_main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -15,7 +15,7 @@
     margin-top: 20px;
   }
 
-  .education_unordered_list {
+  .profile_details {
     li {
       color: var(--sub-text-color);
     }
