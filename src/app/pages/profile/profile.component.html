@@ -32,34 +32,7 @@
 
   <hr />
 
-  <h4>Education</h4>
   <div class="education">
-    <app-profile-content
-      location="University of Surrey, Guildford"
-      year="2012-2016"
-      [contents]="educationSurreyDetails"
-    ></app-profile-content>
-
-    <app-profile-content
-      location="Queen Marys College, Basingstoke (A-levels)"
-      year="2010-2012"
-      [contents]="educationQmcDetails"
-    ></app-profile-content>
-
-    <app-profile-content
-      location="Brighton Hill Community College, Basingstoke"
-      year="2005-2010"
-      [contents]="educationBhccDetails"
-      closeSection="true"
-    ></app-profile-content>
-
-    <h4>Work Experience</h4>
-    <div class="education">
-      <app-profile-content
-        location="EasyPark Group, Basingstoke"
-        year="July 2023 - Present"
-        [contents]="workExperienceEasyParkDetails"
-      ></app-profile-content>
-    </div>
+    <app-profile-content [fileContent]="profileContent"></app-profile-content>
   </div>
 </div>

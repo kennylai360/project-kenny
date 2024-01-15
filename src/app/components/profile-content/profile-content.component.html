@@ -1,13 +1,22 @@
-<div class="education__detail">
-  <h5>{{ location }}</h5>
-  <h5 class="year">{{ year }}</h5>
-</div>
-<ul class="education_unordered_list">
-  <li *ngFor="let content of contents">
-    {{ content }}
-  </li>
-</ul>
-
-<span *ngIf="closeSection">
+<div *ngFor="let item of fileContent | async">
+  <h4>{{ item.section }}</h4>
+  <div *ngFor="let content of item.sectionContents">
+    <div *ngIf="content.header" class="file_content__header__padding"></div>
+    <div class="education__detail">
+      <h5 *ngIf="content.header">
+        <strong>{{ content.header }}</strong>
+      </h5>
+      <h6 *ngIf="!content.header">{{ '&nbsp; ' + content.roleTitle }}</h6>
+      <h5 class="year">{{ content.year }}</h5>
+    </div>
+    <h6 *ngIf="content.roleTitle && content.header">
+      &nbsp; {{ content.roleTitle }}
+    </h6>
+    <ul class="education_unordered_list">
+      <li *ngFor="let contentsItem of content.contents">
+        {{ contentsItem }}
+      </li>
+    </ul>
+  </div>
   <hr />
-</span>
+</div>

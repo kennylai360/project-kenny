@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile-content',
@@ -10,14 +11,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ProfileContentComponent {
   @Input()
-  public location: string;
-
-  @Input()
-  public year: string;
-
-  @Input()
-  public contents: Array<string>;
-
-  @Input()
-  public closeSection?: boolean = false;
+  public fileContent: Observable<object>;
 }
