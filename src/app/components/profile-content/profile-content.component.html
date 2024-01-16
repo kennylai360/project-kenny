@@ -1,4 +1,4 @@
-<div *ngFor="let item of fileContent | async">
+<div *ngFor="let item of fileContent">
   <h4>{{ item.section }}</h4>
   <div *ngFor="let content of item.sectionContents">
     <div *ngIf="content.header" class="file_content__header__padding"></div>

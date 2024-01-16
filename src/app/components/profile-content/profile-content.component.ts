@@ -11,5 +11,5 @@ import { Observable } from 'rxjs';
 })
 export class ProfileContentComponent {
   @Input()
-  public fileContent: Observable<object>;
+  public fileContent: object;
 }
