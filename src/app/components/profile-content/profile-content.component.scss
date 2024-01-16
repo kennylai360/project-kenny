@@ -1,0 +1,23 @@
+:host {
+  --sub-text-color: rgb(255, 255, 255, 0.8);
+
+  .profile_main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .year {
+    color: var(--sub-text-color);
+  }
+
+  .file_content__header__padding {
+    margin-top: 20px;
+  }
+
+  .profile_details {
+    li {
+      color: var(--sub-text-color);
+    }
+  }
+}
