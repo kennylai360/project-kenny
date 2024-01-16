@@ -1,9 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
-import { ProfileService } from './profile.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { ProfileService } from '../../services/profile.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -24,7 +22,9 @@ export class ProfileComponent implements OnInit {
 
   public profileContent: object;
 
-  public isLoaded: boolean = false;
+  public isContentLoaded: boolean = false;
+
+  public pictureLoaded: boolean = false;
 
   constructor(private profileService: ProfileService) {
     this.profileService
@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef$))
       .subscribe((value) => {
         this.profileContent = value;
-        this.isLoaded = true;
+        this.isContentLoaded = true;
       });
   }
 
@@ -41,5 +41,9 @@ export class ProfileComponent implements OnInit {
     this.currentAge = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
 
     this.dateOfBirthDisplay = this.dateOfBirth.toLocaleDateString('en-GB');
+  }
+
+  isPictureLoaded() {
+    this.pictureLoaded = true;
   }
 }

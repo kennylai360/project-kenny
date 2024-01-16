@@ -1,9 +1,17 @@
 :host {
   --sub-text-color: rgb(255, 255, 255, 0.8);
 
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   p {
     color: var(--sub-text-color);
   }
+
   .profile_content {
     margin-top: 10px;
 
@@ -15,6 +23,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .hide-image {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .show-image {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    transition: opacity 1s ease;
   }
 
   .personal_info__location,

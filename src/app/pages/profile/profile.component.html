@@ -1,5 +1,10 @@
+<div class="loading-spinner">
+  <div *ngIf="!isContentLoaded" class="spinner-border">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 <div
-  *ngIf="isLoaded"
+  *ngIf="isContentLoaded"
   class="profile_content animate__animated animate__fadeInDown"
 >
   <div class="personal_info">
@@ -17,9 +22,14 @@
     <div class="personal_info__image">
       <img
         class="profile_image"
+        [ngClass]="{
+          'hide-image': !pictureLoaded,
+          'show-image': pictureLoaded,
+        }"
         ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
         height="200"
         width="200"
+        (load)="isPictureLoaded()"
       />
     </div>
   </div>
