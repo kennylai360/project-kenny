@@ -1,4 +1,14 @@
 :host {
+  a:hover span,
+  a:hover i:before {
+    color: rgb(255, 255, 255, 0.5);
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
+    -ms-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
+  }
+
   nav {
     display: flex;
     flex-direction: row;
