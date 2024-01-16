@@ -33,6 +33,8 @@
   <hr />
 
   <div class="app_profile-content">
-    <app-profile-content [fileContent]="profileContent"></app-profile-content>
+    <app-profile-content
+      [fileContent]="profileContent | async"
+    ></app-profile-content>
   </div>
 </div>
