@@ -1,8 +1,10 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
 import { ProfileService } from './profile.service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-profile',
@@ -18,10 +20,21 @@ export class ProfileComponent implements OnInit {
 
   public currentAge: number;
 
-  public profileContent: Observable<object> =
-    this.profileService.loadProfileContent();
+  public destroyRef$ = inject(DestroyRef);
 
-  constructor(private profileService: ProfileService) {}
+  public profileContent: object;
+
+  public isLoaded: boolean = false;
+
+  constructor(private profileService: ProfileService) {
+    this.profileService
+      .loadProfileContent()
+      .pipe(takeUntilDestroyed(this.destroyRef$))
+      .subscribe((value) => {
+        this.profileContent = value;
+        this.isLoaded = true;
+      });
+  }
 
   ngOnInit() {
     const timeDiff = Math.abs(Date.now() - Number(this.dateOfBirth));
