@@ -10,6 +10,6 @@ import { Observable } from 'rxjs';
   styleUrl: './profile-content.component.scss',
 })
 export class ProfileContentComponent {
-  @Input()
+  @Input({ required: true })
   public fileContent: object;
 }

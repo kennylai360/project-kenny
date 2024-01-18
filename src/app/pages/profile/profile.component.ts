@@ -1,8 +1,8 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
 import { ProfileService } from '../../services/profile.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile',
@@ -12,27 +12,25 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   imports: [CommonModule, NgOptimizedImage, ProfileContentComponent],
 })
 export class ProfileComponent implements OnInit {
-  private dateOfBirth: Date = new Date(Date.UTC(1993, 9, 26));
+  private readonly dateOfBirth: Date = new Date(Date.UTC(1993, 9, 26));
 
   public dateOfBirthDisplay: string;
 
   public currentAge: number;
 
-  public destroyRef$ = inject(DestroyRef);
-
   public profileContent: object;
 
-  public isContentLoaded: boolean = false;
+  public isContentLoaded = signal(false);
 
-  public pictureLoaded: boolean = false;
+  public pictureLoaded = signal(false);
 
   constructor(private profileService: ProfileService) {
     this.profileService
       .loadProfileContent()
-      .pipe(takeUntilDestroyed(this.destroyRef$))
+      .pipe(take(1))
       .subscribe((value) => {
         this.profileContent = value;
-        this.isContentLoaded = true;
+        this.isContentLoaded.set(true);
       });
   }
 
@@ -44,6 +42,6 @@ export class ProfileComponent implements OnInit {
   }
 
   isPictureLoaded() {
-    this.pictureLoaded = true;
+    this.pictureLoaded.set(true);
   }
 }
