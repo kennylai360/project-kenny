@@ -1,14 +1,28 @@
-<div class="gallery-container" (mouseenter)="increaseScalingValue()" (mouseleave)="revertScalingValue()">
+<div
+  class="gallery-container"
+  (mouseenter)="increaseScalingValue()"
+  (mouseleave)="revertScalingValue()"
+>
   <div
-    [ngClass]="{'spinner-border text-dark overlay-spinner': !imageHasLoaded}">
-  </div>
-  <img class="album-cover no-select"
-       [ngStyle]="{'transform': 'translate(' +translateX+ '%,' +translateY+ '%) scale(' +scaleValue+ ')'}"
-       [lazyLoad]="imgUrl"
-       (load)="imageHasBeenLoaded()"
-  >
-  <div class="overlay"
-       [style.opacity]="opacityValue">
-    <div class="text no-select">{{albumTitle}}</div>
+    [ngClass]="{ 'spinner-border text-dark overlay-spinner': !imageHasLoaded }"
+  ></div>
+  <img
+    class="album-cover no-select"
+    alt="album cover"
+    [ngStyle]="{
+      transform:
+        'translate(' +
+        translateX +
+        '%,' +
+        translateY +
+        '%) scale(' +
+        scaleValue +
+        ')'
+    }"
+    [lazyLoad]="imgUrl"
+    (load)="imageHasBeenLoaded()"
+  />
+  <div class="overlay" [style.opacity]="opacityValue">
+    <div class="text no-select">{{ albumTitle }}</div>
   </div>
 </div>

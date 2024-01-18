@@ -1,4 +1,4 @@
-import { createAction, props} from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { IGalleryCover } from './gallery-cover.interface';
 
 export enum GalleryActionTypes {
@@ -20,9 +20,10 @@ export const GalleryLoadDataSuccessAction = createAction(
   props<{ payload: Array<IGalleryCover> }>()
 );
 
+// Not used.
 export const GalleryLoadDataFailureAction = createAction(
   GalleryActionTypes.GALLERY_LOAD_DATA_FAILURE,
-  props<{ payload: any }>()
+  props<{ payload: string }>()
 );
 
 export const GallerySetSelectedAlbumIdAction = createAction(
@@ -42,4 +43,3 @@ export const GalleryGetDataByIdSuccessAction = createAction(
 export const GalleryRedirectBackToAlbumListPageAction = createAction(
   GalleryActionTypes.GALLERY_REDIRECT_BACK_TO_ALBUM_LIST_PAGE
 );
-
