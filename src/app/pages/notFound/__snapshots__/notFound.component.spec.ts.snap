@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundComponent should do a snapshot test 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="not-found"
+  >
+    <h1>
+      <i
+        aria-hidden="true"
+        class="fa fa-exclamation-triangle"
+      />
+       
+      <span
+        class="four-oh-four"
+      >
+        404
+      </span>
+       Not found 
+      <i
+        aria-hidden="true"
+        class="fa fa-exclamation-triangle"
+      />
+    </h1>
+    <h4>
+      
+    </h4>
+    <span>
+      That's an error.
+    </span>
+  </div>
+</div>
+`;
