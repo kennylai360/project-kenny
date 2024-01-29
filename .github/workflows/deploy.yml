@@ -17,6 +17,8 @@ jobs:
           node-version: 18
 
       - name: npm dependencies
+        run: npm remove node_modules 
+        run: npm remove package-lock.json
         run: npm ci
 
       - name: Build
