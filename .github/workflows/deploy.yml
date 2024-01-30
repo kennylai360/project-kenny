@@ -1,5 +1,5 @@
 name: Github actions deploy
-run-name: ${{ github.ref }} - ${{ github.repository}}
+run-name: Build & Deployment - ${{ github.ref }}
 on:
   push:
     branches:
