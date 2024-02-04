@@ -1,12 +1,11 @@
+@if (!isContentLoaded()) {
 <div class="loading-spinner">
-  <div *ngIf="!isContentLoaded()" class="spinner-border">
+  <div class="spinner-border">
     <span class="sr-only">Loading...</span>
   </div>
 </div>
-<div
-  *ngIf="isContentLoaded()"
-  class="profile_content animate__animated animate__fadeInDown"
->
+} @if (isContentLoaded()) {
+<div class="profile_content animate__animated animate__fadeInDown">
   <div class="personal_info">
     <div class="personal_info__text">
       <h2>Kenny Lai</h2>
@@ -47,7 +46,27 @@
 
   <hr />
 
+  <h4>Skills</h4>
+
+  <ul>
+    <li>Programming languages</li>
+    <ul>
+      <li>Javascript | Typescript | HTML | CSS | SCSS</li>
+    </ul>
+    <li>Frontend development</li>
+    <ul>
+      <li>Angular | React | Redux | NgRx | Material-UI | Clarity-UI</li>
+    </ul>
+    <li>Tools</li>
+    <ul>
+      <li>Git/Github/Github actions | AWS | Yarn | NPM | Docker</li>
+    </ul>
+  </ul>
+
+  <hr />
+
   <div class="app_profile_content">
     <app-profile-content [fileContent]="profileContent"></app-profile-content>
   </div>
 </div>
+}
