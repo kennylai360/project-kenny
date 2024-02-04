@@ -1,17 +1,32 @@
 <div class="image-alignment">
   <h2 class="album-text animate__animated animate__fadeInDown">Albums</h2>
-  <hr class="hr-light mt-4 animate__animated animate__fadeInDown" data-wow-delay="1.4s">
-  <pagination-controls (pageChange)="currentSelectedPage = $event"
-                       autoHide="true"
+  <hr class="animate__animated animate__fadeInDown" />
+  <h6 class="animate__animated animate__fadeInDown">
+    <u>Camera and lens usages</u>
+    <ul>
+      <li>Nikon D810</li>
+      <ul>
+        <li>Nikon AF-S NIKKOR 24mm f/1.4G</li>
+        <li>Nikon AF-S NIKKOR 50mm f/1.8G</li>
+      </ul>
+    </ul>
+  </h6>
+  <hr class="animate__animated animate__fadeInDown" data-wow-delay="1.4s" />
+  <pagination-controls
+    (pageChange)="currentSelectedPage = $event"
+    autoHide="true"
   ></pagination-controls>
-  <a *ngFor="let item of (coverContent | async) | paginate: { itemsPerPage: 20, currentPage: currentSelectedPage }">
+  @for (item of coverContent | async | paginate : { itemsPerPage: 20,
+  currentPage: currentSelectedPage }; track $index) {
+  <a>
     <app-gallery-album-cover
-            [imgUrl]="item.imgUrl"
-            [albumTitle]="item.albumTitle"
-            [translateX]="item.translateX"
-            [translateY]="item.translateY"
-            [routerLink]="item.albumId"
+      [imgUrl]="item.imgUrl"
+      [albumTitle]="item.albumTitle"
+      [translateX]="item.translateX"
+      [translateY]="item.translateY"
+      [routerLink]="item.albumId"
     >
     </app-gallery-album-cover>
   </a>
+  }
 </div>

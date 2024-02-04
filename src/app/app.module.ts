@@ -58,7 +58,7 @@ const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'profile',
+    path: 'resume',
     component: ProfileComponent,
   },
   {
