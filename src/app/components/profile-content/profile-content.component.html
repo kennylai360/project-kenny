@@ -1,17 +1,23 @@
 <div *ngFor="let item of fileContent">
   <h4>{{ item.section }}</h4>
   <div *ngFor="let content of item.sectionContents">
-    <div *ngIf="content.header" class="file_content__header__padding"></div>
+    @if (content.header) {
+    <div class="file_content__header__padding"></div>
+    }
     <div class="profile_main">
-      <h5 *ngIf="content.header">
+      @if (content.header) {
+      <h5>
         <strong>{{ content.header }}</strong>
       </h5>
-      <h6 *ngIf="!content.header">{{ '&nbsp; ' + content.roleTitle }}</h6>
+      } @if (!content.header) {
+      <h6>{{ '&nbsp; ' + content.roleTitle }}</h6>
+      }
       <h5 class="year">{{ content.year }}</h5>
     </div>
-    <h6 *ngIf="content.roleTitle && content.header">
-      &nbsp; {{ content.roleTitle }}
-    </h6>
+    @if (content.roleTitle && content.header) {
+    <h6>&nbsp; {{ content.roleTitle }}</h6>
+    }
+
     <ul class="profile_details">
       <li *ngFor="let contentsItem of content.contents">
         {{ contentsItem }}
