@@ -43,7 +43,7 @@ body {
   background-attachment: fixed;
   background-color: black;
   -webkit-background-size: cover;
-  -moz-background-size: cover;
+  -moz-background-size: cover; 
   -o-background-size: cover;
   background-size: cover;
   min-height: 100vh;
@@ -60,7 +60,8 @@ a {
   transition: color 0.5s ease;
 }
 
-a:hover {
+a:hover,
+a:hover span {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.5);
   -webkit-transition: color 0.5s ease;
@@ -68,4 +69,13 @@ a:hover {
   -ms-transition: color 0.5s ease;
   -o-transition: color 0.5s ease;
   transition: color 0.5s ease;
+
+  i:before {
+    color: rgb(255, 255, 255, 0.5);
+    -webkit-transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
+    -ms-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
+  }
 }
