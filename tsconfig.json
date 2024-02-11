@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
-  "baseUrl": "src",
   "compilerOptions": {
+    "baseUrl": "src",
     "module": "es2020",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -20,5 +20,5 @@
     ],
     "useDefineForClassFields": false
   },
-  "include": ["node_modules/angular-bootstrap-md/**/*.ts",  "src/**/*.ts"]
+  "include": ["src/**/*.ts"]
 }
