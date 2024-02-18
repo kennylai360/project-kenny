@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   build_and_store_artifact:
-    name: Build and store artifact
+    name: Build, unit tests and store artifact
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
