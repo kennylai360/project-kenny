@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component should check the home UI should match snapshots 1`] = `
+<div
+  id="root4"
+>
+  <div
+    class="home__info animate__animated animate__fadeInDown"
+  >
+    <h1>
+      Kenny Kin Kee Lai
+    </h1>
+    <hr />
+    <h5>
+      Frontend Developer & Photographer
+    </h5>
+    <hr />
+  </div>
+  <div
+    class="home__links animate__animated animate__fadeInDown"
+  >
+    <a
+      data-qa="qa-resume-link"
+      routerlink="/resume"
+    >
+      Resume
+    </a>
+    <a
+      data-qa="qa-photography-link"
+      routerlink="/photography"
+    >
+      Photography
+    </a>
+    <a
+      data-qa="qa-github-link"
+      href="https://www.github.com/kennylai360"
+      rel="noreferrer noopener"
+      target="_blank"
+    >
+      Github
+    </a>
+  </div>
+</div>
+`;

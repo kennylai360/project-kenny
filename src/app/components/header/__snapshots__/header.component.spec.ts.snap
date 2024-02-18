@@ -2,7 +2,7 @@
 
 exports[`HeaderComponent should check the UI should be consistent 1`] = `
 <div
-  id="root7"
+  id="root6"
 >
   <nav>
     <div
