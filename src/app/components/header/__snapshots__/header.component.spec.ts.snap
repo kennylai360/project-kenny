@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should check the UI should be consistent 1`] = `
+<div
+  id="root7"
+>
+  <nav>
+    <div
+      class="nav-links"
+    >
+      <a
+        class="nav-links__link__margin"
+        data-qa="qa-home-link"
+        routerlink="/"
+      >
+        <i
+          class="fa fa-home"
+        />
+        <span
+          class="nav-links__text__hide-for-mobile"
+        >
+          Home
+        </span>
+      </a>
+      <a
+        class="nav-links__link__margin"
+        data-qa="qa-resume-link"
+        routerlink="/resume"
+      >
+        <i
+          class="fa fa-user"
+        />
+        <span
+          class="nav-links__text__hide-for-mobile"
+        >
+          Resume
+        </span>
+      </a>
+      <a
+        class="nav-links__link__margin"
+        data-qa="qa-photography-link"
+        routerlink="/photography"
+      >
+        <i
+          class="fa fa-camera"
+        />
+        <span
+          class="nav-links__text__hide-for-mobile"
+        >
+          Photography
+        </span>
+      </a>
+    </div>
+    <div
+      class="social-media"
+    >
+      <a
+        class="social-media__link__font-size social-media__link__margin"
+        data-qa="qa-twitter-link"
+        href="https://www.twitter.com/KENIII26"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <i
+          class="fa fa-twitter"
+        />
+      </a>
+      <a
+        class="social-media__link__font-size social-media__link__margin"
+        data-qa="qa-instagram-link"
+        href="https://www.instagram.com/kennykinkeelai"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <i
+          class="fa fa-instagram"
+        />
+      </a>
+      <a
+        class="social-media__link__font-size social-media__link__margin"
+        data-qa="qa-twitch-link"
+        href="https://www.twitch.tv/KENIII26"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <i
+          class="fa fa-twitch"
+        />
+      </a>
+    </div>
+  </nav>
+</div>
+`;
