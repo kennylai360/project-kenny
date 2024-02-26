@@ -10,6 +10,7 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./profile.component.scss'],
   standalone: true,
   imports: [CommonModule, NgOptimizedImage, ProfileContentComponent],
+  providers: [ProfileService],
 })
 export class ProfileComponent implements OnInit {
   private readonly dateOfBirth: Date = new Date(Date.UTC(1993, 9, 26));
