@@ -1,0 +1,60 @@
+<div class="center">
+  <div class="converter">
+    <h4>Converter</h4>
+    <p>How much is your bitcoin worth? Chuck in some numbers and find out!</p>
+    <div>
+      <span class="input-text"
+        >BTC price @if (!(alteredBtcPrice | async)) {
+        <span>(loaded as of: {{ timeLoaded | date : 'longTime' }})</span>
+        } @else {
+        <span>(altered)</span>
+        } :</span
+      >
+      <input
+        type="number"
+        [ngModel]="btcPrice"
+        (ngModelChange)="updateBtcPriceAndRecalculate($event)"
+        [disabled]="isLoadingData | async"
+      />
+    </div>
+    <div>
+      BTC amount:
+      <input
+        type="number"
+        [ngModel]="btcValue"
+        (ngModelChange)="updateBTCandRecalculate($event)"
+        placeholder="Enter value"
+        [disabled]="isLoadingData | async"
+      />
+    </div>
+    <div>
+      GBP value:
+      <input
+        type="number"
+        [ngModel]="gbpValue"
+        (ngModelChange)="updateGBPandRecalculate($event)"
+        placeholder="Enter value"
+        [disabled]="isLoadingData | async"
+      />
+    </div>
+  </div>
+</div>
+<div class="converter-summary">
+  <p>
+    The price of BTC is currently set to
+    <b>{{ btcPrice | currency : 'GBP' }} (GBP) </b>
+    per bitcoin
+  </p>
+  @if (gbpValue) {
+  <p>
+    {{
+      gbpValue
+        ? (gbpValue | currency : 'GBP') +
+          ' is approximately equivilent to ' +
+          btcValue +
+          btcSymbol
+        : ''
+    }}
+  </p>
+  }
+</div>
