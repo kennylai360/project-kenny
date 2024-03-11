@@ -26,6 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { GalleryAlbumCoverComponent } from './components/gallery-album-cover/gallery-album-cover.component';
 import { GalleryAlbumJumbotronComponent } from './components/gallery-album-jumbotron/gallery-album-jumbotron.component';
 import { NotFoundComponent } from './pages/notFound/notFound.component';
+import { ConverterComponent } from './pages/converter/converter.component';
 
 export function metaReducerLogger(
   reducer: ActionReducer<any>
@@ -70,6 +71,10 @@ const appRoutes: Routes = [
     ],
   },
   {
+    path: 'converter',
+    component: ConverterComponent,
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },
@@ -84,6 +89,7 @@ const appRoutes: Routes = [
     PagesModule,
     GalleryAlbumCoverComponent,
     GalleryAlbumJumbotronComponent,
+    ConverterComponent,
     FooterComponent,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -1,0 +1,51 @@
+input {
+  color: black;
+}
+
+* {
+  text-align: center;
+}
+
+.input-text {
+  text-align: left;
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.converter {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: space-between;
+  width: 50%;
+  border: black solid 1px;
+  background-color: bisque;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  * {
+    color: black;
+  }
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
