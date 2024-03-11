@@ -50,6 +50,20 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
           Photography
         </span>
       </a>
+      <a
+        class="nav-links__link__margin"
+        data-qa="qa-converter-link"
+        routerlink="/converter"
+      >
+        <i
+          class="fa fa-calculator"
+        />
+        <span
+          class="nav-links__text__hide-for-mobile"
+        >
+          Converter
+        </span>
+      </a>
     </div>
     <div
       class="social-media"
