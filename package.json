@@ -67,6 +67,7 @@
   },
   "jest": {
     "preset": "jest-preset-angular",
+    "testPathIgnorePatterns": ["pw-tests"],
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupJest.ts"
     ]
