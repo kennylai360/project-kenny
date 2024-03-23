@@ -1,7 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit, signal } from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
-import { ProfileService } from '../../services/profile.service';
+import { ProfileService } from '../../api/profile.service';
 import { take } from 'rxjs/operators';
 
 @Component({

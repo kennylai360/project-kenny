@@ -58,14 +58,17 @@ const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    title: 'Home',
   },
   {
     path: 'resume',
     component: ProfileComponent,
+    title: 'Resume',
   },
   {
     path: 'photography',
     component: GallerySectionComponent,
+    title: 'Photography',
     children: [
       { path: '', component: GalleryAlbumListingComponent },
       { path: ':id', component: GalleryAlbumComponent },
@@ -74,6 +77,7 @@ const appRoutes: Routes = [
   {
     path: 'converter',
     component: ConverterComponent,
+    title: 'Converter',
   },
   {
     path: 'table',

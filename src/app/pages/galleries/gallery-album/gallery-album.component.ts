@@ -6,6 +6,7 @@ import { GalleryFacade } from '../../../state-management/gallery-list/gallery.fa
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-gallery-album',
@@ -29,7 +30,8 @@ export class GalleryAlbumComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private galleryFacade: GalleryFacade,
-    private appFacade: AppFacade
+    private appFacade: AppFacade,
+    private titleService: Title
   ) {
     // load the album here which corresponds to the id. If it does not exist then redirect to album listing page
     // Debouncetime is added to give the loading and make sure the gallery data has been loaded into the store.
@@ -37,6 +39,7 @@ export class GalleryAlbumComponent {
     this.activatedRoute.params
       .pipe(debounceTime(10), takeUntilDestroyed(this.destroyRef))
       .subscribe((params: Params) => {
+        this.titleService.setTitle(params['id']);
         this.galleryFacade.setSelectedId(params['id']);
         this.galleryFacade.getAlbumDataById();
         this.albumData = this.galleryFacade.albumData$;

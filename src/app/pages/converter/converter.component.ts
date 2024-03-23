@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CoincapService } from '../../services/coincap.service';
+import { CoincapService } from '../../api/coincap.service';
 import { BehaviorSubject, forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +19,9 @@ export class ConverterComponent {
   public timeLoaded: Date = null;
   public gbpValue: number = null;
   public btcAssetData: any = {};
+  public focusedInput$: BehaviorSubject<string> = new BehaviorSubject<string>(
+    ''
+  );
   public alteredBtcPrice: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
   public isLoadingData: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
@@ -74,5 +77,9 @@ export class ConverterComponent {
     if (this.btcPrice !== 0) {
       this.btcValue = this.gbpValue / this.btcPrice;
     }
+  }
+
+  public updateFocusedInput(focusedInput: string): void {
+    this.focusedInput$.next(focusedInput);
   }
 }
