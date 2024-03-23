@@ -29,8 +29,6 @@ import { NotFoundComponent } from './pages/notFound/notFound.component';
 import { ConverterComponent } from './pages/converter/converter.component';
 import { TableComponent } from './pages/table/table.component';
 
-const siteName = 'KennyKinKeeLai';
-
 export function metaReducerLogger(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {

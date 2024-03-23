@@ -79,7 +79,7 @@ export class ConverterComponent {
     }
   }
 
-  public callThis(focusedInput: string): void {
+  public updateFocusedInput(focusedInput: string): void {
     this.focusedInput$.next(focusedInput);
   }
 }

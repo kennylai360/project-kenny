@@ -34,7 +34,7 @@
         (ngModelChange)="updateBTCandRecalculate($event)"
         placeholder="Enter value"
         [disabled]="isLoadingData | async"
-        (focus)="callThis('btc')"
+        (focus)="updateFocusedInput('btc')"
       />
     </div>
     <div>
@@ -45,7 +45,7 @@
         (ngModelChange)="updateGBPandRecalculate($event)"
         placeholder="Enter value"
         [disabled]="isLoadingData | async"
-        (focus)="callThis('gbp')"
+        (focus)="updateFocusedInput('gbp')"
       />
     </div>
   </div>
