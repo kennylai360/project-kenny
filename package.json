@@ -12,7 +12,9 @@
     "e2e": "ng e2e",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand"
+    "test:ci": "jest --runInBand",
+    "pw": "playwright test",
+    "pw:prod": "playwright test --config=playwright.prod.config.ts "
   },
   "private": true,
   "dependencies": {

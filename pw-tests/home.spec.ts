@@ -1,27 +1,22 @@
 import { test, expect } from "@playwright/test";
 
-test("has title kennykinkeelai", async ({ page }) => {
-  await page.goto("https://kennykinkeelai.com");
+test("has title home", async ({ page }) => {
+  await page.goto("/");
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/KennyKinKeeLai/);
+  await expect(page).toHaveTitle(/Home/);
 });
 
-test("get resume", async ({ page }) => {
-  await page.goto("https://kennykinkeelai.com");
+test("has resume content loaded", async ({ page, baseURL }) => {
+  console.log(baseURL);
+  await page.goto("/");
 
-  // Click the get started link.
   await expect(page.getByText("Resume", { exact: true })).toBeVisible;
-  // await page.getByRole("link", { name: "Get started" }).click();
 
   await page.getByText("Resume").click();
 
   await expect(page).toHaveTitle("Resume");
-  await expect(page.getByText("About"));
-  await expect(page.getByText("Skills"));
-
-  // Expects page to have a heading with the name of Installation.
-  // await expect(
-  //   page.getByRole("heading", { name: "Installation" })
-  // ).toBeVisible();
+  await expect(page.getByText("Skills")).toBeVisible;
+  await expect(page.getByText("About")).toBeVisible;
+  await expect(page.getByText("Work Experience")).toBeVisible;
 });

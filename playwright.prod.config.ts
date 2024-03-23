@@ -23,17 +23,9 @@ export default defineConfig({
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
-  webServer: {
-    command: "ng serve",
-    url: "http:/localhost:4200",
-    reuseExistingServer: !process.env.CI,
-    stdout: "ignore",
-    stderr: "pipe",
-  },
-
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "http://localhost:4200",
+    baseURL: "https://kennykinkeelai.com",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
