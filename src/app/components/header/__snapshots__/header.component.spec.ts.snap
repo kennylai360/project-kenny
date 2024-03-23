@@ -64,6 +64,7 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
           Converter
         </span>
       </a>
+      
     </div>
     <div
       class="social-media"
