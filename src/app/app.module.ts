@@ -27,6 +27,7 @@ import { GalleryAlbumCoverComponent } from './components/gallery-album-cover/gal
 import { GalleryAlbumJumbotronComponent } from './components/gallery-album-jumbotron/gallery-album-jumbotron.component';
 import { NotFoundComponent } from './pages/notFound/notFound.component';
 import { ConverterComponent } from './pages/converter/converter.component';
+import { TableComponent } from './pages/table/table.component';
 
 export function metaReducerLogger(
   reducer: ActionReducer<any>
@@ -73,6 +74,10 @@ const appRoutes: Routes = [
   {
     path: 'converter',
     component: ConverterComponent,
+  },
+  {
+    path: 'table',
+    component: TableComponent,
   },
   {
     path: '**',
