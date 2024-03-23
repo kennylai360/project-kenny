@@ -29,6 +29,8 @@ import { NotFoundComponent } from './pages/notFound/notFound.component';
 import { ConverterComponent } from './pages/converter/converter.component';
 import { TableComponent } from './pages/table/table.component';
 
+const siteName = 'KennyKinKeeLai';
+
 export function metaReducerLogger(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
@@ -58,14 +60,17 @@ const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    title: 'Home',
   },
   {
     path: 'resume',
     component: ProfileComponent,
+    title: 'Resume',
   },
   {
     path: 'photography',
     component: GallerySectionComponent,
+    title: 'Photography',
     children: [
       { path: '', component: GalleryAlbumListingComponent },
       { path: ':id', component: GalleryAlbumComponent },
@@ -74,6 +79,7 @@ const appRoutes: Routes = [
   {
     path: 'converter',
     component: ConverterComponent,
+    title: 'Converter',
   },
   {
     path: 'table',

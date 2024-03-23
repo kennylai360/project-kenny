@@ -1,11 +1,20 @@
-<div class="center">
+<div class="center animate__animated animate__fadeIn">
   <div class="converter">
-    <h4>Converter</h4>
-    <p>How much is your bitcoin worth? Chuck in some numbers and find out!</p>
+    <h4>BTC Calculator</h4>
+    <p>How much is your Bitcoin worth? Chuck in some numbers and find out!</p>
+    <p>
+      <u
+        >Disclaimer: this is "for fun", no data or input is stored or
+        tracked.</u
+      >
+    </p>
     <div>
       <span class="input-text"
         >BTC price @if (!(alteredBtcPrice | async)) {
-        <span>(loaded as of: {{ timeLoaded | date : 'longTime' }})</span>
+        <span
+          >(Value loaded from Coinbase Pro at
+          {{ timeLoaded | date : 'longTime' }})</span
+        >
         } @else {
         <span>(altered)</span>
         } :</span
@@ -25,6 +34,7 @@
         (ngModelChange)="updateBTCandRecalculate($event)"
         placeholder="Enter value"
         [disabled]="isLoadingData | async"
+        (focus)="callThis('btc')"
       />
     </div>
     <div>
@@ -35,11 +45,12 @@
         (ngModelChange)="updateGBPandRecalculate($event)"
         placeholder="Enter value"
         [disabled]="isLoadingData | async"
+        (focus)="callThis('gbp')"
       />
     </div>
   </div>
 </div>
-<div class="converter-summary">
+<div class="converter-summary animate__animated animate__fadeIn">
   <p>
     The price of BTC is currently set to
     <b>{{ btcPrice | currency : 'GBP' }} (GBP) </b>
@@ -48,12 +59,13 @@
   @if (gbpValue) {
   <p>
     {{
-      gbpValue
-        ? (gbpValue | currency : 'GBP') +
-          ' is approximately equivilent to ' +
-          btcValue +
-          btcSymbol
-        : ''
+      ((focusedInput$ | async) === 'gbp'
+        ? (gbpValue | currency : 'GBP')
+        : btcValue + btcSymbol) +
+        ' is approximately equivilent to ' +
+        ((focusedInput$ | async) === 'gbp'
+          ? btcValue + btcSymbol
+          : (gbpValue | currency : 'GBP'))
     }}
   </p>
   }

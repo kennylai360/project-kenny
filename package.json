@@ -53,6 +53,7 @@
     "@angular/cli": "^17.2.3",
     "@angular/compiler-cli": "17.2.4",
     "@angular/language-service": "^17.2.4",
+    "@playwright/test": "^1.42.1",
     "@types/hammerjs": "^2.0.42",
     "@types/mousetrap": "^1.6.12",
     "@types/node": "^20.8.5",
