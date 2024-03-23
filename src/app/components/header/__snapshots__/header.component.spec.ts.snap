@@ -61,7 +61,7 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
         <span
           class="nav-links__text__hide-for-mobile"
         >
-          Converter
+          BTC Calculator
         </span>
       </a>
       
