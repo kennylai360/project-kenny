@@ -1,6 +1,6 @@
 {
   "name": "project-kenny",
-  "version": "2.1.18",
+  "version": "2.2.18",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
