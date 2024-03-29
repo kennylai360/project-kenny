@@ -3,13 +3,20 @@ import { Component, OnInit, signal } from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
 import { ProfileService } from '../../api/profile.service';
 import { take } from 'rxjs/operators';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBriefcase, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, ProfileContentComponent],
+  imports: [
+    CommonModule,
+    NgOptimizedImage,
+    ProfileContentComponent,
+    FontAwesomeModule,
+  ],
   providers: [ProfileService],
 })
 export class ProfileComponent implements OnInit {
@@ -24,6 +31,11 @@ export class ProfileComponent implements OnInit {
   public isContentLoaded = signal(false);
 
   public pictureLoaded = signal(false);
+
+  protected icons = {
+    briefcase: faBriefcase,
+    globe: faGlobe,
+  };
 
   constructor(private profileService: ProfileService) {
     this.profileService

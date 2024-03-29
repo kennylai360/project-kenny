@@ -13,13 +13,15 @@ import { IGalleryCover } from '../../../state-management/gallery-list/gallery-co
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-overlay-container',
   templateUrl: './overlay-container.component.html',
   styleUrls: ['./overlay-container.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, NgOptimizedImage],
+  imports: [CommonModule, RouterModule, NgOptimizedImage, FontAwesomeModule],
 })
 export class OverlayContainerComponent implements OnInit {
   public isModalOpen$: Observable<boolean>;
@@ -33,6 +35,10 @@ export class OverlayContainerComponent implements OnInit {
   private isModalOpenValue: boolean;
 
   private destroyRef: DestroyRef = inject(DestroyRef);
+
+  protected icons = {
+    closeModalButton: faXmark,
+  };
 
   @Input()
   public albumSet: Array<IGalleryCover>;

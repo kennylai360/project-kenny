@@ -6,8 +6,13 @@
   }"
 >
   <!--Modal Navigations controls -->
-  <i class="fa fa-times modal-close" aria-hidden="true" (click)="closeModal()">
-  </i>
+  <!-- <i class="fa fa-times modal-close" aria-hidden="true" (click)="closeModal()">
+  </i> -->
+  <fa-icon
+    class="modal-close"
+    [icon]="icons.closeModalButton"
+    (click)="closeModal()"
+  />
   <!--<i class="fa fa-arrow-left modal-arrows left-arrow"-->
   <!--aria-hidden="true"-->
   <!--(click)="leftArrowClick()">-->

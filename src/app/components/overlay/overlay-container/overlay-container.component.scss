@@ -61,23 +61,11 @@
     z-index: 100;
     position: absolute;
     right: 0;
-    color: rgb(255, 255, 255, 1);
-    font-size: 2.5em;
+    font-size: 2rem;
     margin: 40px 50px;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
 
     &:hover {
       cursor: pointer;
-      color: rgb(255, 255, 255, 0.5);
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
     }
   }
 

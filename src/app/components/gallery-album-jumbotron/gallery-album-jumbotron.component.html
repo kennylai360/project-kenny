@@ -14,22 +14,22 @@
         class="jumb-text__link__padding"
         href="{{ socialMediaLinks.instagram }}"
       >
-        <i class="fa fa-instagram"></i>
+        <fa-icon [icon]="icons.instagram" />
       </a>
       } @if (socialMediaLinks && socialMediaLinks.facebook) {
       <a
         class="jumb-text__link__padding"
         href="{{ socialMediaLinks.facebook }}"
       >
-        <i class="fa fa-facebook-square"></i>
+        <fa-icon [icon]="icons.facebook" />
       </a>
       } @if (socialMediaLinks && socialMediaLinks.twitter) {
       <a class="jumb-text__link__padding" href="{{ socialMediaLinks.twitter }}">
-        <i class="fa fa-twitter-square"></i>
+        <fa-icon [icon]="icons.twitter" />
       </a>
       } @if (socialMediaLinks && socialMediaLinks.weibo) {
       <a class="jumb-text__link__padding" href="{{ socialMediaLinks.weibo }}">
-        <i class="fa fa-weibo"></i>
+        <fa-icon [icon]="icons.weibo" />
       </a>
       }
     </h1>

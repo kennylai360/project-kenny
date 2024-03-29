@@ -7,6 +7,7 @@ import { IGalleryCover } from '../../../state-management/gallery-list/gallery-co
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
+import { faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-gallery-album',
@@ -26,6 +27,10 @@ export class GalleryAlbumComponent {
     albumId: '',
     imgUrl: '',
   });
+
+  public icons = {
+    backToAlbum: faHandPointLeft,
+  };
 
   constructor(
     private activatedRoute: ActivatedRoute,

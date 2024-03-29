@@ -1,37 +1,45 @@
 <nav>
   <div class="nav-links">
     <a class="nav-links__link__margin" data-qa="qa-home-link" routerLink="/"
-      ><i class="fa fa-home"></i
+      ><fa-icon [icon]="icons.home"></fa-icon
       ><span class="nav-links__text__hide-for-mobile">Home</span></a
     >
     <a
       class="nav-links__link__margin"
       data-qa="qa-resume-link"
       routerLink="/resume"
-      ><i class="fa fa-user"></i
-      ><span class="nav-links__text__hide-for-mobile">Resume</span></a
+      ><fa-icon [icon]="icons.resume" /><span
+        class="nav-links__text__hide-for-mobile"
+        >Resume</span
+      ></a
     >
     <a
       class="nav-links__link__margin"
       data-qa="qa-photography-link"
       routerLink="/photography"
-      ><i class="fa fa-camera"></i
-      ><span class="nav-links__text__hide-for-mobile">Photography</span></a
+      ><fa-icon [icon]="icons.photography" /><span
+        class="nav-links__text__hide-for-mobile"
+        >Photography</span
+      ></a
     >
     <a
       class="nav-links__link__margin"
       data-qa="qa-converter-link"
       routerLink="/converter"
-      ><i class="fa fa-calculator"></i
-      ><span class="nav-links__text__hide-for-mobile">BTC Calculator</span></a
+      ><fa-icon [icon]="icons.btcCalculator" /><span
+        class="nav-links__text__hide-for-mobile"
+        >BTC Calculator</span
+      ></a
     >
     @if (false) {
     <a
       class="nav-links__link__margin"
       data-qa="qa-table-link"
       routerLink="/table"
-      ><i class="fa fa-table" aria-hidden="true"></i
-      ><span class="nav-links__text__hide-for-mobile">Table</span></a
+      ><fa-icon [icon]="icons.btcCalculator" /><span
+        class="nav-links__text__hide-for-mobile"
+        >Table</span
+      ></a
     >
     }
   </div>
@@ -42,23 +50,15 @@
       href="https://www.twitter.com/KENIII26"
       target="_blank"
       rel="noreferrer noopener"
-      ><i class="fa fa-twitter"></i
-    ></a>
+      ><fa-icon [icon]="icons.twitter"
+    /></a>
     <a
       class="social-media__link__font-size social-media__link__margin"
-      data-qa="qa-instagram-link"
-      href="https://www.instagram.com/kennykinkeelai"
+      data-qa="qa-github-link"
+      href="https://www.github.com/kennylai360"
       target="_blank"
       rel="noreferrer noopener"
-      ><i class="fa fa-instagram"></i
-    ></a>
-    <a
-      class="social-media__link__font-size social-media__link__margin"
-      data-qa="qa-twitch-link"
-      href="https://www.twitch.tv/KENIII26"
-      target="_blank"
-      rel="noreferrer noopener"
-      ><i class="fa fa-twitch"></i
-    ></a>
+      ><fa-icon [icon]="icons.github"
+    /></a>
   </div>
 </nav>

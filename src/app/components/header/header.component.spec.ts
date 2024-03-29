@@ -43,18 +43,11 @@ describe('HeaderComponent', () => {
       expect(twitterHref).toEqual('https://www.twitter.com/KENIII26');
     });
 
-    it('should test the twitch link will have href to twitch profile', () => {
-      const twitchHref = fixture.debugElement
-        .query(By.css('a[data-qa="qa-twitch-link"]'))
+    it('should test the github link will have href to twitter profile', () => {
+      const githubHref = fixture.debugElement
+        .query(By.css('a[data-qa="qa-github-link"]'))
         .nativeElement.getAttribute('href');
-      expect(twitchHref).toEqual('https://www.twitch.tv/KENIII26');
-    });
-
-    it('should test the instagram link will have href to instagram profile', () => {
-      const instagramHref = fixture.debugElement
-        .query(By.css('a[data-qa="qa-instagram-link"]'))
-        .nativeElement.getAttribute('href');
-      expect(instagramHref).toEqual('https://www.instagram.com/kennykinkeelai');
+      expect(githubHref).toEqual('https://www.github.com/kennylai360');
     });
   });
 

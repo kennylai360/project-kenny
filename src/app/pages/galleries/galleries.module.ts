@@ -7,6 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { OverlayContainerComponent } from '../../components/overlay/overlay-container/overlay-container.component';
 import { GalleryAlbumCoverComponent } from '../../components/gallery-album-cover/gallery-album-cover.component';
 import { GalleryAlbumJumbotronComponent } from '../../components/gallery-album-jumbotron/gallery-album-jumbotron.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [GalleryAlbumListingComponent, GalleryAlbumComponent],
@@ -17,6 +18,7 @@ import { GalleryAlbumJumbotronComponent } from '../../components/gallery-album-j
     RouterModule,
     OverlayContainerComponent,
     NgxPaginationModule,
+    FontAwesomeModule,
   ],
   exports: [GalleryAlbumListingComponent, GalleryAlbumComponent],
   providers: [],

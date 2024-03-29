@@ -8,9 +8,8 @@ exports[`NotFoundComponent should do a snapshot test 1`] = `
     class="not-found"
   >
     <h1>
-      <i
-        aria-hidden="true"
-        class="fa fa-exclamation-triangle"
+      <fa-icon
+        class="ng-fa-icon"
       />
        
       <span
@@ -19,9 +18,8 @@ exports[`NotFoundComponent should do a snapshot test 1`] = `
         404
       </span>
        Not found 
-      <i
-        aria-hidden="true"
-        class="fa fa-exclamation-triangle"
+      <fa-icon
+        class="ng-fa-icon"
       />
     </h1>
     <h4>

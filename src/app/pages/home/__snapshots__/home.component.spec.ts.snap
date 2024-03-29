@@ -9,9 +9,8 @@ exports[`Home component should check the home UI should match snapshots 1`] = `
   >
     <h1>
       Hi there! 
-      <i
-        aria-hidden="true"
-        class="fa fa-smile-o"
+      <fa-icon
+        class="ng-fa-icon"
       />
     </h1>
     <h5>
