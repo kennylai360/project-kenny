@@ -14,7 +14,7 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand",
     "pw": "playwright test",
-    "pw:prod": "playwright test --config=playwright.prod.config.ts "
+    "pw:prod": "playwright test --config=playwright.prod.config.ts"
   },
   "private": true,
   "dependencies": {
@@ -30,8 +30,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@ngrx/effects": "17.0.1",
-    "@ngrx/store": "17.0.1",
+    "@ngrx/effects": "17.1.1",
+    "@ngrx/store": "17.1.1",
     "@types/jest": "^29.5.11",
     "animate.css": "4.1.1",
     "bootstrap": "4.6.0",
@@ -68,7 +68,7 @@
     "eslint": "^8.56.0",
     "ts-node": "9.1.1",
     "tslint": "~6.1.0",
-    "typescript": "^5.2.2"
+    "typescript": "5.3.2"
   },
   "jest": {
     "preset": "jest-preset-angular",
