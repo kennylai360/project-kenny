@@ -10,5 +10,5 @@ import { ProfileContent } from './profile-content.interface';
   styleUrl: './profile-content.component.scss',
 })
 export class ProfileContentComponent {
-  public fileContent = input<Array<ProfileContent>>();
+  public fileContent = input.required<Array<ProfileContent>>();
 }
