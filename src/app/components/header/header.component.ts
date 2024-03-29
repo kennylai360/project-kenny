@@ -26,8 +26,4 @@ export class HeaderComponent {
     twitter: faXTwitter,
     github: faGithub,
   };
-
-  public doSomething(): void {
-    console.log('do something');
-  }
 }
