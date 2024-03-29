@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { ProfileContent } from './profile-content.interface';
 
 @Component({
   selector: 'app-profile-content',
@@ -9,6 +10,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './profile-content.component.scss',
 })
 export class ProfileContentComponent {
-  @Input({ required: true })
-  public fileContent: object;
+  public fileContent = input<Array<ProfileContent>>();
 }
