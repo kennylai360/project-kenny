@@ -2,7 +2,7 @@
 
 exports[`HeaderComponent should check the UI should be consistent 1`] = `
 <div
-  id="root6"
+  id="root5"
 >
   <nav>
     <div
@@ -13,8 +13,8 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
         data-qa="qa-home-link"
         routerlink="/"
       >
-        <i
-          class="fa fa-home"
+        <fa-icon
+          class="ng-fa-icon"
         />
         <span
           class="nav-links__text__hide-for-mobile"
@@ -27,8 +27,8 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
         data-qa="qa-resume-link"
         routerlink="/resume"
       >
-        <i
-          class="fa fa-user"
+        <fa-icon
+          class="ng-fa-icon"
         />
         <span
           class="nav-links__text__hide-for-mobile"
@@ -41,8 +41,8 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
         data-qa="qa-photography-link"
         routerlink="/photography"
       >
-        <i
-          class="fa fa-camera"
+        <fa-icon
+          class="ng-fa-icon"
         />
         <span
           class="nav-links__text__hide-for-mobile"
@@ -55,8 +55,8 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
         data-qa="qa-converter-link"
         routerlink="/converter"
       >
-        <i
-          class="fa fa-calculator"
+        <fa-icon
+          class="ng-fa-icon"
         />
         <span
           class="nav-links__text__hide-for-mobile"
@@ -76,30 +76,19 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
         rel="noreferrer noopener"
         target="_blank"
       >
-        <i
-          class="fa fa-twitter"
+        <fa-icon
+          class="ng-fa-icon"
         />
       </a>
       <a
         class="social-media__link__font-size social-media__link__margin"
-        data-qa="qa-instagram-link"
-        href="https://www.instagram.com/kennykinkeelai"
+        data-qa="qa-github-link"
+        href="https://www.github.com/kennylai360"
         rel="noreferrer noopener"
         target="_blank"
       >
-        <i
-          class="fa fa-instagram"
-        />
-      </a>
-      <a
-        class="social-media__link__font-size social-media__link__margin"
-        data-qa="qa-twitch-link"
-        href="https://www.twitch.tv/KENIII26"
-        rel="noreferrer noopener"
-        target="_blank"
-      >
-        <i
-          class="fa fa-twitch"
+        <fa-icon
+          class="ng-fa-icon"
         />
       </a>
     </div>
