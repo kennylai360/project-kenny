@@ -1,10 +1,17 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Signal,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
 import { ProfileService } from '../../api/profile.service';
-import { take } from 'rxjs/operators';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBriefcase, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-profile',
@@ -22,39 +29,31 @@ import { faBriefcase, faGlobe } from '@fortawesome/free-solid-svg-icons';
 export class ProfileComponent implements OnInit {
   private readonly dateOfBirth: Date = new Date(Date.UTC(1993, 9, 26));
 
-  public dateOfBirthDisplay: string;
-
-  public currentAge: number;
-
-  public profileContent: object;
-
-  public isContentLoaded = signal(false);
-
-  public pictureLoaded = signal(false);
+  private profileService = inject(ProfileService);
 
   protected icons = {
     briefcase: faBriefcase,
     globe: faGlobe,
   };
 
-  constructor(private profileService: ProfileService) {
-    this.profileService
-      .loadProfileContent()
-      .pipe(take(1))
-      .subscribe((value) => {
-        this.profileContent = value;
-        this.isContentLoaded.set(true);
-      });
-  }
+  public dateOfBirthDisplay: string;
+
+  public currentAge: number;
+
+  public profileContent: Signal<object> = toSignal(
+    this.profileService.loadProfileContent()
+  );
+
+  public isContentLoaded: Signal<boolean> = computed(() => {
+    return this.profileContent() ? true : false;
+  });
+
+  public pictureLoaded = signal(false);
 
   ngOnInit() {
     const timeDiff = Math.abs(Date.now() - Number(this.dateOfBirth));
     this.currentAge = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
 
     this.dateOfBirthDisplay = this.dateOfBirth.toLocaleDateString('en-GB');
-  }
-
-  isPictureLoaded() {
-    this.pictureLoaded.set(true);
   }
 }

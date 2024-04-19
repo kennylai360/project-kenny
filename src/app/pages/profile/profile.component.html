@@ -29,7 +29,7 @@
         ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
         height="200"
         width="200"
-        (load)="isPictureLoaded()"
+        (load)="pictureLoaded.set(true)"
         priority
       />
     </div>
@@ -66,7 +66,7 @@
   <hr />
 
   <div class="app_profile_content">
-    <app-profile-content [fileContent]="profileContent"></app-profile-content>
+    <app-profile-content [fileContent]="profileContent()"></app-profile-content>
   </div>
 </div>
 }
