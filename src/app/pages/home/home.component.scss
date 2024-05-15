@@ -21,14 +21,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 75px;
-    height: 55vh;
+    height: 90vh;
   }
 
   .home__links {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+  }
+
+  @media (max-height: 745px) {
+    .home__info {
+      height: 85vh;
+    }
   }
 
   @media (max-width: 1600px) {
