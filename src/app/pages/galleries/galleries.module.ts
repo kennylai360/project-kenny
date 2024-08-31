@@ -10,17 +10,17 @@ import { GalleryAlbumJumbotronComponent } from '../../components/gallery-album-j
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [GalleryAlbumListingComponent, GalleryAlbumComponent],
-  imports: [
-    CommonModule,
-    GalleryAlbumCoverComponent,
-    GalleryAlbumJumbotronComponent,
-    RouterModule,
-    OverlayContainerComponent,
-    NgxPaginationModule,
-    FontAwesomeModule,
-  ],
-  exports: [GalleryAlbumListingComponent, GalleryAlbumComponent],
-  providers: [],
+    imports: [
+        CommonModule,
+        GalleryAlbumCoverComponent,
+        GalleryAlbumJumbotronComponent,
+        RouterModule,
+        OverlayContainerComponent,
+        NgxPaginationModule,
+        FontAwesomeModule,
+        GalleryAlbumListingComponent, GalleryAlbumComponent,
+    ],
+    exports: [GalleryAlbumListingComponent, GalleryAlbumComponent],
+    providers: [],
 })
 export class GalleriesModule {}
