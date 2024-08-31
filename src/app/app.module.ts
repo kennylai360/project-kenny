@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { Actions, EffectsModule } from '@ngrx/effects';
 import { GalleryEffects } from './state-management/gallery-list/gallery.effects';
 import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
-import { PagesModule } from './pages/pages.module';
+
 import { CommonModule } from '@angular/common';
 import { GallerySectionComponent } from './pages/galleries/gallery-section/gallery-section.component';
 import { GalleryAlbumListingComponent } from './pages/galleries/gallery-album-listing/gallery-album-listing.component';
@@ -95,7 +95,6 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     BrowserAnimationsModule,
     HeaderComponent,
-    PagesModule,
     GalleryAlbumCoverComponent,
     GalleryAlbumJumbotronComponent,
     ConverterComponent,
@@ -104,11 +103,11 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     StoreModule.forRoot(listOfReducers, { metaReducers }),
     RouterModule.forRoot(appRoutes, {
-      enableTracing: false,
-      scrollPositionRestoration: 'enabled',
+        enableTracing: false,
+        scrollPositionRestoration: 'enabled',
     }),
     EffectsModule.forRoot([GalleryEffects]),
-  ],
+],
   declarations: [AppComponent],
   providers: [
     AppFacade,
