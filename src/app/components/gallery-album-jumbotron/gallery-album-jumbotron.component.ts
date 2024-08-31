@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
 import { CommonModule } from '@angular/common';
-// import { BrowserModule } from '@angular/platform-browser';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -16,12 +15,7 @@ import {
   templateUrl: './gallery-album-jumbotron.component.html',
   styleUrls: ['./gallery-album-jumbotron.component.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    // BrowserModule,
-    LazyLoadImageModule,
-    FontAwesomeModule,
-  ],
+  imports: [CommonModule, LazyLoadImageModule, FontAwesomeModule],
 })
 export class GalleryAlbumJumbotronComponent {
   @Input()
