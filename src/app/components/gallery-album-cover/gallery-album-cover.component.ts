@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -9,7 +8,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   templateUrl: './gallery-album-cover.component.html',
   styleUrls: ['./gallery-album-cover.component.scss'],
   standalone: true,
-  imports: [CommonModule, BrowserModule, LazyLoadImageModule],
+  imports: [CommonModule, LazyLoadImageModule],
 })
 export class GalleryAlbumCoverComponent {
   @Input()
