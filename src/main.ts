@@ -19,11 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Actions, EffectsModule } from '@ngrx/effects';
-import {
-  HttpClient,
-  withInterceptorsFromDi,
-  provideHttpClient,
-} from '@angular/common/http';
+import { HttpClient, withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
 import { GalleryFacade } from './app/state-management/gallery-list/gallery.facade';
 import { AppFacade } from './app/state-management/app/app.facade';
 
