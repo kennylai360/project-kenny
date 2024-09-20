@@ -30,8 +30,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@ngrx/effects": "17.1.1",
-    "@ngrx/store": "17.1.1",
+    "@ngrx/effects": "18.0.2",
+    "@ngrx/store": "18.0.2",
     "@types/jest": "^29.5.11",
     "animate.css": "4.1.1",
     "bootstrap": "4.6.0",
@@ -46,7 +46,8 @@
     "screenfull": "5.1.0",
     "smoothscroll-polyfill": "^0.4.3",
     "tslib": "2.1.0",
-    "zone.js": "^0.14.10"
+    "zone.js": "^0.14.10",
+    "@ngrx/operators": "^18.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.5",
