@@ -8,7 +8,7 @@ on:
 jobs:
   build_and_store_artifact:
     name: Build, unit tests and store artifact
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -34,7 +34,7 @@ jobs:
   credentials_and_deploy:
     name: AWS credentials and deploy
     needs: build_and_store_artifact
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4.1.7
