@@ -1,72 +1,76 @@
 @if (!isContentLoaded()) {
 <div class="loading-spinner">
-  <div class="spinner-border">
+  <div class="loader">
     <span class="sr-only">Loading...</span>
   </div>
 </div>
 } @if (isContentLoaded()) {
-<div class="profile_content animate__animated animate__fadeIn">
-  <div class="personal_info">
-    <div class="personal_info__text">
-      <h2>Kenny Lai</h2>
-      <span class="personal_info__professional_role">
-        <fa-icon [icon]="icons.briefcase" />
-        <h5>Frontend Developer</h5>
-      </span>
-      <span class="personal_info__location"
-        ><fa-icon [icon]="icons.globe" />
-        <h5>Basingstoke, United Kingdom</h5>
-      </span>
-    </div>
-    <div class="personal_info__image">
-      <img
-        alt="profile picture"
-        class="profile_image"
-        [ngClass]="{
+<div class="profile_container">
+  <div class="profile_content animate__animated animate__fadeIn">
+    <div class="personal_info">
+      <div class="personal_info__text">
+        <h1>Kenny Lai</h1>
+        <span class="personal_info__professional_role">
+          <fa-icon [icon]="icons.briefcase" />
+          <h3>Frontend Developer</h3>
+        </span>
+        <span class="personal_info__location"
+          ><fa-icon [icon]="icons.globe" />
+          <h3>Basingstoke, United Kingdom</h3>
+        </span>
+      </div>
+      <div class="personal_info__image">
+        <img
+          alt="profile picture"
+          class="profile_image"
+          [ngClass]="{
           'hide-image': !pictureLoaded(),
           'show-image': pictureLoaded(),
         }"
-        ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
-        height="200"
-        width="200"
-        (load)="pictureLoaded.set(true)"
-        priority
-      />
+          ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
+          height="200"
+          width="200"
+          (load)="pictureLoaded.set(true)"
+          priority
+        />
+      </div>
     </div>
-  </div>
 
-  <hr />
-  <h4>About</h4>
-  <p>
-    A reliable, optimistic, hardworking and easy-going Frontend developer that
-    is keen on technology and willing to put effort into learning and mastering
-    what is needed of him. Easily adaptable to different environments and can
-    work under pressure with tight deadlines.
-  </p>
+    <hr />
+    <h4>About</h4>
+    <p>
+      A reliable, optimistic, hardworking and easy-going Frontend developer that
+      is keen on technology and willing to put effort into learning and
+      mastering what is needed of him. Easily adaptable to different
+      environments and can work under pressure with tight deadlines.
+    </p>
 
-  <hr />
+    <hr />
 
-  <h4>Skills</h4>
+    <h4>Skills</h4>
 
-  <ul>
-    <li>Programming languages</li>
     <ul>
-      <li>Javascript | Typescript | HTML | CSS | SCSS</li>
+      <li>Programming languages</li>
+      <ul>
+        <li>Javascript | Typescript | HTML | CSS | SCSS</li>
+      </ul>
+      <li>Frontend development</li>
+      <ul>
+        <li>Angular | React | Redux | NgRx | Material-UI | Clarity-UI</li>
+      </ul>
+      <li>Tools</li>
+      <ul>
+        <li>Git/Github/Github actions | AWS | Yarn | NPM | Docker</li>
+      </ul>
     </ul>
-    <li>Frontend development</li>
-    <ul>
-      <li>Angular | React | Redux | NgRx | Material-UI | Clarity-UI</li>
-    </ul>
-    <li>Tools</li>
-    <ul>
-      <li>Git/Github/Github actions | AWS | Yarn | NPM | Docker</li>
-    </ul>
-  </ul>
 
-  <hr />
+    <hr />
 
-  <div class="app_profile_content">
-    <app-profile-content [fileContent]="profileContent()"></app-profile-content>
+    <div class="app_profile_content">
+      <app-profile-content
+        [fileContent]="profileContent()"
+      ></app-profile-content>
+    </div>
   </div>
 </div>
 }

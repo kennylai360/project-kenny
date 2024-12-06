@@ -12,11 +12,18 @@
     color: var(--sub-text-color);
   }
 
+  .profile_container {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
   .profile_content {
     margin-top: 10px;
-
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
   .personal_info {
@@ -48,8 +55,8 @@
     fa-icon {
       padding-right: 5px;
     }
-    h5 {
-      margin-bottom: 0;
+    h3 {
+      margin: 0;
     }
   }
 
@@ -64,8 +71,8 @@
 
   @media (min-width: 1024px) {
     .profile_content {
-      margin-left: 15%;
-      margin-right: 15%;
+      margin-left: 10%;
+      margin-right: 10%;
     }
   }
 
@@ -73,6 +80,19 @@
     .profile_content {
       margin-left: 15%;
       margin-right: 15%;
+    }
+
+    .profile_container {
+      padding: 10px 5px 5px 5px;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profile_image {
+      width: 150px;
+      height: auto;
     }
   }
 }
