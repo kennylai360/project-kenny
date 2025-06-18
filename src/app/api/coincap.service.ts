@@ -10,11 +10,11 @@ export class CoincapService {
 
   public getBtcAssetData(): Observable<any> {
     return this.httpClient.get(
-      'https://api.coincap.io/v2/assets/bitcoin/markets'
+      'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/bitcoin-markets'
     );
   }
 
   public getRatesData(): Observable<any> {
-    return this.httpClient.get('https://api.coincap.io/v2/rates');
+    return this.httpClient.get('https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/rates');
   }
 }
