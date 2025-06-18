@@ -10,13 +10,13 @@ export class CoincapService {
 
   public getBtcAssetData(): Observable<any> {
     return this.httpClient.get(
-      'https://rest.coincap.io/v3/assets/bitcoin/markets?apiKey=71171ef8f6d0d96a658bb88f01b51377f1b79832fc4d62088fcefb67efc0417d'
+      'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/prod/bitcoin-markets'
     );
   }
 
   public getRatesData(): Observable<any> {
     return this.httpClient.get(
-      'https://rest.coincap.io/v3/rates?apiKey=71171ef8f6d0d96a658bb88f01b51377f1b79832fc4d62088fcefb67efc0417d'
+      'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/prod/rates'
     );
   }
 }
