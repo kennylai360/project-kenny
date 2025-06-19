@@ -8,6 +8,11 @@
         tracked.</u
       >
     </p>
+    @if (errorLoadingData | async) {
+    <p class="error-block">
+      Error loading data! Please check browser console for more details!
+    </p>
+    } @else {
     <div>
       <span class="input-text"
         >BTC price @if (!(alteredBtcPrice | async)) {
@@ -48,8 +53,10 @@
         (focus)="updateFocusedInput('gbp')"
       />
     </div>
+    }
   </div>
 </div>
+@if (!(errorLoadingData | async)) {
 <div class="converter-summary animate__animated animate__fadeIn">
   <p>
     The price of BTC is currently set to
@@ -70,3 +77,4 @@
   </p>
   }
 </div>
+}
