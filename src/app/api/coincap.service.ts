@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +12,13 @@ export class CoincapService {
 
   public getBtcAssetData(): Observable<any> {
     return this.httpClient.get(
-      'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/prod/bitcoin-markets'
+      environment.coinCapApi + `/bitcoin-markets`
     );
   }
 
   public getRatesData(): Observable<any> {
     return this.httpClient.get(
-      'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/prod/rates'
+      environment.coinCapApi + `/rates`
     );
   }
 }

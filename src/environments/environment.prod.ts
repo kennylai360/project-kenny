@@ -2,5 +2,6 @@ import packageJson from '../../package.json';
 
 export const environment = {
   appVersion: packageJson.version,
-  production: true
+  coinCapApi: 'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/prod',
+  production: true,
 };
