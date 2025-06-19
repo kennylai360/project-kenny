@@ -27,6 +27,8 @@ export class ConverterComponent {
   public isLoadingData: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     true
   );
+  public errorLoadingData: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
   private coincapService: CoincapService = inject(CoincapService);
 
   constructor() {
@@ -53,6 +55,7 @@ export class ConverterComponent {
       },
       (error) => {
         console.log(error);
+        this.errorLoadingData.next(true);
         this.isLoadingData.next(false);
       },
       () => {
