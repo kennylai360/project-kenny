@@ -53,6 +53,7 @@ export class ConverterComponent {
       },
       (error) => {
         console.log(error);
+        this.isLoadingData.next(false);
       },
       () => {
         this.isLoadingData.next(false);
