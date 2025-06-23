@@ -12,13 +12,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     selector: 'app-galleries',
     templateUrl: './gallery-album-listing.component.html',
     styleUrls: ['./gallery-album-listing.component.scss'],
-    standalone: true,
     imports: [
         NgxPaginationModule,
         GalleryAlbumCoverComponent,
         RouterLink,
         AsyncPipe,
-    ],
+    ]
 })
 export class GalleryAlbumListingComponent implements OnInit {
   public coverContent: Observable<IGalleryCover[]>;

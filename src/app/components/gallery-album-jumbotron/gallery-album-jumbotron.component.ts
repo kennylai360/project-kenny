@@ -11,11 +11,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
-  selector: 'app-gallery-album-jumbotron',
-  templateUrl: './gallery-album-jumbotron.component.html',
-  styleUrls: ['./gallery-album-jumbotron.component.scss'],
-  standalone: true,
-  imports: [CommonModule, LazyLoadImageModule, FontAwesomeModule],
+    selector: 'app-gallery-album-jumbotron',
+    templateUrl: './gallery-album-jumbotron.component.html',
+    styleUrls: ['./gallery-album-jumbotron.component.scss'],
+    imports: [CommonModule, LazyLoadImageModule, FontAwesomeModule]
 })
 export class GalleryAlbumJumbotronComponent {
   @Input()

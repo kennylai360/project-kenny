@@ -8,12 +8,11 @@ import { HeaderComponent } from './components/header/header.component';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: true,
     imports: [
         HeaderComponent,
         RouterOutlet,
         FooterComponent,
-    ],
+    ]
 })
 export class AppComponent {
   constructor(private galleryFacade: GalleryFacade) {

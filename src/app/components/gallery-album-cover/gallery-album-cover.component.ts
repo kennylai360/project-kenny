@@ -4,11 +4,10 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
-  selector: 'app-gallery-album-cover',
-  templateUrl: './gallery-album-cover.component.html',
-  styleUrls: ['./gallery-album-cover.component.scss'],
-  standalone: true,
-  imports: [CommonModule, LazyLoadImageModule],
+    selector: 'app-gallery-album-cover',
+    templateUrl: './gallery-album-cover.component.html',
+    styleUrls: ['./gallery-album-cover.component.scss'],
+    imports: [CommonModule, LazyLoadImageModule]
 })
 export class GalleryAlbumCoverComponent {
   @Input()

@@ -5,12 +5,11 @@ import { BehaviorSubject, forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-converter',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  providers: [CoincapService],
-  templateUrl: './converter.component.html',
-  styleUrl: './converter.component.scss',
+    selector: 'app-converter',
+    imports: [CommonModule, FormsModule],
+    providers: [CoincapService],
+    templateUrl: './converter.component.html',
+    styleUrl: './converter.component.scss'
 })
 export class ConverterComponent {
   public btcPrice: number = 0;

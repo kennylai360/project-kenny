@@ -19,7 +19,6 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     selector: 'app-gallery-album',
     templateUrl: './gallery-album.component.html',
     styleUrls: ['./gallery-album.component.scss'],
-    standalone: true,
     imports: [
         RouterLink,
         FaIconComponent,
@@ -29,7 +28,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
         GalleryAlbumCoverComponent,
         OverlayContainerComponent,
         AsyncPipe,
-    ],
+    ]
 })
 export class GalleryAlbumComponent {
   public pageNumber: number = 1;

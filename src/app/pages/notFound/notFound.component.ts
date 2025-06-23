@@ -6,11 +6,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './notFound.component.html',
-  styleUrls: ['./notFound.component.scss'],
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+    selector: 'app-not-found',
+    templateUrl: './notFound.component.html',
+    styleUrls: ['./notFound.component.scss'],
+    imports: [CommonModule, FontAwesomeModule]
 })
 export class NotFoundComponent {
   public requestedUrl: string;

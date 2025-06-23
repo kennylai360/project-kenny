@@ -6,16 +6,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSmileBeam } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    OverlayContainerComponent,
-    FontAwesomeModule,
-  ],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        OverlayContainerComponent,
+        FontAwesomeModule,
+    ]
 })
 export class HomeComponent {
   public icons = {

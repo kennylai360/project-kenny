@@ -14,17 +14,16 @@ import { faBriefcase, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    ProfileContentComponent,
-    FontAwesomeModule,
-  ],
-  providers: [ProfileService],
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.scss'],
+    imports: [
+        CommonModule,
+        NgOptimizedImage,
+        ProfileContentComponent,
+        FontAwesomeModule,
+    ],
+    providers: [ProfileService]
 })
 export class ProfileComponent implements OnInit {
   private readonly dateOfBirth: Date = new Date(Date.UTC(1993, 9, 26));

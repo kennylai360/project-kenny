@@ -17,11 +17,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-overlay-container',
-  templateUrl: './overlay-container.component.html',
-  styleUrls: ['./overlay-container.component.scss'],
-  standalone: true,
-  imports: [CommonModule, RouterModule, NgOptimizedImage, FontAwesomeModule],
+    selector: 'app-overlay-container',
+    templateUrl: './overlay-container.component.html',
+    styleUrls: ['./overlay-container.component.scss'],
+    imports: [CommonModule, RouterModule, NgOptimizedImage, FontAwesomeModule]
 })
 export class OverlayContainerComponent implements OnInit {
   public isModalOpen$: Observable<boolean>;
