@@ -64,7 +64,20 @@ exports[`HeaderComponent should check the UI should be consistent 1`] = `
           BTC Calculator
         </span>
       </a>
-      
+      <a
+        class="nav-links__link__margin"
+        data-qa="qa-table-link"
+        routerlink="/utils"
+      >
+        <fa-icon
+          class="ng-fa-icon"
+        />
+        <span
+          class="nav-links__text__hide-for-mobile"
+        >
+          Copycat mocking
+        </span>
+      </a>
     </div>
     <div
       class="social-media"
