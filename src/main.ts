@@ -4,7 +4,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { GalleryEffects } from './app/state-management/gallery-list/gallery.effects';
 import { NotFoundComponent } from './app/pages/notFound/notFound.component';
-import { TableComponent } from './app/pages/table/table.component';
+import { UtilsComponent } from './app/pages/utils/utils.component';
 import { ConverterComponent } from './app/pages/converter/converter.component';
 import { GalleryAlbumComponent } from './app/pages/galleries/gallery-album/gallery-album.component';
 import { GalleryAlbumListingComponent } from './app/pages/galleries/gallery-album-listing/gallery-album-listing.component';
@@ -19,12 +19,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Actions, EffectsModule } from '@ngrx/effects';
-import { HttpClient, withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  withInterceptorsFromDi,
+  provideHttpClient,
+} from '@angular/common/http';
 import { GalleryFacade } from './app/state-management/gallery-list/gallery.facade';
 import { AppFacade } from './app/state-management/app/app.facade';
 
 export function metaReducerLogger(
-  reducer: ActionReducer<any>,
+  reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return (state: any, action: any) => {
     console.groupCollapsed(action.type);
@@ -34,7 +38,7 @@ export function metaReducerLogger(
     console.log(
       `%c next state`,
       `color: #4CAF50; font-weight: bold`,
-      nextState,
+      nextState
     );
     console.groupEnd();
     return nextState;
@@ -77,8 +81,8 @@ const appRoutes: Routes = [
     title: 'Converter',
   },
   {
-    path: 'table',
-    component: TableComponent,
+    path: 'utils',
+    component: UtilsComponent,
   },
   {
     path: '**',
@@ -96,7 +100,7 @@ bootstrapApplication(AppComponent, {
       CommonModule,
       NgxPaginationModule,
       StoreModule.forRoot(listOfReducers, { metaReducers }),
-      EffectsModule.forRoot([GalleryEffects]),
+      EffectsModule.forRoot([GalleryEffects])
     ),
     AppFacade,
     GalleryFacade,
@@ -108,7 +112,7 @@ bootstrapApplication(AppComponent, {
     provideAnimations(),
     provideRouter(
       appRoutes,
-      withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
+      withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
     ),
   ],
 }).catch((err) => console.log(err));

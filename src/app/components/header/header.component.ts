@@ -6,6 +6,7 @@ import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
   faCalculator,
   faCameraRetro,
+  faCat,
   faFile,
   faHouseChimney,
 } from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +23,7 @@ export class HeaderComponent {
     resume: faFile,
     photography: faCameraRetro,
     btcCalculator: faCalculator,
+    copyCatMocking: faCat,
     twitter: faXTwitter,
     github: faGithub,
   };

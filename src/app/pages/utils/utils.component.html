@@ -1,0 +1,42 @@
+<div class="container-fluid animate__animated animate__fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="{{
+            'Type in some text to copycat mock it' +
+              (shouldBeLowerCase
+                ? ' - Starting with lowercase'
+                : ' - Starting with uppercase')
+          }}"
+          [(ngModel)]="textToModify"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary" (click)="switchCase()">
+        Switch case
+      </button>
+      <button
+        [disabled]="!textToModify"
+        type="button"
+        class="btn btn-primary"
+        (click)="copyToClipboard()"
+      >
+        <fa-icon [icon]="icon.clipboard" />
+      </button>
+    </div>
+  </div>
+  @if (textToModify) {
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-primary" role="alert">
+        Preview of the mocking text: &nbsp;
+        {{ stringToConvertToBeCopied(textToModify) }}
+      </div>
+    </div>
+  </div>
+  }
+</div>
