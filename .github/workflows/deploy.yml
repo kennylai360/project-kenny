@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4.3.0
         with:
           name: build-folder
-          path: dist
+          path: dist/browser
 
   credentials_and_deploy:
     name: AWS credentials and deploy
