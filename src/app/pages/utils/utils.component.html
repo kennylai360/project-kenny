@@ -1,6 +1,6 @@
 <div class="container-fluid animate__animated animate__fadeIn">
   <div class="row">
-    <div class="col">
+    <div class="col-md-6">
       <div class="input-group">
         <input
           type="text"
@@ -15,7 +15,7 @@
         />
       </div>
     </div>
-    <div class="col">
+    <div class="col-md-6">
       <button type="button" class="btn btn-primary" (click)="switchCase()">
         Switch case
       </button>
@@ -31,7 +31,7 @@
   </div>
   @if (textToModify) {
   <div class="row">
-    <div class="col">
+    <div class="col-md-12">
       <div class="alert alert-primary" role="alert">
         Preview of the mocking text: &nbsp;
         {{ stringToConvertToBeCopied(textToModify) }}

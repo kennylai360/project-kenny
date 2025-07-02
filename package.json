@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "tbp": "npm run build --configuration production --build-optimizer",
-    "bp": "ng build --configuration production --build-optimizer",
+    "bp": "ng build --configuration production",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "jest",
