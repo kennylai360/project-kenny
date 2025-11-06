@@ -37,10 +37,6 @@ export class ConverterComponent {
     }).subscribe(
       ({ btcAssetData, ratesData }) => {
         this.timeLoaded = new Date();
-        const coinbaseBtcData = btcAssetData.data.filter(
-          (data) =>
-            data.exchangeId === 'Coinbase Pro' && data.quoteSymbol === 'GBP'
-        );
         const gbpRateData = ratesData.data.filter(
           (rate) => rate.id === 'british-pound-sterling'
         )[0];
@@ -48,7 +44,7 @@ export class ConverterComponent {
           (rate) => rate.id === 'bitcoin'
         )[0];
         this.btcSymbol = btcRateData.currencySymbol;
-        const priceOfBtcInUsd: number = Math.trunc(coinbaseBtcData[0].priceUsd);
+        const priceOfBtcInUsd: number = Math.trunc(btcAssetData.data[0]);
         const gbpRateToUsd: number = gbpRateData?.rateUsd;
         this.btcPrice = Math.trunc(priceOfBtcInUsd * (1 / gbpRateToUsd));
       },
