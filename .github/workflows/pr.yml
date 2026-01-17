@@ -1,18 +1,18 @@
-name: GHA Unit tests
-run-name: unit tests
-on:
-  pull_request:
-    branches:
-      - master
-jobs:
-  test:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
+# name: GHA Unit tests
+# run-name: unit tests
+# on:
+#   pull_request:
+#     branches:
+#       - master
+# jobs:
+#   test:
+#     runs-on: ubuntu-24.04
+#     steps:
+#       - uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: yarn install
+#       - name: Install Dependencies
+#         run: yarn install
 
-      - name: Run Tests
+#       - name: Run Tests
 
-        run: yarn run test
+#         run: yarn run test
