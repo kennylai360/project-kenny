@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
-import { CommonModule } from '@angular/common';
+
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -14,7 +14,7 @@ import {
     selector: 'app-gallery-album-jumbotron',
     templateUrl: './gallery-album-jumbotron.component.html',
     styleUrls: ['./gallery-album-jumbotron.component.scss'],
-    imports: [CommonModule, LazyLoadImageModule, FontAwesomeModule]
+    imports: [LazyLoadImageModule, FontAwesomeModule]
 })
 export class GalleryAlbumJumbotronComponent {
   @Input()

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
     selector: 'app-not-found',
     templateUrl: './notFound.component.html',
     styleUrls: ['./notFound.component.scss'],
-    imports: [CommonModule, FontAwesomeModule]
+    imports: [FontAwesomeModule]
 })
 export class NotFoundComponent {
   public requestedUrl: string;

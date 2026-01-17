@@ -1,41 +1,43 @@
 <a class="gallery-album__return-link" routerLink="/photography"
   ><fa-icon [icon]="icons.backToAlbum" />Return to albums</a
->
-<hr class="animate__animated animate__fadeInDown" />
-<app-gallery-album-jumbotron
-  [albumTitle]="(albumData | async).albumTitle"
-  [albumSubtitle]="(albumData | async).albumSubtitle"
-  [albumCoverPicture]="(albumData | async).imgUrl"
-  [socialMediaLinks]="(albumData | async).socialMediaLinks"
->
-</app-gallery-album-jumbotron>
-
-<hr class="hr-light mt-4 animate__animated animate__fadeInDown" />
-<pagination-controls
-  (pageChange)="pageNumber = $event"
-  autoHide="true"
-></pagination-controls>
-
-<div class="gallery-album__image__center">
-  <a
-    *ngFor="
-      let item of (albumData | async).albumImages
-        | paginate : { itemsPerPage: 40, currentPage: pageNumber }
-    "
   >
-    <app-gallery-album-cover
-      (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
-      (hasImageLoadedEmitter)="allowOpenModal($event)"
-      [imgUrl]="item.imgUrl"
-      [translateX]="item.translateX"
-      [translateY]="item.translateY"
+  <hr class="animate__animated animate__fadeInDown" />
+  <app-gallery-album-jumbotron
+    [albumTitle]="(albumData | async).albumTitle"
+    [albumSubtitle]="(albumData | async).albumSubtitle"
+    [albumCoverPicture]="(albumData | async).imgUrl"
+    [socialMediaLinks]="(albumData | async).socialMediaLinks"
     >
-    </app-gallery-album-cover>
-  </a>
-</div>
+  </app-gallery-album-jumbotron>
 
-<app-overlay-container
-  [selectedImageId]="selectedImageId"
-  [albumSet]="(albumData | async).albumImages"
->
-</app-overlay-container>
+  <hr class="hr-light mt-4 animate__animated animate__fadeInDown" />
+  <pagination-controls
+    (pageChange)="pageNumber = $event"
+    autoHide="true"
+  ></pagination-controls>
+
+  <div class="gallery-album__image__center">
+    @for (
+      item of (albumData | async).albumImages
+      | paginate : { itemsPerPage: 40, currentPage: pageNumber }
+      ; track
+      item) {
+      <a
+        >
+        <app-gallery-album-cover
+          (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
+          (hasImageLoadedEmitter)="allowOpenModal($event)"
+          [imgUrl]="item.imgUrl"
+          [translateX]="item.translateX"
+          [translateY]="item.translateY"
+          >
+        </app-gallery-album-cover>
+      </a>
+    }
+  </div>
+
+  <app-overlay-container
+    [selectedImageId]="selectedImageId"
+    [albumSet]="(albumData | async).albumImages"
+    >
+  </app-overlay-container>
