@@ -1,1 +1,3 @@
-import 'jest-preset-angular/setup-jest';
+module.exports = {
+  globalSetup: 'jest-preset-angular/global-setup',
+}

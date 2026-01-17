@@ -1,28 +1,31 @@
 @for (item of fileContent(); track $index) {
-<h4>{{ item.section }}</h4>
-<div *ngFor="let content of item.sectionContents">
-  @if (content.header) {
-  <div class="file_content__header__padding"></div>
+  <h4>{{ item.section }}</h4>
+  @for (content of item.sectionContents; track content) {
+    <div>
+      @if (content.header) {
+        <div class="file_content__header__padding"></div>
+      }
+      <div class="profile_main">
+        @if (content.header) {
+          <h5>
+            <strong>{{ content.header }}</strong>
+          </h5>
+          } @if (!content.header) {
+          <h6>{{ '&nbsp; ' + content.roleTitle }}</h6>
+        }
+        <h5 class="year">{{ content.year }}</h5>
+      </div>
+      @if (content.roleTitle && content.header) {
+        <h6>&nbsp; {{ content.roleTitle }}</h6>
+      }
+      <ul class="profile_details">
+        @for (contentsItem of content.contents; track contentsItem) {
+          <li>
+            {{ contentsItem }}
+          </li>
+        }
+      </ul>
+    </div>
   }
-  <div class="profile_main">
-    @if (content.header) {
-    <h5>
-      <strong>{{ content.header }}</strong>
-    </h5>
-    } @if (!content.header) {
-    <h6>{{ '&nbsp; ' + content.roleTitle }}</h6>
-    }
-    <h5 class="year">{{ content.year }}</h5>
-  </div>
-  @if (content.roleTitle && content.header) {
-  <h6>&nbsp; {{ content.roleTitle }}</h6>
-  }
-
-  <ul class="profile_details">
-    <li *ngFor="let contentsItem of content.contents">
-      {{ contentsItem }}
-    </li>
-  </ul>
-</div>
-<hr />
+  <hr />
 }

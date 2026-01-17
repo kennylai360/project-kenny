@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
 import { faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { OverlayContainerComponent } from '../../../components/overlay/overlay-container/overlay-container.component';
 import { GalleryAlbumCoverComponent } from '../../../components/gallery-album-cover/gallery-album-cover.component';
-import { NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GalleryAlbumJumbotronComponent } from '../../../components/gallery-album-jumbotron/gallery-album-jumbotron.component';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
@@ -20,15 +20,14 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     templateUrl: './gallery-album.component.html',
     styleUrls: ['./gallery-album.component.scss'],
     imports: [
-        RouterLink,
-        FaIconComponent,
-        GalleryAlbumJumbotronComponent,
-        NgxPaginationModule,
-        NgFor,
-        GalleryAlbumCoverComponent,
-        OverlayContainerComponent,
-        AsyncPipe,
-    ]
+    RouterLink,
+    FaIconComponent,
+    GalleryAlbumJumbotronComponent,
+    NgxPaginationModule,
+    GalleryAlbumCoverComponent,
+    OverlayContainerComponent,
+    AsyncPipe
+]
 })
 export class GalleryAlbumComponent {
   public pageNumber: number = 1;
