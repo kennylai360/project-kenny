@@ -1,4 +1,8 @@
-import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import {
+  enableProdMode,
+  importProvidersFrom,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { environment } from './environments/environment';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
@@ -14,7 +18,6 @@ import { HomeComponent } from './app/pages/home/home.component';
 import { withInMemoryScrolling, provideRouter, Routes } from '@angular/router';
 import { listOfReducers } from './app/state-management/ngrx-index';
 import { StoreModule, ActionReducer } from '@ngrx/store';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -28,7 +31,7 @@ import { GalleryFacade } from './app/state-management/gallery-list/gallery.facad
 import { AppFacade } from './app/state-management/app/app.facade';
 
 export function metaReducerLogger(
-  reducer: ActionReducer<any>
+  reducer: ActionReducer<any>,
 ): ActionReducer<any> {
   return (state: any, action: any) => {
     console.groupCollapsed(action.type);
@@ -38,7 +41,7 @@ export function metaReducerLogger(
     console.log(
       `%c next state`,
       `color: #4CAF50; font-weight: bold`,
-      nextState
+      nextState,
     );
     console.groupEnd();
     return nextState;
@@ -96,23 +99,22 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideZoneChangeDetection(),importProvidersFrom(
+    provideZoneChangeDetection(),
+    importProvidersFrom(
       CommonModule,
       NgxPaginationModule,
       StoreModule.forRoot(listOfReducers, { metaReducers }),
-      EffectsModule.forRoot([GalleryEffects])
+      EffectsModule.forRoot([GalleryEffects]),
     ),
     AppFacade,
     GalleryFacade,
     HttpClient,
     Actions,
     DeviceDetectorService,
-    provideAnimations(),
     provideHttpClient(withInterceptorsFromDi()),
-    provideAnimations(),
     provideRouter(
       appRoutes,
-      withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
+      withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
     ),
   ],
 }).catch((err) => console.log(err));
