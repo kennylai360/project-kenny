@@ -66,7 +66,7 @@ export class OverlayContainerComponent implements OnInit {
   }
 
   @HostListener('document:keydown', ['$event'])
-  private keyPress(event: KeyboardEvent): void {
+  protected keyPress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && this.isModalOpenValue) {
       this.appFacade.closeModal();
     }
