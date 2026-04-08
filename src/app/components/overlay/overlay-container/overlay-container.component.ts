@@ -20,7 +20,6 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
     selector: 'app-overlay-container',
     templateUrl: './overlay-container.component.html',
     styleUrl: './overlay-container.component.scss',
-    standalone: true,
     imports: [CommonModule, RouterModule, NgOptimizedImage, FontAwesomeModule]
 })
 export class OverlayContainerComponent implements OnInit {
