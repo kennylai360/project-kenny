@@ -1,11 +1,8 @@
 import { IndexState } from '../ngrx-index';
 import { IGalleryState } from './gallery-state.interface';
-import { createSelector, Selector } from 'reselect';
+import { createSelector } from '@ngrx/store';
 
-const galleryState: Selector<IndexState, IGalleryState> =
-  (state: IndexState) => {
-    return state.gallery;
-  };
+const galleryState = (state: IndexState) => state.gallery;
 
 export class GallerySelectors {
 

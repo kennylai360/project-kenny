@@ -1,11 +1,8 @@
 import { IndexState } from '../ngrx-index';
-import { createSelector, OutputSelector, Selector } from 'reselect';
+import { createSelector } from '@ngrx/store';
 import { IAppState } from './app-state.interface';
 
-const appState: Selector<IndexState, IAppState> =
-  (state: IndexState) => {
-    return state.app;
-  };
+const appState = (state: IndexState) => state.app;
 
 export class AppSelectors {
 
