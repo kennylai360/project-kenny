@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -10,6 +10,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     imports: [CommonModule, LazyLoadImageModule]
 })
 export class GalleryAlbumCoverComponent {
+  private deviceType = inject(DeviceDetectorService);
+
   @Input()
   public imgUrl: string;
 
@@ -31,8 +33,6 @@ export class GalleryAlbumCoverComponent {
   public opacityValue: number = 0;
 
   public imageHasLoaded: boolean = false;
-
-  constructor(private deviceType: DeviceDetectorService) {}
 
   // Function should only really call when it is in desktop mode for hovering over the album cover,
   // and same before the function below.
