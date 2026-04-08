@@ -1,41 +1,72 @@
-<div class="jumbotron animate__animated animate__fadeInDown">
-  <div class="row profile-row">
-
-    <div class="col-sm-6">
-      <h1 class="h1-responsive">Kenny Kin Kee Lai</h1>
-      <ul>
-        <li>
-          <h5><strong>Age:</strong> {{currentAge}} </h5>
-        </li>
-        <li>
-          <h5><strong>Date of Birth:</strong> {{dateOfBirthDisplay}}</h5>
-        </li>
-        <li>
-          <h5><strong>Birth place:</strong> Hong Kong</h5>
-        </li>
-        <li>
-          <h5><strong>Profession:</strong> Frontend developer</h5>
-        </li>
-        <li>
-          <h5><strong>Interests:</strong> Photography, Gaming, Anime, Japanese language</h5>
-        </li>
-        <li>
-          <h5>Currently located in England, UK</h5>
-        </li>
-      </ul>
+@if (!isContentLoaded()) {
+<div class="loading-spinner">
+  <div class="spinner-border">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+} @if (isContentLoaded()) {
+<div class="profile_content animate__animated animate__fadeIn">
+  <div class="personal_info">
+    <div class="personal_info__text">
+      <h2>Kenny Lai</h2>
+      <span class="personal_info__professional_role">
+        <fa-icon [icon]="icons.briefcase" />
+        <h5>Frontend Developer</h5>
+      </span>
+      <span class="personal_info__location"
+        ><fa-icon [icon]="icons.globe" />
+        <h5>Basingstoke, United Kingdom</h5>
+      </span>
     </div>
-
-    <div class="col-sm-6">
-      <img class="img-fluid pro-pic animate__animated animate__fadeInDown" align="right" src="https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/Selfie1.jpg">
+    <div class="personal_info__image">
+      <img
+        alt="profile picture"
+        class="profile_image"
+        [ngClass]="{
+          'hide-image': !pictureLoaded(),
+          'show-image': pictureLoaded(),
+        }"
+        ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
+        height="200"
+        width="200"
+        (load)="pictureLoaded.set(true)"
+        priority
+      />
     </div>
-
   </div>
 
-  <h5>From developing web applications using frontend technologies, to creating images with friends and cosplayers all around the world.</h5>
-  <h5>If we ever bump into each other please do say Hi to me! I love to meet new people every now and then! :)</h5>
-  <hr class="my-5">
-  <p class="profile-p">I started to explore the world of DSLR cameras in July 2015 as a side-hobby, ever since then I have been taking every opportunity I can to take pictures that I find interesting/aesthetic and learning
-    from friends and cosplayers. For the last few years I have been attending conventions mainly in the UK such as London MCM Comic Con and Hyper Japan.
+  <hr />
+  <h4>About</h4>
+  <p>
+    A reliable, optimistic, hardworking and easy-going Frontend developer that
+    is keen on technology and willing to put effort into learning and mastering
+    what is needed of him. Easily adaptable to different environments and can
+    work under pressure with tight deadlines.
   </p>
-  <p class="profile-p">In regards to my profession, I have been working as a software developer since graduating from Uni of Surrey in Bsc Computer Science (July 2016) focusing on the frontend-aspect of web applications.</p>
+
+  <hr />
+
+  <h4>Skills</h4>
+
+  <ul>
+    <li>Programming languages</li>
+    <ul>
+      <li>Javascript | Typescript | HTML | CSS | SCSS</li>
+    </ul>
+    <li>Frontend development</li>
+    <ul>
+      <li>Angular | React | Redux | NgRx | Material-UI | Clarity-UI</li>
+    </ul>
+    <li>Tools</li>
+    <ul>
+      <li>Git/Github/Github actions | AWS | Yarn | NPM | Docker</li>
+    </ul>
+  </ul>
+
+  <hr />
+
+  <div class="app_profile_content">
+    <app-profile-content [fileContent]="profileContent()"></app-profile-content>
+  </div>
 </div>
+}

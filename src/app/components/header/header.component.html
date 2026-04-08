@@ -1,34 +1,62 @@
-<nav class="navbar navbar-expand-lg navbar-dark header-color">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item link-hover" routerLinkActive="active">
-        <a class="nav-link" routerLink="/home">
-          <i class="fa fa-home"></i>Home
-          <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item link-hover" routerLinkActive="active">
-        <a class="nav-link waves-light" routerLink="/profile"><i class="fa fa-user"></i>Profile</a>
-      </li>
-      <li class="nav-item link-hover" routerLinkActive="active">
-        <a class="nav-link waves-light" routerLink="/photography"><i class="fa fa-camera"></i>Photography</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav nav-flex-icons inline-nav-ul inline-blockage">
-      <li class="nav-item inline-nav inline-blockage">
-        <a href="https://www.github.com/kennylai360"><i class="fa fa-github"></i></a>
-      </li>
-      <li class="nav-item inline-nav inline-blockage">
-        <a href="https://www.twitter.com/KENIII26"><i class="fa fa-twitter"></i></a>
-      </li>
-      <li class="nav-item inline-nav inline-blockage">
-        <a href="https://www.instagram.com/kennykinkeelai"><i class="fa fa-instagram"></i></a>
-      </li>
-      <li class="nav-item inline-nav inline-blockage">
-        <a href="https://www.twitch.tv/KENIII26"><i class="fa fa-twitch"></i></a>
-      </li>
-    </ul>
+<nav>
+  <div class="nav-links">
+    <a class="nav-links__link__margin" data-qa="qa-home-link" routerLink="/"
+      ><fa-icon [icon]="icons.home"></fa-icon
+      ><span class="nav-links__text__hide-for-mobile">Home</span></a
+    >
+    <a
+      class="nav-links__link__margin"
+      data-qa="qa-resume-link"
+      routerLink="/resume"
+      ><fa-icon [icon]="icons.resume" /><span
+        class="nav-links__text__hide-for-mobile"
+        >Resume</span
+      ></a
+    >
+    <a
+      class="nav-links__link__margin"
+      data-qa="qa-photography-link"
+      routerLink="/photography"
+      ><fa-icon [icon]="icons.photography" /><span
+        class="nav-links__text__hide-for-mobile"
+        >Photography</span
+      ></a
+    >
+    <a
+      class="nav-links__link__margin"
+      data-qa="qa-converter-link"
+      routerLink="/converter"
+      ><fa-icon [icon]="icons.btcCalculator" /><span
+        class="nav-links__text__hide-for-mobile"
+        >BTC Calculator</span
+      ></a
+    >
+    <a
+      class="nav-links__link__margin"
+      data-qa="qa-table-link"
+      routerLink="/utils"
+      ><fa-icon [icon]="icons.copyCatMocking" /><span
+        class="nav-links__text__hide-for-mobile"
+        >Copycat mocking</span
+      ></a
+    >
+  </div>
+  <div class="social-media">
+    <a
+      class="social-media__link__font-size social-media__link__margin"
+      data-qa="qa-twitter-link"
+      href="https://www.twitter.com/KENIII26"
+      target="_blank"
+      rel="noreferrer noopener"
+      ><fa-icon [icon]="icons.twitter"
+    /></a>
+    <a
+      class="social-media__link__font-size social-media__link__margin"
+      data-qa="qa-github-link"
+      href="https://www.github.com/kennylai360"
+      target="_blank"
+      rel="noreferrer noopener"
+      ><fa-icon [icon]="icons.github"
+    /></a>
   </div>
 </nav>

@@ -1,24 +1,41 @@
 <div class="imageContainer">
   <div class="gradient-colour">
-    <img class="album-jumbotron noselect" [lazyLoad]="albumCoverPicture">
+    <img
+      alt="jumbotron album cover"
+      class="album-jumbotron no-select"
+      [lazyLoad]="albumCoverPicture"
+    />
   </div>
   <div class="jumb-text">
-    <h1 class="animate__animated animate__fadeInDown noselect">{{albumTitle}}
-      <a *ngIf="socialMediaLinks && socialMediaLinks.instagram" href="{{socialMediaLinks.instagram}}">
-        <i class="fa fa-instagram"></i>
+    <h1 class="animate__animated animate__fadeInDown no-select">
+      {{ albumTitle }}
+      @if (socialMediaLinks && socialMediaLinks.instagram) {
+      <a
+        class="jumb-text__link__padding"
+        href="{{ socialMediaLinks.instagram }}"
+      >
+        <fa-icon [icon]="icons.instagram" />
       </a>
-      <a *ngIf="socialMediaLinks && socialMediaLinks.facebook" href="{{socialMediaLinks.facebook}}">
-        <i class="fa fa-facebook-square"></i>
+      } @if (socialMediaLinks && socialMediaLinks.facebook) {
+      <a
+        class="jumb-text__link__padding"
+        href="{{ socialMediaLinks.facebook }}"
+      >
+        <fa-icon [icon]="icons.facebook" />
       </a>
-      <a *ngIf="socialMediaLinks && socialMediaLinks.twitter" href="{{socialMediaLinks.twitter}}">
-        <i class="fa fa-twitter-square"></i>
+      } @if (socialMediaLinks && socialMediaLinks.twitter) {
+      <a class="jumb-text__link__padding" href="{{ socialMediaLinks.twitter }}">
+        <fa-icon [icon]="icons.twitter" />
       </a>
-      <a *ngIf="socialMediaLinks && socialMediaLinks.weibo" href="{{socialMediaLinks.weibo}}">
-        <i class="fa fa-weibo"></i>
+      } @if (socialMediaLinks && socialMediaLinks.weibo) {
+      <a class="jumb-text__link__padding" href="{{ socialMediaLinks.weibo }}">
+        <fa-icon [icon]="icons.weibo" />
       </a>
-     </h1>
+      }
+    </h1>
 
-    <h5 class="animate__animated animate__fadeInDown noselect">{{albumSubtitle}}</h5>
-
+    <h5 class="animate__animated animate__fadeInDown no-select">
+      {{ albumSubtitle }}
+    </h5>
   </div>
 </div>

@@ -1,0 +1,80 @@
+<div class="center animate__animated animate__fadeIn">
+  <div class="converter">
+    <h4>A pointless BTC-GBP converter</h4>
+    <p>How much is your Bitcoin worth? Chuck in some numbers and find out!</p>
+    <p>
+      <u
+        >Disclaimer: this is "for fun", no data or input is stored or
+        tracked.</u
+      >
+    </p>
+    @if (errorLoadingData | async) {
+    <p class="error-block">
+      Error loading data! Please check browser console for more details!
+    </p>
+    } @else {
+    <div>
+      <span class="input-text"
+        >BTC price @if (!(alteredBtcPrice | async)) {
+        <span
+          >(Value loaded from Coinbase Pro at
+          {{ timeLoaded | date : 'longTime' }})</span
+        >
+        } @else {
+        <span>(altered)</span>
+        } :</span
+      >
+      <input
+        type="number"
+        [ngModel]="btcPrice"
+        (ngModelChange)="updateBtcPriceAndRecalculate($event)"
+        [disabled]="isLoadingData | async"
+      />
+    </div>
+    <div>
+      BTC amount:
+      <input
+        type="number"
+        [ngModel]="btcValue"
+        (ngModelChange)="updateBTCandRecalculate($event)"
+        placeholder="Enter value"
+        [disabled]="isLoadingData | async"
+        (focus)="updateFocusedInput('btc')"
+      />
+    </div>
+    <div>
+      GBP value:
+      <input
+        type="number"
+        [ngModel]="gbpValue"
+        (ngModelChange)="updateGBPandRecalculate($event)"
+        placeholder="Enter value"
+        [disabled]="isLoadingData | async"
+        (focus)="updateFocusedInput('gbp')"
+      />
+    </div>
+    }
+  </div>
+</div>
+@if (!(errorLoadingData | async)) {
+<div class="converter-summary animate__animated animate__fadeIn">
+  <p>
+    The price of BTC is currently set to
+    <b>{{ btcPrice | currency : 'GBP' }} (GBP) </b>
+    per bitcoin
+  </p>
+  @if (gbpValue) {
+  <p>
+    {{
+      ((focusedInput$ | async) === 'gbp'
+        ? (gbpValue | currency : 'GBP')
+        : btcValue + btcSymbol) +
+        ' is approximately equivilent to ' +
+        ((focusedInput$ | async) === 'gbp'
+          ? btcValue + btcSymbol
+          : (gbpValue | currency : 'GBP'))
+    }}
+  </p>
+  }
+</div>
+}

@@ -1,13 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
-  selector: 'app-gallery-album-cover',
-  templateUrl: './gallery-album-cover.component.html',
-  styleUrls: ['./gallery-album-cover.component.scss'],
+    selector: 'app-gallery-album-cover',
+    templateUrl: './gallery-album-cover.component.html',
+    styleUrls: ['./gallery-album-cover.component.scss'],
+    imports: [CommonModule, LazyLoadImageModule]
 })
 export class GalleryAlbumCoverComponent {
-
   @Input()
   public imgUrl: string;
 
@@ -21,7 +23,8 @@ export class GalleryAlbumCoverComponent {
   public translateY: number = 0;
 
   @Output()
-  public hasImageLoadedEmitter: EventEmitter<string> = new EventEmitter<string>();
+  public hasImageLoadedEmitter: EventEmitter<string> =
+    new EventEmitter<string>();
 
   public scaleValue: number = 1.0;
 
@@ -58,5 +61,4 @@ export class GalleryAlbumCoverComponent {
       this.opacityValue = 0;
     }
   }
-
 }

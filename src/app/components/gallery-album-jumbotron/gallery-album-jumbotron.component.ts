@@ -1,13 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
 
-@Component({
-  selector: 'app-gallery-album-jumbotron',
-  templateUrl: './gallery-album-jumbotron.component.html',
-  styleUrls: ['./gallery-album-jumbotron.component.scss'],
-})
-export class GalleryAlbumJumbotronComponent implements OnInit {
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faWeibo,
+} from '@fortawesome/free-brands-svg-icons';
 
+@Component({
+    selector: 'app-gallery-album-jumbotron',
+    templateUrl: './gallery-album-jumbotron.component.html',
+    styleUrls: ['./gallery-album-jumbotron.component.scss'],
+    imports: [LazyLoadImageModule, FontAwesomeModule]
+})
+export class GalleryAlbumJumbotronComponent {
   @Input()
   public albumTitle?: string;
 
@@ -20,10 +29,10 @@ export class GalleryAlbumJumbotronComponent implements OnInit {
   @Input()
   public socialMediaLinks?: ISocialMediaLinks;
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  public icons = {
+    instagram: faInstagram,
+    facebook: faFacebook,
+    twitter: faTwitter,
+    weibo: faWeibo,
+  };
 }

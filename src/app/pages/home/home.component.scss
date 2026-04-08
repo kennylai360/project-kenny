@@ -1,24 +1,59 @@
-.white-h1, .white-h5, .home-a {
-  color: white;
-}
+:host {
+  h1,
+  h5 {
+    font-weight: bold;
+    text-align: center;
+    width: 40%;
+  }
 
-a.home-a:hover {
-  color: white;
-  box-shadow:0 0 0 0.15rem rgba(255,255,255,0.5)
-};
+  a {
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 30px;
+  }
 
-.home-a {
-  margin: 0 10px;
-}
-
-hr {
-  width: 35%;
-  background-color: white
-}
-
-@media (max-width: 767.98px) {
   hr {
-    width: 50%;
-    background-color: white
+    width: 40%;
+  }
+
+  .home__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
+
+  .home__links {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+
+  @media (max-height: 745px) {
+    .home__info {
+      height: 85vh;
+    }
+  }
+
+  @media (max-width: 1600px) {
+    hr,
+    h5 {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 834px) {
+    hr,
+    h5 {
+      width: 75%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    hr,
+    h5 {
+      width: 85%;
+    }
   }
 }

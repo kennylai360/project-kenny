@@ -1,9 +1,6 @@
 # Project-Kenny
 
-A personal portfolio featuring my photography work. 
-
-Deployed onto Amazon Web Services (AWS) using the following:
-- Github actions
-- Amazon S3
-- Amazon Cloudfront
-- Amazon Route 53
+A personal portfolio featuring:
+- My resume
+- Collection of my photography work
+- A mess-around-BTC-to-GBP converter using [CoinCap's open API](https://docs.coincap.io/)

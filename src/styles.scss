@@ -1,4 +1,4 @@
-$header-img: 'https://aws-website-eu-kennykinkeelai-yybos-photography.s3.eu-west-2.amazonaws.com/BGP/BGP.jpg';
+$header-img: 'https://d1gzhm7v07i91z.cloudfront.net/BGP/BGP.jpg';
 $positioning: 40% 30%;
 
 html {
@@ -9,10 +9,15 @@ html {
 *,
 *:before,
 *:after {
+  color: white;
   box-sizing: inherit;
 }
 
-.noselect {
+hr {
+  background-color: white;
+}
+
+.no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -31,7 +36,8 @@ body {
   font-family: 'Nunito', Source Sans Pro, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url($header-img);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url($header-img);
   background-position: $positioning;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,8 +46,36 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 100vh;
   position: relative;
-  margin: 0;
-  padding-bottom: 50px;
-  min-height: 100%;
+}
+
+a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+a:hover,
+a:hover span {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+
+  fa-icon {
+    opacity: 0.5;
+    -webkit-transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    -ms-transition: opacity 0.5s ease;
+    -o-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+  }
 }

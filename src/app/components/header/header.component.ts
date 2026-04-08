@@ -1,21 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import {
+  faCalculator,
+  faCameraRetro,
+  faCat,
+  faFile,
+  faHouseChimney,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    imports: [RouterModule, FontAwesomeModule]
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-    const ua = window.navigator.userAgent;
-    if (ua.indexOf('Trident/') > -1 ||
-      ua.indexOf('Edge/') > -1 ||
-      ua.indexOf('MSIE ') > -1) {
-      // console.log(ua);
-    }
-  }
-
+export class HeaderComponent {
+  protected icons = {
+    home: faHouseChimney,
+    resume: faFile,
+    photography: faCameraRetro,
+    btcCalculator: faCalculator,
+    copyCatMocking: faCat,
+    twitter: faXTwitter,
+    github: faGithub,
+  };
 }

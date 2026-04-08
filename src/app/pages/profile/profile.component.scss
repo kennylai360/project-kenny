@@ -1,25 +1,78 @@
 :host {
-  @media (min-width: 1280px) {
-    .jumbotron {
-      margin-left: 200px;
-      margin-right: 200px;
+  --sub-text-color: rgb(255, 255, 255, 0.8);
+
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    color: var(--sub-text-color);
+  }
+
+  .profile_content {
+    margin-top: 10px;
+
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .personal_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hide-image {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .show-image {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+  }
+
+  .personal_info__location,
+  .personal_info__professional_role {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    fa-icon {
+      padding-right: 5px;
+    }
+    h5 {
+      margin-bottom: 0;
     }
   }
 
-  .h1-responsive {
-    color: black;
+  .app_profile_content {
+    display: flex;
+    flex-direction: column;
   }
 
-  .profile-row {
-    padding-bottom: 20px;
+  .profile_image {
+    border: solid 1px black;
   }
 
-  .pro-pic {
-    border: 1px black solid;
-    max-height: 400px;
+  @media (min-width: 1024px) {
+    .profile_content {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
   }
 
-  .profile-p {
-    color: black;
+  @media (min-width: 480px) {
+    .profile_content {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
   }
 }
