@@ -34,8 +34,8 @@ export class ConverterComponent {
     forkJoin({
       btcAssetData: this.coincapService.getBtcAssetData(),
       ratesData: this.coincapService.getRatesData(),
-    }).subscribe(
-      ({ btcAssetData, ratesData }) => {
+    }).subscribe({
+      next: ({ btcAssetData, ratesData }) => {
         this.timeLoaded = new Date();
         const gbpRateData = ratesData.data.filter(
           (rate) => rate.id === 'british-pound-sterling'
@@ -48,15 +48,15 @@ export class ConverterComponent {
         const gbpRateToUsd: number = gbpRateData?.rateUsd;
         this.btcPrice = Math.trunc(priceOfBtcInUsd * (1 / gbpRateToUsd));
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
         this.errorLoadingData.next(true);
         this.isLoadingData.next(false);
       },
-      () => {
+      complete: () => {
         this.isLoadingData.next(false);
-      }
-    );
+      },
+    });
   }
 
   public updateBtcPriceAndRecalculate(newBtcPrice: number): void {
