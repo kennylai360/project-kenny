@@ -8,7 +8,6 @@ import { faSmileBeam } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  standalone: true,
   imports: [RouterModule, FontAwesomeModule],
 })
 export class HomeComponent {
