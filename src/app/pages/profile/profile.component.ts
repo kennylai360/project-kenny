@@ -16,7 +16,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
     selector: 'app-profile',
     templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss'],
+    styleUrl: './profile.component.scss',
     imports: [
         CommonModule,
         NgOptimizedImage,

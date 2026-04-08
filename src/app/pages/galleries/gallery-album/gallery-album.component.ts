@@ -18,7 +18,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 @Component({
     selector: 'app-gallery-album',
     templateUrl: './gallery-album.component.html',
-    styleUrls: ['./gallery-album.component.scss'],
+    styleUrl: './gallery-album.component.scss',
     imports: [
     RouterLink,
     FaIconComponent,

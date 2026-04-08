@@ -11,7 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 @Component({
     selector: 'app-galleries',
     templateUrl: './gallery-album-listing.component.html',
-    styleUrls: ['./gallery-album-listing.component.scss'],
+    styleUrl: './gallery-album-listing.component.scss',
     imports: [
         NgxPaginationModule,
         GalleryAlbumCoverComponent,
