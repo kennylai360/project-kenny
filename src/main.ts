@@ -1,4 +1,4 @@
-import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { environment } from './environments/environment';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
@@ -90,10 +90,6 @@ const appRoutes: Routes = [
   },
 ];
 
-if (environment.production) {
-  enableProdMode();
-}
-
 bootstrapApplication(AppComponent, {
   providers: [
     provideZoneChangeDetection(),importProvidersFrom(
@@ -109,7 +105,6 @@ bootstrapApplication(AppComponent, {
     DeviceDetectorService,
     provideAnimations(),
     provideHttpClient(withInterceptorsFromDi()),
-    provideAnimations(),
     provideRouter(
       appRoutes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })
