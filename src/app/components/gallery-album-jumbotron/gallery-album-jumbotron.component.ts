@@ -13,7 +13,7 @@ import {
 @Component({
     selector: 'app-gallery-album-jumbotron',
     templateUrl: './gallery-album-jumbotron.component.html',
-    styleUrls: ['./gallery-album-jumbotron.component.scss'],
+    styleUrl: './gallery-album-jumbotron.component.scss',
     imports: [LazyLoadImageModule, FontAwesomeModule]
 })
 export class GalleryAlbumJumbotronComponent {
