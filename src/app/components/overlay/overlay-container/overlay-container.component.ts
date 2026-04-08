@@ -24,6 +24,10 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
     imports: [CommonModule, RouterModule, NgOptimizedImage, FontAwesomeModule]
 })
 export class OverlayContainerComponent implements OnInit {
+  private appFacade = inject(AppFacade);
+  private renderer = inject(Renderer2);
+  private destroyRef = inject(DestroyRef);
+
   public isModalOpen$: Observable<boolean>;
 
   public selectedImageUrl$: Observable<string>;
@@ -34,8 +38,6 @@ export class OverlayContainerComponent implements OnInit {
 
   private isModalOpenValue: boolean;
 
-  private destroyRef: DestroyRef = inject(DestroyRef);
-
   protected icons = {
     closeModalButton: faXmark,
   };
@@ -45,8 +47,6 @@ export class OverlayContainerComponent implements OnInit {
 
   @Input()
   public selectedImageId: Observable<number>;
-
-  constructor(private appFacade: AppFacade, private renderer: Renderer2) {}
 
   ngOnInit() {
     this.isModalOpen$ = this.appFacade.modalOpen$;

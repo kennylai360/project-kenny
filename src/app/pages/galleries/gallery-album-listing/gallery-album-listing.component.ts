@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PlatformLocation, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
@@ -20,15 +20,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ]
 })
 export class GalleryAlbumListingComponent implements OnInit {
+  private galleryFacade = inject(GalleryFacade);
+  private appFacade = inject(AppFacade);
+  private location = inject(PlatformLocation);
+
   public coverContent: Observable<IGalleryCover[]>;
 
   public currentSelectedPage: number = 1;
-
-  constructor(
-    private galleryFacade: GalleryFacade,
-    private appFacade: AppFacade,
-    private location: PlatformLocation
-  ) {}
 
   public ngOnInit(): void {
     this.coverContent = this.galleryFacade.galleryList$;

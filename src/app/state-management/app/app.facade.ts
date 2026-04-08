@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import { IndexState } from '../ngrx-index'
@@ -12,19 +12,14 @@ import { AppSelectors } from './app.selectors'
 
 @Injectable()
 export class AppFacade {
-  public modalOpen$: Observable<boolean>
-  public selectedImageId$: Observable<number>
-  public selectedImage$: Observable<string>
-  public selectedImageHorizontalOrientation$: Observable<boolean>
+  private store = inject(Store<IndexState>)
 
-  constructor(private store: Store<IndexState>) {
-    this.modalOpen$ = this.store.select(AppSelectors.modalStatus)
-    this.selectedImageId$ = this.store.select(AppSelectors.selectedImageId)
-    this.selectedImage$ = this.store.select(AppSelectors.selectedImage)
-    this.selectedImageHorizontalOrientation$ = this.store.select(
-      AppSelectors.selectedImageHorizontalOrientation
-    )
-  }
+  public modalOpen$: Observable<boolean> = this.store.select(AppSelectors.modalStatus)
+  public selectedImageId$: Observable<number> = this.store.select(AppSelectors.selectedImageId)
+  public selectedImage$: Observable<string> = this.store.select(AppSelectors.selectedImage)
+  public selectedImageHorizontalOrientation$: Observable<boolean> = this.store.select(
+    AppSelectors.selectedImageHorizontalOrientation
+  )
 
   // Called once to load up the json file on initial load up.
   public openModal(): void {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
@@ -19,6 +19,12 @@ import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 export class GalleryEffects {
   static readonly galleryContentUrl: string =
     '../../assets/gallery-content.json';
+
+  private actions$ = inject(Actions);
+  private http = inject(HttpClient);
+  private store$ = inject(Store<IndexState>);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   public getGalleryData$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
@@ -62,12 +68,4 @@ export class GalleryEffects {
       ),
     { dispatch: false }
   );
-
-  constructor(
-    private actions$: Actions,
-    private http: HttpClient,
-    private store$: Store<IndexState>,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
 }

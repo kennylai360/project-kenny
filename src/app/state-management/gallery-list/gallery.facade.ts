@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import {
@@ -12,13 +12,10 @@ import { IndexState } from '../ngrx-index'
 
 @Injectable()
 export class GalleryFacade {
-  public galleryList$: Observable<IGalleryCover[]>
-  public albumData$: Observable<IGalleryCover>
+  private store = inject(Store<IndexState>)
 
-  constructor(private store: Store<IndexState>) {
-    this.galleryList$ = this.store.select(GallerySelectors.galleryList)
-    this.albumData$ = this.store.select(GallerySelectors.selectedAlbum)
-  }
+  public galleryList$: Observable<IGalleryCover[]> = this.store.select(GallerySelectors.galleryList)
+  public albumData$: Observable<IGalleryCover> = this.store.select(GallerySelectors.selectedAlbum)
 
   // Called once to load up the json file on initial load up.
   public loadGalleryList(): void {
