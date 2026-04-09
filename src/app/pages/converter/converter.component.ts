@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CoincapService } from '../../api/coincap.service';
 import { BehaviorSubject, forkJoin } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-converter',
-    imports: [CommonModule, FormsModule],
+    imports: [AsyncPipe, CurrencyPipe, DatePipe, FormsModule],
     providers: [CoincapService],
     templateUrl: './converter.component.html',
     styleUrl: './converter.component.scss'
