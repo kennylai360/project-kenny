@@ -13,12 +13,12 @@ import { ProfileComponent } from './app/pages/profile/profile.component';
 import { HomeComponent } from './app/pages/home/home.component';
 import { withInMemoryScrolling, provideRouter, Routes } from '@angular/router';
 import { listOfReducers } from './app/state-management/ngrx-index';
-import { StoreModule, ActionReducer } from '@ngrx/store';
+import { provideStore, ActionReducer } from '@ngrx/store';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Actions, EffectsModule } from '@ngrx/effects';
+import { provideEffects, Actions } from '@ngrx/effects';
 import {
   HttpClient,
   withInterceptorsFromDi,
@@ -92,12 +92,10 @@ const appRoutes: Routes = [
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideZoneChangeDetection(),importProvidersFrom(
-      CommonModule,
-      NgxPaginationModule,
-      StoreModule.forRoot(listOfReducers, { metaReducers }),
-      EffectsModule.forRoot([GalleryEffects])
-    ),
+    provideZoneChangeDetection(),
+    importProvidersFrom(CommonModule, NgxPaginationModule),
+    provideStore(listOfReducers, { metaReducers }),
+    provideEffects([GalleryEffects]),
     AppFacade,
     GalleryFacade,
     HttpClient,
