@@ -1,10 +1,4 @@
-@if (!isContentLoaded()) {
-<div class="loading-spinner">
-  <div class="spinner-border">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-} @if (isContentLoaded()) {
+@if (isContentLoaded()) {
 <div class="profile_content animate__animated animate__fadeIn">
   <div class="personal_info">
     <div class="personal_info__text">
@@ -71,6 +65,12 @@
 
   <div class="app_profile_content">
     <app-profile-content [fileContent]="profileContent()"></app-profile-content>
+  </div>
+</div>
+} @else {
+<div class="loading-spinner">
+  <div class="spinner-border">
+    <span class="sr-only">Loading...</span>
   </div>
 </div>
 }
