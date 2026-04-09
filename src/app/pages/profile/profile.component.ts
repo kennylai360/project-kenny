@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   OnInit,
@@ -18,7 +18,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     templateUrl: './profile.component.html',
     styleUrl: './profile.component.scss',
     imports: [
-        CommonModule,
+        NgClass,
         NgOptimizedImage,
         ProfileContentComponent,
         FontAwesomeModule,

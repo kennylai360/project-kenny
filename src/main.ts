@@ -16,7 +16,6 @@ import { listOfReducers } from './app/state-management/ngrx-index';
 import { provideStore, ActionReducer } from '@ngrx/store';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { CommonModule } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { provideEffects, Actions } from '@ngrx/effects';
 import {
@@ -93,7 +92,7 @@ const appRoutes: Routes = [
 bootstrapApplication(AppComponent, {
   providers: [
     provideZoneChangeDetection(),
-    importProvidersFrom(CommonModule, NgxPaginationModule),
+    importProvidersFrom(NgxPaginationModule),
     provideStore(listOfReducers, { metaReducers }),
     provideEffects([GalleryEffects]),
     AppFacade,

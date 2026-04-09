@@ -10,7 +10,7 @@ import {
 import { Observable } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,7 +20,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
     selector: 'app-overlay-container',
     templateUrl: './overlay-container.component.html',
     styleUrl: './overlay-container.component.scss',
-    imports: [CommonModule, RouterModule, NgOptimizedImage, FontAwesomeModule]
+    imports: [AsyncPipe, NgClass, NgOptimizedImage, RouterModule, FontAwesomeModule]
 })
 export class OverlayContainerComponent implements OnInit {
   private appFacade = inject(AppFacade);
