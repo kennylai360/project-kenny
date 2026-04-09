@@ -2,10 +2,10 @@ import {
   Component,
   DestroyRef,
   HostListener,
-  Input,
   OnInit,
   Renderer2,
   inject,
+  input,
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
@@ -41,11 +41,8 @@ export class OverlayContainerComponent implements OnInit {
     closeModalButton: faXmark,
   };
 
-  @Input()
-  public albumSet: Array<IGalleryCover>;
-
-  @Input()
-  public selectedImageId: Observable<number>;
+  public albumSet = input.required<Array<IGalleryCover>>();
+  public selectedImageId = input.required<Observable<number>>();
 
   ngOnInit() {
     this.isModalOpen$ = this.appFacade.modalOpen$;

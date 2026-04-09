@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -17,17 +17,10 @@ import {
     imports: [LazyLoadImageModule, FontAwesomeModule]
 })
 export class GalleryAlbumJumbotronComponent {
-  @Input()
-  public albumTitle?: string;
-
-  @Input()
-  public albumSubtitle?: string;
-
-  @Input()
-  public albumCoverPicture?: string;
-
-  @Input()
-  public socialMediaLinks?: ISocialMediaLinks;
+  public albumTitle = input<string>();
+  public albumSubtitle = input<string>();
+  public albumCoverPicture = input<string>();
+  public socialMediaLinks = input<ISocialMediaLinks>();
 
   public icons = {
     instagram: faInstagram,

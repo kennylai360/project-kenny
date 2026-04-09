@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -12,21 +12,11 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class GalleryAlbumCoverComponent {
   private deviceType = inject(DeviceDetectorService);
 
-  @Input()
-  public imgUrl: string;
-
-  @Input()
-  public albumTitle: string = null;
-
-  @Input()
-  public translateX: number = 0;
-
-  @Input()
-  public translateY: number = 0;
-
-  @Output()
-  public hasImageLoadedEmitter: EventEmitter<string> =
-    new EventEmitter<string>();
+  public imgUrl = input.required<string>();
+  public albumTitle = input<string | null>(null);
+  public translateX = input<number>(0);
+  public translateY = input<number>(0);
+  public hasImageLoadedEmitter = output<string>();
 
   public scaleValue: number = 1.0;
 
@@ -52,7 +42,7 @@ export class GalleryAlbumCoverComponent {
 
   public imageHasBeenLoaded() {
     this.imageHasLoaded = true;
-    this.hasImageLoadedEmitter.emit(this.imgUrl);
+    this.hasImageLoadedEmitter.emit(this.imgUrl());
     // Make it so that if a mobile device is being used then permanently set the overlay to be on,
     // because u can't hover on mobile devices.
     if (this.deviceType.isMobile() && this.albumTitle) {

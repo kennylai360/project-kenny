@@ -3,39 +3,39 @@
     <img
       alt="jumbotron album cover"
       class="album-jumbotron no-select"
-      [lazyLoad]="albumCoverPicture"
+      [lazyLoad]="albumCoverPicture()"
     />
   </div>
   <div class="jumb-text">
     <h1 class="animate__animated animate__fadeInDown no-select">
-      {{ albumTitle }}
-      @if (socialMediaLinks && socialMediaLinks.instagram) {
+      {{ albumTitle() }}
+      @if (socialMediaLinks() && socialMediaLinks().instagram) {
       <a
         class="jumb-text__link__padding"
-        href="{{ socialMediaLinks.instagram }}"
+        href="{{ socialMediaLinks().instagram }}"
       >
         <fa-icon [icon]="icons.instagram" />
       </a>
-      } @if (socialMediaLinks && socialMediaLinks.facebook) {
+      } @if (socialMediaLinks() && socialMediaLinks().facebook) {
       <a
         class="jumb-text__link__padding"
-        href="{{ socialMediaLinks.facebook }}"
+        href="{{ socialMediaLinks().facebook }}"
       >
         <fa-icon [icon]="icons.facebook" />
       </a>
-      } @if (socialMediaLinks && socialMediaLinks.twitter) {
-      <a class="jumb-text__link__padding" href="{{ socialMediaLinks.twitter }}">
+      } @if (socialMediaLinks() && socialMediaLinks().twitter) {
+      <a class="jumb-text__link__padding" href="{{ socialMediaLinks().twitter }}">
         <fa-icon [icon]="icons.twitter" />
       </a>
-      } @if (socialMediaLinks && socialMediaLinks.weibo) {
-      <a class="jumb-text__link__padding" href="{{ socialMediaLinks.weibo }}">
+      } @if (socialMediaLinks() && socialMediaLinks().weibo) {
+      <a class="jumb-text__link__padding" href="{{ socialMediaLinks().weibo }}">
         <fa-icon [icon]="icons.weibo" />
       </a>
       }
     </h1>
 
     <h5 class="animate__animated animate__fadeInDown no-select">
-      {{ albumSubtitle }}
+      {{ albumSubtitle() }}
     </h5>
   </div>
 </div>
