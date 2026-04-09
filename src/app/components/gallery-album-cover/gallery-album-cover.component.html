@@ -12,17 +12,17 @@
     [ngStyle]="{
       transform:
         'translate(' +
-        translateX +
+        translateX() +
         '%,' +
-        translateY +
+        translateY() +
         '%) scale(' +
         scaleValue +
         ')'
     }"
-    [lazyLoad]="imgUrl"
+    [lazyLoad]="imgUrl()"
     (load)="imageHasBeenLoaded()"
   />
   <div class="overlay" [style.opacity]="opacityValue">
-    <div class="text no-select">{{ albumTitle }}</div>
+    <div class="text no-select">{{ albumTitle() }}</div>
   </div>
 </div>
