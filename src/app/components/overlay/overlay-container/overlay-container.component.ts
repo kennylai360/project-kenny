@@ -7,20 +7,38 @@ import {
   inject,
   input,
 } from '@angular/core';
+import {
+  animate,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Observable } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
-import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
+import { IAlbumImagesData } from '../../../pages/galleries/gallery-album/album-data.interface';
 import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-overlay-container',
     templateUrl: './overlay-container.component.html',
     styleUrl: './overlay-container.component.scss',
-    imports: [AsyncPipe, NgClass, NgOptimizedImage, RouterModule, FontAwesomeModule]
+    imports: [AsyncPipe, NgClass, NgOptimizedImage, RouterModule, FontAwesomeModule],
+    animations: [
+      trigger('slideAnimation', [
+        transition(':increment', [
+          style({ opacity: 0, transform: 'translate(calc(-50% + 80px), -50%)' }),
+          animate('300ms ease-out', style({ opacity: 1, transform: 'translate(-50%, -50%)' })),
+        ]),
+        transition(':decrement', [
+          style({ opacity: 0, transform: 'translate(calc(-50% - 80px), -50%)' }),
+          animate('300ms ease-out', style({ opacity: 1, transform: 'translate(-50%, -50%)' })),
+        ]),
+      ]),
+    ],
 })
 export class OverlayContainerComponent implements OnInit {
   private appFacade = inject(AppFacade);
@@ -36,13 +54,16 @@ export class OverlayContainerComponent implements OnInit {
   public selectedImageHorizontalOrientation$: Observable<boolean>;
 
   private isModalOpenValue: boolean;
+  protected currentIndex: number = -1;
+  private touchStartX: number = 0;
 
   protected icons = {
     closeModalButton: faXmark,
+    leftArrow: faArrowLeft,
+    rightArrow: faArrowRight,
   };
 
-  public albumSet = input.required<Array<IGalleryCover>>();
-  public selectedImageId = input.required<Observable<number>>();
+  public albumSet = input.required<Array<IAlbumImagesData>>();
 
   ngOnInit() {
     this.isModalOpen$ = this.appFacade.modalOpen$;
@@ -59,6 +80,15 @@ export class OverlayContainerComponent implements OnInit {
           : this.renderer.removeClass(document.body, 'noScroll');
         this.isModalOpenValue = isModalOpen;
       });
+
+    this.selectedImageId$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((id: number) => {
+        const images = this.albumSet();
+        this.currentIndex = images?.length
+          ? images.findIndex((img) => img.imageId === id)
+          : -1;
+      });
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -68,14 +98,47 @@ export class OverlayContainerComponent implements OnInit {
     }
 
     if (event.key === 'ArrowLeft' && this.isModalOpenValue) {
-      // console.log('Left button pressed');
-      // this.appFacade.updateSelectedImage('https://farm2.staticflickr.com/1964/44319436194_e6435002f1_k.jpg', 15, false);
+      this.navigateImage(-1);
     }
 
     if (event.key === 'ArrowRight' && this.isModalOpenValue) {
-      // console.log('Right button pressed');
-      // this.appFacade.updateSelectedImage('https://farm2.staticflickr.com/1932/44990793922_7754015d02_k.jpg', 13, false);
+      this.navigateImage(1);
     }
+  }
+
+  @HostListener('document:touchstart', ['$event'])
+  protected onTouchStart(event: TouchEvent): void {
+    if (this.isModalOpenValue) {
+      this.touchStartX = event.touches[0].clientX;
+    }
+  }
+
+  @HostListener('document:touchend', ['$event'])
+  protected onTouchEnd(event: TouchEvent): void {
+    if (!this.isModalOpenValue) return;
+
+    const deltaX = event.changedTouches[0].clientX - this.touchStartX;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(deltaX) < minSwipeDistance) return;
+
+    // Swipe left → next image, swipe right → previous image
+    this.navigateImage(deltaX < 0 ? 1 : -1);
+  }
+
+  public navigateImage(direction: -1 | 1): void {
+    const images = this.albumSet();
+    if (this.currentIndex === -1 || !images?.length) return;
+
+    const nextIndex = this.currentIndex + direction;
+    if (nextIndex < 0 || nextIndex >= images.length) return;
+
+    const nextImage = images[nextIndex];
+    this.appFacade.updateSelectedImage(
+      nextImage.imgUrl,
+      nextImage.imageId,
+      nextImage.horizontalOrient
+    );
   }
 
   public closeModal() {

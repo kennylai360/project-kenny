@@ -13,18 +13,25 @@
     [icon]="icons.closeModalButton"
     (click)="closeModal()"
   />
-  <!--<i class="fa fa-arrow-left modal-arrows left-arrow"-->
-  <!--aria-hidden="true"-->
-  <!--(click)="leftArrowClick()">-->
-  <!--</i>-->
-  <!--<i class="fa fa-arrow-right modal-arrows right-arrow"-->
-  <!--aria-hidden="true"-->
-  <!--(click)="rightArrowClick()">-->
-  <!--</i>-->
+  @if (currentIndex > 0) {
+    <fa-icon
+      class="modal-arrows left-arrow"
+      [icon]="icons.leftArrow"
+      (click)="navigateImage(-1)"
+    />
+  }
+  @if (albumSet()?.length && currentIndex < albumSet().length - 1) {
+    <fa-icon
+      class="modal-arrows right-arrow"
+      [icon]="icons.rightArrow"
+      (click)="navigateImage(1)"
+    />
+  }
 
   <img
     alt="loaded image"
     class="modal-image"
+    [@slideAnimation]="currentIndex"
     [ngSrc]="selectedImageUrl$ | async"
     [ngClass]="{
       'horizontal-image':
