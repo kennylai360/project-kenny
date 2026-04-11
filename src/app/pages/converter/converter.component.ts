@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { CoincapService } from '../../api/coincap.service';
 import { BehaviorSubject, forkJoin } from 'rxjs';
@@ -29,12 +30,13 @@ export class ConverterComponent {
   public errorLoadingData: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
   private coincapService: CoincapService = inject(CoincapService);
+  private destroyRef: DestroyRef = inject(DestroyRef);
 
   constructor() {
     forkJoin({
       btcAssetData: this.coincapService.getBtcAssetData(),
       ratesData: this.coincapService.getRatesData(),
-    }).subscribe({
+    }).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: ({ btcAssetData, ratesData }) => {
         this.timeLoaded = new Date();
         const gbpRateData = ratesData.data.filter(
