@@ -7,14 +7,14 @@ const galleryState = (state: IndexState) => state.gallery;
 export class GallerySelectors {
 
   public static galleryList
-    = createSelector(galleryState, (exemptVehicleState: IGalleryState) => {
-      return exemptVehicleState.galleryData;
+    = createSelector(galleryState, (state: IGalleryState) => {
+      return state.galleryData;
     }
   );
 
   public static selectedAlbum
-    = createSelector(galleryState, (exemptVehicleState: IGalleryState) => {
-      return exemptVehicleState.selectedAlbum;
+    = createSelector(galleryState, (state: IGalleryState) => {
+      return state.selectedAlbum;
     }
   );
 
