@@ -16,7 +16,7 @@ import {
 import { Observable } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IAlbumImagesData } from '../../../pages/galleries/gallery-album/album-data.interface';
-import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -26,7 +26,7 @@ import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-
     selector: 'app-overlay-container',
     templateUrl: './overlay-container.component.html',
     styleUrl: './overlay-container.component.scss',
-    imports: [AsyncPipe, NgClass, NgOptimizedImage, RouterModule, FontAwesomeModule],
+    imports: [AsyncPipe, NgClass, RouterModule, FontAwesomeModule],
     animations: [
       trigger('slideAnimation', [
         transition(':increment', [
