@@ -32,8 +32,6 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 export class GalleryAlbumComponent {
   public pageNumber: number = 1;
 
-  public selectedImageId: number = null;
-
   private destroyRef: DestroyRef = inject(DestroyRef);
 
   private loadedImagesUrl: Array<string> = [];
