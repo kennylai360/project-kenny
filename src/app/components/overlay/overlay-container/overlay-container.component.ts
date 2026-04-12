@@ -47,14 +47,10 @@ export class OverlayContainerComponent implements OnInit {
 
   public isModalOpen$: Observable<boolean>;
 
-  public selectedImageUrl$: Observable<string>;
-
-  public selectedImageId$: Observable<number>;
-
-  public selectedImageHorizontalOrientation$: Observable<boolean>;
-
   private isModalOpenValue: boolean;
   protected currentIndex: number = -1;
+  protected displayImageUrl: string = '';
+  protected displayHorizontalOrientation: boolean = false;
   private touchStartX: number = 0;
 
   protected icons = {
@@ -67,10 +63,6 @@ export class OverlayContainerComponent implements OnInit {
 
   ngOnInit() {
     this.isModalOpen$ = this.appFacade.modalOpen$;
-    this.selectedImageUrl$ = this.appFacade.selectedImage$;
-    this.selectedImageId$ = this.appFacade.selectedImageId$;
-    this.selectedImageHorizontalOrientation$ =
-      this.appFacade.selectedImageHorizontalOrientation$;
 
     this.isModalOpen$
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -81,13 +73,20 @@ export class OverlayContainerComponent implements OnInit {
         this.isModalOpenValue = isModalOpen;
       });
 
-    this.selectedImageId$
+    // Handles initial image open from thumbnail click
+    this.appFacade.selectedImageId$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((id: number) => {
         const images = this.albumSet();
-        this.currentIndex = images?.length
-          ? images.findIndex((img) => img.imageId === id)
-          : -1;
+        if (!images?.length) {
+          this.currentIndex = -1;
+          return;
+        }
+        const index = images.findIndex((img) => img.imageId === id);
+        if (index === -1 || index === this.currentIndex) return;
+        this.currentIndex = index;
+        this.displayImageUrl = images[index].imgUrl;
+        this.displayHorizontalOrientation = images[index].horizontalOrient;
       });
   }
 
@@ -134,6 +133,14 @@ export class OverlayContainerComponent implements OnInit {
     if (nextIndex < 0 || nextIndex >= images.length) return;
 
     const nextImage = images[nextIndex];
+
+    // Update local state synchronously so the animation and image
+    // change happen in the same change detection cycle — no flash.
+    this.currentIndex = nextIndex;
+    this.displayImageUrl = nextImage.imgUrl;
+    this.displayHorizontalOrientation = nextImage.horizontalOrient;
+
+    // Keep store in sync for other consumers
     this.appFacade.updateSelectedImage(
       nextImage.imgUrl,
       nextImage.imageId,

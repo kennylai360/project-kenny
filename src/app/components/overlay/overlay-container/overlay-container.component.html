@@ -32,11 +32,10 @@
     alt="loaded image"
     class="modal-image"
     [@slideAnimation]="currentIndex"
-    [ngSrc]="selectedImageUrl$ | async"
+    [ngSrc]="displayImageUrl"
     [ngClass]="{
-      'horizontal-image':
-        (selectedImageHorizontalOrientation$ | async) === true,
-      'vertical-image': (selectedImageHorizontalOrientation$ | async) === false,
+      'horizontal-image': displayHorizontalOrientation,
+      'vertical-image': !displayHorizontalOrientation,
     }"
   />
 </div>
