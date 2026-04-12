@@ -28,14 +28,16 @@
     />
   }
 
-  <img
-    alt="loaded image"
-    class="modal-image"
-    [@slideAnimation]="currentIndex"
-    [ngSrc]="displayImageUrl"
-    [ngClass]="{
-      'horizontal-image': displayHorizontalOrientation,
-      'vertical-image': !displayHorizontalOrientation,
-    }"
-  />
+  @if (displayImageUrl) {
+    <img
+      alt="loaded image"
+      class="modal-image"
+      [@slideAnimation]="currentIndex"
+      [ngSrc]="displayImageUrl"
+      [ngClass]="{
+        'horizontal-image': displayHorizontalOrientation,
+        'vertical-image': !displayHorizontalOrientation,
+      }"
+    />
+  }
 </div>
