@@ -17,7 +17,7 @@
     autoHide="true"
   ></pagination-controls>
   @for (item of coverContent | async | paginate : { itemsPerPage: 20,
-  currentPage: currentSelectedPage }; track $index) {
+  currentPage: currentSelectedPage }; track item.albumId) {
   <a>
     <app-gallery-album-cover
       [imgUrl]="item.imgUrl"
