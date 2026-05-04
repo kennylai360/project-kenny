@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -18,9 +18,9 @@ export class GalleryAlbumCoverComponent {
   public translateY = input<number>(0);
   public hasImageLoadedEmitter = output<string>();
 
-  public scaleValue: number = 1.0;
+  public scaleValue = signal(1.0);
 
-  public opacityValue: number = 0;
+  public opacityValue = signal(0);
 
   public imageHasLoaded: boolean = false;
 
@@ -28,15 +28,15 @@ export class GalleryAlbumCoverComponent {
   // and same before the function below.
   public increaseScalingValue() {
     if (this.deviceType.isDesktop()) {
-      this.scaleValue = 1.2;
-      this.opacityValue = 1;
+      this.scaleValue.set(1.2);
+      this.opacityValue.set(1);
     }
   }
 
   public revertScalingValue() {
     if (this.deviceType.isDesktop()) {
-      this.scaleValue = 1.0;
-      this.opacityValue = 0;
+      this.scaleValue.set(1.0);
+      this.opacityValue.set(0);
     }
   }
 
@@ -46,9 +46,9 @@ export class GalleryAlbumCoverComponent {
     // Make it so that if a mobile device is being used then permanently set the overlay to be on,
     // because u can't hover on mobile devices.
     if (this.deviceType.isMobile() && this.albumTitle) {
-      this.opacityValue = 1;
+      this.opacityValue.set(1);
     } else {
-      this.opacityValue = 0;
+      this.opacityValue.set(0);
     }
   }
 }
