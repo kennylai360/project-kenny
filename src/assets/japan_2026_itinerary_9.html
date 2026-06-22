@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan 2026 — Kenny's itinerary</title>
+<style>
+:root{
+  --bg-page:#F4F2EC;
+  --bg-card:#FFFFFF;
+  --bg-secondary:#EEEBE2;
+  --border-tertiary:rgba(0,0,0,0.1);
+  --border-secondary:rgba(0,0,0,0.2);
+  --text-primary:#1A1A18;
+  --text-secondary:#6B6A64;
+  --text-tertiary:#9A9890;
+  --bg-info:#E6F1FB; --text-info:#185FA5;
+  --bg-danger:#FCEBEB; --text-danger:#A32D2D;
+  --bg-warning:#FAEEDA; --text-warning:#854F0B;
+  --bg-success:#EAF3DE; --text-success:#3B6D11;
+  --radius-md:8px; --radius-lg:12px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg-page:#1C1B18;
+    --bg-card:#262420;
+    --bg-secondary:#302E29;
+    --border-tertiary:rgba(255,255,255,0.12);
+    --border-secondary:rgba(255,255,255,0.22);
+    --text-primary:#F1EFE8;
+    --text-secondary:#B4B2A9;
+    --text-tertiary:#888780;
+    --bg-info:#0C447C; --text-info:#B5D4F4;
+    --bg-danger:#791F1F; --text-danger:#F7C1C1;
+    --bg-warning:#633806; --text-warning:#FAC775;
+    --bg-success:#27500A; --text-success:#C0DD97;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg-page);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text-primary);line-height:1.5}
+.page{max-width:720px;margin:0 auto;padding:2rem 1.25rem 4rem}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.wrap{padding:0}
+.trip-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;flex-wrap:wrap}
+.trip-title{font-size:19px;font-weight:600;color:var(--text-primary)}
+.trip-badge{font-size:11px;padding:3px 9px;border-radius:var(--radius-md);background:var(--bg-warning);color:var(--text-warning)}
+.trip-sub{font-size:12px;color:var(--text-secondary);margin-left:auto}
+.phase-label{font-size:11px;font-weight:600;color:var(--text-tertiary);letter-spacing:.06em;text-transform:uppercase;padding:14px 0 6px}
+.day-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);background:var(--bg-card);margin-bottom:8px;overflow:hidden;transition:border-color .15s}
+.day-card:hover{border-color:var(--border-secondary)}
+.day-card.c-usj{border-color:#1D9E75;border-width:1px}
+.day-card.c-tbd{border:1px dashed var(--border-secondary)}
+.day-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none}
+.day-num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0}
+.n-tokyo{background:var(--bg-info);color:var(--text-info)}
+.n-osaka{background:var(--bg-danger);color:var(--text-danger)}
+.n-kyoto{background:var(--bg-warning);color:var(--text-warning)}
+.n-usj{background:var(--bg-success);color:var(--text-success)}
+.n-tbd{background:var(--bg-secondary);color:var(--text-secondary)}
+.day-info{flex:1;min-width:0}
+.day-name{font-size:13.5px;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.day-sub{font-size:11.5px;color:var(--text-secondary);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.day-cost{font-size:12px;color:var(--text-secondary);white-space:nowrap;margin-left:8px}
+.chevron{font-size:12px;color:var(--text-tertiary);transition:transform .2s;margin-left:6px;flex-shrink:0}
+.chevron.open{transform:rotate(90deg)}
+.day-body{display:none;padding:10px 14px 14px;border-top:0.5px solid var(--border-tertiary)}
+.day-body.open{display:block}
+.act{display:flex;gap:8px;margin-bottom:9px;align-items:flex-start}
+.act:last-child{margin-bottom:0}
+.act-time{font-size:10.5px;color:var(--text-tertiary);min-width:50px;padding-top:3px;flex-shrink:0;font-weight:600}
+.dot{width:7px;height:7px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.d-eat{background:#EF9F27}
+.d-see{background:#1D9E75}
+.d-move{background:#378ADD}
+.d-shop{background:#D4537E}
+.d-night{background:#7F77DD}
+.d-hotel{background:#888780}
+.d-tbd{background:var(--border-secondary)}
+.act-label{font-size:13px;color:var(--text-primary);line-height:1.45}
+.act-sub{font-size:11px;color:var(--text-secondary);margin-top:2px;line-height:1.4}
+.info-banner{border-radius:var(--radius-md);padding:9px 12px;margin-bottom:10px;font-size:12.5px;line-height:1.5}
+.ib-amber{background:var(--bg-warning);color:var(--text-warning)}
+.ib-blue{background:var(--bg-info);color:var(--text-info)}
+.ib-green{background:var(--bg-success);color:var(--text-success)}
+.ib-gray{background:var(--bg-secondary);color:var(--text-secondary)}
+.pill{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;margin-left:5px;vertical-align:middle}
+.p-tokyo{background:var(--bg-info);color:var(--text-info)}
+.p-osaka{background:var(--bg-danger);color:var(--text-danger)}
+.p-kyoto{background:var(--bg-warning);color:var(--text-warning)}
+.p-tbd{background:var(--bg-secondary);color:var(--text-secondary)}
+.cost-table{width:100%;font-size:12.5px;margin-top:8px;border-top:0.5px solid var(--border-tertiary);padding-top:8px}
+.cost-table tr td:first-child{color:var(--text-secondary);padding:3px 0}
+.cost-table tr td:last-child{text-align:right;padding:3px 0;color:var(--text-primary)}
+.sp-link{font-size:11px;color:var(--text-secondary);text-decoration:underline;display:inline-block;margin-top:8px;margin-right:10px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.25rem;padding:10px 14px;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);background:var(--bg-secondary)}
+.leg{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--text-secondary)}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.footer-note{margin-top:2rem;font-size:11px;color:var(--text-tertiary);text-align:center}
+</style>
+</head>
+<body>
+<div class="page">
+<h2 class="sr-only">Interactive itinerary for Kenny's Japan 2026 trip, 8–22 August, covering Tokyo, Osaka, Kyoto and USJ over 15 days.</h2>
+
+<div class="wrap">
+  <div class="trip-header">
+    <div class="trip-title">Japan 2026 — Kenny's itinerary</div>
+    <span class="trip-badge">2 people · 13 nights</span>
+    <div class="trip-sub">8 Aug → 22 Aug</div>
+  </div>
+  <div style="text-align:right;font-size:11px;color:var(--text-tertiary);margin-bottom:8px">Last updated: 22 Jun 2026</div>
+
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:#EF9F27"></div>Food</div>
+    <div class="leg"><div class="leg-dot" style="background:#1D9E75"></div>Sightseeing</div>
+    <div class="leg"><div class="leg-dot" style="background:#378ADD"></div>Travel</div>
+    <div class="leg"><div class="leg-dot" style="background:#D4537E"></div>Shopping</div>
+    <div class="leg"><div class="leg-dot" style="background:#7F77DD"></div>Nightlife</div>
+    <div class="leg"><div class="leg-dot" style="background:#888780"></div>Accommodation</div>
+  </div>
+
+  <div class="phase-label">Tokyo — days 1–4 (planned)</div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo">1</div>
+      <div class="day-info"><div class="day-name">Sat 8 Aug → Sun 9 Aug — Flight & arrival <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">LHR 16:35 departure → Haneda 23:30 next day → Airbnb</div></div>
+      <div class="day-cost">~£30/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-amber">Flight booking confirmed: 22h 55m journey with 1 stop, spanning two calendar days. Depart 8 Aug, land 9 Aug — no Tokyo activities happen on the 8th itself.</div>
+      <div class="act"><div class="act-time">Sat 16:35</div><div class="dot d-move"></div><div><div class="act-label">Depart London Heathrow (LHR)</div><div class="act-sub">Asiana Airlines OZ522 — 1 stop</div></div></div>
+      <div class="act"><div class="act-time">Sun 23:30</div><div class="dot d-move"></div><div><div class="act-label">Land at Haneda Airport (OZ178)</div><div class="act-sub">Clear customs & bags — allow 45–60 mins</div></div></div>
+      <div class="act"><div class="act-time">Sun 00:30</div><div class="dot d-move"></div><div><div class="act-label">Private taxi pickup — already booked</div><div class="act-sub">Direct to Airbnb</div></div></div>
+      <div class="act"><div class="act-time">Sun 01:30</div><div class="dot d-hotel"></div><div><div class="act-label">Check into Airbnb</div><div class="act-sub">Sleep in — Day 2 doesn't need an early start</div></div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo">2</div>
+      <div class="day-info"><div class="day-name">Mon 10 Aug — Shinjuku & West Tokyo <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">Shinjuku · Harajuku · Shibuya · Golden Gai</div></div>
+      <div class="day-cost">~£120–160/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="act"><div class="act-time">Morning</div><div class="dot d-see"></div><div><div class="act-label">Shinjuku Gyoen National Garden</div><div class="act-sub">¥500 (£2.50). Shaded & serene — perfect in August heat</div></div></div>
+      <div class="act"><div class="act-time">Lunch</div><div class="dot d-eat"></div><div><div class="act-label">Ichiran ramen, Shinjuku</div><div class="act-sub">~¥1,500/person (£8). Solo booth — iconic experience</div></div></div>
+      <div class="act"><div class="act-time">Afternoon</div><div class="dot d-shop"></div><div><div class="act-label">Harajuku — Takeshita Street & Omotesando</div><div class="act-sub">Fashion, crepes, designer boutiques</div></div></div>
+      <div class="act"><div class="act-time">Evening</div><div class="dot d-see"></div><div><div class="act-label">Shibuya Crossing & Shibuya Sky</div><div class="act-sub">Observation deck ¥2,000 (£10). Cross first, then view from above</div></div></div>
+      <div class="act"><div class="act-time">Night</div><div class="dot d-night"></div><div><div class="act-label">Golden Gai, Shinjuku</div><div class="act-sub">200 tiny bars across 6 alleys. ¥3,000–6,000 (£15–30) per bar</div></div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo">3</div>
+      <div class="day-info"><div class="day-name">Tue 11 Aug — Tsukiji, Asakusa & Ueno <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">Tsukiji · Senso-ji · Ueno Park & Market</div></div>
+      <div class="day-cost">~£100–130/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-green">Best day on the Tokyo leg for old-town atmosphere — east-side loop with a free afternoon to fill.</div>
+      <div class="act"><div class="act-time">07:00</div><div class="dot d-eat"></div><div><div class="act-label">Tsukiji Outer Market — morning food crawl</div><div class="act-sub">Fresh sushi, tamagoyaki, sea urchin. ~¥2,000–3,500 (£10–17)</div></div></div>
+      <div class="act"><div class="act-time">09:00</div><div class="dot d-see"></div><div><div class="act-label">Senso-ji Temple & Nakamise Street, Asakusa</div><div class="act-sub">Free. Arrive before midday crowds</div></div></div>
+      <div class="act"><div class="act-time">Lunch</div><div class="dot d-eat"></div><div><div class="act-label">Tempura at Daikokuya, Asakusa</div><div class="act-sub">~¥2,500/person (£13). Before 11:30 to beat the queue</div></div></div>
+      <div class="act"><div class="act-time">Afternoon</div><div class="dot d-tbd"></div><div><div class="act-label">Free afternoon — TBD</div><div class="act-sub">TeamLab Planets moved to Day 7 (14 Aug) instead</div></div></div>
+      <div class="act"><div class="act-time">Evening</div><div class="dot d-see"></div><div><div class="act-label">Ueno Park & Ameyoko Market</div><div class="act-sub">Street food & izakayas. ¥3,000–5,000 (£15–25)</div></div></div>
+      <a class="sp-link" href="https://www.google.com/search?q=best+stalls+and+foods+at+Tsukiji+Outer+Market" target="_blank" rel="noopener">Tsukiji food guide ↗</a>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo">4</div>
+      <div class="day-info"><div class="day-name">Wed 12 Aug — Yanaka, Akihabara & Tokyo Tower <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">Yanaka · Akihabara · Tokyo Tower · Roppongi</div></div>
+      <div class="day-cost">~£100–130/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="act"><div class="act-time">Morning</div><div class="dot d-see"></div><div><div class="act-label">Yanaka old-town walk</div><div class="act-sub">Free. Traditional shitamachi streets, temples, antique shops</div></div></div>
+      <div class="act"><div class="act-time">Afternoon</div><div class="dot d-night"></div><div><div class="act-label">Akihabara — anime, gaming, arcades</div><div class="act-sub">Yodobashi Camera, Super Potato, maid cafés</div></div></div>
+      <div class="act"><div class="act-time">Evening</div><div class="dot d-see"></div><div><div class="act-label">Tokyo Tower at sunset</div><div class="act-sub">¥1,200 main deck (£6)</div></div></div>
+      <div class="act"><div class="act-time">Dinner</div><div class="dot d-eat"></div><div><div class="act-label">Izakaya in Roppongi or Shimbashi</div><div class="act-sub">~¥4,000–6,000/person (£20–30)</div></div></div>
+    </div>
+  </div>
+
+  <div class="phase-label">Tokyo — days 5–6 (13–14 Aug)</div>
+
+  <div class="day-card c-tbd">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tbd">5</div>
+      <div class="day-info"><div class="day-name">Thu 13 Aug — TBD <span class="pill p-tbd">Unplanned</span></div><div class="day-sub">Still in Tokyo — possible Hakone day tour</div></div>
+      <div class="day-cost">TBD</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-gray">Leading option is a guided Hakone day tour departing and returning to Shinjuku — no overnight stay. Details TBC. This is the only fully unplanned day left after compressing the schedule.</div>
+      <div class="act"><div class="act-time">TBD</div><div class="dot d-tbd"></div><div><div class="act-label">Guided tour: Shinjuku pickup</div><div class="act-sub">Likely covers Hakone-Yumoto, Lake Ashi cruise, Mt Fuji views</div></div></div>
+      <div class="act"><div class="act-time">TBD</div><div class="dot d-tbd"></div><div><div class="act-label">Hakone Open Air Museum</div><div class="act-sub">May be included — ¥1,600 (£8) if self-guided</div></div></div>
+      <div class="act"><div class="act-time">Evening</div><div class="dot d-hotel"></div><div><div class="act-label">Return to Airbnb</div><div class="act-sub">No overnight in Hakone — back to Tokyo base</div></div></div>
+      <a class="sp-link" href="https://www.google.com/search?q=guided+Hakone+day+tours+from+Shinjuku+August+2026" target="_blank" rel="noopener">Find guided day tours ↗</a>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo">6</div>
+      <div class="day-info"><div class="day-name">Fri 14 Aug — TeamLab Planets <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">TeamLab Planets, Toyosu (12:30) · final full Tokyo day</div></div>
+      <div class="day-cost">~¥3,200+/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-green">No need to travel this evening — check-in in Osaka isn't until 15:00 on the 15th, so this can be a full, relaxed last Tokyo day around the TeamLab booking.</div>
+      <div class="act"><div class="act-time">Morning</div><div class="dot d-tbd"></div><div><div class="act-label">Free morning — TBD</div><div class="act-sub">Leave enough time to reach Toyosu by 12:30</div></div></div>
+      <div class="act"><div class="act-time">12:30</div><div class="dot d-see"></div><div><div class="act-label">TeamLab Planets, Toyosu — booked</div><div class="act-sub">~¥3,200/person (£16)</div></div></div>
+      <div class="act"><div class="act-time">Afternoon/Evening</div><div class="dot d-tbd"></div><div><div class="act-label">Free time after TeamLab — TBD</div><div class="act-sub">Last chance for anything missed in the first week</div></div></div>
+      <div class="act"><div class="act-time">Night</div><div class="dot d-hotel"></div><div><div class="act-label">Last night at Airbnb</div><div class="act-sub">Pack the night before for an easier morning departure</div></div></div>
+    </div>
+  </div>
+
+  <div class="phase-label">Osaka — days 7–10 (hotel confirmed 15–18 Aug)</div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-osaka">7</div>
+      <div class="day-info"><div class="day-name">Sat 15 Aug — Travel to Osaka + city day <span class="pill p-osaka">Osaka</span></div><div class="day-sub">Shinkansen · Candeo Hotels Osaka Namba · Dotonbori · Namba</div></div>
+      <div class="day-cost">~£90–120/person + travel</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-amber">Obon period — book Shinkansen seat reservations exactly 1 month ahead. Last day of Obon — Osaka will be buzzing tonight. Check-in is from 15:00, so there's time for sightseeing en route.</div>
+      <div class="act"><div class="act-time">Morning</div><div class="dot d-move"></div><div><div class="act-label">Shinkansen: Tokyo → Shin-Osaka</div><div class="act-sub">~¥13,500/person (£68). ~2h 15m. Book reserved seats in advance</div></div></div>
+      <div class="act"><div class="act-time">Midday</div><div class="dot d-see"></div><div><div class="act-label">Osaka Castle & park</div><div class="act-sub">¥600 museum (£3). Great views from the top — leave bags in a station locker first</div></div></div>
+      <div class="act"><div class="act-time">15:00</div><div class="dot d-hotel"></div><div><div class="act-label">Check into Candeo Hotels Osaka Namba (3 nights: 15–18 Aug)</div><div class="act-sub">4★, Genius rate. Central base for Kyoto & USJ day trips</div></div></div>
+      <div class="act"><div class="act-time">Afternoon</div><div class="dot d-shop"></div><div><div class="act-label">Shinsaibashi & Amemura</div><div class="act-sub">Osaka's shopping and street culture hub</div></div></div>
+      <div class="act"><div class="act-time">Evening</div><div class="dot d-eat"></div><div><div class="act-label">Dotonbori food crawl</div><div class="act-sub">Takoyaki, okonomiyaki, kushi-katsu. ¥3,000–5,000 (£15–25)</div></div></div>
+      <div class="act"><div class="act-time">Night</div><div class="dot d-night"></div><div><div class="act-label">Namba nightlife</div><div class="act-sub">Craft beer bars, clubs — Japan's best nightlife scene</div></div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-kyoto">8</div>
+      <div class="day-info"><div class="day-name">Sun 16 Aug — Guided tour <span class="pill p-kyoto">Confirmed</span></div><div class="day-sub">Whole-day guided tour — paid</div></div>
+      <div class="day-cost">Paid</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-green">Whole-day guided tour — already paid for. Previous Kyoto plan (Arashiyama, Nishiki Market, Gion, Pontocho) cleared to make way for this.</div>
+      <div class="act"><div class="act-time">TBD</div><div class="dot d-see"></div><div><div class="act-label">Guided tour — paid, itinerary details to add</div><div class="act-sub">Add pickup time, route and return time once you have the confirmation</div></div></div>
+    </div>
+  </div>
+
+  <div class="day-card c-usj">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-usj">9</div>
+      <div class="day-info"><div class="day-name">Mon 17 Aug — Universal Studios Japan <span class="pill p-osaka">Osaka</span></div><div class="day-sub">Nintendo World · Harry Potter · Hollywood Dream</div></div>
+      <div class="day-cost">~£180–220/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-green">Post-Obon — noticeably quieter. Nintendo World timed entry far easier.</div>
+      <div class="act"><div class="act-time">07:30</div><div class="dot d-see"></div><div><div class="act-label">Arrive before 08:00 opening</div><div class="act-sub">Head straight to Nintendo World — grab timed entry on USJ app immediately</div></div></div>
+      <div class="act"><div class="act-time">All day</div><div class="dot d-see"></div><div><div class="act-label">Nintendo World, Harry Potter, Hollywood Dream</div><div class="act-sub">Use Express Pass 7 strategically for biggest queue rides</div></div></div>
+      <div class="act"><div class="act-time">Evening</div><div class="dot d-eat"></div><div><div class="act-label">Easy dinner near hotel</div><div class="act-sub">Ramen or conveyor belt sushi — you'll be exhausted</div></div></div>
+      <table class="cost-table"><tr><td>Studio Pass</td><td>~¥9,800 (£49/person)</td></tr><tr><td>Express Pass 7</td><td>~¥12,000–20,000 (£60–100)</td></tr><tr><td>Food inside</td><td>~¥3,000–5,000 (£15–25)</td></tr></table>
+      <a class="sp-link" href="https://www.google.com/search?q=Universal+Studios+Japan+queue+strategy" target="_blank" rel="noopener">USJ strategy ↗</a>
+      <a class="sp-link" href="https://www.usj.co.jp/web/en/us/express-pass" target="_blank" rel="noopener">Book Express Pass ↗</a>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-kyoto">10</div>
+      <div class="day-info"><div class="day-name">Tue 18 Aug — Fushimi Inari sunrise → Tokyo <span class="pill p-kyoto">Kyoto</span></div><div class="day-sub">Sunrise torii gates · Shinkansen back to Itabashi</div></div>
+      <div class="day-cost">~£120–150/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-blue">You won't return to the hotel after sunrise — check out before you leave at 05:30, well ahead of the 11:00 deadline. Settle the bill the night before if the front desk allows early check-out.</div>
+      <div class="act"><div class="act-time">05:00</div><div class="dot d-hotel"></div><div><div class="act-label">Check out of Candeo Hotels Osaka Namba</div><div class="act-sub">Bags in hand — you won't be back before the Shinkansen to Tokyo</div></div></div>
+      <div class="act"><div class="act-time">05:30</div><div class="dot d-move"></div><div><div class="act-label">Early train: Osaka → Kyoto (15 mins)</div><div class="act-sub">Taxi to Fushimi Inari from Kyoto station — ~¥700. Drop bags in a coin locker at Kyoto Station first</div></div></div>
+      <div class="act"><div class="act-time">06:00</div><div class="dot d-see"></div><div><div class="act-label">Fushimi Inari Taisha at sunrise</div><div class="act-sub">Free. Mist through the torii gates — virtually no one there at this hour</div></div></div>
+      <div class="act"><div class="act-time">08:30</div><div class="dot d-eat"></div><div><div class="act-label">Breakfast near Kyoto station</div><div class="act-sub">Kissaten coffee shop or convenience store onigiri</div></div></div>
+      <div class="act"><div class="act-time">10:00</div><div class="dot d-move"></div><div><div class="act-label">Shinkansen: Kyoto → Tokyo (Shinagawa)</div><div class="act-sub">~¥13,800/person (£69). ~2h 15m</div></div></div>
+      <div class="act"><div class="act-time">Afternoon</div><div class="dot d-hotel"></div><div><div class="act-label">Return to Airbnb — rest</div><div class="act-sub">Easy afternoon — you've just done 10 big days</div></div></div>
+    </div>
+  </div>
+
+  <div class="phase-label">Final Tokyo stretch — days 11–14 (19–22 Aug)</div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo" style="font-size:10px">11–13</div>
+      <div class="day-info"><div class="day-name">Wed–Fri 19–21 Aug — Tokyo deep dives <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">Ginza · Odaiba · Meiji Shrine · Roppongi · Kabukicho</div></div>
+      <div class="day-cost">~£100–150/person/day</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-amber">Flight home departs 01:30 on 22 Aug, so the night of 21 Aug doubles as the airport run — pack and finish souvenir shopping by the evening of the 21st.</div>
+      <div class="act"><div class="act-time">19 Aug</div><div class="dot d-shop"></div><div><div class="act-label">Ginza & Odaiba</div><div class="act-sub">Luxury shopping, waterfront, digital art museum</div></div></div>
+      <div class="act"><div class="act-time">20 Aug</div><div class="dot d-see"></div><div><div class="act-label">Meiji Shrine + Yoyogi Park</div><div class="act-sub">Free shrine, forest walk, Harajuku performers</div></div></div>
+      <div class="act"><div class="act-time">21 Aug</div><div class="dot d-night"></div><div><div class="act-label">Roppongi galleries + final souvenir sweep</div><div class="act-sub">Best art galleries in Tokyo. Finish packing before heading to the airport tonight</div></div></div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="tog(this)">
+      <div class="day-num n-tokyo">14</div>
+      <div class="day-info"><div class="day-name">Fri 21 Aug (night) → Sat 22 Aug — Departure <span class="pill p-tokyo">Tokyo</span></div><div class="day-sub">Airbnb → Haneda Airport — 01:30 flight</div></div>
+      <div class="day-cost">~£20/person</div><div class="chevron">▶</div>
+    </div>
+    <div class="day-body">
+      <div class="info-banner ib-amber">Flight booking confirmed: departs Haneda 01:30 on 22 Aug, meaning you leave the hotel late on the night of the 21st, not the morning of the 22nd.</div>
+      <div class="act"><div class="act-time">21 Aug, 21:30</div><div class="dot d-move"></div><div><div class="act-label">Head to Haneda — allow ~90 mins from Itabashi plus check-in time</div><div class="act-sub">Keikyu Line ~¥600 each (£3), or earlier if checking bags</div></div></div>
+      <div class="act"><div class="act-time">Airport</div><div class="dot d-eat"></div><div><div class="act-label">Haneda duty free & last Japan meal</div><div class="act-sub">Spend remaining yen — excellent food and shops here, many open late</div></div></div>
+      <div class="act"><div class="act-time">22 Aug, 01:30</div><div class="dot d-move"></div><div><div class="act-label">Depart Haneda (HND)</div><div class="act-sub">Asiana Airlines OZ177 — 1 stop, lands London 14:20 same day</div></div></div>
+    </div>
+  </div>
+
+  <div class="footer-note">Tap any day to expand · works offline once saved</div>
+</div>
+</div>
+
+<script>
+function tog(header){
+  var body = header.nextElementSibling;
+  var chev = header.querySelector('.chevron');
+  var open = body.classList.toggle('open');
+  chev.classList.toggle('open', open);
+}
+</script>
+</body>
+</html>
