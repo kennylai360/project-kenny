@@ -42,7 +42,9 @@ body{background:var(--bg-page);font-family:-apple-system,BlinkMacSystemFont,"Seg
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .wrap{padding:0}
 .trip-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;flex-wrap:wrap}
-.local-clock{display:flex;flex-direction:column;gap:1px;margin-bottom:0.85rem;padding:9px 12px;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);background:var(--bg-secondary);width:fit-content}
+.local-clock{display:flex;gap:10px;margin-bottom:0.85rem;flex-wrap:wrap}
+.clock-box{display:flex;flex-direction:column;gap:1px;padding:9px 12px;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);background:var(--bg-secondary);min-width:150px}
+.clock-box-label{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:2px}
 .local-clock-time{font-size:15px;font-weight:600;color:var(--text-primary);letter-spacing:.01em}
 .local-clock-meta{font-size:10.5px;color:var(--text-secondary)}
 .trip-title{font-size:19px;font-weight:600;color:var(--text-primary)}
@@ -106,9 +108,17 @@ body{background:var(--bg-page);font-family:-apple-system,BlinkMacSystemFont,"Seg
 <h2 class="sr-only">Interactive itinerary for Kenny's Japan 2026 trip, 8–22 August, covering Tokyo, Osaka, Kyoto and USJ over 15 days.</h2>
 
 <div class="wrap">
-  <div class="local-clock" id="localClock">
-    <div class="local-clock-time" id="localClockTime">—</div>
-    <div class="local-clock-meta" id="localClockMeta">Detecting your local time…</div>
+  <div class="local-clock">
+    <div class="clock-box">
+      <div class="clock-box-label">London</div>
+      <div class="local-clock-time" id="londonTime">—</div>
+      <div class="local-clock-meta" id="londonMeta">—</div>
+    </div>
+    <div class="clock-box">
+      <div class="clock-box-label">Japan</div>
+      <div class="local-clock-time" id="japanTime">—</div>
+      <div class="local-clock-meta" id="japanMeta">—</div>
+    </div>
   </div>
 
   <div class="trip-header">
@@ -116,7 +126,7 @@ body{background:var(--bg-page);font-family:-apple-system,BlinkMacSystemFont,"Seg
     <span class="trip-badge">2 people · 13 nights</span>
     <div class="trip-sub">8 Aug → 22 Aug</div>
   </div>
-  <div style="text-align:right;font-size:11px;color:var(--text-tertiary);margin-bottom:8px">Last updated: 22 Jun 2026, 21:15</div>
+  <div style="text-align:right;font-size:11px;color:var(--text-tertiary);margin-bottom:8px">Last updated: 22 Jun 2026, 21:30</div>
 
   <div class="legend">
     <div class="leg"><div class="leg-dot" style="background:#EF9F27"></div>Food</div>
@@ -330,23 +340,30 @@ function tog(header){
 }
 
 (function(){
-  var timeEl = document.getElementById('localClockTime');
-  var metaEl = document.getElementById('localClockMeta');
-  var tz = 'your local timezone';
-  try {
-    tz = Intl.DateTimeFormat().resolvedOptions().timeZone || tz;
-  } catch (e) {}
+  var londonTimeEl = document.getElementById('londonTime');
+  var londonMetaEl = document.getElementById('londonMeta');
+  var japanTimeEl = document.getElementById('japanTime');
+  var japanMetaEl = document.getElementById('japanMeta');
 
-  function renderClock(){
+  function formatFor(tz){
     var now = new Date();
-    var timeStr = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    var dateStr = now.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-    timeEl.textContent = timeStr;
-    metaEl.textContent = dateStr + ' · ' + tz.replace(/_/g, ' ');
+    var timeStr = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: tz });
+    var dateStr = now.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: tz });
+    return { timeStr: timeStr, dateStr: dateStr };
   }
 
-  renderClock();
-  setInterval(renderClock, 1000);
+  function renderClocks(){
+    var london = formatFor('Europe/London');
+    londonTimeEl.textContent = london.timeStr;
+    londonMetaEl.textContent = london.dateStr;
+
+    var japan = formatFor('Asia/Tokyo');
+    japanTimeEl.textContent = japan.timeStr;
+    japanMetaEl.textContent = japan.dateStr;
+  }
+
+  renderClocks();
+  setInterval(renderClocks, 1000);
 })();
 </script>
 </body>
