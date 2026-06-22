@@ -42,6 +42,9 @@ body{background:var(--bg-page);font-family:-apple-system,BlinkMacSystemFont,"Seg
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .wrap{padding:0}
 .trip-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;flex-wrap:wrap}
+.local-clock{display:flex;flex-direction:column;gap:1px;margin-bottom:0.85rem;padding:9px 12px;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);background:var(--bg-secondary);width:fit-content}
+.local-clock-time{font-size:15px;font-weight:600;color:var(--text-primary);letter-spacing:.01em}
+.local-clock-meta{font-size:10.5px;color:var(--text-secondary)}
 .trip-title{font-size:19px;font-weight:600;color:var(--text-primary)}
 .trip-badge{font-size:11px;padding:3px 9px;border-radius:var(--radius-md);background:var(--bg-warning);color:var(--text-warning)}
 .trip-sub{font-size:12px;color:var(--text-secondary);margin-left:auto}
@@ -103,12 +106,17 @@ body{background:var(--bg-page);font-family:-apple-system,BlinkMacSystemFont,"Seg
 <h2 class="sr-only">Interactive itinerary for Kenny's Japan 2026 trip, 8–22 August, covering Tokyo, Osaka, Kyoto and USJ over 15 days.</h2>
 
 <div class="wrap">
+  <div class="local-clock" id="localClock">
+    <div class="local-clock-time" id="localClockTime">—</div>
+    <div class="local-clock-meta" id="localClockMeta">Detecting your local time…</div>
+  </div>
+
   <div class="trip-header">
     <div class="trip-title">Japan 2026 — Kenny's itinerary</div>
     <span class="trip-badge">2 people · 13 nights</span>
     <div class="trip-sub">8 Aug → 22 Aug</div>
   </div>
-  <div style="text-align:right;font-size:11px;color:var(--text-tertiary);margin-bottom:8px">Last updated: 22 Jun 2026</div>
+  <div style="text-align:right;font-size:11px;color:var(--text-tertiary);margin-bottom:8px">Last updated: 22 Jun 2026, 21:15</div>
 
   <div class="legend">
     <div class="leg"><div class="leg-dot" style="background:#EF9F27"></div>Food</div>
@@ -320,6 +328,26 @@ function tog(header){
   var open = body.classList.toggle('open');
   chev.classList.toggle('open', open);
 }
+
+(function(){
+  var timeEl = document.getElementById('localClockTime');
+  var metaEl = document.getElementById('localClockMeta');
+  var tz = 'your local timezone';
+  try {
+    tz = Intl.DateTimeFormat().resolvedOptions().timeZone || tz;
+  } catch (e) {}
+
+  function renderClock(){
+    var now = new Date();
+    var timeStr = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    var dateStr = now.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+    timeEl.textContent = timeStr;
+    metaEl.textContent = dateStr + ' · ' + tz.replace(/_/g, ' ');
+  }
+
+  renderClock();
+  setInterval(renderClock, 1000);
+})();
 </script>
 </body>
 </html>
