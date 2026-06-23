@@ -1,1 +1,41 @@
 <iframe class="schedule-frame" src="assets/japan_2026_itinerary_9.html"></iframe>
+
+<div class="comments-section">
+  <h3 class="comments-title">Comments</h3>
+
+  <form class="comment-form" (ngSubmit)="submitComment()">
+    <input
+      type="text"
+      class="comment-input comment-name"
+      placeholder="Your name"
+      [(ngModel)]="name"
+      name="name"
+      required
+    />
+    <textarea
+      class="comment-input comment-text"
+      placeholder="Add a comment..."
+      [(ngModel)]="text"
+      name="text"
+      rows="3"
+      required
+    ></textarea>
+    <button class="comment-btn" type="submit" [disabled]="submitting || !name.trim() || !text.trim()">
+      {{ submitting ? 'Posting...' : 'Post' }}
+    </button>
+  </form>
+
+  <div class="comments-list">
+    @for (comment of commentsService.comments$ | async; track comment.id) {
+      <div class="comment-card">
+        <div class="comment-header">
+          <span class="comment-author">{{ comment.name }}</span>
+          <span class="comment-date">{{ comment.createdAt | date:'d MMM y, HH:mm' }}</span>
+        </div>
+        <div class="comment-body">{{ comment.text }}</div>
+      </div>
+    } @empty {
+      <p class="no-comments">No comments yet.</p>
+    }
+  </div>
+</div>
