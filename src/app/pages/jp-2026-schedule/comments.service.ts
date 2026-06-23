@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { initializeApp, FirebaseApp } from 'firebase/app';
+import { initializeApp, FirebaseApp, getApps } from 'firebase/app';
 import {
   getFirestore,
   collection,
@@ -9,6 +9,7 @@ import {
   onSnapshot,
   Firestore,
   Timestamp,
+  Unsubscribe,
 } from 'firebase/firestore';
 import { environment } from '../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
@@ -20,15 +21,16 @@ export interface Comment {
   createdAt: Date;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class CommentsService {
   private db: Firestore;
-  private app: FirebaseApp;
+  private unsubscribe: Unsubscribe | null = null;
   comments$ = new BehaviorSubject<Comment[]>([]);
 
   constructor() {
-    this.app = initializeApp(environment.firebase);
-    this.db = getFirestore(this.app);
+    const app: FirebaseApp =
+      getApps().length > 0 ? getApps()[0] : initializeApp(environment.firebase);
+    this.db = getFirestore(app);
     this.listenToComments();
   }
 
@@ -37,7 +39,7 @@ export class CommentsService {
       collection(this.db, 'comments'),
       orderBy('createdAt', 'desc')
     );
-    onSnapshot(q, (snapshot) => {
+    this.unsubscribe = onSnapshot(q, (snapshot) => {
       const comments = snapshot.docs.map((doc) => {
         const data = doc.data();
         return {
@@ -52,10 +54,14 @@ export class CommentsService {
   }
 
   async addComment(name: string, text: string): Promise<void> {
-    await addDoc(collection(this.db, 'comments'), {
+    addDoc(collection(this.db, 'comments'), {
       name,
       text,
       createdAt: Timestamp.now(),
     });
+  }
+
+  destroy(): void {
+    this.unsubscribe?.();
   }
 }

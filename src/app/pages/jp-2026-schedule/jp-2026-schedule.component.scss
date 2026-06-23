@@ -13,6 +13,7 @@
   max-width: 720px;
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;
+  color: #f1efe8;
 }
 
 .comments-title {
@@ -30,15 +31,21 @@
 
 .comment-input {
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
   resize: vertical;
+  background: #262420;
+  color: #f1efe8;
+
+  &::placeholder {
+    color: #888780;
+  }
 
   &:focus {
     outline: none;
-    border-color: #888;
+    border-color: rgba(255, 255, 255, 0.35);
   }
 }
 
@@ -49,8 +56,8 @@
 .comment-btn {
   align-self: flex-start;
   padding: 8px 20px;
-  background: #1a1a18;
-  color: #fff;
+  background: #f1efe8;
+  color: #1a1a18;
   border: none;
   border-radius: 8px;
   font-size: 13px;
@@ -58,12 +65,12 @@
   cursor: pointer;
 
   &:disabled {
-    opacity: 0.4;
+    opacity: 0.3;
     cursor: not-allowed;
   }
 
   &:hover:not(:disabled) {
-    background: #333;
+    background: #ddd;
   }
 }
 
@@ -75,9 +82,9 @@
 
 .comment-card {
   padding: 12px 14px;
-  border: 1px solid #eee;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
-  background: #fafafa;
+  background: #262420;
 }
 
 .comment-header {
@@ -90,20 +97,22 @@
 .comment-author {
   font-size: 13px;
   font-weight: 600;
+  color: #f1efe8;
 }
 
 .comment-date {
   font-size: 11px;
-  color: #999;
+  color: #888780;
 }
 
 .comment-body {
   font-size: 14px;
   line-height: 1.5;
   white-space: pre-wrap;
+  color: #b4b2a9;
 }
 
 .no-comments {
   font-size: 13px;
-  color: #999;
+  color: #888780;
 }
