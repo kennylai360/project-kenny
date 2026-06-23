@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { GalleryFacade } from './state-management/gallery-list/gallery.facade';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -12,10 +11,4 @@ import { HeaderComponent } from './components/header/header.component';
         RouterOutlet,
     ]
 })
-export class AppComponent {
-  private galleryFacade = inject(GalleryFacade);
-
-  constructor() {
-    this.galleryFacade.loadGalleryList();
-  }
-}
+export class AppComponent {}
