@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-const ACCESS_KEY = 'kl-jp-2026';
+const ACCESS_KEY = '1204';
 
 export const jp2026ScheduleGuard: CanActivateFn = (route) => {
   const router = inject(Router);
