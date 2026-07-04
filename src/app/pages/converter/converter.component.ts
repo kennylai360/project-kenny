@@ -3,11 +3,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { CoincapService } from '../../api/coincap.service';
 import { BehaviorSubject, forkJoin } from 'rxjs';
-import { AsyncPipe, CurrencyPipe, DatePipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'app-converter',
-    imports: [AsyncPipe, CurrencyPipe, DatePipe, FormsModule],
+    imports: [AsyncPipe, CurrencyPipe, FormsModule],
     providers: [CoincapService],
     templateUrl: './converter.component.html',
     styleUrl: './converter.component.scss'
@@ -16,7 +16,6 @@ export class ConverterComponent {
   public btcPrice: number = 0;
   public btcValue: number = null;
   public btcSymbol: string = null;
-  public timeLoaded: Date = null;
   public gbpValue: number = null;
   public btcAssetData: any = {};
   public focusedInput$: BehaviorSubject<string> = new BehaviorSubject<string>(
@@ -38,20 +37,25 @@ export class ConverterComponent {
       ratesData: this.coincapService.getRatesData(),
     }).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: ({ btcAssetData, ratesData }) => {
-        this.timeLoaded = new Date();
+        if (!ratesData?.data || !btcAssetData?.data) {
+          console.error('Unexpected API response shape', { btcAssetData, ratesData });
+          this.errorLoadingData.next(true);
+          this.isLoadingData.next(false);
+          return;
+        }
         const gbpRateData = ratesData.data.filter(
           (rate) => rate.id === 'british-pound-sterling'
         )[0];
         const btcRateData = ratesData.data.filter(
           (rate) => rate.id === 'bitcoin'
         )[0];
-        this.btcSymbol = btcRateData.currencySymbol;
+        this.btcSymbol = btcRateData?.currencySymbol ?? '₿';
         const priceOfBtcInUsd: number = Math.trunc(btcAssetData.data[0]);
         const gbpRateToUsd: number = gbpRateData?.rateUsd;
         this.btcPrice = Math.trunc(priceOfBtcInUsd * (1 / gbpRateToUsd));
       },
       error: (error) => {
-        console.log(error);
+        console.error('CoinCap API error', error);
         this.errorLoadingData.next(true);
         this.isLoadingData.next(false);
       },
