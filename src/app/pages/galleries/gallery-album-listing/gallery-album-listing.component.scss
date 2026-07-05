@@ -1,28 +1,53 @@
+$border: rgba(255, 255, 255, 0.1);
+$muted: rgba(255, 255, 255, 0.5);
+
 :host {
   display: block;
-  padding-top: 24px;
+  padding: 24px 20px 48px;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.album-grid__item {
+  display: block;
+  text-decoration: none;
 
   app-gallery-album-cover {
-    display: inline-block;
+    display: block;
+  }
+}
+
+::ng-deep .ngx-pagination {
+  text-align: center;
+  padding: 0;
+  margin-bottom: 1.5rem !important;
+
+  li a,
+  li span {
+    color: rgba(255, 255, 255, 0.7) !important;
+    background: transparent !important;
+    transition: color 0.2s ease;
   }
 
-  div.image-alignment {
-    text-align: center;
+  li a:hover,
+  li span:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px;
   }
 
-  .album-text {
-    color: white;
+  .current span {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-radius: 4px;
+    color: #fff !important;
   }
 
-  hr {
-    background-color: white;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    list-style-type: none;
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
   }
 }

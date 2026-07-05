@@ -1,42 +1,32 @@
-<a class="gallery-album__return-link" routerLink="/photography"
-  ><fa-icon [icon]="icons.backToAlbum" />Return to albums</a
-  >
-  <hr class="animate__animated animate__fadeInDown" />
+<div class="album-page animate__animated animate__fadeIn">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a class="breadcrumb__link" routerLink="/photography">Photography</a>
+    <span class="breadcrumb__separator">/</span>
+    <span class="breadcrumb__current">{{ (albumData | async)?.albumTitle }}</span>
+  </nav>
+
   <app-gallery-album-jumbotron
     [albumTitle]="(albumData | async).albumTitle"
     [albumSubtitle]="(albumData | async).albumSubtitle"
     [albumCoverPicture]="(albumData | async).imgUrl"
     [socialMediaLinks]="(albumData | async).socialMediaLinks"
-    >
-  </app-gallery-album-jumbotron>
+  ></app-gallery-album-jumbotron>
 
-  <hr class="hr-light mt-4 animate__animated animate__fadeInDown" />
-  <pagination-controls
-    (pageChange)="pageNumber = $event"
-    autoHide="true"
-  ></pagination-controls>
-
-  <div class="gallery-album__image__center">
-    @for (
-      item of (albumData | async).albumImages
-      | paginate : { itemsPerPage: 40, currentPage: pageNumber }
-      ; track
-      item) {
-      <a
-        >
+  <div class="photo-grid">
+    @for (item of (albumData | async).albumImages; track item) {
+      <div class="photo-grid__item">
         <app-gallery-album-cover
           (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
           (hasImageLoadedEmitter)="allowOpenModal($event)"
           [imgUrl]="item.imgUrl"
           [translateX]="item.translateX"
           [translateY]="item.translateY"
-          >
-        </app-gallery-album-cover>
-      </a>
+        ></app-gallery-album-cover>
+      </div>
     }
   </div>
 
   <app-overlay-container
     [albumSet]="(albumData | async).albumImages"
-    >
-  </app-overlay-container>
+  ></app-overlay-container>
+</div>
