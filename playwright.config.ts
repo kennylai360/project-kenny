@@ -25,7 +25,7 @@ export default defineConfig({
 
   webServer: {
     command: "ng serve",
-    url: "http:/localhost:4200",
+    url: "http://localhost:4200",
     reuseExistingServer: !process.env.CI,
     stdout: "ignore",
     stderr: "pipe",
