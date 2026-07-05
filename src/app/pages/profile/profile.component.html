@@ -1,71 +1,82 @@
 @if (isContentLoaded()) {
-<div class="profile_content animate__animated animate__fadeIn">
-  <div class="personal_info">
-    <div class="personal_info__text">
-      <h2>Kenny Lai</h2>
-      <span class="personal_info__professional_role">
-        <fa-icon [icon]="icons.briefcase" />
-        <h5>Software Developer</h5>
-      </span>
-      <span class="personal_info__location"
-        ><fa-icon [icon]="icons.globe" />
-        <h5>Basingstoke, United Kingdom</h5>
-      </span>
+<div class="profile-card animate__animated animate__fadeIn">
+
+  <!-- Header -->
+  <div class="profile-header">
+    <div class="profile-header__text">
+      <h2 class="profile-name">Kenny Lai</h2>
+      <div class="profile-badges">
+        <span class="badge"><fa-icon [icon]="icons.briefcase" />Software Developer</span>
+        <span class="badge"><fa-icon [icon]="icons.globe" />Basingstoke, UK</span>
+      </div>
     </div>
-    <div class="personal_info__image">
-      <img
-        alt="profile picture"
-        class="profile_image"
-        [ngClass]="{
-          'hide-image': !pictureLoaded(),
-          'show-image': pictureLoaded(),
-        }"
-        ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
-        height="200"
-        width="200"
-        (load)="pictureLoaded.set(true)"
-        priority
-      />
+    <img
+      alt="profile picture"
+      class="profile-photo"
+      [ngClass]="{ 'hide-image': !pictureLoaded(), 'show-image': pictureLoaded() }"
+      ngSrc="https://d1gzhm7v07i91z.cloudfront.net/Selfie1.jpg"
+      height="200"
+      width="200"
+      (load)="pictureLoaded.set(true)"
+      priority
+    />
+  </div>
+
+  <!-- About -->
+  <div class="section">
+    <h4 class="section-label">About</h4>
+    <p class="section-body">
+      A reliable, optimistic, hardworking and easy-going Software Developer keen on
+      technology and willing to put effort into learning and mastering what is needed.
+      Easily adaptable to different environments and able to work under pressure with
+      tight deadlines.
+    </p>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <h4 class="section-label">Skills</h4>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <span class="skill-group__label">Languages</span>
+        <div class="chips">
+          <span class="chip">JavaScript</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS / SCSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group__label">Frontend</span>
+        <div class="chips">
+          <span class="chip">Angular</span>
+          <span class="chip">React</span>
+          <span class="chip">Redux</span>
+          <span class="chip">NgRx</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group__label">Backend</span>
+        <div class="chips">
+          <span class="chip">NestJS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group__label">Tools</span>
+        <div class="chips">
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">AWS</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <hr />
-  <h4>About</h4>
-  <p>
-    A reliable, optimistic, hardworking and easy-going Software Developer that
-    is keen on technology and willing to put effort into learning and mastering
-    what is needed of him. Easily adaptable to different environments and can
-    work under pressure with tight deadlines.
-  </p>
-
-  <hr />
-
-  <h4>Skills</h4>
-
-  <ul>
-    <li>Programming languages</li>
-    <ul>
-      <li>Javascript | Typescript | HTML | CSS | SCSS</li>
-    </ul>
-    <li>Frontend development</li>
-    <ul>
-      <li>Angular | React | Redux | NgRx</li>
-    </ul>
-    <li>Backend development</li>
-    <ul>
-      <li>NestJS</li>
-    </ul>
-    <li>Tools</li>
-    <ul>
-      <li>Git/Github/Github actions | AWS</li>
-    </ul>
-  </ul>
-
-  <hr />
-
-  <div class="app_profile_content">
+  <!-- Experience / Education (dynamic) -->
+  <div class="section">
     <app-profile-content [fileContent]="profileContent()"></app-profile-content>
   </div>
+
 </div>
 } @else {
 <div class="loading-spinner">
