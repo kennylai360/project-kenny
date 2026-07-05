@@ -1,80 +1,96 @@
-<div class="center animate__animated animate__fadeIn">
-  <div class="converter">
-    <h4>A pointless BTC-GBP converter</h4>
-    <p>How much is your Bitcoin worth? Chuck in some numbers and find out!</p>
-    <p>
-      <u
-        >Disclaimer: this is "for fun", no data or input is stored or
-        tracked.</u
-      >
-    </p>
-    @if (errorLoadingData | async) {
-    <p class="error-block">
-      Error loading data! Please check browser console for more details!
-    </p>
-    } @else {
-    <div>
-      <span class="input-text"
-        >BTC price @if (!(alteredBtcPrice | async)) {
-        <span
-          >(Value loaded from Coinbase Pro at
-          {{ timeLoaded | date : 'longTime' }})</span
-        >
+<div class="page-wrapper animate__animated animate__fadeIn">
+  <div class="converter-card" [class.is-loading]="isLoadingData | async">
+
+    <div class="card-header">
+      <div class="card-title">
+        <span class="btc-dot"></span>
+        BTC–GBP
+      </div>
+      <div class="rate-chip">
+        @if (isLoadingData | async) {
+          <span class="rate-chip__text">Fetching rate…</span>
+        } @else if (errorLoadingData | async) {
+          <span class="rate-chip__text">Manual mode</span>
         } @else {
-        <span>(altered)</span>
-        } :</span
-      >
+          <span class="rate-chip__live"></span>
+          <span class="rate-chip__text">
+            1 ₿ = {{ btcPrice | currency : 'GBP' }}
+            @if (alteredBtcPrice | async) {
+              <em>(edited)</em>
+            }
+          </span>
+        }
+      </div>
+    </div>
+
+    @if (errorLoadingData | async) {
+      <div class="error-block">
+        Couldn't fetch the live rate — enter the BTC price manually to continue.
+      </div>
+    }
+
+    <div class="rate-row">
+      <span class="rate-label">BTC price in GBP</span>
       <input
+        class="rate-input"
         type="number"
         [ngModel]="btcPrice"
         (ngModelChange)="updateBtcPriceAndRecalculate($event)"
         [disabled]="isLoadingData | async"
+        placeholder="Enter rate"
       />
     </div>
-    <div>
-      BTC amount:
-      <input
-        type="number"
-        [ngModel]="btcValue"
-        (ngModelChange)="updateBTCandRecalculate($event)"
-        placeholder="Enter value"
-        [disabled]="isLoadingData | async"
-        (focus)="updateFocusedInput('btc')"
-      />
+
+    <div class="exchange-row">
+      <div class="exchange-col exchange-col--btc">
+        <span class="exchange-label">Bitcoin</span>
+        <div class="exchange-input-wrap">
+          <span class="exchange-symbol">₿</span>
+          <input
+            type="number"
+            class="exchange-input"
+            [ngModel]="btcValue"
+            (ngModelChange)="updateBTCandRecalculate($event)"
+            placeholder="0"
+            [disabled]="isLoadingData | async"
+            (focus)="updateFocusedInput('btc')"
+          />
+        </div>
+      </div>
+
+      <div class="exchange-divider">⇄</div>
+
+      <div class="exchange-col exchange-col--gbp">
+        <span class="exchange-label">Pound Sterling</span>
+        <div class="exchange-input-wrap">
+          <span class="exchange-symbol">£</span>
+          <input
+            type="number"
+            class="exchange-input"
+            [ngModel]="gbpValue"
+            (ngModelChange)="updateGBPandRecalculate($event)"
+            placeholder="0"
+            [disabled]="isLoadingData | async"
+            (focus)="updateFocusedInput('gbp')"
+          />
+        </div>
+      </div>
     </div>
-    <div>
-      GBP value:
-      <input
-        type="number"
-        [ngModel]="gbpValue"
-        (ngModelChange)="updateGBPandRecalculate($event)"
-        placeholder="Enter value"
-        [disabled]="isLoadingData | async"
-        (focus)="updateFocusedInput('gbp')"
-      />
-    </div>
+
+    @if (gbpValue) {
+      <div class="summary">
+        {{
+          ((focusedInput$ | async) === 'gbp'
+            ? (gbpValue | currency : 'GBP')
+            : btcValue + btcSymbol) +
+            ' is approximately equivalent to ' +
+            ((focusedInput$ | async) === 'gbp'
+              ? btcValue + btcSymbol
+              : (gbpValue | currency : 'GBP'))
+        }}
+      </div>
     }
+
+    <p class="disclaimer">For fun only — no data or input is stored or tracked.</p>
   </div>
 </div>
-@if (!(errorLoadingData | async)) {
-<div class="converter-summary animate__animated animate__fadeIn">
-  <p>
-    The price of BTC is currently set to
-    <b>{{ btcPrice | currency : 'GBP' }} (GBP) </b>
-    per bitcoin
-  </p>
-  @if (gbpValue) {
-  <p>
-    {{
-      ((focusedInput$ | async) === 'gbp'
-        ? (gbpValue | currency : 'GBP')
-        : btcValue + btcSymbol) +
-        ' is approximately equivilent to ' +
-        ((focusedInput$ | async) === 'gbp'
-          ? btcValue + btcSymbol
-          : (gbpValue | currency : 'GBP'))
-    }}
-  </p>
-  }
-</div>
-}

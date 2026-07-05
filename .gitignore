@@ -48,3 +48,11 @@ Thumbs.db
 /blob-report/
 /playwright/.cache/
 /.playwright-mcp/
+
+# Docker
+.dockerignore
+Dockerfile
+nginx.conf
+
+# Playwright tests
+/pw-tests/
