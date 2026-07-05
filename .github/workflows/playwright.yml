@@ -9,6 +9,8 @@ jobs:
   playwright:
     name: "Playwright shard ${{ matrix.shardIndex }}/${{ matrix.shardTotal }}"
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
@@ -44,6 +46,8 @@ jobs:
     needs: playwright
     runs-on: ubuntu-24.04
     if: always()
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
