@@ -55,4 +55,5 @@ Dockerfile
 nginx.conf
 
 # Playwright tests
-/pw-tests/
+/pw-tests/*.js
+/pw-tests/*.map

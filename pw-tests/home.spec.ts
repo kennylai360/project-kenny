@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 
+
 test("has title home", async ({ page }) => {
   await page.goto("/");
 
@@ -19,4 +20,12 @@ test("has resume content loaded", async ({ page, baseURL }) => {
   await expect(page.getByText("Skills")).toBeVisible;
   await expect(page.getByText("About")).toBeVisible;
   await expect(page.getByText("Work Experience")).toBeVisible;
+});
+
+test.describe("Visual regression", () => {
+  test("home page matches snapshot", async ({ page }) => {
+    await page.goto("/");
+    await page.waitForLoadState("networkidle");
+    await expect(page).toHaveScreenshot("home.png", { fullPage: true });
+  });
 });
