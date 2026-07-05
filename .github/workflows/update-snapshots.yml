@@ -6,7 +6,7 @@ on:
       branch:
         description: Branch to update snapshots on
         required: true
-        default: master
+        default: feat/visual-regression-tests
 jobs:
   update-snapshots:
     name: Regenerate Linux snapshots
