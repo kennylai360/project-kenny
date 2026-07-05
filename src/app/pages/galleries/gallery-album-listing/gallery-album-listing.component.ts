@@ -6,14 +6,11 @@ import { IGalleryCover } from '../../../state-management/gallery-list/gallery-co
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { RouterLink } from '@angular/router';
 import { GalleryAlbumCoverComponent } from '../../../components/gallery-album-cover/gallery-album-cover.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-
 @Component({
     selector: 'app-galleries',
     templateUrl: './gallery-album-listing.component.html',
     styleUrl: './gallery-album-listing.component.scss',
     imports: [
-        NgxPaginationModule,
         GalleryAlbumCoverComponent,
         RouterLink,
         AsyncPipe,
@@ -25,8 +22,6 @@ export class GalleryAlbumListingComponent implements OnInit {
   private location = inject(PlatformLocation);
 
   public coverContent: Observable<IGalleryCover[]>;
-
-  public currentSelectedPage: number = 1;
 
   public ngOnInit(): void {
     this.coverContent = this.galleryFacade.galleryList$;
