@@ -7,13 +7,10 @@ import { IGalleryCover } from '../../../state-management/gallery-list/gallery-co
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { faHandPointLeft } from '@fortawesome/free-solid-svg-icons';
 import { OverlayContainerComponent } from '../../../components/overlay/overlay-container/overlay-container.component';
 import { GalleryAlbumCoverComponent } from '../../../components/gallery-album-cover/gallery-album-cover.component';
 import { AsyncPipe } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { GalleryAlbumJumbotronComponent } from '../../../components/gallery-album-jumbotron/gallery-album-jumbotron.component';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'app-gallery-album',
@@ -21,17 +18,13 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     styleUrl: './gallery-album.component.scss',
     imports: [
     RouterLink,
-    FaIconComponent,
     GalleryAlbumJumbotronComponent,
-    NgxPaginationModule,
     GalleryAlbumCoverComponent,
     OverlayContainerComponent,
     AsyncPipe
 ]
 })
 export class GalleryAlbumComponent {
-  public pageNumber: number = 1;
-
   private destroyRef: DestroyRef = inject(DestroyRef);
 
   private loadedImagesUrl: Array<string> = [];
@@ -41,9 +34,6 @@ export class GalleryAlbumComponent {
     imgUrl: '',
   });
 
-  public icons = {
-    backToAlbum: faHandPointLeft,
-  };
 
   constructor(
     private activatedRoute: ActivatedRoute,

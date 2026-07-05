@@ -1,82 +1,54 @@
+$border: rgba(255, 255, 255, 0.1);
+$muted: rgba(255, 255, 255, 0.5);
+
 :host {
-  .gallery-album__return-link {
-    display: inline-block;
-    margin-left: 20px;
-    padding-top: 16px;
-  }
+  display: block;
+}
 
-  fa-icon {
-    padding-right: 5px;
-  }
+.album-page {
+  padding-bottom: 48px;
+}
 
-  .jumb-content {
-    padding-top: 150px;
-    padding-bottom: 150px;
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 16px 20px;
+  font-size: 0.8rem;
+}
+
+.breadcrumb__link {
+  color: $muted;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #fff;
   }
+}
+
+.breadcrumb__separator {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.breadcrumb__current {
+  color: #fff;
+  font-weight: 600;
+}
+
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  padding: 0 20px;
+}
+
+.photo-grid__item {
+  display: block;
+  cursor: pointer;
 
   app-gallery-album-cover {
-    display: inline-block;
+    display: block;
   }
-
-  .gallery-album__image__center {
-    text-align: center;
-  }
-
-  ::ng-deep .ngx-pagination {
-    text-align: center;
-
-    & span {
-      color: white;
-    }
-
-    & .pagination-next a {
-      color: white;
-      -moz-transition: color 0.5s;
-      -webkit-transition: color 0.5s;
-      transition: color 0.5s;
-
-      &:hover {
-        color: black;
-        border-radius: 900px;
-        -moz-transition: color 0.5s;
-        -webkit-transition: color 0.5s;
-        transition: color 0.5s;
-      }
-    }
-
-    & .pagination-previous a {
-      color: white;
-      -moz-transition: color 0.5s;
-      -webkit-transition: color 0.5s;
-      transition: color 0.5s;
-
-      &:hover {
-        color: black;
-        border-radius: 900px;
-        -moz-transition: color 0.5s;
-        -webkit-transition: color 0.5s;
-        transition: color 0.5s;
-      }
-    }
-
-    & .disabled {
-      cursor: not-allowed;
-    }
-
-    & a {
-      -moz-transition: color 0.5s;
-      -webkit-transition: color 0.5s;
-      transition: color 0.5s;
-      &:hover span {
-        color: black;
-        -moz-transition: color 0.5s;
-        -webkit-transition: color 0.5s;
-        transition: color 0.5s;
-      }
-    }
-
-    & .current {
-      background: grey;
-    }
-  } //end ngx-pagination
-} //end :host
+}
