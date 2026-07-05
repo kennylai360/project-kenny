@@ -8,7 +8,6 @@ import { AsyncPipe, CurrencyPipe } from '@angular/common';
 @Component({
     selector: 'app-converter',
     imports: [AsyncPipe, CurrencyPipe, FormsModule],
-    providers: [CoincapService],
     templateUrl: './converter.component.html',
     styleUrl: './converter.component.scss'
 })
