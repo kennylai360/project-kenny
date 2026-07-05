@@ -75,3 +75,12 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
+
+  all-tests-passed:
+    name: All Playwright tests passed
+    needs: playwright
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - run: echo "All shards completed successfully"
