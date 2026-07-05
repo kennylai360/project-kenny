@@ -1,77 +1,167 @@
+$border: rgba(255, 255, 255, 0.1);
+$surface: rgba(255, 255, 255, 0.06);
+$muted: rgba(255, 255, 255, 0.5);
+
 :host {
-  --sub-text-color: rgb(255, 255, 255, 0.8);
+  display: block;
+  padding: 24px 1rem 3rem;
+}
 
-  .loading-spinner {
-    display: flex;
+// ── Card ─────────────────────────────────────────────────────
+
+.profile-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid $border;
+  border-radius: 20px;
+  padding: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+}
+
+// ── Header ────────────────────────────────────────────────────
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-header__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #fff;
+}
+
+.profile-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  color: $muted;
+
+  fa-icon {
+    font-size: 0.75rem;
+  }
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  transition: opacity 1s ease;
+
+  &.hide-image { opacity: 0; }
+  &.show-image { opacity: 1; }
+}
+
+// ── Sections ──────────────────────────────────────────────────
+
+.section {
+  padding-top: 1.5rem;
+  border-top: 1px solid $border;
+  margin-top: 1.5rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $muted;
+  margin: 0 0 1rem;
+}
+
+.section-body {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+// ── Skills chips ──────────────────────────────────────────────
+
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  @media (max-width: 480px) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 0.4rem;
   }
+}
 
-  p {
-    color: var(--sub-text-color);
-  }
+.skill-group__label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $muted;
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
 
-  .profile_content {
-    margin-top: 24px;
-    margin-left: 15%;
-    margin-right: 15%;
-  }
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
 
-  .personal_info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.chip {
+  display: inline-block;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+}
 
-  .hide-image {
-    opacity: 0;
-    visibility: hidden;
-  }
+// ── Loading ───────────────────────────────────────────────────
 
-  .show-image {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: opacity 1s ease;
-    -moz-transition: opacity 1s ease;
-    -ms-transition: opacity 1s ease;
-    -o-transition: opacity 1s ease;
-    transition: opacity 1s ease;
-  }
-
-  .personal_info__location,
-  .personal_info__professional_role {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    fa-icon {
-      padding-right: 5px;
-    }
-    h5 {
-      margin-bottom: 0;
-    }
-  }
-
-  .app_profile_content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .profile_image {
-    border: solid 1px black;
-  }
-
-  @media (min-width: 1024px) {
-    .profile_content {
-      margin-left: 15%;
-      margin-right: 15%;
-    }
-  }
-
-  @media (min-width: 480px) {
-    .profile_content {
-      margin-left: 15%;
-      margin-right: 15%;
-    }
-  }
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
 }

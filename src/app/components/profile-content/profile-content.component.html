@@ -1,31 +1,30 @@
 @for (item of fileContent(); track $index) {
-  <h4>{{ item.section }}</h4>
-  @for (content of item.sectionContents; track content) {
-    <div>
-      @if (content.header) {
-        <div class="file_content__header__padding"></div>
+  <div class="timeline-section">
+    <h4 class="section-label">{{ item.section }}</h4>
+    <div class="timeline">
+      @for (content of item.sectionContents; track content) {
+        <div class="timeline-entry">
+          @if (content.header) {
+            <div class="timeline-entry__header">
+              <span class="timeline-entry__company">{{ content.header }}</span>
+              <span class="timeline-entry__year">{{ content.year }}</span>
+            </div>
+            <span class="timeline-entry__role">{{ content.roleTitle }}</span>
+          } @else {
+            <div class="timeline-entry__header">
+              <span class="timeline-entry__role">{{ content.roleTitle }}</span>
+              <span class="timeline-entry__year">{{ content.year }}</span>
+            </div>
+          }
+          @if (content.contents?.length) {
+            <ul class="timeline-entry__details">
+              @for (point of content.contents; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          }
+        </div>
       }
-      <div class="profile_main">
-        @if (content.header) {
-          <h5>
-            <strong>{{ content.header }}</strong>
-          </h5>
-          } @if (!content.header) {
-          <h6>{{ '&nbsp; ' + content.roleTitle }}</h6>
-        }
-        <h5 class="year">{{ content.year }}</h5>
-      </div>
-      @if (content.roleTitle && content.header) {
-        <h6>&nbsp; {{ content.roleTitle }}</h6>
-      }
-      <ul class="profile_details">
-        @for (contentsItem of content.contents; track contentsItem) {
-          <li>
-            {{ contentsItem }}
-          </li>
-        }
-      </ul>
     </div>
-  }
-  <hr />
+  </div>
 }

@@ -1,23 +1,92 @@
+$border: rgba(255, 255, 255, 0.1);
+$muted: rgba(255, 255, 255, 0.5);
+
 :host {
-  --sub-text-color: rgb(255, 255, 255, 0.8);
+  display: block;
+}
 
-  .profile_main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $muted;
+  margin: 0 0 1rem;
+}
+
+.timeline-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid $border;
+  margin-top: 1.5rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.12);
+  margin-left: 0.25rem;
+}
+
+.timeline-entry {
+  position: relative;
+  padding: 0.1rem 0 1.25rem 1.25rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.45rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.12);
   }
 
-  .year {
-    color: var(--sub-text-color);
+  &:last-child {
+    padding-bottom: 0;
   }
+}
 
-  .file_content__header__padding {
-    margin-top: 20px;
-  }
+.timeline-entry__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.2rem;
+}
 
-  .profile_details {
-    li {
-      color: var(--sub-text-color);
-    }
+.timeline-entry__company {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.timeline-entry__role {
+  display: block;
+  font-size: 0.83rem;
+  color: $muted;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-entry__year {
+  font-size: 0.75rem;
+  color: $muted;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.timeline-entry__details {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  li {
+    font-size: 0.83rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
   }
 }
