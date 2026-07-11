@@ -13,6 +13,7 @@ import { GalleryAlbumListingComponent } from './app/pages/galleries/gallery-albu
 import { GallerySectionComponent } from './app/pages/galleries/gallery-section/gallery-section.component';
 import { ProfileComponent } from './app/pages/profile/profile.component';
 import { HomeComponent } from './app/pages/home/home.component';
+import { BombGameComponent } from './app/pages/bomb-game/bomb-game.component';
 import { withInMemoryScrolling, provideRouter, Routes } from '@angular/router';
 import { listOfReducers } from './app/state-management/ngrx-index';
 import { provideStore, ActionReducer } from '@ngrx/store';
@@ -83,6 +84,11 @@ const appRoutes: Routes = [
   {
     path: 'utils',
     component: UtilsComponent,
+  },
+  {
+    path: 'bomb-game',
+    component: BombGameComponent,
+    title: 'Bomb Defusal',
   },
   {
     path: 'jp-2026-schedule',
