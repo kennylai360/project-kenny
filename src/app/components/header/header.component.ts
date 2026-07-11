@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
+  faBomb,
   faCalculator,
   faCameraRetro,
   faCat,
@@ -24,6 +25,7 @@ export class HeaderComponent {
     photography: faCameraRetro,
     btcCalculator: faCalculator,
     copyCatMocking: faCat,
+    bombGame: faBomb,
     twitter: faXTwitter,
     github: faGithub,
   };
