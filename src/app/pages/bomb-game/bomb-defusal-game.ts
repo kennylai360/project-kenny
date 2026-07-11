@@ -207,8 +207,14 @@ class BombDefusalScene extends Phaser.Scene {
     });
 
     if (this.sys.game.device.fullscreen.available) {
-      this.scale.on('enterfullscreen', () => this.fullscreenButton.setText(fullscreenLabel()));
-      this.scale.on('leavefullscreen', () => this.fullscreenButton.setText(fullscreenLabel()));
+      const onFullscreenChange = () => {
+        this.fullscreenButton.setText(fullscreenLabel());
+        // The container's box only settles after the browser applies the
+        // :fullscreen CSS rules, so defer the resize until the next frame.
+        requestAnimationFrame(() => this.scale.refresh());
+      };
+      this.scale.on('enterfullscreen', onFullscreenChange);
+      this.scale.on('leavefullscreen', onFullscreenChange);
     } else {
       this.fullscreenButton.setVisible(false);
     }
@@ -646,6 +652,10 @@ export function createBombDefusalGame(parent: HTMLElement): Phaser.Game {
     height: 640,
     backgroundColor: '#111111',
     parent,
+    // Fullscreen the actual container (rather than letting Phaser create its own
+    // wrapper div) so our :fullscreen CSS applies and the scale manager measures
+    // the real fullscreen bounds.
+    fullscreenTarget: parent,
     scale: {
       mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH,

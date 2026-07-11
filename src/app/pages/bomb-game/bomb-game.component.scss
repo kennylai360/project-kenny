@@ -8,5 +8,16 @@
     width: 100%;
     max-width: 800px;
     touch-action: none;
+
+    &:fullscreen,
+    &:-webkit-full-screen {
+      max-width: none;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
   }
 }
