@@ -27,6 +27,9 @@ class BombDefusalScene extends Phaser.Scene {
   private needleGfx!: Phaser.GameObjects.Graphics;
   private overlayGfx!: Phaser.GameObjects.Graphics;
 
+  private menuButton!: Phaser.GameObjects.Text;
+  private fullscreenButton!: Phaser.GameObjects.Text;
+
   private pauseOverlayGfx!: Phaser.GameObjects.Graphics;
   private pauseTitleText!: Phaser.GameObjects.Text;
   private resumeButton!: Phaser.GameObjects.Text;
@@ -167,6 +170,55 @@ class BombDefusalScene extends Phaser.Scene {
 
     this.pickGreenZones();
 
+    this.menuButton = this.add
+      .text(780, 50, '☰ Menu', {
+        fontSize: '20px',
+        color: '#ffffff',
+        backgroundColor: '#333333',
+        padding: { x: 12, y: 6 },
+      })
+      .setOrigin(1, 0)
+      .setDepth(21)
+      .setInteractive({ useHandCursor: true });
+    this.menuButton.on('pointerover', () => this.menuButton.setBackgroundColor('#555555'));
+    this.menuButton.on('pointerout', () => this.menuButton.setBackgroundColor('#333333'));
+    this.menuButton.on('pointerdown', (_pointer: Phaser.Input.Pointer, _x: number, _y: number, event: { stopPropagation: () => void }) => {
+      event.stopPropagation();
+      this.toggleMenu();
+    });
+
+    const fullscreenLabel = () => (this.scale.isFullscreen ? '⛶ Exit Fullscreen' : '⛶ Fullscreen');
+
+    this.fullscreenButton = this.add
+      .text(780, 620, fullscreenLabel(), {
+        fontSize: '20px',
+        color: '#ffffff',
+        backgroundColor: '#333333',
+        padding: { x: 12, y: 6 },
+      })
+      .setOrigin(1, 1)
+      .setDepth(21)
+      .setInteractive({ useHandCursor: true });
+    this.fullscreenButton.on('pointerover', () => this.fullscreenButton.setBackgroundColor('#555555'));
+    this.fullscreenButton.on('pointerout', () => this.fullscreenButton.setBackgroundColor('#333333'));
+    this.fullscreenButton.on('pointerdown', (_pointer: Phaser.Input.Pointer, _x: number, _y: number, event: { stopPropagation: () => void }) => {
+      event.stopPropagation();
+      this.scale.toggleFullscreen();
+    });
+
+    if (this.sys.game.device.fullscreen.available) {
+      const onFullscreenChange = () => {
+        this.fullscreenButton.setText(fullscreenLabel());
+        // The container's box only settles after the browser applies the
+        // :fullscreen CSS rules, so defer the resize until the next frame.
+        requestAnimationFrame(() => this.scale.refresh());
+      };
+      this.scale.on('enterfullscreen', onFullscreenChange);
+      this.scale.on('leavefullscreen', onFullscreenChange);
+    } else {
+      this.fullscreenButton.setVisible(false);
+    }
+
     this.pauseOverlayGfx = this.add.graphics().setDepth(20).setVisible(false);
     this.pauseTitleText = this.add
       .text(CENTER.x, CENTER.y - 90, 'Paused', { fontSize: '36px', color: '#ffffff' })
@@ -298,19 +350,21 @@ class BombDefusalScene extends Phaser.Scene {
 
     this.input.on('pointerdown', triggerAction);
     this.input.keyboard?.on('keydown-SPACE', triggerAction);
-    this.input.keyboard?.on('keydown-ESC', () => {
-      if (this.gameOver) return;
-      if (this.paused && this.showingOptions) {
-        this.setShowingOptions(false);
-        return;
-      }
-      this.setPaused(!this.paused);
-    });
+    this.input.keyboard?.on('keydown-ESC', () => this.toggleMenu());
     this.input.keyboard?.on('keydown-R', () => {
       if (!this.paused || this.showingOptions) return;
       this.setPaused(false);
       this.restart();
     });
+  }
+
+  private toggleMenu(): void {
+    if (this.gameOver) return;
+    if (this.paused && this.showingOptions) {
+      this.setShowingOptions(false);
+      return;
+    }
+    this.setPaused(!this.paused);
   }
 
   private setPaused(value: boolean): void {
@@ -598,6 +652,10 @@ export function createBombDefusalGame(parent: HTMLElement): Phaser.Game {
     height: 640,
     backgroundColor: '#111111',
     parent,
+    // Fullscreen the actual container (rather than letting Phaser create its own
+    // wrapper div) so our :fullscreen CSS applies and the scale manager measures
+    // the real fullscreen bounds.
+    fullscreenTarget: parent,
     scale: {
       mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH,
