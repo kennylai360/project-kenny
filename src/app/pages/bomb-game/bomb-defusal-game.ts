@@ -28,6 +28,7 @@ class BombDefusalScene extends Phaser.Scene {
   private overlayGfx!: Phaser.GameObjects.Graphics;
 
   private menuButton!: Phaser.GameObjects.Text;
+  private fullscreenButton!: Phaser.GameObjects.Text;
 
   private pauseOverlayGfx!: Phaser.GameObjects.Graphics;
   private pauseTitleText!: Phaser.GameObjects.Text;
@@ -185,6 +186,32 @@ class BombDefusalScene extends Phaser.Scene {
       event.stopPropagation();
       this.toggleMenu();
     });
+
+    const fullscreenLabel = () => (this.scale.isFullscreen ? '⛶ Exit Fullscreen' : '⛶ Fullscreen');
+
+    this.fullscreenButton = this.add
+      .text(780, 620, fullscreenLabel(), {
+        fontSize: '20px',
+        color: '#ffffff',
+        backgroundColor: '#333333',
+        padding: { x: 12, y: 6 },
+      })
+      .setOrigin(1, 1)
+      .setDepth(21)
+      .setInteractive({ useHandCursor: true });
+    this.fullscreenButton.on('pointerover', () => this.fullscreenButton.setBackgroundColor('#555555'));
+    this.fullscreenButton.on('pointerout', () => this.fullscreenButton.setBackgroundColor('#333333'));
+    this.fullscreenButton.on('pointerdown', (_pointer: Phaser.Input.Pointer, _x: number, _y: number, event: { stopPropagation: () => void }) => {
+      event.stopPropagation();
+      this.scale.toggleFullscreen();
+    });
+
+    if (this.sys.game.device.fullscreen.available) {
+      this.scale.on('enterfullscreen', () => this.fullscreenButton.setText(fullscreenLabel()));
+      this.scale.on('leavefullscreen', () => this.fullscreenButton.setText(fullscreenLabel()));
+    } else {
+      this.fullscreenButton.setVisible(false);
+    }
 
     this.pauseOverlayGfx = this.add.graphics().setDepth(20).setVisible(false);
     this.pauseTitleText = this.add
