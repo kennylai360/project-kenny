@@ -29,6 +29,7 @@ class BombDefusalScene extends Phaser.Scene {
 
   private menuButton!: Phaser.GameObjects.Text;
   private fullscreenButton!: Phaser.GameObjects.Text;
+  private fakeFullscreenActive = false;
 
   private pauseOverlayGfx!: Phaser.GameObjects.Graphics;
   private pauseTitleText!: Phaser.GameObjects.Text;
@@ -187,7 +188,8 @@ class BombDefusalScene extends Phaser.Scene {
       this.toggleMenu();
     });
 
-    const fullscreenLabel = () => (this.scale.isFullscreen ? '⛶ Exit Fullscreen' : '⛶ Fullscreen');
+    const fullscreenLabel = () =>
+      this.scale.isFullscreen || this.fakeFullscreenActive ? '⛶ Exit Fullscreen' : '⛶ Fullscreen';
 
     this.fullscreenButton = this.add
       .text(780, 620, fullscreenLabel(), {
@@ -201,9 +203,25 @@ class BombDefusalScene extends Phaser.Scene {
       .setInteractive({ useHandCursor: true });
     this.fullscreenButton.on('pointerover', () => this.fullscreenButton.setBackgroundColor('#555555'));
     this.fullscreenButton.on('pointerout', () => this.fullscreenButton.setBackgroundColor('#333333'));
+
+    const fullscreenClass = 'bomb-game__canvas--fake-fullscreen';
+
     this.fullscreenButton.on('pointerdown', (_pointer: Phaser.Input.Pointer, _x: number, _y: number, event: { stopPropagation: () => void }) => {
       event.stopPropagation();
-      this.scale.toggleFullscreen();
+
+      if (this.sys.game.device.fullscreen.available) {
+        this.scale.toggleFullscreen();
+        return;
+      }
+
+      // Fall back to a CSS-only "fake fullscreen" on browsers (e.g. iOS Safari)
+      // that don't support the Fullscreen API for arbitrary elements.
+      this.fakeFullscreenActive = !this.fakeFullscreenActive;
+      this.game.canvas.parentElement?.classList.toggle(fullscreenClass, this.fakeFullscreenActive);
+      this.fullscreenButton.setText(fullscreenLabel());
+      // The container's box only settles after the browser applies the new
+      // CSS rules, so defer the resize until the next frame.
+      requestAnimationFrame(() => this.scale.refresh());
     });
 
     if (this.sys.game.device.fullscreen.available) {
@@ -215,8 +233,6 @@ class BombDefusalScene extends Phaser.Scene {
       };
       this.scale.on('enterfullscreen', onFullscreenChange);
       this.scale.on('leavefullscreen', onFullscreenChange);
-    } else {
-      this.fullscreenButton.setVisible(false);
     }
 
     this.pauseOverlayGfx = this.add.graphics().setDepth(20).setVisible(false);
