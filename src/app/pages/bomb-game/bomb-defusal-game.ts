@@ -63,7 +63,6 @@ class BombDefusalScene extends Phaser.Scene {
   private comboStreak = 0;
   private score = 0;
   private highScore = Number(localStorage.getItem('bombDefuseHighScore')) || 0;
-  private highScoreName = localStorage.getItem('bombDefuseHighScoreName') || '';
   private lives = MAX_LIVES;
   private gameOver = false;
   private paused = false;
@@ -114,9 +113,7 @@ class BombDefusalScene extends Phaser.Scene {
   }
 
   private formatHighScoreText(): string {
-    return this.highScoreName
-      ? `High Score: ${this.highScore} (${this.highScoreName})`
-      : `High Score: ${this.highScore}`;
+    return `High Score: ${this.highScore}`;
   }
 
   private pickGreenZones(): void {
@@ -340,9 +337,7 @@ class BombDefusalScene extends Phaser.Scene {
     wireButton(this.volumeUpButton, () => setVolume(this.soundVolume + 0.1));
     wireButton(this.clearHighScoreButton, () => {
       this.highScore = 0;
-      this.highScoreName = '';
       localStorage.removeItem('bombDefuseHighScore');
-      localStorage.removeItem('bombDefuseHighScoreName');
       this.highScoreText.setText(this.formatHighScoreText());
     });
     wireButton(this.optionsBackButton, () => this.setShowingOptions(false));
@@ -513,15 +508,6 @@ class BombDefusalScene extends Phaser.Scene {
       this.highScore = this.score;
       localStorage.setItem('bombDefuseHighScore', String(this.highScore));
       this.highScoreText.setText(this.formatHighScoreText());
-
-      setTimeout(() => {
-        const name = window.prompt('New high score! Enter your name:', this.highScoreName);
-        if (name) {
-          this.highScoreName = name.slice(0, 20);
-          localStorage.setItem('bombDefuseHighScoreName', this.highScoreName);
-          this.highScoreText.setText(this.formatHighScoreText());
-        }
-      }, 0);
     }
   }
 
