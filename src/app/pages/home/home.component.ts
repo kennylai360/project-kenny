@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSmileBeam } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,7 @@ import { faSmileBeam } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [RouterModule, FontAwesomeModule],
 })
 export class HomeComponent {

@@ -6,6 +6,7 @@ import {
   computed,
   inject,
   signal,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { ProfileContentComponent } from '../../components/profile-content/profile-content.component';
 import { ProfileService } from '../../api/profile.service';
@@ -23,6 +24,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
         ProfileContentComponent,
         FontAwesomeModule,
     ],
+    changeDetection: ChangeDetectionStrategy.Eager,
     providers: [ProfileService]
 })
 export class ProfileComponent implements OnInit {

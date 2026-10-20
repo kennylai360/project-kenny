@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -8,6 +8,7 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
     selector: 'app-not-found',
     templateUrl: './notFound.component.html',
     styleUrl: './notFound.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [FontAwesomeModule]
 })
 export class NotFoundComponent {

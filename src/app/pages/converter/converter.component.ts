@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { CoincapService } from '../../api/coincap.service';
@@ -9,6 +9,7 @@ import { AsyncPipe, CurrencyPipe } from '@angular/common';
     selector: 'app-converter',
     imports: [AsyncPipe, CurrencyPipe, FormsModule],
     templateUrl: './converter.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './converter.component.scss'
 })
 export class ConverterComponent {

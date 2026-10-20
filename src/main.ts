@@ -24,6 +24,7 @@ import {
   HttpClient,
   withInterceptorsFromDi,
   provideHttpClient,
+  withXhr
 } from '@angular/common/http';
 import { GalleryFacade } from './app/state-management/gallery-list/gallery.facade';
 import { AppFacade } from './app/state-management/app/app.facade';
@@ -113,7 +114,7 @@ bootstrapApplication(AppComponent, {
     Actions,
     DeviceDetectorService,
     provideAnimations(),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
     provideRouter(
       appRoutes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })

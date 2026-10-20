@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, RouterLink } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -16,6 +16,7 @@ import { GalleryAlbumJumbotronComponent } from '../../../components/gallery-albu
     selector: 'app-gallery-album',
     templateUrl: './gallery-album.component.html',
     styleUrl: './gallery-album.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
     RouterLink,
     GalleryAlbumJumbotronComponent,

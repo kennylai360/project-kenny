@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   selector: 'app-utils',
   imports: [FormsModule, FontAwesomeModule],
   templateUrl: './utils.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './utils.component.scss',
 })
 export class UtilsComponent {
