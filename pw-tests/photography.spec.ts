@@ -36,20 +36,25 @@ test.describe("Visual regression", () => {
     await expect(page.locator("app-gallery-album-cover").first()).toBeVisible({ timeout: 10000 });
     await page.waitForLoadState("networkidle");
 
-    // Album covers lazy-load their images as they scroll into view, so force
-    // every cover into view first and wait for its image to finish loading
-    // before taking a full-page screenshot — otherwise covers still showing
-    // their loading spinner get captured as a false-positive diff.
+    // Album covers lazy-load their images as they scroll into view (via
+    // ng-lazyload-image, which swaps the <img> src from a placeholder to the
+    // real URL once triggered). The component's own "loaded" flag fires on
+    // the placeholder's load event too, so it's not a reliable signal here —
+    // instead wait for each cover's <img> to actually carry its real target
+    // src and be fully decoded before taking the full-page screenshot.
+    // Scroll down first (with a brief pause so the IntersectionObserver has
+    // a frame to fire before we jump back) to trigger every cover's load.
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await expect(page.locator("app-gallery-album-cover .overlay-spinner")).toHaveCount(0, { timeout: 60000 });
+    await page.waitForTimeout(500);
     await page.waitForFunction(
       () =>
         Array.from(document.querySelectorAll<HTMLImageElement>("app-gallery-album-cover img.album-cover")).every(
-          (img) => img.complete && img.naturalWidth > 0,
+          (img) => img.complete && img.naturalWidth > 0 && !img.src.startsWith("data:"),
         ),
       { timeout: 60000 },
     );
     await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(250);
 
     await expect(page).toHaveScreenshot("photography-listing.png", { fullPage: true });
   });
