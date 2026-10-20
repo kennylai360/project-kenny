@@ -28,6 +28,10 @@ test.describe("Photography page", () => {
 
 test.describe("Visual regression", () => {
   test("photography listing page matches snapshot", async ({ page }) => {
+    // The album covers load full-size images from an external host (Flickr),
+    // which can be slow on CI — give this test more room than the default budget.
+    test.setTimeout(90000);
+
     await page.goto("/photography");
     await expect(page.locator("app-gallery-album-cover").first()).toBeVisible({ timeout: 10000 });
     await page.waitForLoadState("networkidle");
@@ -37,11 +41,13 @@ test.describe("Visual regression", () => {
     // before taking a full-page screenshot — otherwise covers still showing
     // their loading spinner get captured as a false-positive diff.
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await expect(page.locator("app-gallery-album-cover .overlay-spinner")).toHaveCount(0, { timeout: 10000 });
-    await page.waitForFunction(() =>
-      Array.from(document.querySelectorAll<HTMLImageElement>("app-gallery-album-cover img.album-cover")).every(
-        (img) => img.complete && img.naturalWidth > 0,
-      ),
+    await expect(page.locator("app-gallery-album-cover .overlay-spinner")).toHaveCount(0, { timeout: 60000 });
+    await page.waitForFunction(
+      () =>
+        Array.from(document.querySelectorAll<HTMLImageElement>("app-gallery-album-cover img.album-cover")).every(
+          (img) => img.complete && img.naturalWidth > 0,
+        ),
+      { timeout: 60000 },
     );
     await page.evaluate(() => window.scrollTo(0, 0));
 
