@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, inject, input, output, signal } from '@angular/core';
+import { Component, inject, input, output, signal, ChangeDetectionStrategy } from '@angular/core';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -7,6 +7,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     selector: 'app-gallery-album-cover',
     templateUrl: './gallery-album-cover.component.html',
     styleUrl: './gallery-album-cover.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [NgClass, NgStyle, LazyLoadImageModule]
 })
 export class GalleryAlbumCoverComponent {

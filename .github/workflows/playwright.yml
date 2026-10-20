@@ -48,6 +48,7 @@ jobs:
     if: always()
     permissions:
       contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
 
@@ -69,12 +70,26 @@ jobs:
       - name: Merge into HTML report
         run: npx playwright merge-reports --reporter=html ./all-blob-reports
 
+      - name: Merge into JSON report
+        run: npx playwright merge-reports --reporter=json ./all-blob-reports > results.json
+
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
+
+      - name: Comment PR with test summary
+        if: always() && github.event_name == 'pull_request'
+        uses: daun/playwright-report-summary@v4
+        with:
+          report-file: results.json
+          job-summary: true
+          comment-title: "Playwright visual regression results"
+          footer: |
+            Download the full HTML report (with actual/expected/diff image comparisons) from the
+            [`playwright-report` artifact of this run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
   all-tests-passed:
     name: All Playwright tests passed

@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core'
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade'
 
 @Component({
     selector: 'app-gallery-section',
     templateUrl: './gallery-section.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [RouterModule]
 })
 export class GallerySectionComponent {

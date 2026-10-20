@@ -6,6 +6,7 @@ import {
   Renderer2,
   inject,
   input,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import {
   animate,
@@ -27,6 +28,7 @@ import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-
     templateUrl: './overlay-container.component.html',
     styleUrl: './overlay-container.component.scss',
     imports: [AsyncPipe, NgClass, RouterModule, FontAwesomeModule],
+    changeDetection: ChangeDetectionStrategy.Eager,
     animations: [
       trigger('slideAnimation', [
         transition('void => *', [

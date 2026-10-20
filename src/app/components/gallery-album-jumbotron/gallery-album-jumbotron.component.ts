@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { ISocialMediaLinks } from '../../state-management/gallery-list/social-media-links.interface';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -14,6 +14,7 @@ import {
     selector: 'app-gallery-album-jumbotron',
     templateUrl: './gallery-album-jumbotron.component.html',
     styleUrl: './gallery-album-jumbotron.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [LazyLoadImageModule, FontAwesomeModule]
 })
 export class GalleryAlbumJumbotronComponent {

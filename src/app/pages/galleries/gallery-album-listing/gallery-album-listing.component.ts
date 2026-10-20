@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { PlatformLocation, AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
@@ -10,6 +10,7 @@ import { GalleryAlbumCoverComponent } from '../../../components/gallery-album-co
     selector: 'app-galleries',
     templateUrl: './gallery-album-listing.component.html',
     styleUrl: './gallery-album-listing.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [
         GalleryAlbumCoverComponent,
         RouterLink,
