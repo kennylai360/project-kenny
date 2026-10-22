@@ -13,6 +13,8 @@ import { GalleryAlbumListingComponent } from './app/pages/galleries/gallery-albu
 import { GallerySectionComponent } from './app/pages/galleries/gallery-section/gallery-section.component';
 import { ProfileComponent } from './app/pages/profile/profile.component';
 import { HomeComponent } from './app/pages/home/home.component';
+import { BlogListComponent } from './app/pages/blog/blog-list/blog-list.component';
+import { BlogPostComponent } from './app/pages/blog/blog-post/blog-post.component';
 import { BombGameComponent } from './app/pages/bomb-game/bomb-game.component';
 import { withInMemoryScrolling, provideRouter, Routes } from '@angular/router';
 import { listOfReducers } from './app/state-management/ngrx-index';
@@ -77,6 +79,20 @@ const appRoutes: Routes = [
       { path: ':id', component: GalleryAlbumComponent },
     ],
   },
+  // When the blog is off these routes don't exist, so /blog falls through to the 404 page
+  ...(environment.features.blog
+    ? [
+        {
+          path: 'blog',
+          component: BlogListComponent,
+          title: 'My brain dump',
+        },
+        {
+          path: 'blog/:slug',
+          component: BlogPostComponent,
+        },
+      ]
+    : []),
   {
     path: 'converter',
     component: ConverterComponent,

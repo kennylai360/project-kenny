@@ -66,12 +66,14 @@ test.describe("BTC API caching — called only once across navigations", () => {
     await page.click('[data-qa="qa-home-link"]');
     await expect(page).toHaveURL(/\/home/);
 
+    await page.click('[data-qa="qa-misc-menu"]');
     await page.click('[data-qa="qa-converter-link"]');
     await expect(page.locator("input[type='number']").first()).toBeEnabled();
 
     await page.click('[data-qa="qa-resume-link"]');
     await expect(page).toHaveURL(/\/resume/);
 
+    await page.click('[data-qa="qa-misc-menu"]');
     await page.click('[data-qa="qa-converter-link"]');
     await expect(page.locator("input[type='number']").first()).toBeEnabled();
 

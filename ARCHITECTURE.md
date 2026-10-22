@@ -9,7 +9,8 @@ project-kenny/src/app/
 │
 ├── api/ ──────────────────────── HTTP Services
 │   ├── coincap.service          BTC price data (CoinCap API)
-│   └── profile.service          Resume/profile data
+│   ├── profile.service          Resume/profile data
+│   └── blog.service             Blog index + rendered post HTML
 │
 ├── components/ ───────────────── Shared/Reusable Components
 │   ├── header                   Nav bar + social links
@@ -23,6 +24,9 @@ project-kenny/src/app/
 ├── pages/ ────────────────────── Routed Page Components
 │   ├── home                     /home — landing page
 │   ├── profile                  /resume — resume page
+│   ├── blog/
+│   │   ├── blog-list            /blog — post listing (newest first)
+│   │   └── blog-post            /blog/:slug — rendered post
 │   ├── galleries/
 │   │   ├── gallery-section      /photography — parent (router-outlet)
 │   │   ├── gallery-album-listing  /photography — album grid
@@ -64,6 +68,8 @@ project-kenny/src/app/
 | `/photography` | GallerySectionComponent | Parent with router-outlet |
 | `/photography` (child) | GalleryAlbumListingComponent | Album grid |
 | `/photography/:id` (child) | GalleryAlbumComponent | Album detail + overlay |
+| `/blog` | BlogListComponent | Blog post listing |
+| `/blog/:slug` | BlogPostComponent | Single blog post |
 | `/converter` | ConverterComponent | BTC calculator |
 | `/utils` | UtilsComponent | Copycat mocking tool |
 | `/**` | NotFoundComponent | 404 page |
@@ -128,3 +134,19 @@ GalleryAlbumComponent.openModal()
 - **Swipe**: Touch start/end delta (mobile, HostListener on `document:touchstart`/`touchend`)
 
 All three funnel through `navigateImage(direction)` which updates local state synchronously, then syncs the store.
+
+## Blog
+
+The blog is behind `environment.features.blog` (`src/environments/environment*.ts`):
+true in dev, false in prod. When false, the header link and `/blog` routes are
+not registered (`/blog` shows the 404 page). Set it to `true` in
+`environment.prod.ts` to publish. The generated post files are still bundled
+into `assets/` either way, so use `draft: true` for anything not yet public.
+
+Posts are Markdown files in `content/blog/<slug>.md` with frontmatter
+(`title` and `date` required; `description`, `tags`, `draft` optional).
+`scripts/build-blog.mjs` (run by the `prestart`/`prebuild`/`prebp` npm hooks,
+or manually with `npm run blog:build`) renders them to `src/assets/blog/<slug>.html`
+plus an `index.json` of metadata. Both are generated and gitignored; the app
+fetches them at runtime via `BlogService`. Post images go in
+`src/assets/blog/images/` and are referenced as `/assets/blog/images/<file>`.
