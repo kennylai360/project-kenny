@@ -1,9 +1,12 @@
 $btc: #f7931a;
 $gbp: #4caf82;
-$card-bg: rgba(10, 10, 10, 0.88);
+$card-bg: #1a1c21;
 $border: rgba(255, 255, 255, 0.12);
 $surface: rgba(255, 255, 255, 0.09);
-$muted: rgba(255, 255, 255, 0.5);
+
+// Text tiers, matching the profile card, all at least WCAG AA on $card-bg
+$text-high: rgba(255, 255, 255, 0.92);
+$muted: rgba(255, 255, 255, 0.6);
 
 // hide number spinners
 input::-webkit-outer-spin-button,
@@ -26,8 +29,6 @@ input[type='number'] {
   width: 100%;
   max-width: 540px;
   background: $card-bg;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
   border: 1px solid $border;
   border-radius: 20px;
   padding: 2rem;
@@ -59,7 +60,7 @@ input[type='number'] {
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: $text-high;
 }
 
 .btc-dot {
@@ -130,7 +131,7 @@ input[type='number'] {
 }
 
 .rate-label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.09em;
   color: $muted;
@@ -147,7 +148,7 @@ input[type='number'] {
   font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #fff;
+  color: $text-high;
   text-align: right;
 
   &:disabled { opacity: 0.35; }
@@ -169,7 +170,7 @@ input[type='number'] {
 }
 
 .exchange-label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: $muted;
@@ -221,11 +222,11 @@ input[type='number'] {
   font-family: inherit;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #fff;
+  color: $text-high;
   padding: 0.75rem 0.7rem 0.75rem 0.4rem;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.5);
     font-weight: 400;
   }
 
@@ -255,10 +256,10 @@ input[type='number'] {
 
 // ── Disclaimer ───────────────────────────────────────────────
 .disclaimer {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: rgba(255, 255, 255, 0.22);
+  color: $muted;
   text-align: center;
   margin: 0;
   text-decoration: underline;
