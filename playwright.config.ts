@@ -24,7 +24,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
   webServer: {
-    command: "ng serve",
+    command: "npm start",
     url: "http://localhost:4200",
     reuseExistingServer: !process.env.CI,
     stdout: "ignore",

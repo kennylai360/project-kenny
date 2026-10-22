@@ -12,18 +12,41 @@
       <fa-icon [icon]="icons.photography" />
       <span class="nav-link__label">Photography</span>
     </a>
-    <a class="nav-link" routerLink="/converter" routerLinkActive="is-active" data-qa="qa-converter-link">
-      <fa-icon [icon]="icons.btcCalculator" />
-      <span class="nav-link__label">BTC Calculator</span>
-    </a>
-    <a class="nav-link" routerLink="/utils" routerLinkActive="is-active" data-qa="qa-table-link">
-      <fa-icon [icon]="icons.copyCatMocking" />
-      <span class="nav-link__label">Copycat</span>
-    </a>
-    <a class="nav-link" routerLink="/bomb-game" routerLinkActive="is-active" data-qa="qa-bomb-game-link">
-      <fa-icon [icon]="icons.bombGame" />
-      <span class="nav-link__label">Bomb Game</span>
-    </a>
+    @if (blogEnabled) {
+      <a class="nav-link" routerLink="/blog" routerLinkActive="is-active" data-qa="qa-blog-link">
+        <fa-icon [icon]="icons.blog" />
+        <span class="nav-link__label">Blog</span>
+      </a>
+    }
+    <div class="nav-dropdown" routerLinkActive="is-active">
+      <button
+        type="button"
+        class="nav-link nav-dropdown__toggle"
+        aria-haspopup="menu"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="toggleMenu()"
+        data-qa="qa-misc-menu"
+      >
+        <fa-icon [icon]="icons.misc" />
+        <span class="nav-link__label">Misc</span>
+        <fa-icon class="nav-dropdown__caret" [icon]="icons.caret" />
+      </button>
+      <!-- Always rendered (just hidden) so routerLinkActive on the wrapper can see the child links -->
+      <div class="nav-dropdown__menu" role="menu" [class.is-open]="menuOpen()">
+        <a class="nav-dropdown__item" role="menuitem" routerLink="/converter" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-converter-link">
+          <fa-icon [icon]="icons.btcCalculator" />
+          <span>BTC Calculator</span>
+        </a>
+        <a class="nav-dropdown__item" role="menuitem" routerLink="/utils" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-table-link">
+          <fa-icon [icon]="icons.copyCatMocking" />
+          <span>Copycat</span>
+        </a>
+        <a class="nav-dropdown__item" role="menuitem" routerLink="/bomb-game" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-bomb-game-link">
+          <fa-icon [icon]="icons.bombGame" />
+          <span>Bomb Game</span>
+        </a>
+      </div>
+    </div>
   </div>
   <div class="social-links">
     <a class="social-link" href="https://www.twitter.com/KENIII26" target="_blank" rel="noreferrer noopener" data-qa="qa-twitter-link">

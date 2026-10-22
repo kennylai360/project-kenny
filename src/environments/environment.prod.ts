@@ -4,4 +4,8 @@ export const environment = {
   appVersion: packageJson.version,
   coinCapApi: 'https://m2lkcntk23.execute-api.eu-west-2.amazonaws.com/prod',
   production: true,
+  features: {
+    // Flip to true to publish the blog (nav link + /blog routes)
+    blog: false,
+  },
 };

@@ -1,0 +1,33 @@
+<div class="blog-list animate__animated animate__fadeIn">
+  <h2 class="blog-list__heading">My brain dump</h2>
+
+  @if (posts(); as posts) {
+    @for (post of posts; track post.slug) {
+      <a class="post-card" [routerLink]="post.slug" data-qa="qa-blog-post-link">
+        <h3 class="post-card__title">{{ post.title }}</h3>
+        <div class="post-card__meta">
+          <time [attr.datetime]="post.date">{{ post.date | date: 'd MMM y' }}</time>
+          <span>{{ post.readingTimeMinutes }} min read</span>
+        </div>
+        @if (post.description) {
+          <p class="post-card__description">{{ post.description }}</p>
+        }
+        @if (post.tags.length) {
+          <div class="tags">
+            @for (tag of post.tags; track tag) {
+              <span class="tag">{{ tag }}</span>
+            }
+          </div>
+        }
+      </a>
+    } @empty {
+      <p class="blog-list__empty">No posts yet.</p>
+    }
+  } @else {
+    <div class="loading-spinner">
+      <div class="spinner-border">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  }
+</div>

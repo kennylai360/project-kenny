@@ -1,6 +1,14 @@
 
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ElementRef,
+  HostListener,
+  inject,
+  signal,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../../environments/environment';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -8,7 +16,10 @@ import {
   faCalculator,
   faCameraRetro,
   faCat,
+  faChevronDown,
   faFile,
+  faPenNib,
+  faEllipsis,
   faHouseChimney,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,14 +31,44 @@ import {
     imports: [RouterModule, FontAwesomeModule]
 })
 export class HeaderComponent {
+  protected blogEnabled = environment.features.blog;
+
   protected icons = {
     home: faHouseChimney,
     resume: faFile,
     photography: faCameraRetro,
+    blog: faPenNib,
     btcCalculator: faCalculator,
     copyCatMocking: faCat,
     bombGame: faBomb,
+    misc: faEllipsis,
+    caret: faChevronDown,
     twitter: faXTwitter,
     github: faGithub,
   };
+
+  private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  protected menuOpen = signal(false);
+
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+
+  @HostListener('document:click', ['$event'])
+  protected onDocumentClick(event: MouseEvent): void {
+    const dropdown = this.elementRef.nativeElement.querySelector('.nav-dropdown');
+    if (!dropdown?.contains(event.target as Node)) {
+      this.closeMenu();
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  protected onEscape(): void {
+    this.closeMenu();
+  }
 }
