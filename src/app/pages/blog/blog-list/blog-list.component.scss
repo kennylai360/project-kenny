@@ -1,6 +1,11 @@
 $border: rgba(255, 255, 255, 0.1);
 $surface: rgba(255, 255, 255, 0.06);
-$muted: rgba(255, 255, 255, 0.5);
+$card-bg: #1a1c21;
+
+// Text tiers, matching the profile card, all at least WCAG AA on $card-bg
+$text-high: rgba(255, 255, 255, 0.92);
+$text-medium: rgba(255, 255, 255, 0.72);
+$muted: rgba(255, 255, 255, 0.6);
 
 :host {
   display: block;
@@ -17,6 +22,7 @@ $muted: rgba(255, 255, 255, 0.5);
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0 0 1.5rem;
+  color: $text-high;
 }
 
 .blog-list__empty {
@@ -27,9 +33,7 @@ $muted: rgba(255, 255, 255, 0.5);
 
 .post-card {
   display: block;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: $card-bg;
   border: 1px solid $border;
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
@@ -38,7 +42,7 @@ $muted: rgba(255, 255, 255, 0.5);
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.25);
-    background: rgba(0, 0, 0, 0.7);
+    background: #20232a;
   }
 
   @media (max-width: 600px) {
@@ -50,6 +54,7 @@ $muted: rgba(255, 255, 255, 0.5);
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 0.4rem;
+  color: $text-high;
 }
 
 .post-card__meta {
@@ -65,7 +70,7 @@ $muted: rgba(255, 255, 255, 0.5);
 }
 
 .post-card__description {
-  color: rgba(255, 255, 255, 0.75);
+  color: $text-medium;
   font-size: 0.9rem;
   line-height: 1.6;
   margin: 0.75rem 0 0;
@@ -83,8 +88,8 @@ $muted: rgba(255, 255, 255, 0.5);
   border: 1px solid $border;
   border-radius: 6px;
   padding: 0.2rem 0.55rem;
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  color: $text-high;
 }
 
 .loading-spinner {

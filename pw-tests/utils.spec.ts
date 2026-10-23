@@ -10,7 +10,7 @@ test.describe("Utils (mock text) page", () => {
   });
 
   test("copy button disabled with no input", async ({ page }) => {
-    await expect(page.locator("button").filter({ hasText: "" }).last()).toBeDisabled();
+    await expect(page.getByRole("button", { name: "Copy to clipboard" })).toBeDisabled();
   });
 
   test("typing input shows preview", async ({ page }) => {
@@ -39,7 +39,7 @@ test.describe("Utils (mock text) page", () => {
 
   test("copy button enabled after typing", async ({ page }) => {
     await page.locator("input.form-control").fill("some text");
-    const copyBtn = page.locator("button fa-icon").locator("..");
+    const copyBtn = page.getByRole("button", { name: "Copy to clipboard" });
     await expect(copyBtn).toBeEnabled();
   });
 });

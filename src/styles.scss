@@ -1,5 +1,6 @@
-$header-img: 'https://d1gzhm7v07i91z.cloudfront.net/BGP/BGP.jpg';
-$positioning: 40% 30%;
+$page-bg: #121212;
+$page-grid-line: rgba(255, 255, 255, 0.04);
+$page-grid-size: 32px;
 
 html {
   height: 100%;
@@ -36,16 +37,10 @@ body {
   font-family: 'Nunito', Source Sans Pro, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url($header-img);
-  background-position: $positioning;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: $page-bg;
+  background-image: linear-gradient($page-grid-line 1px, transparent 1px),
+    linear-gradient(90deg, $page-grid-line 1px, transparent 1px);
+  background-size: $page-grid-size $page-grid-size;
   min-height: 100vh;
   position: relative;
 }

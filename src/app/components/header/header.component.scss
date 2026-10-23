@@ -11,7 +11,8 @@ nav {
   justify-content: space-between;
   padding: 0 16px;
   height: 52px;
-  background: rgba(0, 0, 0, 0.55);
+  // Card colour (#1a1c21), slightly see-through so content scrolls under it
+  background: rgba(26, 28, 33, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -110,9 +111,8 @@ nav {
   left: 0;
   min-width: 180px;
   padding: 6px;
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  // One step lighter than cards, as it floats above them
+  background: #20232a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 

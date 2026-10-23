@@ -1,6 +1,11 @@
 $border: rgba(255, 255, 255, 0.1);
 $surface: rgba(255, 255, 255, 0.06);
-$muted: rgba(255, 255, 255, 0.5);
+$card-bg: #1a1c21;
+
+// Text tiers, all at least WCAG AA (4.5:1) on $card-bg
+$text-high: rgba(255, 255, 255, 0.92); // 14.5:1
+$text-medium: rgba(255, 255, 255, 0.72); // 9.3:1
+$muted: rgba(255, 255, 255, 0.6); // 6.9:1
 
 :host {
   display: block;
@@ -12,9 +17,7 @@ $muted: rgba(255, 255, 255, 0.5);
 .profile-card {
   max-width: 780px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: $card-bg;
   border: 1px solid $border;
   border-radius: 20px;
   padding: 2rem;
@@ -46,7 +49,7 @@ $muted: rgba(255, 255, 255, 0.5);
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0;
-  color: #fff;
+  color: $text-high;
 }
 
 .profile-badges {
@@ -97,7 +100,7 @@ $muted: rgba(255, 255, 255, 0.5);
 }
 
 .section-label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -106,7 +109,7 @@ $muted: rgba(255, 255, 255, 0.5);
 }
 
 .section-body {
-  color: rgba(255, 255, 255, 0.75);
+  color: $text-medium;
   line-height: 1.7;
   margin: 0;
   font-size: 0.9rem;
@@ -132,7 +135,7 @@ $muted: rgba(255, 255, 255, 0.5);
 }
 
 .skill-group__label {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: $muted;
@@ -153,8 +156,8 @@ $muted: rgba(255, 255, 255, 0.5);
   border: 1px solid $border;
   border-radius: 6px;
   padding: 0.25rem 0.6rem;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  color: $text-high;
 }
 
 // ── Loading ───────────────────────────────────────────────────
