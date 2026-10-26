@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: Branch to update snapshots on
+        description: Feature branch to update snapshots on (not master)
         required: true
-        default: master
 jobs:
   update-snapshots:
     name: Regenerate Linux snapshots
@@ -14,6 +13,13 @@ jobs:
     permissions:
       contents: write
     steps:
+      # master's ruleset only accepts changes through pull requests, so the push below would be rejected
+      - name: Refuse to run on master
+        if: inputs.branch == 'master'
+        run: |
+          echo "::error::master only accepts changes through pull requests. Run this on the feature branch instead."
+          exit 1
+
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.branch }}
