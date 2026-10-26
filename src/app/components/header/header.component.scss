@@ -77,6 +77,40 @@ nav {
   }
 }
 
+// styles.scss colours every element white, and on `a:hover` dims spans and fades icons
+// with their own transitions, which made icons flash on mouse-out. Labels and icons
+// follow their link's colour and transition instead.
+.nav-link,
+.nav-dropdown__item,
+.social-link {
+  span,
+  fa-icon,
+  ::ng-deep svg,
+  ::ng-deep path {
+    color: inherit;
+    opacity: 1;
+    transition: none;
+  }
+}
+
+// Keyboard focus ring, drawn inside each item so it follows its rounded shape
+.nav-link,
+.nav-dropdown__item,
+.social-link {
+  &:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: -2px;
+  }
+}
+
+.nav-link:focus-visible {
+  // Inset to the height of the social buttons rather than the full nav bar
+  outline-offset: -8px;
+  border-radius: 14px;
+  // Bootstrap (index.html) also styles `.nav-link` and adds its own blue focus glow
+  box-shadow: none;
+}
+
 // ── Misc dropdown ────────────────────────────────────────────
 
 .nav-dropdown {
@@ -98,14 +132,29 @@ nav {
   border: 0;
   cursor: pointer;
   font-family: inherit;
+
+  // Open: brighter than hover, but the faded underline stays below the current-page one
+  &[aria-expanded='true'] {
+    color: #fff;
+
+    &::after {
+      transform: scaleX(1);
+      opacity: 0.4;
+    }
+  }
 }
 
 .nav-dropdown__caret {
+  display: inline-flex;
   font-size: 0.65rem;
+  transition: transform 0.2s ease;
+
+  .nav-dropdown__toggle[aria-expanded='true'] & {
+    transform: rotate(180deg);
+  }
 }
 
 .nav-dropdown__menu {
-  display: none;
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
@@ -115,13 +164,43 @@ nav {
   background: #20232a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  transform-origin: top left;
 
-  &.is-open {
-    display: block;
+  // Applied by Angular's animate.enter / animate.leave while the menu is added or removed
+  &--enter {
+    animation: nav-dropdown-in 0.18s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  &--leave {
+    animation: nav-dropdown-out 0.12s ease-in forwards;
+  }
+}
+
+@keyframes nav-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+}
+
+@keyframes nav-dropdown-out {
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dropdown__menu--enter,
+  .nav-dropdown__menu--leave,
+  .nav-dropdown__caret {
+    animation: none;
+    transition: none;
   }
 }
 
 .nav-dropdown__item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -132,10 +211,25 @@ nav {
   text-decoration: none;
   transition: color 0.2s ease, background 0.2s ease;
 
-  &:hover,
-  &.is-active {
+  &:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.08);
+  }
+
+  // Current page: a left bar, the vertical counterpart of the nav underline
+  &.is-active {
+    color: #fff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 0;
+      width: 2px;
+      border-radius: 0 2px 2px 0;
+      background: #fff;
+    }
   }
 
   fa-icon {

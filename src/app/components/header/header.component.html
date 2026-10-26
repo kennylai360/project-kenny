@@ -18,7 +18,7 @@
         <span class="nav-link__label">Blog</span>
       </a>
     }
-    <div class="nav-dropdown" routerLinkActive="is-active">
+    <div class="nav-dropdown" [class.is-active]="miscActive()">
       <button
         type="button"
         class="nav-link nav-dropdown__toggle"
@@ -31,21 +31,27 @@
         <span class="nav-link__label">Misc</span>
         <fa-icon class="nav-dropdown__caret" [icon]="icons.caret" />
       </button>
-      <!-- Always rendered (just hidden) so routerLinkActive on the wrapper can see the child links -->
-      <div class="nav-dropdown__menu" role="menu" [class.is-open]="menuOpen()">
-        <a class="nav-dropdown__item" role="menuitem" routerLink="/converter" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-converter-link">
-          <fa-icon [icon]="icons.btcCalculator" />
-          <span>BTC Calculator</span>
-        </a>
-        <a class="nav-dropdown__item" role="menuitem" routerLink="/utils" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-table-link">
-          <fa-icon [icon]="icons.copyCatMocking" />
-          <span>Copycat</span>
-        </a>
-        <a class="nav-dropdown__item" role="menuitem" routerLink="/bomb-game" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-bomb-game-link">
-          <fa-icon [icon]="icons.bombGame" />
-          <span>Bomb Game</span>
-        </a>
-      </div>
+      @if (menuOpen()) {
+        <div
+          class="nav-dropdown__menu"
+          role="menu"
+          animate.enter="nav-dropdown__menu--enter"
+          animate.leave="nav-dropdown__menu--leave"
+        >
+          <a class="nav-dropdown__item" role="menuitem" routerLink="/converter" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-converter-link">
+            <fa-icon [icon]="icons.btcCalculator" />
+            <span>BTC Calculator</span>
+          </a>
+          <a class="nav-dropdown__item" role="menuitem" routerLink="/utils" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-table-link">
+            <fa-icon [icon]="icons.copyCatMocking" />
+            <span>Copycat</span>
+          </a>
+          <a class="nav-dropdown__item" role="menuitem" routerLink="/bomb-game" routerLinkActive="is-active" (click)="closeMenu()" data-qa="qa-bomb-game-link">
+            <fa-icon [icon]="icons.bombGame" />
+            <span>Bomb Game</span>
+          </a>
+        </div>
+      }
     </div>
   </div>
   <div class="social-links">
