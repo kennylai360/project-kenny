@@ -19,7 +19,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^22.2.3",
     "@angular/common": "^22.2.3",
     "@angular/compiler": "^22.2.3",
     "@angular/core": "^22.2.3",
@@ -34,7 +33,6 @@
     "@ngrx/effects": "22.0.1",
     "@ngrx/operators": "^22.0.1",
     "@ngrx/store": "22.0.1",
-    "animate.css": "4.1.1",
     "bootstrap": "5.3.8",
     "core-js": "3.8.3",
     "ng-lazyload-image": "^9.1.3",

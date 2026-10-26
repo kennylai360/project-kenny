@@ -35,6 +35,57 @@
       width: auto;
       max-height: 90vh;
     }
+
+    // Applied by Angular's animate.enter / animate.leave. When changing image the
+    // old one fades out first, then the new one slides in from the side.
+    &--enter {
+      animation: modal-image-fade-in 200ms ease-out;
+    }
+
+    &--enter-next,
+    &--enter-prev {
+      animation: modal-image-slide-in 200ms ease-out 100ms backwards;
+    }
+
+    &--enter-next {
+      --slide-from: 80px;
+    }
+
+    &--enter-prev {
+      --slide-from: -80px;
+    }
+
+    &--leave {
+      animation: modal-image-fade-out 100ms ease-in forwards;
+    }
+  }
+
+  @keyframes modal-image-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes modal-image-slide-in {
+    from {
+      opacity: 0;
+      transform: translate(calc(-50% + var(--slide-from)), -50%);
+    }
+  }
+
+  @keyframes modal-image-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .modal-image--enter,
+    .modal-image--enter-next,
+    .modal-image--enter-prev,
+    .modal-image--leave {
+      animation: none;
+    }
   }
 
   .hide-overlay-background {

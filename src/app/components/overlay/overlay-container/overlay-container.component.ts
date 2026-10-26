@@ -8,12 +8,6 @@ import {
   input,
   ChangeDetectionStrategy
 } from '@angular/core';
-import {
-  animate,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { Observable } from 'rxjs';
 import { AppFacade } from '../../../state-management/app/app.facade';
 import { IAlbumImagesData } from '../../../pages/galleries/gallery-album/album-data.interface';
@@ -29,24 +23,6 @@ import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-
     styleUrl: './overlay-container.component.scss',
     imports: [AsyncPipe, NgClass, RouterModule, FontAwesomeModule],
     changeDetection: ChangeDetectionStrategy.Eager,
-    animations: [
-      trigger('slideAnimation', [
-        transition('void => *', [
-          style({ opacity: 0, transform: 'translate(-50%, -50%)' }),
-          animate('200ms ease-out', style({ opacity: 1, transform: 'translate(-50%, -50%)' })),
-        ]),
-        transition(':increment', [
-          animate('100ms ease-in', style({ opacity: 0 })),
-          style({ transform: 'translate(calc(-50% + 80px), -50%)' }),
-          animate('200ms ease-out', style({ opacity: 1, transform: 'translate(-50%, -50%)' })),
-        ]),
-        transition(':decrement', [
-          animate('100ms ease-in', style({ opacity: 0 })),
-          style({ transform: 'translate(calc(-50% - 80px), -50%)' }),
-          animate('200ms ease-out', style({ opacity: 1, transform: 'translate(-50%, -50%)' })),
-        ]),
-      ]),
-    ],
 })
 export class OverlayContainerComponent implements OnInit {
   private appFacade = inject(AppFacade);
@@ -59,6 +35,8 @@ export class OverlayContainerComponent implements OnInit {
   protected currentIndex: number = -1;
   protected displayImageUrl: string = '';
   protected displayHorizontalOrientation: boolean = false;
+  // Picks the image's enter animation: slide in from the side we're moving towards, or fade on open
+  protected slideDirection: 'next' | 'prev' | null = null;
   private touchStartX: number = 0;
 
   protected icons = {
@@ -92,6 +70,7 @@ export class OverlayContainerComponent implements OnInit {
         }
         const index = images.findIndex((img) => img.imageId === id);
         if (index === -1 || index === this.currentIndex) return;
+        this.slideDirection = null;
         this.currentIndex = index;
         this.displayImageUrl = images[index].imgUrl;
         this.displayHorizontalOrientation = images[index].horizontalOrient;
@@ -144,6 +123,7 @@ export class OverlayContainerComponent implements OnInit {
 
     // Update local state synchronously so the animation and image
     // change happen in the same change detection cycle — no flash.
+    this.slideDirection = direction === 1 ? 'next' : 'prev';
     this.currentIndex = nextIndex;
     this.displayImageUrl = nextImage.imgUrl;
     this.displayHorizontalOrientation = nextImage.horizontalOrient;
