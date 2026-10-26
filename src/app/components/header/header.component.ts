@@ -2,12 +2,13 @@
 import {
   Component,
   ChangeDetectionStrategy,
+  computed,
   ElementRef,
   HostListener,
   inject,
   signal,
 } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { isActive, Router, RouterModule } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -48,6 +49,11 @@ export class HeaderComponent {
   };
 
   private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private router = inject(Router);
+
+  // The menu is only in the DOM while open, so Misc's active state can't come from routerLinkActive
+  private miscRoutes = ['/converter', '/utils', '/bomb-game'].map((url) => isActive(url, this.router));
+  protected miscActive = computed(() => this.miscRoutes.some((active) => active()));
 
   protected menuOpen = signal(false);
 
