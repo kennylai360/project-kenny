@@ -19,7 +19,6 @@ import { BombGameComponent } from './app/pages/bomb-game/bomb-game.component';
 import { withInMemoryScrolling, provideRouter, Routes } from '@angular/router';
 import { listOfReducers } from './app/state-management/ngrx-index';
 import { provideStore, ActionReducer } from '@ngrx/store';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { provideEffects, Actions } from '@ngrx/effects';
 import {
@@ -129,7 +128,6 @@ bootstrapApplication(AppComponent, {
     HttpClient,
     Actions,
     DeviceDetectorService,
-    provideAnimations(),
     provideHttpClient(withXhr(), withInterceptorsFromDi()),
     provideRouter(
       appRoutes,

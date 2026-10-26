@@ -82,3 +82,61 @@ a:hover span {
     transition: opacity 0.5s ease;
   }
 }
+
+// ── Entrance animations ──────────────────────────────────────
+// Same timing as the animate.css classes these replace
+
+.fade-in,
+.fade-in-up,
+.fade-in-down {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.fade-in-up {
+  animation-name: fade-in-up;
+}
+
+.fade-in-down {
+  animation-name: fade-in-down;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media print, (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in-up,
+  .fade-in-down {
+    animation-duration: 1ms !important;
+  }
+}

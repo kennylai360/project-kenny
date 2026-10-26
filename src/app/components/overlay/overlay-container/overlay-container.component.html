@@ -28,12 +28,14 @@
     />
   }
 
-  @if (displayImageUrl) {
+  <!-- Tracked by URL so each image is a new element: the old one animates out as the next animates in -->
+  @for (imageUrl of displayImageUrl ? [displayImageUrl] : []; track imageUrl) {
     <img
       alt="loaded image"
       class="modal-image"
-      [@slideAnimation]="currentIndex"
-      [src]="displayImageUrl"
+      [animate.enter]="slideDirection ? 'modal-image--enter-' + slideDirection : 'modal-image--enter'"
+      animate.leave="modal-image--leave"
+      [src]="imageUrl"
       [ngClass]="{
         'horizontal-image': displayHorizontalOrientation,
         'vertical-image': !displayHorizontalOrientation,
