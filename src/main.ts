@@ -4,8 +4,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { GalleryEffects } from './app/state-management/gallery-list/gallery.effects';
 import { NotFoundComponent } from './app/pages/notFound/notFound.component';
-import { Jp2026ScheduleComponent } from './app/pages/jp-2026-schedule/jp-2026-schedule.component';
-import { jp2026ScheduleGuard } from './app/pages/jp-2026-schedule/jp-2026-schedule.guard';
 import { UtilsComponent } from './app/pages/utils/utils.component';
 import { ConverterComponent } from './app/pages/converter/converter.component';
 import { GalleryAlbumComponent } from './app/pages/galleries/gallery-album/gallery-album.component';
@@ -105,12 +103,6 @@ const appRoutes: Routes = [
     path: 'bomb-game',
     component: BombGameComponent,
     title: 'Bomb Defusal',
-  },
-  {
-    path: 'jp-2026-schedule',
-    component: Jp2026ScheduleComponent,
-    title: 'JP 2026 Schedule',
-    canActivate: [jp2026ScheduleGuard],
   },
   {
     path: '**',
