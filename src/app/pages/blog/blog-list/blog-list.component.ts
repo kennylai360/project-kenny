@@ -11,7 +11,7 @@ import { IBlogPost } from '../blog-post.interface';
   selector: 'app-blog-list',
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.scss',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [DatePipe, RouterLink],
 })
 export class BlogListComponent {

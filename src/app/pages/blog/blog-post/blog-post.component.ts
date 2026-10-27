@@ -19,7 +19,7 @@ interface ILoadedPost {
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
   styleUrl: './blog-post.component.scss',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [DatePipe, FontAwesomeModule, RouterLink],
 })
 export class BlogPostComponent {

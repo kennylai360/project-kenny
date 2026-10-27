@@ -1,4 +1,4 @@
-import { importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
@@ -112,7 +112,6 @@ const appRoutes: Routes = [
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideZoneChangeDetection(),
     provideStore(listOfReducers, { metaReducers }),
     provideEffects([GalleryEffects]),
     AppFacade,

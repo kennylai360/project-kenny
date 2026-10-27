@@ -7,7 +7,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     selector: 'app-gallery-album-cover',
     templateUrl: './gallery-album-cover.component.html',
     styleUrl: './gallery-album-cover.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [NgClass, NgStyle, LazyLoadImageModule]
 })
 export class GalleryAlbumCoverComponent {
@@ -23,7 +23,7 @@ export class GalleryAlbumCoverComponent {
 
   public opacityValue = signal(0);
 
-  public imageHasLoaded: boolean = false;
+  public imageHasLoaded = signal(false);
 
   // Function should only really call when it is in desktop mode for hovering over the album cover,
   // and same before the function below.
@@ -42,7 +42,7 @@ export class GalleryAlbumCoverComponent {
   }
 
   public imageHasBeenLoaded() {
-    this.imageHasLoaded = true;
+    this.imageHasLoaded.set(true);
     this.hasImageLoadedEmitter.emit(this.imgUrl());
     // Make it so that if a mobile device is being used then permanently set the overlay to be on,
     // because u can't hover on mobile devices.

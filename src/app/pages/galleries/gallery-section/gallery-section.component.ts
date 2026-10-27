@@ -5,7 +5,7 @@ import { GalleryFacade } from '../../../state-management/gallery-list/gallery.fa
 @Component({
     selector: 'app-gallery-section',
     templateUrl: './gallery-section.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterModule]
 })
 export class GallerySectionComponent {

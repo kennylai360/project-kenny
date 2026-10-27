@@ -6,7 +6,7 @@ import { ProfileContent } from './profile-content.interface';
     selector: 'app-profile-content',
     imports: [],
     templateUrl: './profile-content.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: './profile-content.component.scss'
 })
 export class ProfileContentComponent {

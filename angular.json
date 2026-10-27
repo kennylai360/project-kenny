@@ -16,7 +16,6 @@
             },
             "index": "src/index.html",
             "tsConfig": "tsconfig.app.json",
-            "polyfills": ["zone.js"],
             "assets": [
               "src/assets",
               "src/favicon.ico"

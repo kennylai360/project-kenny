@@ -13,7 +13,7 @@ import { createBombDefusalGame } from './bomb-defusal-game';
     selector: 'app-bomb-game',
     templateUrl: './bomb-game.component.html',
     styleUrl: './bomb-game.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: []
 })
 export class BombGameComponent implements AfterViewInit, OnDestroy {

@@ -6,6 +6,7 @@ import {
   Renderer2,
   inject,
   input,
+  signal,
   ChangeDetectionStrategy
 } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -22,7 +23,7 @@ import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-
     templateUrl: './overlay-container.component.html',
     styleUrl: './overlay-container.component.scss',
     imports: [AsyncPipe, NgClass, RouterModule, FontAwesomeModule],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OverlayContainerComponent implements OnInit {
   private appFacade = inject(AppFacade);
@@ -32,11 +33,11 @@ export class OverlayContainerComponent implements OnInit {
   public isModalOpen$: Observable<boolean>;
 
   private isModalOpenValue: boolean;
-  protected currentIndex: number = -1;
-  protected displayImageUrl: string = '';
-  protected displayHorizontalOrientation: boolean = false;
+  protected currentIndex = signal(-1);
+  protected displayImageUrl = signal('');
+  protected displayHorizontalOrientation = signal(false);
   // Picks the image's enter animation: slide in from the side we're moving towards, or fade on open
-  protected slideDirection: 'next' | 'prev' | null = null;
+  protected slideDirection = signal<'next' | 'prev' | null>(null);
   private touchStartX: number = 0;
 
   protected icons = {
@@ -65,15 +66,15 @@ export class OverlayContainerComponent implements OnInit {
       .subscribe((id: number) => {
         const images = this.albumSet();
         if (!images?.length) {
-          this.currentIndex = -1;
+          this.currentIndex.set(-1);
           return;
         }
         const index = images.findIndex((img) => img.imageId === id);
-        if (index === -1 || index === this.currentIndex) return;
-        this.slideDirection = null;
-        this.currentIndex = index;
-        this.displayImageUrl = images[index].imgUrl;
-        this.displayHorizontalOrientation = images[index].horizontalOrient;
+        if (index === -1 || index === this.currentIndex()) return;
+        this.slideDirection.set(null);
+        this.currentIndex.set(index);
+        this.displayImageUrl.set(images[index].imgUrl);
+        this.displayHorizontalOrientation.set(images[index].horizontalOrient);
       });
   }
 
@@ -114,19 +115,19 @@ export class OverlayContainerComponent implements OnInit {
 
   public navigateImage(direction: -1 | 1): void {
     const images = this.albumSet();
-    if (this.currentIndex === -1 || !images?.length) return;
+    if (this.currentIndex() === -1 || !images?.length) return;
 
-    const nextIndex = this.currentIndex + direction;
+    const nextIndex = this.currentIndex() + direction;
     if (nextIndex < 0 || nextIndex >= images.length) return;
 
     const nextImage = images[nextIndex];
 
     // Update local state synchronously so the animation and image
     // change happen in the same change detection cycle — no flash.
-    this.slideDirection = direction === 1 ? 'next' : 'prev';
-    this.currentIndex = nextIndex;
-    this.displayImageUrl = nextImage.imgUrl;
-    this.displayHorizontalOrientation = nextImage.horizontalOrient;
+    this.slideDirection.set(direction === 1 ? 'next' : 'prev');
+    this.currentIndex.set(nextIndex);
+    this.displayImageUrl.set(nextImage.imgUrl);
+    this.displayHorizontalOrientation.set(nextImage.horizontalOrient);
 
     // Keep store in sync for other consumers
     this.appFacade.updateSelectedImage(
@@ -138,7 +139,7 @@ export class OverlayContainerComponent implements OnInit {
 
   public closeModal() {
     this.appFacade.closeModal();
-    this.displayImageUrl = '';
-    this.currentIndex = -1;
+    this.displayImageUrl.set('');
+    this.currentIndex.set(-1);
   }
 }

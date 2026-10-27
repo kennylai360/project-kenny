@@ -1,40 +1,31 @@
-import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Signal, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, RouterLink } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, switchMap, tap } from 'rxjs/operators';
 import { GalleryFacade } from '../../../state-management/gallery-list/gallery.facade';
 import { IGalleryCover } from '../../../state-management/gallery-list/gallery-cover.interface';
 import { AppFacade } from '../../../state-management/app/app.facade';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { OverlayContainerComponent } from '../../../components/overlay/overlay-container/overlay-container.component';
 import { GalleryAlbumCoverComponent } from '../../../components/gallery-album-cover/gallery-album-cover.component';
-import { AsyncPipe } from '@angular/common';
 import { GalleryAlbumJumbotronComponent } from '../../../components/gallery-album-jumbotron/gallery-album-jumbotron.component';
 
 @Component({
     selector: 'app-gallery-album',
     templateUrl: './gallery-album.component.html',
     styleUrl: './gallery-album.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
     RouterLink,
     GalleryAlbumJumbotronComponent,
     GalleryAlbumCoverComponent,
-    OverlayContainerComponent,
-    AsyncPipe
+    OverlayContainerComponent
 ]
 })
 export class GalleryAlbumComponent {
-  private destroyRef: DestroyRef = inject(DestroyRef);
-
   private loadedImagesUrl: Array<string> = [];
 
-  public albumData: Observable<IGalleryCover> = of({
-    albumId: '',
-    imgUrl: '',
-  });
-
+  public albumData: Signal<IGalleryCover>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -45,14 +36,18 @@ export class GalleryAlbumComponent {
     // load the album here which corresponds to the id. If it does not exist then redirect to album listing page
     // Debouncetime is added to give the loading and make sure the gallery data has been loaded into the store.
     // this is as a fallback in case the use enters the ID in directly to the address bar.
-    this.activatedRoute.params
-      .pipe(debounceTime(10), takeUntilDestroyed(this.destroyRef))
-      .subscribe((params: Params) => {
-        this.titleService.setTitle(params['id']);
-        this.galleryFacade.setSelectedId(params['id']);
-        this.galleryFacade.getAlbumDataById();
-        this.albumData = this.galleryFacade.albumData$;
-      });
+    this.albumData = toSignal(
+      this.activatedRoute.params.pipe(
+        debounceTime(10),
+        tap((params: Params) => {
+          this.titleService.setTitle(params['id']);
+          this.galleryFacade.setSelectedId(params['id']);
+          this.galleryFacade.getAlbumDataById();
+        }),
+        switchMap(() => this.galleryFacade.albumData$)
+      ),
+      { initialValue: { albumId: '', imgUrl: '' } }
+    );
   }
 
   public openModal(imageId: number, imageUrl: string, horizontal: boolean) {

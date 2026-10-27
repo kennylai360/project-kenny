@@ -13,14 +13,14 @@
     [icon]="icons.closeModalButton"
     (click)="closeModal()"
   />
-  @if (currentIndex > 0) {
+  @if (currentIndex() > 0) {
     <fa-icon
       class="modal-arrows left-arrow"
       [icon]="icons.leftArrow"
       (click)="navigateImage(-1)"
     />
   }
-  @if (albumSet()?.length && currentIndex < albumSet().length - 1) {
+  @if (albumSet()?.length && currentIndex() < albumSet().length - 1) {
     <fa-icon
       class="modal-arrows right-arrow"
       [icon]="icons.rightArrow"
@@ -29,16 +29,16 @@
   }
 
   <!-- Tracked by URL so each image is a new element: the old one animates out as the next animates in -->
-  @for (imageUrl of displayImageUrl ? [displayImageUrl] : []; track imageUrl) {
+  @for (imageUrl of displayImageUrl() ? [displayImageUrl()] : []; track imageUrl) {
     <img
       alt="loaded image"
       class="modal-image"
-      [animate.enter]="slideDirection ? 'modal-image--enter-' + slideDirection : 'modal-image--enter'"
+      [animate.enter]="slideDirection() ? 'modal-image--enter-' + slideDirection() : 'modal-image--enter'"
       animate.leave="modal-image--leave"
       [src]="imageUrl"
       [ngClass]="{
-        'horizontal-image': displayHorizontalOrientation,
-        'vertical-image': !displayHorizontalOrientation,
+        'horizontal-image': displayHorizontalOrientation(),
+        'vertical-image': !displayHorizontalOrientation(),
       }"
     />
   }

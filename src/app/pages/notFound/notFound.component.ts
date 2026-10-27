@@ -8,7 +8,7 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
     selector: 'app-not-found',
     templateUrl: './notFound.component.html',
     styleUrl: './notFound.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [FontAwesomeModule]
 })
 export class NotFoundComponent {
