@@ -28,7 +28,7 @@ import {
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterModule, FontAwesomeModule]
 })
 export class HeaderComponent {

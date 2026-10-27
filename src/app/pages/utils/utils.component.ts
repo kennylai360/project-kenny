@@ -7,7 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   selector: 'app-utils',
   imports: [FormsModule, FontAwesomeModule],
   templateUrl: './utils.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './utils.component.scss',
 })
 export class UtilsComponent {

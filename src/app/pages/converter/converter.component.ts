@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, DestroyRef, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { CoincapService } from '../../api/coincap.service';
@@ -9,14 +9,14 @@ import { AsyncPipe, CurrencyPipe } from '@angular/common';
     selector: 'app-converter',
     imports: [AsyncPipe, CurrencyPipe, FormsModule],
     templateUrl: './converter.component.html',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrl: './converter.component.scss'
 })
 export class ConverterComponent {
-  public btcPrice: number = 0;
-  public btcValue: number = null;
-  public btcSymbol: string = null;
-  public gbpValue: number = null;
+  public btcPrice = signal<number>(0);
+  public btcValue = signal<number>(null);
+  public btcSymbol = signal<string>(null);
+  public gbpValue = signal<number>(null);
   public btcAssetData: any = {};
   public focusedInput$: BehaviorSubject<string> = new BehaviorSubject<string>(
     ''
@@ -49,10 +49,10 @@ export class ConverterComponent {
         const btcRateData = ratesData.data.filter(
           (rate) => rate.id === 'bitcoin'
         )[0];
-        this.btcSymbol = btcRateData?.currencySymbol ?? '₿';
+        this.btcSymbol.set(btcRateData?.currencySymbol ?? '₿');
         const priceOfBtcInUsd: number = Math.trunc(btcAssetData.data[0]);
         const gbpRateToUsd: number = gbpRateData?.rateUsd;
-        this.btcPrice = Math.trunc(priceOfBtcInUsd * (1 / gbpRateToUsd));
+        this.btcPrice.set(Math.trunc(priceOfBtcInUsd * (1 / gbpRateToUsd)));
       },
       error: (error) => {
         console.error('CoinCap API error', error);
@@ -67,20 +67,20 @@ export class ConverterComponent {
 
   public updateBtcPriceAndRecalculate(newBtcPrice: number): void {
     this.alteredBtcPrice.next(true);
-    this.btcPrice = newBtcPrice;
-    this.btcValue = null;
-    this.gbpValue = null;
+    this.btcPrice.set(newBtcPrice);
+    this.btcValue.set(null);
+    this.gbpValue.set(null);
   }
 
   public updateBTCandRecalculate(newBtcValue: number): void {
-    this.btcValue = newBtcValue;
-    this.gbpValue = this.btcPrice * this.btcValue;
+    this.btcValue.set(newBtcValue);
+    this.gbpValue.set(this.btcPrice() * newBtcValue);
   }
 
   public updateGBPandRecalculate(newGbpValue: number): void {
-    this.gbpValue = newGbpValue;
-    if (this.btcPrice !== 0) {
-      this.btcValue = this.gbpValue / this.btcPrice;
+    this.gbpValue.set(newGbpValue);
+    if (this.btcPrice() !== 0) {
+      this.btcValue.set(newGbpValue / this.btcPrice());
     }
   }
 

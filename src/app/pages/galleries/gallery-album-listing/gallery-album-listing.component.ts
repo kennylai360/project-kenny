@@ -10,7 +10,7 @@ import { GalleryAlbumCoverComponent } from '../../../components/gallery-album-co
     selector: 'app-galleries',
     templateUrl: './gallery-album-listing.component.html',
     styleUrl: './gallery-album-listing.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         GalleryAlbumCoverComponent,
         RouterLink,

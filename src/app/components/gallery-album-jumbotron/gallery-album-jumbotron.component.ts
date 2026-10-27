@@ -14,7 +14,7 @@ import {
     selector: 'app-gallery-album-jumbotron',
     templateUrl: './gallery-album-jumbotron.component.html',
     styleUrl: './gallery-album-jumbotron.component.scss',
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [LazyLoadImageModule, FontAwesomeModule]
 })
 export class GalleryAlbumJumbotronComponent {

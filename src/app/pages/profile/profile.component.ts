@@ -24,7 +24,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
         ProfileContentComponent,
         FontAwesomeModule,
     ],
-    changeDetection: ChangeDetectionStrategy.Eager,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [ProfileService]
 })
 export class ProfileComponent implements OnInit {

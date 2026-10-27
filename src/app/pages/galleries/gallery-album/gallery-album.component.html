@@ -2,18 +2,18 @@
   <nav class="breadcrumb" aria-label="breadcrumb">
     <a class="breadcrumb__link" routerLink="/photography">Photography</a>
     <span class="breadcrumb__separator">/</span>
-    <span class="breadcrumb__current">{{ (albumData | async)?.albumTitle }}</span>
+    <span class="breadcrumb__current">{{ albumData()?.albumTitle }}</span>
   </nav>
 
   <app-gallery-album-jumbotron
-    [albumTitle]="(albumData | async).albumTitle"
-    [albumSubtitle]="(albumData | async).albumSubtitle"
-    [albumCoverPicture]="(albumData | async).imgUrl"
-    [socialMediaLinks]="(albumData | async).socialMediaLinks"
+    [albumTitle]="albumData().albumTitle"
+    [albumSubtitle]="albumData().albumSubtitle"
+    [albumCoverPicture]="albumData().imgUrl"
+    [socialMediaLinks]="albumData().socialMediaLinks"
   ></app-gallery-album-jumbotron>
 
   <div class="photo-grid">
-    @for (item of (albumData | async).albumImages; track item) {
+    @for (item of albumData().albumImages; track item) {
       <div class="photo-grid__item">
         <app-gallery-album-cover
           (click)="openModal(item.imageId, item.imgUrl, item.horizontalOrient)"
@@ -27,6 +27,6 @@
   </div>
 
   <app-overlay-container
-    [albumSet]="(albumData | async).albumImages"
+    [albumSet]="albumData().albumImages"
   ></app-overlay-container>
 </div>

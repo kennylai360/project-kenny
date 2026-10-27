@@ -32,9 +32,9 @@ test.describe("Utils (mock text) page", () => {
 
     const before = await preview.textContent();
     await page.getByRole("button", { name: "Switch case" }).click();
-    const after = await preview.textContent();
 
-    expect(before).not.toEqual(after);
+    // Change detection is scheduled after the click rather than run inside it, so retry until it renders
+    await expect(preview).not.toHaveText(before);
   });
 
   test("copy button enabled after typing", async ({ page }) => {
